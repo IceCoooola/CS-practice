@@ -5,6 +5,35 @@
 #include <math.h>
 #include <stdlib.h>
 
+odd_first(int arr[], int sz)
+{
+	int left = 0;
+	int right = sz;
+	while (right > left)
+	{
+		if (arr[left] % 2 == 0 && arr[right] % 2 == 1)
+		{
+			int t = arr[left];
+			arr[left] = arr[right];
+			arr[right] = t;
+			
+		}
+		left++;
+		right--;
+	}
+}
+
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int i = 0;
+	int sz = sizeof(arr) / sizeof(arr[0])-1;
+	odd_first(arr,sz);
+	for (i = 0; i <= sz; i++)
+		printf("%d ", arr[i]);
+	return 0;
+}
+
 int main()
 {
 	int arr[] = { 1,2,3,4,5,6,7,8,9,0 };
