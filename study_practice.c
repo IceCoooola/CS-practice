@@ -5,6 +5,47 @@
 #include <math.h>
 #include <stdlib.h>
 
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,7,8,9,0 };
+	int i = 0;
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	for (i = 0; i < sz; i++)
+	{
+		int j = 0;
+		for (j = 0; j < sz-1; j++)
+		{
+			if (arr[j] % 2 == 0 && arr[j + 1] % 2 == 1)
+			{
+				int t = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = t;
+			}
+		}
+	}
+	for(i=0;i<sz;i++)
+	printf("%d ", arr[i]);
+	return 0;
+}
+//const char* my_strcpy(char* dest,const char* source)
+//{
+//	int i = 0;
+//	while (source[i]!='\0')
+//	{
+//		dest[i] = source[i];
+//		i++;
+//	}
+//	dest[i] = '\0';
+//}
+//int main()
+//{
+//	//模拟实现my_strcpy
+//	char arr[] = "abcdef";
+//	char arr2[10] = "aaaaaa";
+//	my_strcpy(arr2, arr);
+//	printf("%s", arr2);
+//}
+
 //int my_strlen(char* arr)
 //{
 //	if (*arr != '\0')
