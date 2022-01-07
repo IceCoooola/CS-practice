@@ -43,6 +43,19 @@ int main()
 }
 
 
+//int main()
+//{
+//	char killer = 'a';
+//	for (killer = 'a'; killer <= 'd'; killer++)
+//	{
+//		if ((killer != 'a') + (killer == 'c') + (killer == 'd') + (killer != 'd') == 3)
+//		{
+//			printf("killer = %c", killer);
+//		}
+//	}
+//	return 0;
+//}
+
 int main()
 {
 	int i = 0;
