@@ -5,6 +5,56 @@
 #include <math.h>
 #include <stdlib.h>
 
+
+
+int main()
+{
+	int i = 0;
+	int n = 0;
+	int arr[10][10] = { 0 };
+	for (i = 0; i < 10; i++)
+	{
+			int j = 0;
+			if (i == 0)
+			{
+				arr[i][j] = 1;
+				printf("%d \n", arr[i][j]);
+			}
+			else
+			{
+				for (j = 0; j < 10; j++)
+				{
+					if (j == 0)
+					{
+						arr[i][j] = 1;
+					}
+					else
+					{
+						arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
+					}
+					if (i == j)
+					{
+						arr[i][j] = 1;
+						printf("%d", arr[i][j]);
+						printf("\n");
+						break;
+					}
+					printf("%d ", arr[i][j]);
+				}
+			}
+		
+	}
+	//1      
+	//1 1         
+	//1 2 1   
+	//1 3 3 1      
+	//1 4 6 4 1  
+	//1 5 10 10 5 1
+	//1 6 15 20 15 6 1
+	return 0;
+}
+
+
 int main()
 {
 	char a[1000] = { 0 };
