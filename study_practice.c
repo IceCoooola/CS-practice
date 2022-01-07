@@ -5,6 +5,15 @@
 #include <math.h>
 #include <stdlib.h>
 
+int main()
+{
+	unsigned int a = 0x1234;
+	unsigned char b = *(unsigned char*)&a;//大端存储电脑上是00 00 12 34，&a 的位置指向00，所以打印出来是0
+	//小端存储电脑上是 34 12 00 00， &a指向位置34，打印出来是34，转换成10进制 3*16+4 = 48+4 = 52
+	printf("%d", b);
+	return 0;
+}
+
 odd_first(int arr[], int sz)
 {
 	int left = 0;
