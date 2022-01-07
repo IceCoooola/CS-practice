@@ -6,6 +6,42 @@
 #include <stdlib.h>
 
 
+int main()
+{
+	int arr[4] = {0,1,2,3};
+	int i = 0;
+	int murderer = 0;
+	for (i = 0; i < 4; i++)
+	{
+		murderer = i;
+		int sum = 0;
+		if (murderer!=0)
+			sum++;
+		if (murderer == 2)
+			sum++;
+		if (murderer == 3)
+			sum++;
+		if (murderer != 3)
+			sum++;
+		if (sum == 3)
+		{
+			break;
+		}
+	}
+	if (i == 0)
+		printf("murderer is A\n");
+	if (i == 1)
+		printf("murderer is B\n");
+	if (i == 2)
+		printf("murderer is C\n");
+	if (i == 3)
+		printf("murderer is D\n");
+	//找凶手，4人中其中1人说了假话
+	//A说：不是我    B说：是C    C说：是D    D说：C在说假话
+	//如果 说了真话 结果为1   说了假话 结果为0    3个人说真话 那就是对的
+	return 0;
+}
+
 
 int main()
 {
