@@ -8,6 +8,68 @@
 
 int main()
 {
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int d = 0;
+	int e = 0;
+	for (a = 1; a <= 5; a++)
+	{
+		for (b = 1; b <= 5; b++)
+		{
+			for (c = 1; c <= 5; c++)
+			{
+				for (d = 1; d <= 5; d++)
+				{
+					for (e = 1; e <= 5; e++)
+					{
+						int sum = 0;
+						if (b == 2 && a != 3)
+							sum++;
+						else if (b != 2 && a == 3)
+							sum++;
+						if (b == 2 && e != 4)
+							sum++;
+						else if (b != 2 && e == 4)
+							sum++;
+						if (c == 1 && d != 2)
+							sum++;
+						else if(c != 1 && d == 2)
+							sum++;
+						if (c == 5 && d != 3)
+							sum++;
+						else if(c != 5 && d == 3)
+							sum++;
+						if (e == 4 && a != 1)
+							sum++;
+						else if (e != 4 && a == 1)
+							sum++;
+						if (sum == 5&& a!=b && a!=c&&a!=d&&a!=e&&b!=c&&b!=d&&b!=e&&c!=d&&c!=e&&d!=e)
+							
+						{
+							printf("a = %d, b = %d, c = %d, d = %d, e = %d", a, b, c, d, e);
+							return 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+
+	//5位选手预测比赛结果  每位选手都说对了一半
+	//A：B第二，A第三
+	//B：B第二，E第四
+	//C：C第一，D第二
+	//D：C第五，D第三
+	//E：E第四，A第一
+	//abc  bac    bca   cba   cab   acb
+	//abc  acb    bca   bac   cab   cba
+	return 0;
+}
+
+int main()
+{
 	int arr[4] = {0,1,2,3};
 	int i = 0;
 	int murderer = 0;
