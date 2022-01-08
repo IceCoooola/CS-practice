@@ -7,6 +7,37 @@
 
 int main()
 {
+	char arr1[] = "hello world.";
+	char arr2[] = "hello world.";//数组是放在栈上的
+	char* arr3 = "hello world.";
+	char* arr4 = "hello world.";//常量字符串是放在只读数据区的
+	if (arr1 == arr2)//arr1 和arr2都是首元素地址，两个地址是不同的，所以打印第二个结果
+		printf("arr1 and arr2 are the same.\n");
+	else
+		printf("arr1 and arr2 are not the same.\n");
+	if (arr3 == arr4)//arr3和arr4存的都是一个常量字符串的首字符的h的地址，内存中h就存了一个，所以两个地址是一样的，打印结果为第一个
+		printf("arr3 and arr4 are the same.\n");
+	else
+		printf("arr3 and arr 4 are not the same.\n");
+	int* arr1[] = {0};//指针数组
+	int(*arr2)[10];//数组指针
+	int(*arr3)(int, int);//函数指针，指向的是函数，两个参数int，返回类型int
+	int(*arr4[10])(int, int);//函数指针数组，指向的是函数，两个参数int，返回类型int *
+	int (*(*arr5)(int,int))(int);//函数指针，指向的函数有两个int形参，并且，返回一个函数指针。返回的指针指向一个有int形参并且返回int的函数
+	int(*(*arr6)[10])(int*);//声明一个 指向含有10个元素的数组的 指针，每个元素是一个函数指针，该函数返回值是int 参数是int*
+	void fun(int n, char* s);//为该函数定义一个指针。然后赋值
+	void (*pfun)(int, char*);
+	pfun = fun;
+	int arr7[3][5] = { 1,2,3,4,5,6,7,8,9,10 };//写一个print函数声明
+	void print_arr(int arr[3][5], int x, int y);
+	void print_arr1(int(*arr)[5], int x, int y);
+	print_arr(arr7, 3, 5);
+	print_arr1(arr7, 3, 5);
+	return 0;
+}
+//2022.7.1
+int main()
+{
 	int a = 0;
 	int b = 0;
 	int c = 0;
