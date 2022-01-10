@@ -5,6 +5,18 @@
 #include <math.h>
 #include <stdlib.h>
 
+int main()
+{
+	int len = strlen("abc") - strlen("abcdef");
+	printf("%d\n",len);
+	printf("%u\n",strlen("abc") - strlen("abcdef"));
+	//strlen 的参数是size_t, size_t是一个无符号数，unsigned int。所以这里打印的是haha
+	if (strlen("abc") - strlen("abcdef") > 0)
+		printf("hehe\n");
+	else
+		printf("haha\n");
+	return 0;
+}
 
 int main()
 {
