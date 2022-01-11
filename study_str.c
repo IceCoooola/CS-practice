@@ -5,6 +5,16 @@
 #include<string.h>
 #include<assert.h>
 
+
+
+int main()
+{
+	char arr1[] = { 'a','b','c' };
+	printf("%d\n", sizeof(arr1));//sizeof计算大小，这里存了三个字符，所以是3
+	printf("%d\n",strlen(arr1));//strlen遇到\0才能停止计算，arr1里没有放\0，所以会一直找，找到\0才停止
+	return 0;
+}
+
 //char* my_strcpy(char* dest, const char* source)
 //{
 //	assert(dest);
