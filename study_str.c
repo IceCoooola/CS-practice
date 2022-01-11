@@ -5,6 +5,30 @@
 #include<string.h>
 #include<assert.h>
 
+char* my_strncat(char* front, char* back, int n)
+{
+	char* ret = front;
+	while (*front++)
+		;
+	front--;
+	while (n--)
+		if (!(*front++ = *back++))//logical not, true only if the operand is 0.
+			return ret;
+	*front = '\0';
+	return ret;
+
+}
+
+int main()
+{
+	char arr1[30] = "abcdefg";
+	char arr2[] = "hi\0qwer";
+	strncat(arr1, arr2, 5);
+	my_strncat(arr1, arr2, 5);
+	printf("%s", arr1);
+	return 0;
+}
+
 
 char* my_strncpy(char* dest,const char* source, int n)
 {
