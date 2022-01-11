@@ -5,7 +5,32 @@
 #include<string.h>
 #include<assert.h>
 
+char* my_strcat(char* dest, const char* source)
+{
+	assert(dest);
+	assert(source);
+	char* ret = dest;
+	while (*dest!='\0')
+	{
+		dest++;
+	}
+	while (*dest++ = *source++)
+	{
+		;
+	}
+	return ret;
+}
 
+int main()
+{
+	//模拟实现strcat
+	char arr1[20] = "hello";
+	char arr2[] = "world";
+	printf("%s\n", arr1);
+	my_strcat(arr1, arr2);
+	printf("%s\n", arr1);
+	return 0;
+}
 
 int main()
 {
