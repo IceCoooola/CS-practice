@@ -5,6 +5,52 @@
 #include<string.h>
 #include<assert.h>
 
+//int my_strcmp(const char* e1,const char* e2)
+//{
+// assert(e1&&e2);
+//	while (*e1&&*e2)
+//	{
+//		if (*e1 - *e2 != 0)
+//			return *e1 - *e2;
+//		else
+//		{
+//			e1++;
+//			e2++;
+//		}
+//	}
+//	if (*e1 - *e2 == 0)
+//		return 0;
+//	else
+//		return *e1 - *e2;
+//	
+//}
+
+int my_strcmp(const char* str1, const char* str2)
+{
+	assert(str1 && str2);
+	while (*str1 == *str2)
+	{
+		if (*str1 == '\0')
+			return 0;
+		str1++;
+		str2++;
+	}
+	if (*str1 > *str2)
+		return 1;
+	else
+		return -1;
+}
+
+int main()
+{
+	//模拟实现strcmp
+	char arr1[] = "abc";
+	char arr2[] = "abcd";
+	printf("%d\n",my_strcmp(arr1, arr2));
+	printf("%d\n",strcmp(arr1, arr2));
+	return 0;
+}
+
 char* my_strcat(char* dest, const char* source)
 {
 	assert(dest);
