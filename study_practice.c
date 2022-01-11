@@ -7,6 +7,18 @@
 
 int main()
 {
+	char arr[] = "abcdef";
+	char arr2[] = "bit";
+	printf("%u\n", strlen(arr));//strlen遇到\0结束，所以是6个字符
+	printf("%u\n", sizeof(arr));//sizeof 是abcde\0，arr的大小是7
+	strcpy(arr, arr2);
+	printf("%u\n", strlen(arr));//strlen遇到\0结束，bit\0。所以计算的是3
+	printf("%u\n", sizeof(arr));//sizeof还是这个数组大小，依旧是7
+	return 0;
+}
+
+int main()
+{
 	int len = strlen("abc") - strlen("abcdef");
 	printf("%d\n",len);
 	printf("%u\n",strlen("abc") - strlen("abcdef"));
