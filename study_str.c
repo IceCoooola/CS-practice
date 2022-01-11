@@ -5,6 +5,32 @@
 #include<string.h>
 #include<assert.h>
 
+
+char* my_strncpy(char* dest,const char* source, int n)
+{
+	int i = 0;
+	char* ret = dest;
+	for (i = 0; i < n; i++)
+	{
+		if (*source != '\0')
+			*dest++ = *source++;
+		else
+			*dest++ = '\0';
+	}
+	return ret;
+}
+
+int main()
+{
+	char arr1[30] = "abcdefghijklmn";
+	char arr2[] = "hello \0 world";
+	printf("%s\n", arr1);
+	//strncpy(arr1, arr2, 20);
+	my_strncpy(arr1, arr2, 20);
+	printf("%s\n", arr1);
+	return 0;
+}
+
 //int my_strcmp(const char* e1,const char* e2)
 //{
 // assert(e1&&e2);
