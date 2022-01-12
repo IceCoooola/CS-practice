@@ -22,6 +22,32 @@ char* my_strstr(const char* str, const char* sub)
 	}
 	return NULL;
 }
+
+
+char* my_strstr(const char* str, const char* sub)
+{
+	assert(str && sub);
+	if (!*sub)
+		return (char*)str;
+	char* s1;
+	char* s2;
+	char* cur = (char*)str;
+	while (*cur)
+	{
+		s1 = cur;
+		s2 = (char*)sub;
+		while (*s1 && *s2 && (*s1 == *s2))
+		{
+			s1++;
+			s2++;
+		}
+		if (*s2 == '\0')
+			return cur;
+		cur++;
+	}
+	return NULL;
+}
+
 int main()
 {
 	char arr1[] = "abcdef";
