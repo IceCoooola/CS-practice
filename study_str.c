@@ -5,6 +5,35 @@
 #include<string.h>
 #include<assert.h>
 
+char* my_strstr(const char* str, const char* sub)
+{
+	while (*str)
+	{
+		char* strr = str;
+		char* subb = sub;
+		while (*strr == *subb)
+		{
+			strr++;
+			subb++;
+			if (*subb == '\0')
+				return str;
+		}
+		str++;
+	}
+	return NULL;
+}
+int main()
+{
+	char arr1[] = "abcdef";
+	char arr2[] = "abc";
+	char* p = my_strstr(arr1, arr2);
+	if (p != NULL)
+		printf("%s\n", p);
+	else
+		printf("没有。\n");
+	return 0;
+}
+
 char* my_strncat(char* front, char* back, int n)
 {
 	char* ret = front;
