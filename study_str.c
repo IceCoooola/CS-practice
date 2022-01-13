@@ -7,6 +7,20 @@
 
 void* my_memcpy(void* dest, const void* src, size_t sz)
 {
+	assert(dest&&src&&sz);
+	void* temp = dest;
+	while (sz--)
+	{
+		*(char*)dest = *(char*)src;
+		++(char*)dest;
+		++(char*)src;
+	}
+	return temp;
+}
+
+
+void* my_memcpy(void* dest, const void* src, size_t sz)
+{
 	void* tmp = dest;
 	int i = 0;
 	char* destt = (char*)dest;
