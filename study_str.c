@@ -5,6 +5,32 @@
 #include<string.h>
 #include<assert.h>
 
+void* my_memcpy(void* dest, const void* src, size_t sz)
+{
+	void* tmp = dest;
+	int i = 0;
+	char* destt = (char*)dest;
+	char*srcc = (char*)src;
+	for (i = 0; i < sz; i++)
+	{
+		*destt = *srcc;
+		destt++;
+		srcc++;
+	}
+	return tmp;
+}
+int main()
+{
+	int arr1[] = { 1,2,3,4,5};
+	int arr2[5];
+	int i = 0;
+	my_memcpy(arr2, arr1, sizeof(arr1));
+	for(i = 0;i<5;i++)
+	{
+		printf("%d ", arr2[i]);
+	}
+	return 0;
+}
 
 struct S
 {
