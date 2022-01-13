@@ -5,6 +5,28 @@
 #include<string.h>
 #include<assert.h>
 
+int main()
+{
+	//C语言规定标准
+	//memcpy 只要处理 不重叠的内存拷贝就可以
+	//memmove 处理重叠的内存的拷贝
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	memcpy(arr, arr+2, 24);
+	int i = 0;
+	for (i; i < 10; i++)
+		printf("%d ",arr[i]);
+	printf("\n\n");
+	for (i = 0; i < 10; i++)
+		arr[i] = i + 1;
+	memmove(arr, arr + 2, 24);
+	i = 0;
+	for (i; i < 10; i++)
+		printf("%d ", arr[i]);
+	return 0;
+
+}
+
+
 void* my_memcpy(void*, const void*, size_t);
 
 int main()
