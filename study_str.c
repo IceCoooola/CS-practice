@@ -5,6 +5,17 @@
 #include<string.h>
 #include<assert.h>
 
+int main()
+{
+	int arr1[] = { 1,2,3,4,5 };
+	int arr2[5] = {0};
+	int i = 0;
+	memcpy(arr2, arr1, sizeof(arr1));//memcpy 第一个元素是要拷贝的地址，第二个是要拷贝的内容，第三个是要拷贝的内容总大小，大小是字节
+	for (i = 0;i<5;i++)
+	printf("%d ", arr2[i]);
+	return 0;
+}
+
 char* my_strstr(const char* str, const char* sub)
 {
 	while (*str)
