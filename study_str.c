@@ -5,6 +5,26 @@
 #include<string.h>
 #include<assert.h>
 
+
+struct S
+{
+	char name[20];
+	int age;
+};
+
+int main()
+{
+	struct S arr1[] = { {"zhangsan",20},{"lisi",30}};
+	struct S arr2[3];
+	memcpy(arr2, arr1, sizeof(arr1));
+	for (int i = 0; i < 2; i++)
+	{
+		printf("%s\n", arr2[i].name);
+		printf("%d\n", arr2[i].age);
+	}
+	return 0;
+}
+
 int main()
 {
 	int arr1[] = { 1,2,3,4,5 };
