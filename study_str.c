@@ -5,6 +5,30 @@
 #include<string.h>
 #include<assert.h>
 
+int my_memcmp(const void* e1,const void* e2, size_t n)
+{
+	assert(e1&&e2);
+	while ((*(char*)e1 == *(char*)e2) && n--)
+	{
+		++(char*)e1;
+		++(char*)e2;
+	}
+	if (n == 0)
+		return 0;
+	else
+		return *(char*)e1 - *(char*)e2;
+}
+
+int main()
+{
+	int arr1[10] = { 1,2,3,4,5 };
+	int arr2[10] = { 1,2,5,4,3 };
+	//模拟实现memcmp
+	printf("%d\n", my_memcmp(arr1+4, arr2+4, 4));
+	printf("%d\n",memcmp(arr1+4, arr2+4, 4));
+	return 0;
+}
+
 void* my_memmove(void* dest,const void* src, size_t n)
 {
 	void* start = dest;
