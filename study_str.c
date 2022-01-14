@@ -5,6 +5,14 @@
 #include<string.h>
 #include<assert.h>
 
+int main()
+{
+	char arr[11] = {0};
+	memset(arr, '%', 10);
+	printf("%s\n",arr);
+	return 0;
+}
+
 int my_memcmp(const void* e1,const void* e2, size_t n)
 {
 	assert(e1&&e2);
