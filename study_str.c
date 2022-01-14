@@ -5,6 +5,42 @@
 #include<string.h>
 #include<assert.h>
 
+void* my_memmove(void* dest,const void* src, size_t n)
+{
+	void* start = dest;
+	if (dest<src)//从前向后拷贝
+	{
+		while(n--)
+		{
+		*((char*)dest)=*((char*)src);
+		++(char*)dest;
+		++(char*)src;
+		}
+	}
+	else//从后向前拷贝
+	{
+		while(n--)
+		*((char*)dest+n)=*((char*)src + n);
+	}
+	return start;
+}
+
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	my_memmove(arr+2, arr, 20);//模拟实现memcpy
+	int i = 0;
+	for (i = 0; i < 10; i++)
+		printf("%d ", arr[i]);
+	//假设是dest arr, src (arr+2), {1,2,3,4,5,6,7,8,9,10}从前往后拷贝可
+	//假设是dest (arr+2), src arr, {1,2,3,4,5,6,7,8,9,10}从前往后拷贝会覆盖之前的内容，但，从后向前拷贝不会
+	//所以模拟实现memmove，要先看dest和src的地址
+	//如果src 比 arr大，那就可以从前往后
+	//src 比 arr小，从后往前
+	return 0;
+}
+
+
 int main()
 {
 	//C语言规定标准
