@@ -1,3 +1,25 @@
+
+struct T
+{
+	double q;
+	long w;
+};
+
+struct S
+{
+	char a;
+	int b;
+	struct T c;
+	char d[10];
+};
+
+int main()
+{
+	struct S s = { 'a',5,{333.333,123456},"hello" };
+	printf("%c, %d, %lf, %d, %s", s.a, s.b, s.c.q, s.c.w, s.d);
+	return 0;
+}
+
 struct S
 {
 	int a;
