@@ -35,6 +35,16 @@ int main()
 	printf("%d\n", sizeof(struct stu2));
 	printf("%d\n", sizeof(struct stu3));
 	printf("%d\n", sizeof(struct stu4));
+	
+	struct stu4 s = { 0 };
+	s.a = 10;//1010
+	s.b = 20;//10100
+	s.c = 3;//11
+	s.d = 4;//100
+	printf("%d\n", s.a);
+	printf("%d\n", s.b);
+	printf("%d\n", s.c);
+	printf("%d\n", s.d);
 	return 0;
 }
 
