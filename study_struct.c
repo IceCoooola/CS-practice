@@ -1,4 +1,36 @@
 
+struct stu {
+	int a : 2;//位段的成员都是同类型
+	int b : 5;//位段的大小是bit（8个bit是一个字节）
+	int c : 10;//位段的大小是按照成员大小去开发的
+	int d : 30;//首先开一个int字节的空间，按成员往里面放，如果放不下了，浪费掉剩下的空间
+};//然后再开辟一个int的空间，继续放。
+
+struct stu2 {
+	int a : 30;
+	int b : 5;
+	int c : 15;
+	int d : 8;
+	int e : 30;
+};
+struct stu3 {
+	int a : 30;
+	int b : 5;
+	int c : 15;
+	int d : 8;
+	int e : 30;
+	int f : 15;
+};
+
+int main()
+{
+	printf("%d\n", sizeof(struct stu));
+	printf("%d\n", sizeof(struct stu2));
+	printf("%d\n", sizeof(struct stu3));
+	return 0;
+}
+
+
 typedef struct stu {
 	char a;
 	int b;
