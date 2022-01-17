@@ -22,11 +22,19 @@ struct stu3 {
 	int f : 15;
 };
 
+struct stu4 {
+	char a : 3;
+	char b : 4;
+	char c : 5;
+	char d : 4;
+};
+
 int main()
 {
 	printf("%d\n", sizeof(struct stu));
 	printf("%d\n", sizeof(struct stu2));
 	printf("%d\n", sizeof(struct stu3));
+	printf("%d\n", sizeof(struct stu4));
 	return 0;
 }
 
