@@ -1,3 +1,19 @@
+
+union Un
+{
+	int a;
+	char arr[5];//数组算的是元素的对齐数，arr的对齐数是1
+};
+
+int main()
+{
+	union Un u;
+	//联合体大小至少是最大成员的大小
+	//最大成员大小如果不是最大对齐数的整数倍，就对其到最大对齐数的整数倍
+	printf("%d", sizeof(u));
+	return 0;
+}
+
 enum Sex
 {
 	FEMALE = 3,
