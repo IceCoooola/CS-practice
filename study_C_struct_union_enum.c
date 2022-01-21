@@ -1,4 +1,45 @@
 
+#include<stdio.h>
+#include<stdlib.h>
+
+enum menu {
+	EXIT,
+	ADD,
+	DEL,
+	SEARCH,
+	MODIFY,
+	SHOW,
+	SORT
+};
+
+int main()
+{
+	enum menu n;
+	scanf("%d", &n);
+	switch (n)
+	{
+		case ADD:
+			printf("add");
+			break;
+		case DEL:
+			printf("del");
+			break;
+		case SEARCH:
+			printf("search");
+			break;
+		case MODIFY:
+			printf("modify");
+			break;
+		case SHOW:
+			printf("show");
+			break;
+		case SORT:
+			printf("sort");
+			break;
+	}
+	return 0;
+}
+
 union Un
 {
 	int a;
