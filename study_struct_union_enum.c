@@ -1,3 +1,20 @@
+enum Sex
+{
+	FEMALE = 3,
+	MALE = 5,
+	SECRET
+	//enum里面存的其实是 0 1 2 3 4 5...如果不强行赋值的话。如果强行赋值，不赋值的会从下一个开始
+	//就是上面MALE赋值5了，SECRET值就是6
+};
+
+int main()
+{
+	enum Sex s = SECRET;
+	printf("%d\n", sizeof(s));
+	//enum里面存的其实是 0 1 2 3 4 5.....其实是个整形，那我们大胆推测一下创建的s变量就是整形大小
+	return 0;
+}
+
 int check_sys1()
 {
 	int a = 1;
