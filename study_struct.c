@@ -1,3 +1,21 @@
+union Un
+{
+	char c;
+	int i;
+};
+
+int main()
+{
+	//联合//共用体
+	union Un u;
+	printf("%d\n", sizeof(u));
+	printf("%p\n", &u.i);
+	printf("%p\n", &u.c);
+	printf("%p\n", &u);
+
+	return 0;
+}
+
 
 enum Color {
 	red,
