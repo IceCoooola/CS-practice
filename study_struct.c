@@ -1,4 +1,25 @@
 
+enum Color {
+	red,
+	green,
+	blue
+};
+
+enum Sex {
+	F,
+	M,
+	UNKNOW
+};
+
+int main()
+{
+	enum Color c = red;
+	enum Sex s = F;
+	//枚举
+	return 0;
+}
+
+
 struct stu {
 	int a : 2;//位段的成员都是同类型
 	int b : 5;//位段的大小是bit（8个bit是一个字节）
