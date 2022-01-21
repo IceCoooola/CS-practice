@@ -1,3 +1,37 @@
+int check_sys1()
+{
+	int a = 1;
+	return *(char*)&a;
+}
+
+int check_sys2()
+{
+	union Un
+	{
+		int i;
+		char c;
+		//共用体是共用一个空间
+		//所以这个共用体的大小为最大的那个元素
+	}u;
+	u.i = 1;
+	return u.c;
+}
+
+int main()
+{
+	//求大段存储还是小端存储
+	if (check_sys1() == 1)
+		printf("小端存储模式\n");
+	else
+		printf("大端存储模式\n");
+	if (check_sys2() == 1)
+		printf("小端存储模式\n");
+	else
+		printf("大端存储模式\n");
+
+	return 0;
+}
+
 union Un
 {
 	char c;
