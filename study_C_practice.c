@@ -5,6 +5,30 @@
 #include <math.h>
 #include <stdlib.h>
 
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+	int i = 0;
+	for (i = 0; i < numsSize - 1; i++)
+	{
+		int j = 0;
+		for (j = 0; j < numsSize - 1; j++)
+		{
+			if ((*(nums + i) + *(nums + j) == target) && (i != j))
+			{
+				*returnSize = j;
+				return i;
+			}
+		}
+	}
+}
+
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,7 };
+	int a;
+	int b = 0;
+	a = twoSum(arr, 7, 10, &b);
+	printf("%d %d\n", a, b);
+}
 
 //int main()
 //{
