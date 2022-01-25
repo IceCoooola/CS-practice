@@ -20,6 +20,7 @@ void menu() {
 	printf("*** 5. Print ******* 0. Quit   *****\n");
 	printf("************************************\n");
 }
+
 enum function {
 	QUIT,
 	ADD,
@@ -44,12 +45,17 @@ int main()
 			break;
 		case ADD:
 			AddName(&con);
+			SortName(&con);
 			break;
 		case DEL:
+			DelName(&con);
 			break;
 		case FIND:
+			FindCon(&con);
 			break;
 		case MODIFY:
+			ModifyCon(&con);
+			SortName(&con);
 			break;
 		case PRINT:
 			ShowContact(&con);
