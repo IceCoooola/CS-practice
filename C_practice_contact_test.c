@@ -20,14 +20,44 @@ void menu() {
 	printf("*** 5. Print ******* 0. Quit   *****\n");
 	printf("************************************\n");
 }
+enum function {
+	QUIT,
+	ADD,
+	DEL,
+	FIND,
+	MODIFY,
+	PRINT
+};
 int main()
 {
-
 	int input = 0;
+	struct info con;
+	Init(&con);
 	do {
 		menu();
 		printf("Please choose>:");
 		scanf("%d", &input);
+		switch (input)
+		{
+		case QUIT:
+			printf("quit program. \n");
+			break;
+		case ADD:
+			AddName(&con);
+			break;
+		case DEL:
+			break;
+		case FIND:
+			break;
+		case MODIFY:
+			break;
+		case PRINT:
+			ShowContact(&con);
+			break;
+		default:
+			printf("invalid data!\n");
+			break;
+		}
 	}
 		while(input);
 	return 0;
