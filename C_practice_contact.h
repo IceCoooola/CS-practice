@@ -26,3 +26,11 @@ void AddName(struct info* p);
 void Init(struct info* p);
 
 void ShowContact(struct info* p);
+
+void DelName(struct info* p);
+
+void FindCon(struct info* p);
+
+void ModifyCon(struct info* p);
+
+void SortName(struct info* p);
