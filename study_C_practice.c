@@ -5,6 +5,25 @@
 #include <math.h>
 #include <stdlib.h>
 
+int main()
+{
+	int i = 0;
+	int sum = 0;
+	char ch;
+	printf("Please enter an array of integers and random spaces.:>");
+	while (scanf("%d", &i) == 1)
+	{
+		sum += i;
+		while ((ch = getchar()) == ' ')
+			;
+		if (ch == '\n')
+			break;
+		ungetc(ch, stdin);//ungetchar,给ch吃进去的吐出来The standard input stream is the default source of data for applications
+	}
+	printf("结果为%d\n", sum);
+	return 0;
+}
+
 int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
 	int i = 0;
 	for (i = 0; i < numsSize - 1; i++)
