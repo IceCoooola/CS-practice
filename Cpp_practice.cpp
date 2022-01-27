@@ -5,6 +5,33 @@ using namespace std;
 
 int main()
 {
+	int width = 4;
+	char str[20];
+	cout << "Please enter a text:>";
+	cin.width(5);
+	while (cin >> str)
+	{
+		cout.width(width++);
+		cout << str << endl;
+		cin.width(5);
+	}
+	return 0;
+}
+
+int main()
+{
+	double result = sqrt(3.0);
+	cout << "square root 3 is equals to:\n" << endl;
+	for (int i = 0; i < 10; i++)
+	{
+		cout.precision(i);//几位的精度
+		cout << result << endl;
+	}
+	return 0;
+}
+
+int main()
+{
 	//创建一个字符数组，输入20个+字符，然后count输入了多少个字符(20个)，输出多少个，输出这个字符串
 	const int SIZE = 50;
 	char arr[SIZE];
