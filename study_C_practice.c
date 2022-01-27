@@ -7,6 +7,29 @@
 
 int main()
 {
+
+	int* p = (int*)malloc(10 * sizeof(int));
+	int* p1 = (int*)malloc(10 * sizeof(int));
+	if (p1 == NULL)
+	{
+		//打印错误的原因的一个方式
+		printf("%s", strerror(errno));//errno存失败码，strerror把失败码翻译
+	}
+	else 
+	{
+		int i = 0;
+		for (i = 0; i < 10; i++)
+		{
+			*(p1 + i) = i;
+			printf("%d ", *p1 + i);
+		}
+		
+	}
+	return 0;
+}
+
+int main()
+{
 	int i = 0;
 	int sum = 0;
 	char ch;
