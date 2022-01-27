@@ -5,6 +5,17 @@ using namespace std;
 
 int main()
 {
+	char c;
+	cout << "Please enter any text.:>";
+	while (cin.peek() != '\n')
+	{
+		cout << (c = cin.get());
+	}
+	return 0;
+}
+
+int main()
+{
 	char buf[20];
 	cin.ignore(7);//忽略前7个字符
 	cin.getline(buf, 10);//提取10个字符（实际是9个，因为最后一个默认是\0
