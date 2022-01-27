@@ -5,6 +5,19 @@ using namespace std;
 
 int main()
 {
+	//创建一个字符数组，输入20个+字符，然后count输入了多少个字符(20个)，输出多少个，输出这个字符串
+	const int SIZE = 50;
+	char arr[SIZE];
+	cout << "Please enter any text.:>";
+	cin.read(arr, 20);
+	cout<<"The numbers of character you entered are: "<<cin.gcount()<<endl;
+	cout << "The text is: ";
+	cout.write(arr,20);
+	return 0;
+}
+
+int main()
+{
 	char c;
 	cout << "Please enter any text.:>";
 	while (cin.peek() != '\n')
