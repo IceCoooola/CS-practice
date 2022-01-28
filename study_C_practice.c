@@ -25,6 +25,10 @@ int main()
 		}
 		
 	}
+	free(p);
+	free(p1);
+	p = NULL;
+	p1 = NULL;
 	return 0;
 }
 
