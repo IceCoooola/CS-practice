@@ -5,6 +5,24 @@
 #include<string.h>
 #include<errno.h>
 
+void test()
+{
+	int* p = (int*)malloc(400);
+	if (p != NULL)
+		*p = 20;
+	//err! 动态开辟的内存一定要释放，出了程序不会自销，然后如果这时候不释放找都找不到去哪儿释放
+}
+int main()
+{
+	test();
+	while (1)
+	{
+		malloc(1);//err! 疯狂开辟不free会占用极大的内存会导致内存泄露
+		sleep(1000);//1000毫秒= 1秒
+	}
+	return 0;
+}
+
 int main()
 {
 	int* p = (int*)malloc(20);
