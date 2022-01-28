@@ -7,6 +7,21 @@
 
 int main()
 {
+	//int* p = malloc(4);
+	//*(p + 4) = 5;//err, 动态内存开辟的空间越界访问程序会假死机
+	//int i; 5;
+	//int* p = &i;
+	//*p = 10;
+	//free(p);// err, p存在stack区不是heap，free的话程序会假死
+	//int* p = malloc(10*INT_MAX);
+	//assert(p);
+	//*p = 10;//err，这种写法不可以，一定要判断一下p是不是空指针，因为很可能对空指针进行解引用。
+
+	return 0;
+}
+
+int main()
+{
 	int* p = malloc(10 * sizeof(int));
 	if (p == NULL)
 	{
