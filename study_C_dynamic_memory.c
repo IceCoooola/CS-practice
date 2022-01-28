@@ -7,6 +7,24 @@
 
 int main()
 {
+	int* p = malloc(40);
+	if (p == NULL)
+	{
+		printf("%s\n", strerror(errno));
+	}
+	else
+	{
+		int i = 0;
+		for (i = 0; i < 10; i++)
+			*p++ = i;//err!这种写法是错误的，p指向的被改变了
+	}
+	free(p);//free会让程序崩溃，free只能free  p的初始地址。
+
+	return 0;
+}
+
+int main()
+{
 	//int* p = malloc(4);
 	//*(p + 4) = 5;//err, 动态内存开辟的空间越界访问程序会假死机
 	//int i; 5;
