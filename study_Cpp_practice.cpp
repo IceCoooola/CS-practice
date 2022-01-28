@@ -5,6 +5,19 @@ using namespace std;
 
 int main()
 {
+	const int SIZE = 10;
+	char line[SIZE];
+	cout << "Please enter a text:>";
+	cin >> line;
+	cout << line << endl;
+	cin.ignore(SIZE,'\n');
+	cout << "Please enter another text:>";
+	cin.getline(line,SIZE);
+	cout << line << endl;
+	return 0;
+}
+int main()
+{
 	int width = 4;
 	char str[20];
 	cout << "Please enter a text:>";
