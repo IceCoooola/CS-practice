@@ -7,6 +7,23 @@
 
 int main()
 {
+	int* p = (int*)malloc(20);
+	if (p == NULL)
+		return 0;
+	else
+	{
+		*p = 20;
+	}
+	free(p);
+	//....写了很多程序
+	//只要手动把p置为空指针就不会被多次释放
+	free(p);//err! 对同一块动态内存空间多次释放会导致程序崩溃
+	//谁申请谁回收，谁开辟谁释放
+	return 0;
+}
+
+int main()
+{
 	int* p = malloc(40);
 	if (p == NULL)
 	{
