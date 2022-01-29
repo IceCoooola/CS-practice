@@ -5,6 +5,25 @@
 #include<string.h>
 #include<errno.h>
 
+
+void GetMemory(char* p)
+{
+	p = (char*)malloc(100);//这里把一个临时变量allocated内存，但没free，所以导致内存泄露
+}
+void Test(void)
+{
+	char* str = NULL;
+	GetMemory(str);//这里是传值，所以getmemory收到的是一个临时拷贝，不改变str
+	strcpy(str, "hello world");//这里strcpy赋值给空指针，造成程序崩溃
+	printf(str);//不输出任何值因为程序崩了
+}
+
+int main()
+{
+	Test();
+	return 0;
+}
+
 void test()
 {
 	int* p = (int*)malloc(400);
