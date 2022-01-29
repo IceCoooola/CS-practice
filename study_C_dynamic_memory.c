@@ -5,7 +5,23 @@
 #include<string.h>
 #include<errno.h>
 
-
+void GetMemory(char** p, int num)
+{
+	*p = (char*)malloc(num);
+}
+void test(void)
+{
+	char* str = NULL;
+	GetMemory(&str, 100);
+	strcpy(str, "hello");
+	printf(str);
+	//存在内存泄漏
+}
+int main()
+{
+	test();
+	return 0;
+}
 
 void GetMemory(char* p)//如果要改正确的话这里应该是指针char**p
 {
