@@ -6,16 +6,20 @@
 #include<errno.h>
 
 
-void GetMemory(char* p)
+
+void GetMemory(char* p)//如果要改正确的话这里应该是指针char**p
 {
-	p = (char*)malloc(100);//这里把一个临时变量allocated内存，但没free，所以导致内存泄露
+	p = (char*)malloc(100);//这里把一个临时变量allocate内存，但没free，所以导致内存泄露
+	//如果要改正确的话这里*p解引用**p找到*p
 }
 void Test(void)
 {
 	char* str = NULL;
-	GetMemory(str);//这里是传值，所以getmemory收到的是一个临时拷贝，不改变str
+	GetMemory(str);//如果要改正确的话这里传&str
+	//这里是传值，所以getmemory收到的是一个临时拷贝，不改变str
 	strcpy(str, "hello world");//这里strcpy赋值给空指针，造成程序崩溃
 	printf(str);//不输出任何值因为程序崩了
+	//如果要改正确的话这里要加一句free(str);释放内存
 }
 
 int main()
@@ -23,6 +27,7 @@ int main()
 	Test();
 	return 0;
 }
+
 
 void test()
 {
