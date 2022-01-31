@@ -2,6 +2,22 @@
 
 #include<iostream>
 using namespace std;
+
+int main()
+{
+	double num1 = 1234.5678;
+	double num2 = 98.7654321;
+	int i = 0;
+	for (i = 2; i < 10; i++)
+	{
+		cout << setprecision(i);
+		cout << "With precision " << i << " num 1 is " << num1 << endl;
+		cout << "With precision " << i << " num 2 is " << num2 << endl;
+		cout << endl;
+	}
+	return 0;
+}
+
 int main()
 {
 	float num1 = 1234.567;
