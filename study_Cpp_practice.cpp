@@ -2,7 +2,21 @@
 
 #include<iostream>
 using namespace std;
+int main()
+{
+	float num1 = 123456;
+	float num2 = 12.3456;
+	float num3 = 234.567;
+	cout << "num1 unformatted is : " << num1 << endl;
+	cout << "num2 unformatted is : " << num2 << endl;
+	cout << "num3 unformatted is : " << num3 << endl;
 
+	cout << setprecision(2) << showpoint << fixed;
+	cout << "num1 formatted is: $" << num1 << endl;
+	cout << "num2 formatted is: $" << num2 << endl;
+	cout << "num3 formatted is: $" << num3 << endl<<endl;
+	return 0;
+}
 int main()
 {
 	char words[11] = "Hello Seth";
