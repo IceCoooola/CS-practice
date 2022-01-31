@@ -2,7 +2,19 @@
 
 #include<iostream>
 using namespace std;
-
+int main()
+{
+	float num1 = 1234.567;
+	float num2 = 57.41111;
+	for (int i = 2; i <= 7; i++)
+	{
+		cout.precision(i);//specifies the number of digits to print
+		cout << "cout with precision" << i << " is " << num1 << endl;
+		cout << "cout with precision" << i << " is " << num2 << endl;
+		cout << endl;
+	}
+	return 0;
+}
 int main()
 {
 	char c;
