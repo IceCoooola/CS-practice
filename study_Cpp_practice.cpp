@@ -5,6 +5,36 @@ using namespace std;
 
 int main()
 {
+	char words[11] = "Hello Seth";
+	float num = 23.45;
+	//setw only applies to each field and must be repeated, default justification is right
+	cout << "right justified: " << endl;
+	cout << setw(5) << words << endl;
+	cout << setw(10) << words << endl;
+	cout << setw(15) << words << endl;
+	cout << setw(25) << words << endl;
+	cout << setw(15) << num << endl;
+	cout << setw(25) << num << endl;
+	cout << endl << endl;
+	//to left justify
+	cout << "left justified: " << endl;
+	cout << setw(5) << left << words << endl;
+	cout << setw(15) << words << endl;
+	cout << setw(25) << words << endl;
+	cout << setw(15) << num << endl;
+	cout << setw(25) << num << endl;
+	cout << endl << endl;
+	//to reset justification
+	cout << "justification reset to right:" << endl;
+	cout << setw(15) << right << words << endl;
+	cout << setw(20) << words << endl;
+	cout << setw(15) << num << endl;
+	cout << setw(20) << num << endl;
+	return 0;
+}
+
+int main()
+{
 	double num1 = 1234.5678;
 	double num2 = 98.7654321;
 	int i = 0;
