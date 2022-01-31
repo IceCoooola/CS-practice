@@ -5,6 +5,16 @@ using namespace std;
 
 int main()
 {
+	char c;
+	cout << "enter a line of text" << endl;
+	while ((c = cin.get()) != '\n')
+		cout.put(c);
+	cout << endl << "loop is done" << endl;
+	return 0;
+}
+
+int main()
+{
 	const int SIZE = 10;
 	char line[SIZE];
 	cout << "Please enter a text:>";
