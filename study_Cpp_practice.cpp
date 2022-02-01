@@ -2,6 +2,25 @@
 
 #include<iostream>
 using namespace std;
+
+int main()
+{
+	int n = 28;
+	cout << n << " in hexadecimal is: " << hex << n << endl;
+	cout << uppercase << "hex in uppercase is " << n << endl;
+	cout << n << endl;
+	cout << nouppercase << "hex back in lowercase is " << n << endl;
+	cout << n << " in octal is: " << oct << n << endl;
+	cout << n << " in decimal is: " << dec << n << endl<<endl;
+	cout << setbase(16) << "hex is " << n << endl;
+	cout << uppercase << "hex in uppercase is " << n << endl;
+	cout << nouppercase << "hex back in lower case is " << n << endl;
+	cout << setbase(8) << "octal is " << n << endl;
+	cout << setbase(10) << "decimal is " << n << endl;
+	cout <<  n << endl;
+	return 0;
+}
+
 int main()
 {
 	float num1 = 123456;
