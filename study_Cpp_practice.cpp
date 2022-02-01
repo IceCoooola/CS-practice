@@ -3,6 +3,58 @@
 #include<iostream>
 using namespace std;
 
+void swapbyvalue(int, int);
+void swapbyptr(int*, int*);
+void swapbyref(int&, int&);
+void getnames(char*, char*);
+
+int main()
+{
+	int a, b;
+	cout << "enter two numbers:>";
+	cin >> a >> b;
+	cout << "the two numbers are " << a << "\t" << b << endl;
+	swapbyvalue(a, b);
+	cout << "the two numbers after swapby value are " << a << "\t" << b << endl;
+	swapbyptr(&a, &b);
+	cout << "the two numbers after swapbyptr are " << a << "\t" << b << endl;
+	swapbyref(a, b);
+	cout << "the two numbers after swapbyref are " << a << "\t" << b << endl;
+	char first[10], last[15];
+	cout << "before the names are entered the values are " << first << ' ' << last << endl;
+	getnames(first, last);
+	cout << "after the names are entered the values are " << first << ' ' << last << endl;
+	return 0;
+}
+
+void swapbyvalue(int x, int y)
+{
+	int t = x;
+	x = y;
+	y = t;
+}
+void swapbyptr(int* x, int* y)
+{
+	int t = *x;
+	*x = *y;
+	*y = t;
+}
+
+void swapbyref(int& x, int& y)
+{
+	int t = x;
+	x = y;
+	y = t;
+}
+
+void getnames(char* f, char* l)
+{
+	cin.ignore(10, '\n');
+	cout << "enter a first name:>";
+	cin.getline(f, 10);
+	cout << "enter a last name:>";
+	cin.getline(l, 15);
+}
 int main()
 {
 	int n = 28;
