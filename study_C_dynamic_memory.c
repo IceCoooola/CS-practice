@@ -5,6 +5,25 @@
 #include<string.h>
 #include<errno.h>
 
+int globalVar = 1;//静态区static
+static int staticGlobalVar = 1;//静态区static
+void test()
+{
+	static int staticVar = 1;//静态区static
+	int localVal = 1;//栈区stack
+	int num1[10] = { 1,2,3 };//栈区stack
+	char char2[] = "abcd";//char2在栈区stack，"abcd"在只读常量区
+	char* pChar3 = "abcd";//pChar3栈区stack，"abcd"在只读常量区
+	int* ptr1 = (int*)malloc(sizeof(int) * 4);//开辟的空间在堆区heap，指针在栈区stack
+	int* ptr2 = (int*)calloc(4, sizeof(int));//开辟的空间在堆区heap，指针在栈区stack
+	int* ptr3 = (int*)realloc(ptr2, sizeof(int) * 4);//开辟的空间在堆区heap，指针在栈区stack
+	free(ptr1);
+	free(ptr3);
+	ptr1 = NULL;
+	ptr2 = NULL;
+	ptr3 = NULL;
+}
+
 void GetMemory(char** p, int num)
 {
 	*p = (char*)malloc(num);
