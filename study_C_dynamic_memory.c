@@ -7,6 +7,30 @@
 
 struct s {
 	int x;
+	int* arr;
+};
+
+int main()
+{
+	struct s* s1 = (struct s*)malloc(sizeof(struct s));
+	s1->arr = (int*)malloc(4 * sizeof(int));
+	int i = 0;
+	for (i = 0; i < 4; i++)
+	{
+		s1->arr[i] = i;
+	}
+	for (i = 0; i < 4; i++)
+	{
+		printf("%d ",s1->arr[i]);
+	}
+	free(s1->arr);
+	free(s1);
+	s1 = NULL;
+	return 0;
+}
+
+struct s {
+	int x;
 	int arr[];//柔性数组，struct最后一个可以不设置大小，打印出来大小也是0，要使用它要用malloc开辟空间给这个数组
 };
 
@@ -25,6 +49,8 @@ int main()
 	{
 		printf("%d ", s2->arr[i]);
 	}
+	free(s2);
+	s2 = NULL;
 	return 0;
 }
 
