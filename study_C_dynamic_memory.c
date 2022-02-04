@@ -5,6 +5,29 @@
 #include<string.h>
 #include<errno.h>
 
+struct s {
+	int x;
+	int arr[];//柔性数组，struct最后一个可以不设置大小，打印出来大小也是0，要使用它要用malloc开辟空间给这个数组
+};
+
+int main()
+{
+	struct s s1 = { 0 };
+	printf("%d\n", sizeof(s1));
+	struct s* s2 = malloc(sizeof(struct s) + 4 * sizeof(int));
+	printf("%d\n", sizeof(s2));
+	int i = 0;
+	for (i = 0; i < 4; i++)
+	{
+		s2->arr[i] = i;
+	}
+	for (i = 0; i < 4; i++)
+	{
+		printf("%d ", s2->arr[i]);
+	}
+	return 0;
+}
+
 int globalVar = 1;//静态区static
 static int staticGlobalVar = 1;//静态区static
 void test()
