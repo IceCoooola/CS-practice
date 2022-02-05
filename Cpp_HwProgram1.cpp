@@ -196,5 +196,7 @@ int main()
 	ShowStu(s,size);//print out a chart for each student's data
 	CalcAveExam(s,size);
 	CalcLetterGrade(s,size);
+	free(s);
+	s = NULL;
 	return 0;
 }
