@@ -3,6 +3,63 @@
 #include<iostream>
 using namespace std;
 
+void GetInfo(char*, float&, float&, float&, char*);
+void calc(float&, float&, float&, float, float, float); 
+int main()
+{
+	char last[15] = "Bao";
+	char first[10] = "Di";
+	float money = 200.2523;
+	int num = 16;
+	cout << left << setw(15) << last << setw(10) << first << endl;
+	cout << setprecision(2) << showpoint << fixed;
+	cout << money << endl;
+	cout << setbase(8) << "num in octal is : " << num << endl;
+	cout << setbase(16) << "num in hexadecimal is : " << num << endl;
+	char name[20];
+	float hours;
+	float rate;
+	float tax;
+	char department[15];
+	GetInfo(name, hours, rate, tax, department);
+	cout << "The name is " << name<<endl;
+	cout << "hours is " << hours << endl;
+	cout << "rate is " << rate << endl;
+	cout << "tax is " << tax << endl;
+	cout << "department is " << department << endl;
+	float GrossPay;
+	float TaxAmount;
+	float NetPay;
+	calc(GrossPay, TaxAmount, NetPay, hours, rate, tax);
+	cout << "Gross pay is " << GrossPay << endl;
+	cout << "Tax Amount is " << TaxAmount << endl;
+	cout << "Net Pay is " << NetPay << endl;
+	return 0;
+}
+void GetInfo(char* name, float& hours, float& rate, float& tax, char* dpt)
+{
+	cout << "please enter the name : > ";
+	cin.getline(name, 20);
+	cout << "please enter the hours : > ";
+	cin >> hours;
+	cout << "please enter the rate : > ";
+	cin >> rate;
+	cout << "please enter the tax : > ";
+	cin >> tax;
+	cout << "please enter the department : > ";
+	cin.ignore(20, '\n');
+	cin >> dpt;
+}
+
+void calc(float& GrossPay, float& TaxAmount, float& NetPay, float hours, float rate, float tax)
+{
+	GrossPay = hours * rate;
+	TaxAmount = GrossPay * tax / 100;
+	NetPay = GrossPay - TaxAmount;
+}
+
+
+
 void swapbyvalue(int, int);
 void swapbyptr(int*, int*);
 void swapbyref(int&, int&);
