@@ -20,3 +20,22 @@ int main()
 	printf("%c%c%c%c%c%c", c1, c2, c3, c4, c5, c6);
 	return 0;
 }
+struct s {
+	int a;
+	char c;
+	float f;
+};
+
+int main()
+{
+	struct s a = { 1,'c',3.14 };
+	FILE* f = fopen("d:\\test.txt", "wb");
+	fwrite(&a, sizeof(struct s), 1, f);
+	fclose(f);
+	f = fopen("d:\\test.txt", "rb");
+	struct s x = { 0 };
+	fread(&x, sizeof(struct s), 1, f);
+	printf("%d, %c, %f\n", x.a, x.c, x.f);
+	fclose(f);
+	return 0;
+}
