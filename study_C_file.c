@@ -1,3 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	FILE* f = fopen("d:\\test.txt", "w");
+	fputc('a', f);
+	fputc('b', f);
+	fputc('c', f);
+	fputc('d', f);
+	fclose(f);
+	f = fopen("d:\\test.txt", "a");
+	fputc('e', f);
+	fputc('f', f);
+	fputc('g', f);
+	f = fclose(f);
+	f = fopen("d:\\test.txt", "r");
+	char c = 0;
+	c = fgetc(f);	
+	printf("%c", c);
+	
+	return 0;
+}
+
 int main()
 {
 	FILE* f = fopen("d:\\test.txt", "w");
