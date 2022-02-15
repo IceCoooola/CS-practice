@@ -17,6 +17,8 @@ int main()
 		puts("I/O error when reading");
 	else if (feof(f))//feof判断是否为EOF，如果是EOF返回真，如果不是返回假
 		puts("End of file reached successfully");
+	fclose(f);
+	f = NULL;
 	return 0;
 }
 
