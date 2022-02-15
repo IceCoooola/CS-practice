@@ -3,6 +3,19 @@
 
 int main()
 {
+	char name[20] = "Andrew";
+	char str[5] = "is";
+	char str1[100];
+	int age = 28;
+	sprintf(str1,"%s %s %d years old.",name,str,age);
+	printf("%s", str1);
+
+	return 0;
+}
+
+
+int main()
+{
 	char sentence[] = "Rudolph is 12 years old";
 	char str[20];
 	char ss[20];
