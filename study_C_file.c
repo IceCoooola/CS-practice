@@ -1,6 +1,43 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+struct s {
+	char c;
+	int i;
+};
+
+void InitStu(struct s* stu)
+{
+	int i = 0;
+	for (i = 0; i < 5; i++)
+	{
+		(stu+i)->c = 'b';
+		(stu + i)->i = i;
+	}
+}
+
+int main()
+{
+	FILE* f = fopen("d:\\testb.dat", "wb");
+	struct s stu[5] = {0};
+	InitStu(&stu);
+	printf("size of the structure is %d\n", sizeof(struct s));
+	fwrite(stu, sizeof(struct s), 5, f);
+	fclose(f);
+	struct s s[5] = { 0 };
+	f = fopen("d:\\testb.dat", "rb");
+	int size = 0;
+	size = fread(s, sizeof(struct s), 5, f);//fread returns how many elements has been readed
+	printf("%d element has been read\n",size);
+	int i = 0;
+	for (i = 0; i < 5; i++)
+	{
+		printf("%c\n", s[i].c);
+		printf("%d\n", s[i].i);
+	}
+	return 0;
+}
+
 int main()
 {
 	FILE* f = fopen("d:\\test.txt", "r");
