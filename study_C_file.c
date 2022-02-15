@@ -3,6 +3,21 @@
 
 int main()
 {
+	FILE* f = fopen("d:\\test.txt", "r");
+	//test.txt 里面放了abcdefg
+	fseek(f, -2, SEEK_END);
+	//从最后开始数（这里指向g后面），倒数第二个字符
+	char c = fgetc(f);
+	printf("%c\n", c);
+	int i = ftell(f);
+	//ftell 告诉你现在f指针指哪儿去了
+	printf("%d\n", i);
+	return 0;
+
+}
+
+int main()
+{
 	FILE* f = fopen("d:\\test.txt", "w");
 	fprintf(f,"abcdefg");
 	fclose(f);
