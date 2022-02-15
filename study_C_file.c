@@ -3,6 +3,19 @@
 
 int main()
 {
+	FILE* f = fopen("d:\\test.txt", "w");
+	fprintf(f,"abcdefg");
+	fclose(f);
+	f = NULL;
+	f = fopen("d:\\test.txt", "r");
+	fseek(f, 5, SEEK_SET);//move the pointer to the 6th element (下标从0开始)
+	char c = fgetc(f);
+	printf("%c\n", c);
+	return 0;
+}
+
+int main()
+{
 	char name[20] = "Andrew";
 	char str[5] = "is";
 	char str1[100];
