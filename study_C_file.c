@@ -1,6 +1,23 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+int main()
+{
+	FILE* f = fopen("d:\\test2.txt", "r");
+	if (!f)
+	{
+		perror("Open file test2.txt");
+		//perror操作 =打印上面那句话加上: strerror(errno)
+	}
+	else
+	{
+		//操作文件
+	}
+	fclose(f);
+	f = NULL;
+	return 0;
+}
+
 struct s {
 	char c;
 	int i;
