@@ -3,6 +3,25 @@
 
 int main()
 {
+	char c = NULL;
+	FILE* f = fopen("d:\\test.txt", "r");
+	if (!f)
+	{
+		perror("Open file failed.");//直接打印这话加上 error
+		return EXIT_FAILURE;//EXIT_FAILURE是个1
+	}
+		while ((c = fgetc(f)) != EOF)//fgetc判断是否为EOF，文件后面没东西了会有EOF
+		putchar(c);
+	printf("\n");
+	if (ferror(f))//判断是否有error，有的话return真
+		puts("I/O error when reading");
+	else if (feof(f))//feof判断是否为EOF，如果是EOF返回真，如果不是返回假
+		puts("End of file reached successfully");
+	return 0;
+}
+
+int main()
+{
 	FILE* f = fopen("d:\\test2.txt", "r");
 	if (!f)
 	{
