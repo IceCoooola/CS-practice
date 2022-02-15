@@ -4,6 +4,23 @@
 int main()
 {
 	FILE* f = fopen("d:\\test.txt", "r");
+	int i = ftell(f);
+	printf("f's location at %d character\n", i);
+	char c = fgetc(f);
+	printf("the first char is %c\n", c);
+	i = ftell(f);
+	printf("f's location at %d character\n", i);
+	rewind(f);//relocate f pointer to the first character
+	i = ftell(f);
+	printf("after rewind, f's location at %d character\n", i);
+	fclose(f);
+	f = NULL;
+	return 0;
+}
+
+int main()
+{
+	FILE* f = fopen("d:\\test.txt", "r");
 	//test.txt 里面放了abcdefg
 	fseek(f, -2, SEEK_END);
 	//从最后开始数（这里指向g后面），倒数第二个字符
