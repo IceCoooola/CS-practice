@@ -1,5 +1,21 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+int main()
+{
+	char sentence[] = "Rudolph is 12 years old";
+	char str[20];
+	char ss[20];
+	int i;
+
+	sscanf(sentence, "%s %s %d", str,ss, &i);
+	printf("%s\n", ss);
+	printf("%s -> %d\n", str, i);
+
+	return 0;
+}
+
+
 int main()
 {
 	FILE* f = fopen("d:\\test.txt", "w");
