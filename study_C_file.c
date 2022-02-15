@@ -3,6 +3,27 @@
 
 int main()
 {
+	double a[10] = { 1.1,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9 };
+	double b;
+	size_t ret_val;
+	FILE* f = fopen("d:\\test.dat", "wb");
+	fwrite(a, sizeof(double), 10, f);
+	fclose(f);
+	f = fopen("d:\\test.dat", "rb");
+	while ((ret_val = fread(&b, sizeof(double), 1, f)) >= 1)
+		printf("%lf", b);
+	if (ferror(f))
+		printf("file reading error");
+	else if (feof(f))
+		printf("file reading end with an EOF.");
+	fclose(f);
+	f = NULL;
+	return 0;
+}
+
+
+int main()
+{
 	char c = NULL;
 	FILE* f = fopen("d:\\test.txt", "r");
 	if (!f)
