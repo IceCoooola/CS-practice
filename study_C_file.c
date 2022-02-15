@@ -12,6 +12,8 @@ int main()
 	int i = ftell(f);
 	//ftell 告诉你现在f指针指哪儿去了
 	printf("%d\n", i);
+	fclose(f);
+	f = NULL;
 	return 0;
 
 }
@@ -26,6 +28,8 @@ int main()
 	fseek(f, 5, SEEK_SET);//move the pointer to the 6th element (下标从0开始)
 	char c = fgetc(f);
 	printf("%c\n", c);
+	fclose(f);
+	f = NULL;
 	return 0;
 }
 
