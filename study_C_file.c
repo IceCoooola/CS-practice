@@ -3,6 +3,12 @@
 
 int main()
 {
+	printf("%s\n", __FILE__);//__FILE__是文件名（文件名 = 地址+名字+后缀）
+	printf("%d\n", __LINE__);//__LINE__是第多少行
+}
+
+int main()
+{
 	double a[10] = { 1.1,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9 };
 	double b;
 	size_t ret_val;
