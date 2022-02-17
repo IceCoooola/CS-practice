@@ -1,6 +1,52 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#pragma pack (1)//编辑默认对齐数
+#define MAX 100
+#define FLOAT 11.12
+#define STR "what could #define do"
+#define do_forever for(;;)
+#define do2_forever while(1)
+#define reg register
+#define Case break;case
+
+typedef struct s {
+	int a;
+	char c;
+}s;
+
+int main()
+{
+	int max = MAX;
+	float f = FLOAT;
+	char str[] = STR;
+	int i = 0;
+	printf("%f\n", f);
+	printf("%s\n", str);
+	printf("%d\n", sizeof(s));
+	printf("%d\n", max);
+	printf("enter a number to test the switch case:>");
+	scanf("%d", &i);
+	switch (i)
+	{
+		case 1:
+			printf("case 1\n");
+		Case 2 :
+			printf("case 2\n");
+		Case 3 :
+			printf("case 3\n");
+		break;
+	default:
+		printf("default case\n");
+		break;
+	}
+	//do2_forever//这里被替换成for(;;)是死循环
+	//	printf("never stop learning\n");
+	//do2_forever//这里被替换成while(1)是死循环
+	//	printf("never stop learning\n");
+	return 0;
+}
+
 int main()
 {
 	FILE* f = fopen("d:\\log.txt", "w");
