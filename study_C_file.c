@@ -3,6 +3,22 @@
 
 int main()
 {
+	FILE* f = fopen("d:\\log.txt", "w");
+	int i = 0;
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d\n", i);
+		fprintf(f,"file: %s, line: %d, date: %s, time: %s, function: %s, i = %d\n",
+			__FILE__, __LINE__, __DATE__, __TIME__, __FUNCTION__, i);
+		//可以利用这些C语言自带的符号写日志文件
+	//printf("%d\n", __STDC__);
+	//__STDC__如果遵循标准C语言标准，那这个值为1，如果没遵循就是未定义符号
+	}
+	return 0;
+}
+
+int main()
+{
 	printf("%s\n", __FILE__);//__FILE__是文件名（文件名 = 地址+名字+后缀）
 	printf("%d\n", __LINE__);//__LINE__是第多少行
 	printf("%s\n", __DATE__);
