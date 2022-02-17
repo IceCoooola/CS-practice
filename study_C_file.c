@@ -5,7 +5,11 @@ int main()
 {
 	printf("%s\n", __FILE__);//__FILE__是文件名（文件名 = 地址+名字+后缀）
 	printf("%d\n", __LINE__);//__LINE__是第多少行
+	printf("%s\n", __DATE__);
+	printf("%s\n", __TIME__);
+	return 0;
 }
+
 
 int main()
 {
