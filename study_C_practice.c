@@ -5,6 +5,19 @@
 #include <math.h>
 #include <stdlib.h>
 
+//定义的时候SQUARE( 的括号要紧贴名字不然会定义一个符号出来
+#define SQUARE(x) x*x//#define 定义的是宏，宏是完成替换并不是传参
+//定义宏容易出错！定义时候不要吝啬括号！
+int main()
+{
+	int a = 0;
+	a = SQUARE(5);//这里替换成 5*5
+	printf("%d\n",a);
+	a = SQUARE(5+1);//这里替换成 5 + 1 * 5 + 1
+	printf("%d\n", a);//*的优先级比+高所以结果是11
+	return 0;
+}
+
 int main()
 {
 
