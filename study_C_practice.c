@@ -5,6 +5,17 @@
 #include <math.h>
 #include <stdlib.h>
 
+#define MAX 100
+#define MALLOC(type, size) (type*)malloc(size*sizeof(type))
+
+int main()
+{
+	printf("%d\n", MAX);//这里MAX是可以用的
+#undef MAX//这里取消了MAX 所以之后MAX用不了了
+	int* p = MALLOC(int, 5);
+	return 0;
+}
+
 #define CAT(X,Y) X##Y
 #define MAX(X,Y) ((X)>(Y)?(X):(Y))
 //　##会把左右两边的符号合并成一个符号
