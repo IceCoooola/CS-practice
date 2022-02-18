@@ -5,6 +5,32 @@
 #include <math.h>
 #include <stdlib.h>
 
+int main()
+{
+	int a = 1;
+	int b = 2;
+#if 1==1//多个分支条件编译
+	printf("haha\n");
+#elif 3==2
+	printf("hehe\n");
+#else
+	printf("xixi\n");
+#endif
+#ifdef DEBUG
+	printf("hehe\n");
+#endif
+#if defined(DEBUG)
+	printf("haha\n");
+#endif
+#if !defined(DEBUG)
+	printf("undefined hehe\n");
+#endif
+#ifndef DEBUG
+	printf("ifndef haha\n");
+#endif
+	return 0;
+}
+
 #define DEBUG 0
 
 int main()
