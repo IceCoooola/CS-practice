@@ -5,6 +5,26 @@
 #include <math.h>
 #include <stdlib.h>
 
+#define DEBUG
+#define OPTION1
+#define SECTION
+
+int main()
+{
+#ifdef DEBUG
+	printf("DEBUG is defined\n");
+#ifdef OPTION1
+	printf("DEBUG and OPTION1 are defined\n");
+#ifdef SECTION1
+	printf("DEBUG, OPTION1 and SECTION1 are defined\n");
+#else
+	printf("DEBUG, OPTION1 are defined\n");
+#endif
+#endif
+#endif
+	return 0;
+}
+
 int main()
 {
 	int a = 1;
