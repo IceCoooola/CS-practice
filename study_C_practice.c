@@ -5,6 +5,22 @@
 #include <math.h>
 #include <stdlib.h>
 
+#define CAT(X,Y) X##Y
+#define MAX(X,Y) ((X)>(Y)?(X):(Y))
+//　##会把左右两边的符号合并成一个符号
+int main()
+{
+	int abcde = 2022;
+	int a = 10;
+	int b = 11;
+	int max;
+	printf("%d\n", MAX(a, b));
+	printf("%d\n", CAT(abc, de));
+	max = MAX(a++, b++);
+	printf("a = %d, b = %d, max = %d\n", a, b, max);
+	//12,13,12
+	return 0;
+}
 
 #define MAX 100
 #define PRINT(X) printf("the value of "#X" is %d\n",X)
