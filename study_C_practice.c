@@ -5,6 +5,22 @@
 #include <math.h>
 #include <stdlib.h>
 
+//#define DEBUG
+
+int main()
+{
+	int arr[10] = { 0 };
+	int i = 0;
+	for (i = 0; i < 10; i++)
+	{
+		arr[i] = i;
+#ifdef DEBUG//如果DEBUG定义了执行以下语句，如果未定义就不执行
+		printf("%d ", arr[i]);
+#endif
+	}
+	return 0;
+}
+
 #define MAX 100
 #define MALLOC(type, size) (type*)malloc(size*sizeof(type))
 
