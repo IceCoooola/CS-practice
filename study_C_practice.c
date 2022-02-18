@@ -5,6 +5,32 @@
 #include <math.h>
 #include <stdlib.h>
 
+
+#define MAX 100
+#define PRINT(X) printf("the value of "#X" is %d\n",X)
+#define SQUARE(X) ((X)*(X))//#define宏的时候不要吝啬括号，多加几个才不会出错
+//这里#会把X替换成"X"，且X并不会被转换成X的值
+void print(int x)
+{
+	printf("the value of a is %d\n", x);
+}
+
+int main()
+{
+	int a = 10;
+	int b = 20;
+	print(a);
+	print(b);//函数无法完成替换“a”成b所以打印的还是the value of a 
+	//如果是宏就可以做到
+	PRINT(a);
+	PRINT(b);
+	int c = SQUARE(MAX);//程序运行时会先翻译定义的符号，然后再翻译宏，所以MAX先被替换成100
+	PRINT(c);
+	//这里输出的是the value of b, 因为#X被翻译成"X"，且X的值不会被替换为值
+	return 0;
+}
+
+
 //定义的时候SQUARE( 的括号要紧贴名字不然会定义一个符号出来
 #define SQUARE(x) x*x//#define 定义的是宏，宏是完成替换并不是传参
 //定义宏容易出错！定义时候不要吝啬括号！
