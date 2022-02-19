@@ -5,6 +5,19 @@
 #include <math.h>
 #include <stdlib.h>
 
+char* getmem()
+{
+	char p[] = "hello world";
+	return p;
+}
+
+int main()
+{
+	char* p = getmem();
+	printf(p);
+	return 0;
+}
+
 int main()
 {
 	unsigned char puc[4];
