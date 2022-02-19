@@ -5,6 +5,14 @@
 #include <math.h>
 #include <stdlib.h>
 
+#define N 4
+#define Y(n) ((N+2)*n)
+int main()
+{
+	int x = 2 * (N + Y(5 + 1));
+	printf("%d\n", x);
+}
+
 char* getmem()
 {
 	char p[] = "hello world";
