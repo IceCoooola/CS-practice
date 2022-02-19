@@ -5,6 +5,50 @@
 #include <math.h>
 #include <stdlib.h>
 
+int main()
+{
+	unsigned char puc[4];
+	struct tagPIM
+	{
+		unsigned char ucPim1;//8bit
+		unsigned char ucData0 : 1;//1bit
+		unsigned char ucData1 : 2;//2bit
+		unsigned char ucData2 : 3;//3bit
+		//ttl 16bit
+		//2byte
+	}*pstPimData;
+	pstPimData = (struct tagPIM*)puc;
+	memset(puc, 0, 4);
+	//00000000 00000000 00000000 00000000
+	pstPimData->ucPim1 = 2;
+	//00000002 00101001
+	//02 29 00 00
+	pstPimData->ucData0 = 3;
+	pstPimData->ucData1 = 4;
+	pstPimData->ucData2 = 5;
+	printf("%02x %02x %02x %02x\n", puc[0], puc[1], puc[2], puc[3]);
+	return 0;
+}
+
+//#define MAX_SIZE 2+3
+//struct _Record_Struct
+//{
+//	unsigned char Env_Alarm_ID : 4;//4
+//	unsigned char Paral :2;//2
+//	unsigned char state;//16
+//	unsigned char avail : 1;//3
+//
+//}*Env_Alarm_Record;
+//
+//int main()
+//{
+//	printf("%d\n", sizeof(char));
+//	printf("%d\n", sizeof(struct _Record_Struct));
+//	struct _Record_Struct* pointer = (struct _Record_Struct*)malloc(sizeof(struct _Record_Struct) * MAX_SIZE);
+//	printf("%d\n", sizeof(*pointer));
+//	return 0;
+//}
+
 #define DEBUG
 #define OPTION1
 #define SECTION
