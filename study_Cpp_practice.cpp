@@ -2,7 +2,21 @@
 
 #include<iostream>
 using namespace std;
-
+#include<iostream>
+using namespace std;
+inline double twice(double x) { return x * x; }
+inline int twice(int x) { return x * x; }
+inline int twice(int x, int y) { return x + y; }
+inline int twice(int x, int y,int z) { return x + y+z; }
+int main()
+{
+	//overloaded function
+	cout << twice(5) << endl;
+	cout << twice(5.5) << endl;
+	cout << twice(5,6) << endl;
+	cout << twice(5, 6, 7) << endl;
+	return 0;
+}
 
 #include<iostream>
 using namespace std;
