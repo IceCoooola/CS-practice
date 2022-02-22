@@ -3,6 +3,20 @@
 #include<iostream>
 using namespace std;
 
+
+#include<iostream>
+using namespace std;
+
+int num = 5;
+
+int main()
+{
+	int num = 3;
+	cout << "num in local scope is " << num << endl;
+	cout << "num in global scope is " << ::num << endl;
+	return 0;
+}
+
 #include<iostream>
 using namespace std;
 
