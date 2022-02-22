@@ -2,6 +2,38 @@
 
 #include<iostream>
 using namespace std;
+
+template <class T>
+
+T max(T x, T y, T z)
+{
+	T largest = x;
+	if (y > largest)
+		largest = y;
+	if (z > largest)
+		largest = z;
+	return largest;
+}
+
+int main()
+{
+	int a, b, c;
+	cout << "enter three int:"<<endl;
+	cin >> a>> b>> c;
+	cout << "The largest is " << max(a, b, c) << endl;
+	char x, y, z;
+	cout << "enter three chars:" << endl;
+	cin >> x >> y >> z;
+	cout << "The largest is " << max(x, y, z) << endl;
+	float q, w, e;
+	cout << "Enter three floats:" << endl;
+	cin >> q >> w >> e;
+	cout << "The largest is " << max(q, w, e) << endl;
+	return 0;
+}
+
+#include<iostream>
+using namespace std;
 #include<iostream>
 using namespace std;
 inline double twice(double x) { return x * x; }
