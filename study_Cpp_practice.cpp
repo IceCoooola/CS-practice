@@ -3,6 +3,22 @@
 #include<iostream>
 using namespace std;
 
+#include<iostream>
+using namespace std;
+
+inline double cube(const double s) { return s * s * s; }
+
+int main()
+{
+	cout << "enter the side length of a cube:>";
+	double side;
+	cin >> side;
+	cout << "volume of cube with side " << side << "is " << cube(side) << endl;
+	//inline并不赋值因为么有赋值符号
+	cout << side << endl;
+	return 0;
+}
+
 void GetInfo(char*, float&, float&, float&, char*);
 void calc(float&, float&, float&, float, float, float); 
 int main()
