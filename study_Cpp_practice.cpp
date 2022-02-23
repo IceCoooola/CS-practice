@@ -1,4 +1,31 @@
 #define _CRT_SECURE_NO_WARNINGS
+
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+	ofstream of("d:\\nums.txt", ios::out);
+	int num;
+	cout << "enter a number:>";
+	while (cin >> num)
+	{
+		of << num<<endl;
+		cout << "next number? (ctrl z to quit):>";
+	}
+	of.close();
+
+	ifstream ifp("d:\\nums.txt", ios::in);
+	while (ifp>>num)
+	{
+		cout << num << endl;
+	}
+	//creat a file and read numbers into the file till ctrl z is entered.
+	//retrieve and print the file
+	return 0;
+}
+
 #include<iostream>
 using namespace std;
 
