@@ -1,5 +1,30 @@
 #define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+using namespace std;
+template <class T>
 
+void printfarr(T* arr, const int num)
+{
+	int i = 0;
+	for (i = 0; i < num; i++)
+	{
+		cout << arr[i]<<' ';
+	}
+	cout << endl;
+}
+
+int main()
+{
+	const int a = 5, b = 6, c = 7;
+	int arr1[a] = {1,2,3,4,5};
+	float arr2[b] = {1.1,2.2,3.3,4.4,5.5,6.6};
+	char arr3[c] = "HELLO";
+	printfarr(arr1, a);
+	printfarr(arr2, b);
+	printfarr(arr3, c);
+
+	return 0;
+}
 #include<iostream>
 using namespace std;
 
