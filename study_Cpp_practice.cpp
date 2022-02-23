@@ -1,4 +1,70 @@
 #define _CRT_SECURE_NO_WARNINGS
+
+#include<iostream>
+using namespace std;
+
+void one(int);
+void two(int);
+void three(int);
+void four(int);
+void five(int);
+
+int main()
+{
+	int choice;
+	void(*f)(int) = one;
+	cout << "enter a number from 1 to 5:>";
+	cin >> choice;
+	while (choice)
+	{
+		switch(choice)
+		{
+	case 1:
+		f = one;
+		break;
+	case 2:
+		f = two;
+		break;
+	case 3:
+		f = three;
+		break;
+	case 4:
+		f = four;
+		break;
+	case 5:
+		f = five;
+	default:
+		cout << "invalid data!" << endl;
+		break;
+		}
+		f(choice);
+		cout << "enter a number from 1 to 5, 0 to quit:>";
+		cin >> choice;
+	}
+	return 0;
+}
+
+void one(int n)
+{
+	cout << "you entered " << n << " and you are in function one" << endl;
+}
+void two(int n)
+{
+	cout << "you entered " << n << " and you are in function two" << endl;
+}
+void three(int n)
+{
+	cout << "you entered " << n << " and you are in function three" << endl;
+}
+void four(int n)
+{
+	cout << "you entered " << n << " and you are in function four" << endl;
+}
+void five(int n)
+{
+	cout << "you entered " << n << " and you are in function five" << endl;
+}
+
 #include<iostream>
 using namespace std;
 
