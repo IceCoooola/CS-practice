@@ -1,5 +1,38 @@
 #define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+using namespace std;
 
+void one(int a)
+{
+	cout << "Program one"<<endl<<endl;
+}
+void two(int a)
+{
+	cout << "Program two" << endl << endl;
+}
+void three(int a)
+{
+	cout << "Program three" << endl << endl;
+}
+void four(int a)
+{
+	cout << "Program four" << endl << endl;
+}
+
+int main()
+{
+	int input;
+	void (*pf[4])(int) = { one,two,three,four };
+	cout << "enter a number from 1-5:>";
+	cin >> input;
+	while(input)
+	{
+		(*pf[input - 1])(input);
+	cout << "enter a number from 1-5, 0 to quit:>";
+	cin >> input;
+	}
+	return 0;
+}
 #include<iostream>
 using namespace std;
 
