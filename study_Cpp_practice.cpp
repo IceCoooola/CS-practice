@@ -1,5 +1,25 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+	ifstream in;
+	in.open("d:\\test.txt");
+	if (!in)
+	{
+		cout << "open file failed." << endl;
+	}
+	char x;
+	while (in >> x)
+		cout << x;
+	cout << endl;
+	in.close();
+
+	return 0;
+}
+#include<iostream>
 using namespace std;
 template <class T>
 
