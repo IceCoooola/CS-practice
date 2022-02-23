@@ -1,5 +1,24 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+using namespace std;
+
+inline int volume(int x = 1, int y = 1, int z = 1) { return x * y * z; }
+
+int main()
+{
+	cout <<"The default volume is " << volume() << endl;
+	int input;
+	cout << "enter a number:>";
+	cin >> input;
+	while (input)
+	{
+		cout << volume(input, input, input)<<endl;
+		cout << "Enter a number:>";
+		cin >> input;
+	}
+	return 0;
+}
+#include<iostream>
 #include<fstream>
 using namespace std;
 
