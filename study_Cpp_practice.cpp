@@ -5,6 +5,40 @@ using namespace std;
 
 int main()
 {
+	fstream fp("d:\\test.txt", ios::in | ios::out);
+	if (!fp)
+	{
+		cerr << "open file failed." << endl;
+		return 0;
+	}
+	fp << "testing";
+	char ch[100];
+	fp.seekg(ios::beg);
+	fp >> ch;
+	cout << ch << endl;
+	fp.close();
+	return 0;
+}
+
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+	ofstream out;
+	out.open("d:\\test.txt");
+	int i = 0;
+	for (i; i < 10; i++)
+		out << i;
+	return 0;
+}
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main()
+{
 	ifstream in;
 	in.open("d:\\test.txt");
 	if (!in)
