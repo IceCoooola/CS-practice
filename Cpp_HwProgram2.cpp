@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
+#include<typeinfo>
 using namespace std;
 //function template to print an array
 //works for multiple data types
@@ -21,6 +22,7 @@ void InitArray(T* a, const int n)
 	int i;
 	for (i = 0; i < n; i++)
 	{
+		cout << "Please enter a " << typeid(*a).name() << " :>";
 		cin>>a[i];
 	}
 }
