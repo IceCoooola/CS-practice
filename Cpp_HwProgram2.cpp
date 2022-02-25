@@ -2,20 +2,13 @@
 
 #include <iostream>
 #include<typeinfo>
+#include<fstream>
 using namespace std;
-//function template to print an array
-//works for multiple data types
 
-/*
-The third new function template should sort the array data in descending order.  
-The fourth new function template should save the array data to a text file.  
-The fifth new function template should retrieve the array data from the text file. 
-Output should include the smallest and second smallest values for each array along 
-with all three arrays being printed out in descending order twice, 
-once before the text file is saved and once after the array is retrieved from the text file. 
-*/
+ 
 
-//first function
+
+//The first new function template should allow the user to enter the array data from the keyboard.
 template<class T>
 void InitArray(T* a, const int n)
 {
@@ -27,68 +20,91 @@ void InitArray(T* a, const int n)
 	}
 }
 
-//second function
+//The second new function template should print the smallest and second smallest values for an array without sorting. 
 template <class T>
 void PrintSmall(T* a, const int n)
 {
 	T smallest = a[0];//smallest
-	T small;//second smallest
-	T sum = a[0];
+	T SecondSmall;//second smallest
 	int i;
-	for (i = 1; i < n; i++)
+	int num = n;
+	if (a[num - 1] == '\0')
 	{
-		sum+= a[i];//compute the sum
+		num--;
 	}
-	T largestSub = sum - a[0];
-	//the largest number is the sum minus the smallest number
-	T temp;
-	for (i = 0; i < n; i++)
+	for (i = 0; i < num; i++)
 	{
-		if (a[i] == '\0')
-		{
-			//T might be type of char
-			break;
-		}
-		temp = sum - a[i];
-		if (largestSub < temp)
+		if (smallest > a[i])
 		{
 			smallest = a[i];
-			largestSub = temp;
 		}
 	}
-	sum -= smallest;
 	if (a[0] != smallest)//make sure smallest is not the first element
 	{
-		largestSub = sum - a[0];
-		small = a[0];
-
+		SecondSmall = a[0];
 	}
 	else
 	{
-		largestSub = sum - a[1];
-		small = a[1];
+		SecondSmall = a[1];
 	}
-
-	for (i = 0; i < n; i++)
+	for (i = 0; i < num; i++)
 	{
-		if (a[i] == '\0')
-		{
-			//check for T might be char
-			break;
-		}
 		if (a[i] == smallest)
 		{
 			continue;
 		}
-		temp = sum - a[i];
-		if (largestSub < temp)
+		if (SecondSmall > a[i])
 		{
-			small = a[i];
-			largestSub = temp;
+			SecondSmall = a[i];
 		}
 	}
 	cout <<"The smallest is: " << smallest << endl;
-	cout <<"The second smallest is: " << small << endl;
+	cout <<"The second smallest is: " << SecondSmall << endl;
+}
+
+//The third new function template should sort the array data in descending order.
+template<class T>
+void SortArr(T* a, const int n)
+{
+	int i = 0;
+	for (i = 0; i < n; i++)
+	{
+		int j = 0;
+		for (j = 0; j < n - 1; j++)
+		{
+			if (a[j] < a[j + 1])
+			{
+				T temp = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = temp;
+			}
+		}
+	}
+}
+
+//The fourth new function template save the array data to a text file.  
+template<class T>
+void SaveText(T* a, const int n, string filename)
+{
+	ofstream outfile(filename, ios::out);
+	for (int i = 0; i < n; i++)
+	{
+		outfile << a[i]<<endl;
+	}
+	outfile.close();
+}
+
+//The fifth new function template should retrieve the array data from the text file. 
+template<class T>
+void ReadText(T* a, const int n, string filename)
+{
+	ifstream infile(filename, ios::in);
+	for (int i = 0; i < n; i++)
+	{
+		T temp;
+		infile>>a[i];
+	}
+	infile.close();
 }
 
 template <class T>
@@ -102,7 +118,7 @@ void printarray(T* a, const int n)
 
 int main()
 {
-	const int n1 = 6, n2 = 6, n3 = 6;
+	const int n1 = 6, n2 = 7, n3 = 8;
 	int a[n1];
 	float b[n2];
 	char c[n3];
@@ -112,19 +128,32 @@ int main()
 	PrintSmall(a,n1);
 	PrintSmall(b,n2);
 	PrintSmall(c,n3);
+	SortArr(a, n1);
+	SortArr(b, n2);
+	SortArr(c, n3);
+	cout <<endl<<"The array has been sorted." << endl;
 	cout << "the integer array" << endl;
 	printarray(a, n1);
 	cout << "the float array" << endl;
 	printarray(b, n2);
 	cout << "the string is" << endl;
 	printarray(c, n3);
+
+	SaveText(a, n1,"d:\\intArr.txt");
+	SaveText(b, n2, "d:\\floatArr.txt");
+	SaveText(c, n3, "d:\\charArr.txt");
+	int a2[n1];
+	float b2[n2];
+	char c2[n3];
+	ReadText(a2, n1, "d:\\intArr.txt");
+	ReadText(b2, n2, "d:\\floatArr.txt");
+	ReadText(c2, n3, "d:\\charArr.txt");
+	cout << endl << "The array has been readed." <<endl;
+	cout << "the integer array" << endl;
+	printarray(a2, n1);
+	cout << "the float array" << endl;
+	printarray(b2, n2);
+	cout << "the string is" << endl;
+	printarray(c2, n3);
 	return 0;
 }
-/*
-the integer array
-2  4  6  8  10
-the float array
-1.1  2.2  3.3  4.4  5.5  6.6  7.7
-the string is
-H  E  L  L  O
-*/
