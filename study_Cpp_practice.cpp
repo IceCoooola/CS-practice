@@ -1,5 +1,32 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	cout << "Delete all your data [Y/N]:>";
+	char c;
+	cin >> c;
+	switch (c)
+	{
+	case 'Y':
+	case 'y':
+		cout << "This isn't a good choice"<<endl;
+		break;
+	case 'n':
+	case'N':
+		cout << "Good choice!" << endl;
+		break;
+	default:
+		cout << "invalid input!" << endl;
+		break;
+	}
+	return 0;
+}
+
+
 #include<iostream>
 #include<fstream>
 using namespace std;
