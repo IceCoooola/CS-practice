@@ -6,6 +6,39 @@ using namespace std;
 
 int main()
 {
+	//F == C *9/5 + 32
+	cout << "enter the temperature[XX.XX C] or [XX.XX F]:> ";
+	double tempIn, tempOut;
+	char typeIn, typeOut;
+	float ratio = 5 / 8;
+	int addon = 32;
+	cin >> tempIn >> typeIn;
+	cout << tempIn << typeIn;
+	switch (typeIn)
+	{
+	case 'C':
+	case'c':
+		tempOut == tempIn * ratio + addon;
+		typeOut == 'F';
+		break;
+	case'F':
+	case'f':
+		tempOut == (tempIn - addon) / ratio;
+		typeOut == 'C';
+		break;
+	default:
+		break;
+	}
+	cout << endl << tempOut << typeOut << endl;
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+using namespace std;
+
+int main()
+{
 	cout << "Delete all your data [Y/N]:>";
 	char c;
 	cin >> c;
