@@ -2,6 +2,41 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+
+int calc(int);
+int calc(int, int);
+int calc(int, int, int);
+
+int main()
+{
+	int a, b, c;
+	std::cout << "enter a number:>";
+	std::cin >> a;
+	std::cout<<calc(a)<<std::endl;
+	std::cout << "enter two numbers:>";
+	std::cin >> a >> b;
+	std::cout << calc(a, b) << std::endl;
+	std::cout << "enter three numbers:>";
+	std::cin >> a >> b >> c;
+	std::cout << calc(a, b, c) << std::endl;
+	return 0;
+}
+
+int calc(int a)
+{
+	return a * a;
+}
+int calc(int a , int b)
+{
+	return a * b;
+}
+int calc(int a, int b, int c)
+{
+	return a + b + c;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
 using namespace std;
 
 int main()
