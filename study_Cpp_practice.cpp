@@ -1,4 +1,38 @@
 #define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+using namespace std;
+
+
+template <class T>
+T calc(T a, T b)
+{
+	if (a > b)
+	{
+		return a - b;
+	}
+	else
+	{
+		return b - a;
+	}
+}
+
+int main()
+{
+	int a;
+	int b;
+	cin >> a >> b;
+	int c = calc(a, b);
+	cout << c<<endl;
+	char c1 = 'a';
+	char c2 = 'b';
+	int c3 = calc(c1, c2);
+	cout << c3<<endl;
+	float q1 = 5.555;
+	float q2 = 1.111;
+	float q3 = calc(q1, q2);
+	cout << q3 << endl;
+	return 0;
+}
 
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
