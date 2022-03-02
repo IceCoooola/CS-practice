@@ -1,5 +1,33 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+#include<fstream>
+using namespace std;
+
+
+int main()
+{
+	ifstream infile("d:\\pay.txt",ios::in);
+	ofstream outfile("d:\\newpay.txt",ios::out);
+	char name[20];
+	float pay;
+	float raise;
+	float raiseAmount;
+	float newpay;
+	while (infile.getline(name, 20))
+	{
+		infile >> pay >> raise;
+		raiseAmount = (pay * raise / 100);
+		newpay = pay + raiseAmount;
+		outfile << name << endl<<raiseAmount<<' '<<newpay<<endl;
+		infile.ignore(20, '\n');
+	}
+	infile.close();
+	outfile.close();
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
 using namespace std;
 
 
