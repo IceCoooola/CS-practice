@@ -4,6 +4,56 @@
 using namespace std;
 
 
+template <class T>
+T calc(T* x, int n)
+{
+	T highest = x[0];
+	T lowest = x[0];
+	int i = 0;
+	int t = 0;
+	for (i = 0; i < n; i++)
+	{
+		if (x[n - 1 - i] == '\0')
+		{
+			t++;
+		}
+
+	}
+	n -= t;
+	for (i = 0; i < n; i++)
+	{
+		if (highest < x[i])
+		{
+			highest = x[i];
+		}
+	}
+
+	for (i = 0; i < n; i++)
+	{
+		if (lowest > x[i])
+		{
+			lowest = x[i];
+		}
+	}
+	return highest - lowest;
+}
+
+
+
+int main()
+{
+	int arr1[10] = { 1,2,7,4,55,3,54,100,0,-100 };
+	char arr2[10] = "acdeb";
+	double arr3[5] = { 9.9,8.8,1.1,6.6,5.5 };
+	int a = calc(arr1, 10);
+	int b = calc(arr2, 10);
+	double c = calc(arr3, 5);
+	cout << a << endl << b << endl << c << endl;
+	return 0;
+}
+
+
+
 int main()
 {
 	ifstream infile("d:\\pay.txt",ios::in);
