@@ -1,5 +1,80 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+#include<iomanip>
+
+class lover {
+public:
+	std::string name;
+	int height;
+	int age;
+	char gender;
+	int favorability;
+	int money;
+	int day;
+
+	void cleaning();
+	void date();
+	void job();
+	void marry();//favor = 100 money = 100
+};
+
+void lover::cleaning()
+{
+	money += 5;
+	day+=2;
+	favorability -= 2;
+}
+
+void lover::date()
+{
+	money -= 10;
+	day += 1;
+	favorability += 10;
+}
+
+void lover::job()
+{
+	money += 10;
+	day += 5;
+}
+
+void lover::marry()
+{
+	money -= 100;
+	day += 1;
+}
+
+void display(lover l)
+{
+	std::cout << "----------------------" << std::endl;
+	std::cout <<"name: "<<l.name<<"|| age: " << l.age << std::endl;
+	std::cout << "----------------------" << std::endl;
+	std::cout << "height: " << l.height << "|| gender: " << l.gender << std::endl;
+	std::cout << "----------------------" << std::endl; 
+	std::cout << "money: " << l.money << "|| favorability: " << l.favorability << std::endl;
+}
+
+void initLover(lover l)
+{
+	l.age = 28;
+	l.name = "andrew";
+	l.day = 0;
+	l.gender = 'M';
+	l.height = 185;
+	l.money = 0;
+	l.favorability = 1;
+
+}
+
+int main() 
+{
+	class lover andrew;
+	initLover(andrew);
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
 #define Max 85
 class Car {
 public:
