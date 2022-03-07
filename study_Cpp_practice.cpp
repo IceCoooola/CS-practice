@@ -1,5 +1,104 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+#define Max 85
+class Car {
+public:
+	std::string color;
+	std::string engine;
+	unsigned int gas_tank;
+	unsigned int wheel;
+	
+	void setColor(std::string col);
+	void setEngine(std::string eng);
+	void setWheel(unsigned int wh);
+	void fill_tank(int liter);
+	void running(void);
+	void warning(void);
+
+};
+
+void Car::setColor(std::string col)
+{
+	color = col;
+}
+
+void Car::setEngine(std::string eng)
+{
+	engine = eng;
+}
+
+void Car::setWheel(unsigned int wh)
+{
+	wheel = wh;
+}
+
+void Car::running(void)
+{
+	std::cout << "The car is running " << 100*gas_tank / 85 << "% gas left.\n";
+	gas_tank--;
+}
+
+void Car::warning(void)
+{
+	if (gas_tank <= 10)
+	{
+		std::cout << 100 * gas_tank / 85 << " gas are left over\n";
+		std::cout << "Refill gas tank? [Y/N]:>";
+		char i;
+		std::cin >> i;
+		switch (i)
+		{
+		case 'Y':
+		case 'y':
+			fill_tank(Max);
+			break;
+		case'n':
+		case'N':
+			break;
+		}
+	}
+}
+
+void Car::fill_tank(int liter)
+{
+	gas_tank += liter;
+}
+int main()
+{
+	Car car1;
+	car1.setColor("White");
+	car1.setEngine("V8");
+	car1.setWheel(4);
+	car1.gas_tank = 0;
+	std::cout << "Color: " << car1.color << std::endl;
+	std::cout << "Engine: " << car1.engine << std::endl;
+	std::cout << "Wheel: " << car1.wheel << std::endl;
+	std::cout << "Fill tank?[Y/N]>:";
+	char c;
+	std::cin >> c;
+	switch (c)
+	{
+	case 'Y':
+	case 'y':
+		car1.fill_tank(Max);
+		break;
+	case 'N':
+	case'n':
+		break;
+	}
+	while (car1.gas_tank)
+	{
+		car1.running();
+		car1.warning();
+	}
+	std::cout << "The car run out of oil.\n Game over.\n";
+	return 0;
+}
+
+
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
 #include<fstream>
 using namespace std;
 
