@@ -12,6 +12,158 @@ public:
 	int money;
 	int day;
 
+	void initLover();
+	void cleaning();
+	void date();
+	void job();
+	void marry();//favor = 100 money = 100
+};
+
+void lover::cleaning()
+{
+	money += 5;
+	day+=2;
+	favorability -= 2;
+}
+
+void lover::date()
+{
+	money -= 10;
+	day += 1;
+	favorability += 10;
+}
+
+void lover::job()
+{
+	money += 10;
+	day += 5;
+}
+
+void lover::marry()
+{
+	money -= 80;
+	favorability += 80;
+	day += 1;
+}
+
+void display(lover l)
+{
+	std::cout << "----------------------" << std::endl;
+	std::cout <<"name: "<<l.name<<"|| age: " << l.age << std::endl;
+	std::cout << "----------------------" << std::endl;
+	std::cout << "height: " << l.height << "|| gender: " << l.gender << std::endl;
+	std::cout << "----------------------" << std::endl; 
+	std::cout << "money: " << l.money << "|| favorability: " << l.favorability << std::endl;
+	std::cout << "\n";
+}
+
+void lover::initLover()
+{
+	age = 28;
+	name = "andrew";
+	day = 0;
+	gender = 'M';
+	height = 185;
+	money = 0;
+	favorability = 1;
+
+}
+
+enum {
+	EXIT,
+	CLEANING = 1,
+	DATE,
+	JOB,
+	MARRY
+};
+
+int main() 
+{
+	class lover andrew;
+	andrew.initLover();
+	display(andrew);
+	while (andrew.day < 30)
+	{
+		int x;
+		std::cout << "0. exit 1. cleaning\n";
+		std::cout << "2. date 3. job\n";
+		std::cout << "4. marry\n";
+		std::cout << "enter a number:>";
+		std::cin >> x;
+		switch (x)
+		{
+		case EXIT:
+			std::cout << "exiting game.\n";
+			return 0;
+			break;
+		case CLEANING:
+			andrew.cleaning();
+			break;
+		case DATE:
+			andrew.date();
+			break;
+		case JOB:
+			andrew.job();
+			break;
+		case MARRY:
+			andrew.marry();
+			break;
+		default:
+			std::cout << "invalid data! please re-enter.\n";
+			break;
+		}
+		display(andrew);
+	}
+	if (andrew.favorability < 0)
+	{
+		std::cout << "your relationship is over because he don't love you anymore.\n";
+	}
+	else if (andrew.favorability < 10)
+	{
+		std::cout << "He only like you but not too much.\n";
+	}
+	else if (andrew.favorability < 50)
+	{
+		std::cout << "You kept a normal relationship.\n";
+	}
+	else
+	{
+		std::cout << "You have a very happy relationship!\n";
+	}
+
+	if (andrew.money < 0)
+	{
+		std::cout << "Andrew is broke, you left him.\n";
+	}
+	else if (andrew.money < 10)
+	{
+		std::cout << "Andrew is living a poor life.\n";
+	}
+	else if (andrew.money<30)
+	{
+		std::cout << "Andrew is living a normal life.\n";
+	}
+	else
+	{
+		std::cout << "Andrew is rich.\n";
+	}
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<iomanip>
+
+class lover {
+public:
+	std::string name;
+	int height;
+	int age;
+	char gender;
+	int favorability;
+	int money;
+	int day;
+
 	void cleaning();
 	void date();
 	void job();
