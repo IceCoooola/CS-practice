@@ -28,10 +28,6 @@ void PrintSmall(T* a, const int n)
 	T SecondSmall;//second smallest
 	int i;
 	int num = n;
-	if (a[num - 1] == '\0')
-	{
-		num--;
-	}
 	for (i = 0; i < num; i++)
 	{
 		if (smallest > a[i])
