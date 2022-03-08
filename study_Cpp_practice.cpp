@@ -19,6 +19,120 @@ void menu()
 	cout << "**********************************" << endl;
 	cout << "****1. add A data 2. add B data **" << endl;
 	cout << "****3. A+B        4. A-B       ***" << endl;
+	cout << "****0. exit    *******************" << endl<<endl;
+
+}
+
+void AddData(int(*A)[5])
+{
+	int x;
+	int y;
+	cout << "enter the line:>";
+	cin >> x;
+	cout << "enter the line:>";
+	cin >> y;
+	cout << "enter the data:>";
+	int data;
+	cin >> data;
+	A[x][y] = data;
+}
+void AddAB(int (*A)[5],int (*B)[5],int i,int j)
+{
+	int x = 0;
+	for (x = 0; x < i; x++)
+	{
+		int y = 0;
+		for (y = 0; y < j; y++)
+		{
+			A[x][y] = B[x][y]+A[x][y];
+		}
+	}
+}
+
+void SubAB(int (*A)[5], int (*B)[5], int i, int j)
+{
+	int x = 0;
+	for (x = 0; x < i; x++)
+	{
+		int y = 0;
+		for (y = 0; y < j; y++)
+		{
+			A[x][y] -= B[x][y];
+		}
+	}
+}
+
+void display(int A[][5], int x, int y)
+{
+	for (int i = 0; i < x; i++)
+	{
+		for (int j = 0; j < y; j++)
+		{
+			cout << A[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << endl << endl;
+}
+
+int main()
+{
+	const int i = 3;
+	const int j = 5;
+	int A[i][j];
+	int B[i][j];
+	init(A,i,j);
+	init(B,i,j);
+	menu();
+	int input;
+	cin >> input;
+	while (input)
+	{
+		switch (input)
+		{
+		case 1:
+			AddData(A);
+			break;
+		case 2:
+			AddData(B);
+			break;
+		case 3:
+			AddAB(A, B,i, j);
+			break;
+		case 4:
+			SubAB(A, B, i, j);
+			break;
+		}
+		menu();
+		display(A,i,j);
+		display(B,i,j);
+		cout << "Please choose:>";
+		cin >> input;
+	}
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+void init(int (*arr)[5], const int i, const int j)
+{
+	for (int x = 0; x < i; x++)
+	{
+		for (int y = 0; y < j; y++)
+		{
+			arr[x][y] = 0;
+		}
+	}
+}
+
+void menu()
+{
+	cout << "**********************************" << endl;
+	cout << "****1. add A data 2. add B data **" << endl;
+	cout << "****3. A+B        4. A-B       ***" << endl;
 	cout << "****0. exit    *******************" << endl;
 
 }
