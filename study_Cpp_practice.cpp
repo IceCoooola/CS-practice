@@ -1,6 +1,44 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<iomanip>
+#include<math.h>
+using namespace std;
+
+double f(int n, double a[], double x)
+{
+	int i;
+	double p = a[0];
+	for (i = 1; i <= n; i++)
+	{
+		p += (a[i] * pow(x, i));
+	}
+	return p;
+}
+
+double f2(int n, double a[], double x)
+{
+	int i;
+	double p = a[n];
+	for (i = n; i > 0; i--)
+	{
+		p = a[i - 1] + x * p;
+	}
+	return p;
+}
+
+int main()
+{
+	double arr[5] = { 1.1,2.2,3.3,4.4,5.5 };
+	double x = 3.3;
+	int n = 5;
+	cout << f(n, arr, x)<<endl;
+	cout << f2(n, arr, x)<<endl;
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<iomanip>
 using namespace std;
 
 void init(int (*arr)[5], const int i, const int j)
