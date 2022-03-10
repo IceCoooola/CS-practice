@@ -1,4 +1,69 @@
 #define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include<fstream>
+#include<string>
+class Quote
+{
+public:
+	std::string quote, writer;
+	std::ofstream outfile;
+	
+	Quote();
+	~Quote();
+	void getquote();
+	bool writefile();
+	void getwriter();
+};
+
+Quote::Quote() {
+	outfile.open("d:\\quote.txt", std::ios::out);
+}
+
+Quote::~Quote() {
+	outfile.close();
+}
+
+void Quote::getquote()
+{
+	std::cout << "Enter the quote.:>";
+	std::getline(std::cin, quote);
+}
+
+void Quote::getwriter()
+{
+	std::cout << "Enter the writer.:>";
+	std::getline(std::cin, writer);
+}
+
+bool Quote::writefile()
+{
+	if (outfile.is_open())
+	{
+		outfile << quote << '|' << writer << std::endl;
+		return true;
+	}
+	else
+		return false;
+
+}
+int main()
+{
+	Quote Q;
+	Q.getquote();
+	Q.getwriter();
+	if (Q.writefile())
+	{
+		std::cout << "File writing success.\n";
+	}
+	else {
+		std::cout << "File writing failed.\n";
+		return 1;
+	}
+
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<iomanip>
 #include<math.h>
