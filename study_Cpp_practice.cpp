@@ -4,6 +4,74 @@
 #include<math.h>
 using namespace std;
 
+#define FULL 80
+class car {
+public:
+	int tire;
+	string color;
+	int fuel;
+	
+	car(void);//构造函数
+	int running();
+	void warning();
+};
+
+int car::running()
+{
+	cout << "Car is running\n";
+	cout << "Fuel left: " << fuel * 100 / FULL << "%\n";
+	fuel--;
+	return fuel;
+}
+
+void car::warning(void)
+{
+	if (fuel <= 10)
+	{
+		cout << "warning!\n";
+		cout << "add fuel? [Y/N]>:";
+		char c;
+		cin >> c;
+		switch (c)
+		{
+		case 'Y':
+		case'y':
+			fuel = FULL;
+			cout << "fuel refilled.\n";
+			break;
+		case'N':
+		case'n':
+			break;
+		default:
+			break;
+		}
+	}
+}
+car::car()//构造器
+{
+	tire = 4;
+	color = "white";
+	fuel = FULL;
+}
+
+int main()
+{
+	car mycar;
+	while ((mycar.running()))
+	{
+		mycar.warning();
+	}
+
+	return 0;
+}
+
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<iomanip>
+#include<math.h>
+using namespace std;
+
 double f(int n, double a[], double x)
 {
 	int i;
