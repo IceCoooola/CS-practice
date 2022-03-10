@@ -1,5 +1,28 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <string>
+
+class Human {
+	std::string name;
+	int age;
+	Human(std::string name);
+};
+Human::Human(std::string name)
+{
+	this->name = name;
+	//this指针
+	//指向的name是类里面的name
+	//这里将函数参数的name赋值给类里面的name
+}
+
+int main() 
+{
+	return 0;
+}
+
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
 #include<fstream>
 #include<string>
 class Quote
