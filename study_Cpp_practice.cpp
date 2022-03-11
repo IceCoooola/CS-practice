@@ -3,9 +3,12 @@
 #include <string>
 
 class Human {
+public:
 	std::string name;
 	int age;
+
 	Human(std::string name);
+	~Human();
 };
 Human::Human(std::string name)
 {
@@ -15,11 +18,18 @@ Human::Human(std::string name)
 	//这里将函数参数的name赋值给类里面的name
 }
 
-int main() 
+Human::~Human()
 {
-	return 0;
+	;
 }
 
+int main() 
+{
+	Human H("ABC");
+	Human H1{"EFGDF"};
+	Human H2;//no default constructor
+	return 0;
+}
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
