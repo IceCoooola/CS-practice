@@ -1,4 +1,135 @@
 #define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<string>
+
+class Animal {
+public:
+	std::string name;
+	int satiety;
+	int fatigue;
+	int happiness;
+	Animal();
+	void eat();
+	void sleep();
+	void play();
+};
+
+Animal::Animal()
+{
+	satiety = 5;
+	fatigue = 5;
+	happiness = 0;
+}
+
+void Animal::eat() 
+{
+	std::cout << name << " is eating.\n";
+	satiety++;
+}
+
+void Animal::sleep()
+{
+	std::cout << name << " is sleeping.\n";
+	fatigue-=3;
+	satiety -= 3;
+}
+
+void Animal::play()
+{
+	std::cout << name << " is playing.\n";
+	fatigue++;
+	satiety--;
+	happiness++;
+}
+
+class Cat : public Animal
+{
+public:
+	void climb();
+};
+
+void Cat::climb()
+{
+	std::cout << name << " is climbing\n";
+	fatigue++;
+	happiness++;
+	satiety--;
+}
+
+class Dog : public Animal 
+{
+public:
+	void run();
+};
+
+void Dog::run()
+{
+	std::cout << name << " is running\n";
+	fatigue++;
+	happiness++;
+	satiety--;
+}
+
+void menu()
+{
+	std::cout << "***************************\n";
+	std::cout << "***1. dog        2. cat****\n";
+	std::cout << "***0. quit       **********\n";
+}
+
+void catlist()
+{
+	std::cout << "***************************\n";
+	std::cout << "***1. eat        2. sleep**\n";
+	std::cout << "***3. play       4. climb**\n";
+	std::cout << "***0. quit       **********\n";
+}
+
+void doglist()
+{
+	std::cout << "***************************\n";
+	std::cout << "***1. eat        2. sleep**\n";
+	std::cout << "***3. play       4. run  **\n";
+	std::cout << "***0. quit       **********\n";
+}
+
+enum CD{
+	DOG,
+	CAT
+};
+
+int main()
+{
+	Cat cat;
+	Dog dog;
+	cat.name = "Lucky";
+	dog.name = "Mochi";
+	menu();
+	int input;
+	int choice;
+	std::cin >> input;
+	while (input)
+	{
+		switch (input)
+		{
+		case DOG:
+			doglist();
+			std::cin >> choice;
+			break;
+		case CAT:
+			catlist();
+			std::cin >> choice;
+			break;
+		default:
+			break;
+		}
+	}
+
+
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
 
