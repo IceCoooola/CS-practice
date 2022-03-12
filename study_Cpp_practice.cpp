@@ -1,6 +1,190 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<string>
+#include<iomanip>
+using namespace std;
+class Animal {
+public:
+	std::string name;
+	int satiety;
+	int fatigue;
+	int happiness;
+	Animal();
+	void eat();
+	void sleep();
+	void play();
+};
+
+Animal::Animal()
+{
+	satiety = 5;
+	fatigue = 5;
+	happiness = 0;
+}
+
+void Animal::eat() 
+{
+	std::cout << name << " is eating.\n";
+	satiety++;
+}
+
+void Animal::sleep()
+{
+	std::cout << name << " is sleeping.\n";
+	fatigue-=3;
+	satiety -= 3;
+}
+
+void Animal::play()
+{
+	std::cout << name << " is playing.\n";
+	fatigue++;
+	satiety--;
+	happiness++;
+}
+
+class Cat : public Animal
+{
+public:
+	void climb();
+};
+
+void Cat::climb()
+{
+	std::cout << name << " is climbing\n";
+	fatigue++;
+	happiness++;
+	satiety--;
+}
+
+class Dog : public Animal 
+{
+public:
+	void run();
+};
+
+void Dog::run()
+{
+	std::cout << name << " is running\n";
+	fatigue++;
+	happiness++;
+	satiety--;
+}
+
+void menu()
+{
+	std::cout << "***************************\n";
+	std::cout << "***1. dog        2. cat****\n";
+	std::cout << "***0. quit       **********\n";
+}
+
+void catlist()
+{
+	std::cout << "***************************\n";
+	std::cout << "***1. eat        2. sleep**\n";
+	std::cout << "***3. play       4. climb**\n";
+	std::cout << "***0. quit       **********\n";
+}
+
+void doglist()
+{
+	std::cout << "***************************\n";
+	std::cout << "***1. eat        2. sleep**\n";
+	std::cout << "***3. play       4. run  **\n";
+	std::cout << "***0. quit       **********\n";
+}
+
+enum CD{
+	DOG = 1,
+	CAT
+};
+
+enum LIST {
+	QUIT,
+	EAT,
+	SLEEP,
+	PLAY,
+	RUN
+};
+
+template <class T>
+void show(T x)
+{
+	std::cout << "--------------------" << std::endl;
+	std::cout << x.name << std::endl;
+	std::cout <<setw(10)<<left<<"fatigue: " << x.fatigue << setw(10) << right << std::endl;
+	std::cout << setw(10) << left << "happiness: " << x.happiness << setw(10) << right << std::endl;
+	std::cout << setw(10) << left << "satiety: " << x.satiety << setw(10) << right << std::endl;
+}
+
+int main()
+{
+	Cat cat;
+	Dog dog;
+	cat.name = "Lucky";
+	dog.name = "Mochi";
+	menu();
+	int input;
+	int choice;
+	std::cin >> input;
+	while (input)
+	{
+		switch (input)
+		{
+		case DOG:
+			doglist();
+			std::cin >> choice;
+			switch (choice)
+			{
+			case EAT:
+				dog.eat();
+				break;
+			case SLEEP:
+				dog.sleep();
+				break;
+			case PLAY:
+				dog.play();
+				break;
+			case RUN:
+				dog.run();
+				break;
+			}
+			break;
+		case CAT:
+			catlist();
+			std::cin >> choice;
+			switch (choice)
+			{
+			case EAT:
+				cat.eat();
+				break;
+			case SLEEP:
+				cat.sleep();
+				break;
+			case PLAY:
+				cat.play();
+				break;
+			case RUN:
+				cat.climb();
+				break;
+			}
+			break;
+		default:
+			break;
+		}
+		show(cat);
+		show(dog);
+		menu();
+		cin >> input;
+	}
+
+
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<string>
 
 class Animal {
 public:
