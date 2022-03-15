@@ -3,6 +3,101 @@
 #include<string>
 #include<iomanip>
 using namespace std;
+
+
+class Animal 
+{
+public:
+	std::string name;
+	Animal(std::string name);
+	void eat();
+	void sleep();
+protected:
+	void die();
+private:
+	void rebirth();
+};
+
+Animal::Animal(std::string input)
+{
+	name = input;
+}
+
+void Animal::eat()
+{
+	std::cout << "Eating.\n";
+}
+
+void Animal::sleep()
+{
+	std::cout << "Sleeping.\n";
+}
+
+void Animal::die() 
+{
+	std::cout << "dying.\n";
+}
+
+void Animal::rebirth()
+{
+	std::cout << "alive again.\n";
+}
+
+class Cat :public Animal
+{
+public:
+	Cat(std::string name);
+	void Die();
+	void eat();
+};
+
+void Cat::Die()
+{
+	die();
+	//rebirth();
+}
+
+Cat::Cat(std::string input): Animal(input)
+{
+
+}
+
+void Cat::eat()
+{
+	std::cout<<"Cat is eating.\n";
+}
+
+class Dog :public Animal
+{
+public:
+	Dog(std::string name);
+	void eat();
+};
+
+void Dog::eat()
+{
+	Animal::eat();
+	std::cout << "dog is eating.\n";
+}
+
+Dog::Dog(std::string input) :Animal(input)
+{
+
+}
+
+int main()
+{
+	Cat cat("lucky");
+	Dog dog("mochi");
+	std::cout << cat.name<<std::endl;
+	std::cout << dog.name<<std::endl;
+	dog.name = "mochi";
+	std::cout << cat.name << std::endl;
+	cat.Die();
+	cat.eat();
+	dog.eat();
+	return 0;
+}
 class Animal {
 public:
 	std::string name;
