@@ -1,6 +1,62 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<string>
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<string>
+
+class Super
+{
+public:
+	Super();
+	~Super();
+	static int Get_Count();
+private:
+	static int count;
+
+};
+
+int Super::count = 0;
+
+Super::Super()
+{
+	count++;
+	std::cout << "+1\n";
+}
+
+Super::~Super()
+{
+	count--;
+	std::cout << "-1\n";
+}
+
+int Super::Get_Count()
+{
+	return count;
+}
+
+class Sub :public Super
+{
+	public:
+		Sub();
+};
+
+Sub::Sub() : Super()
+{
+	;
+}
+
+int main()
+{
+	Sub S1;
+	std::cout << "TTL:"<<Super::Get_Count() << std::endl;
+	Sub S2;
+	std::cout << "TTL:" << Super::Get_Count()<<std::endl;
+	Sub S3;
+	std::cout << "TTL:" << Super::Get_Count() << std::endl;
+	return 0;
+}
 #include<iomanip>
 using namespace std;
 
