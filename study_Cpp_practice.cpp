@@ -1,6 +1,51 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 
+class Class {
+public:
+	int a;
+	static int b;
+	char c;
+	Class(int x, char y);
+	void Print();
+	const void Print1();
+	//因为每个类都会传进来对象的地址，所以其实函数运行是this->属性（变量） 这么运行的
+	// 所以静态属性存的是不一样的地方！！！
+	// 在使用静态属性的时候，千万不要忘记分配内存！！（像声明一个变量一样声明一下她）
+};
+
+int Class::b = 10;
+//正确的声明静态属性的方法↑
+//坚持使用 : ClassName::MethodName();声明静态属性
+//不要使用 ：ObjectName.MethodName() 因为会引起混乱，容易让人觉得不是静态属性
+Class::Class(int x, char y)
+{
+	a = x;
+	c = y;
+}
+
+void Class::Print()
+{
+	std::cout << "a = " << a<<std::endl;
+}
+
+const void Class::Print1()
+{
+	std::cout << "b = " << b << std::endl;
+}
+
+int main()
+{
+	Class C1(5,'c');
+	C1.Print();
+	C1.Print1();
+
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+
 class Point 
 {
 private:
