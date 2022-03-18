@@ -1,6 +1,29 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 
+class Student {
+public:
+	char name[20];
+	int test1, test2, test3;
+	float avg;
+};
+
+int main()
+{
+	std::cout << "enter the name" << std::endl;
+	Student s;
+	std::cin.getline(s.name, 20);
+	std::cout << "enter three test result." << std::endl;
+	std::cin >> s.test1 >> s.test2 >> s.test3;
+	s.avg = (s.test1 + s.test2 + s.test3) / (float)3;
+	std::cout << "name: " << s.name;
+	std::cout << "test 1: " << s.test1 << " test 2: " << s.test2 << " test 3: " << s.test3 << std::endl;
+	std::cout << "avg: " << s.avg;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+
 class Class {
 public:
 	int a;
