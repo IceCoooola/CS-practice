@@ -1,3 +1,64 @@
+#include"Header.h"
+
+int main()
+{
+	Student one, two;
+	one.printData();
+	two.setData();
+	two.printData();
+	return 0;
+}
+
+
+//header file
+#pragma once
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+
+class Student {
+public:
+	Student();
+	void setData();
+	void printData();
+private:
+	int test1;
+	int test2;
+	int test3;
+	float avg;
+};
+
+Student::Student()
+{
+	test1 = 1;
+	test2 = 1;
+	test3 = 1;
+	avg = 1;
+}
+
+void Student::printData()
+{
+	std::cout << "Test 1: " << test1<<"\n";
+	std::cout << "Test 2: " << test2<<"\n";
+	std::cout << "Test 3: " << test3<<"\n";
+	std::cout << "avg: " << avg<<"\n";
+}
+
+void Student::setData()
+{
+	int x, y, z;
+	std::cout << "enter test1:>";
+	std::cin >> x;
+	std::cout << "enter test2:>";
+	std::cin >> y;
+	std::cout << "enter test3:>";
+	std::cin >> z;
+	test1 = x;
+	test2 = y;
+	test3 = z;
+	avg = (x + y + z) / (float)3;
+}
+
+
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 
