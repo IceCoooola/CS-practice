@@ -40,6 +40,48 @@ int main()
 	s1.printData();
 	return 0;
 }
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+
+class Student {
+public:
+	Student(); //default constructor
+	void setData(int, int, int);
+	void printData();
+private:
+	int test1, test2, test3;
+	float avg;
+};
+
+Student::Student()
+{
+	test1 = test2 = test3 = 1;
+	avg = (test1 + test2 + test3) / (float)3;
+}
+
+void Student::setData(int a, int b, int c)
+{
+	test1 = a;
+	test2 = b;
+	test3 = c;
+	avg = (test1 + test2 + test3) / (float)3;
+}
+
+void Student::printData()
+{
+	std::cout << "Test 1: " << test1 << "\n";
+	std::cout << "Test 2: " << test2 << "\n";
+	std::cout << "Test 3: " << test3 << "\n";
+	std::cout << "Average: " << avg << "\n";
+}
+
+int main()
+{
+	Student s1;
+	s1.setData(11, 21, 31);
+	s1.printData();
+	return 0;
+}
 
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
