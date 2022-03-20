@@ -1,3 +1,43 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+
+class Super {
+public:
+	virtual void show();
+};
+
+void Super::show()
+{
+	std::cout << "Super\n";
+}
+
+class Sub :public Super {
+public:
+	void shower();
+};
+
+void Sub::shower() {
+	std::cout << "Sub\n";
+}
+
+struct X {
+	int a;
+	int b;
+};
+
+struct andrew {
+
+};
+
+int main()
+{
+	Super* s = new Sub;
+	Sub x;
+	struct X p2;
+	x.show();
+	s->show();
+	return 0;
+}
 #include"Header.h"
 
 int main()
