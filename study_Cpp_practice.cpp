@@ -1,5 +1,66 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+#include<iomanip>
+
+class Person {
+public:
+	Person();
+	void getSales();
+	void printSales();
+	static int MAX;
+private:
+	float totalSales();
+	float sales[5];
+};
+
+int Person::MAX = 5;
+
+Person::Person()
+{
+	int i = 0;
+	for (i; i < MAX; i++)
+		sales[i] = 0;
+}
+
+void Person::getSales()
+{
+	for (int i = 0; i < MAX; i++)
+	{
+		std::cout << "enter the amount for month " << i+1 << " :>";
+		std::cin >> sales[i];
+	}
+}
+
+float Person::totalSales()
+{
+	float sum = 0;
+	for (int i = 0; i < MAX; i++)
+		sum += sales[i];
+	return sum;
+}
+
+void Person::printSales()
+{
+	std::cout << std::endl;
+	std::cout << std::setprecision(2) << std::fixed << std::showpoint;
+	for (int i = 0; i < MAX; i++)
+	{
+		std::cout << "Month " << i+1 << " : $" << sales[i] << std::endl;
+	}
+	std::cout << "TTL: " << totalSales() << std::endl;
+}
+
+int main()
+{
+	Person p;
+	p.getSales();
+	p.printSales();
+	return 0;
+}
+
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
 
 class Super {
 public:
