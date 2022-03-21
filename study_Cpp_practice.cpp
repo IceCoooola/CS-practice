@@ -1,5 +1,78 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+using namespace std;
+
+int main()
+{
+	int sum = 0;
+	char t = '0';
+	// cin >> t;
+	//while ()
+	//{
+	//	cin >> t;
+	//	sum += t;
+	//}
+	do 
+	{
+		sum += (int)t;
+		cin >> t;
+	} 
+	while (t != '\n');
+	
+	/*while(cin.peek() != '\n')
+	{
+		cin >> t;
+		sum += t;
+	}*/
+	cout << sum << endl;
+	return 0;
+}
+//class Student {
+//public:
+//	Student();
+//	~Student();
+//	void setData(int a, int b ,int c);
+//	void printData();
+//private:
+//	int test1, test2, test3;
+//};
+//
+//Student::Student()
+//{
+//	test1 = test2 = test3 = 0;
+//}
+//
+//Student::~Student()
+//{
+//	std::cout << "Student destructed." << std::endl;
+//}
+//
+//void Student::setData(int a, int b, int c)
+//{
+//	test1 = a;
+//	test2 = b;
+//	test3 = c;
+//}
+//
+//void Student::printData()
+//{
+//	std::cout << "\n";
+//	std::cout << "Test 1: " << test1 << "\n";
+//	std::cout << "Test 2: " << test2 << "\n";
+//	std::cout << "Test 3: " << test3 << "\n";
+//}
+//
+//int main()
+//{
+//	Student s1, s2;
+//	s1.printData();
+//	s2.setData(12, 13, 16);
+//	s2.printData();
+//	return 0;
+//}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
 #include<iomanip>
 
 class Person {
