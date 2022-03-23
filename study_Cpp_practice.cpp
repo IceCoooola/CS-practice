@@ -1,3 +1,56 @@
+#include<iostream>
+#include<iomanip>
+class Student {
+public:
+	Student(int = 0, int = 0, int = 0);
+	~Student();
+	void setData(int, int, int);
+	void printData();
+private:
+	int test1, test2, test3;
+};
+
+Student::Student(int a, int b, int c)
+{
+	setData(a,b,c);
+}
+Student::~Student()
+{
+	std::cout << std::setw(10) << test1 << std::setw(10) << test2;
+	std::cout << std::setw(10) << test3 << "destroyed" << std::endl;
+}
+
+void Student::setData(int a, int b, int c)
+{
+	test1 = a;
+	test2 = b;
+	test3 = c;
+}
+
+void Student::printData()
+{
+	std::cout << "|----------|----------|----------|" << std::endl;
+	std::cout << "|" << std::setw(10) << "TEST1" << "|" << std::setw(10) << "TEST2"<<"|" << std::setw(10) << "TEST3" << "|" << std::endl;
+	std::cout << "|" << std::setw(10) << test1 << "|" << std::setw(10) << test2<<"|" << std::setw(10) << test3 << "|" << std::endl;
+	std::cout << "|----------|----------|----------|" << std::endl;
+}
+
+int main()
+{
+	Student one, two(50), three(50, 70), four(50, 70, 90);
+	std::cout << "studnet one data:\n";
+	one.printData();
+	{
+		std::cout << "studnet two data:\n";
+		two.printData();
+		std::cout << "studnet three data:\n";
+		three.printData();
+	}
+	std::cout << "studnet four data:\n";
+	four.printData();
+	return 0;
+}
+
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 using namespace std;
