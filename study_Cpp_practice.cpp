@@ -1,5 +1,100 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+
+class Rational 
+{
+public:
+	Rational();
+	Rational(int, int);
+	~Rational();
+	void rationalPrint();
+	friend Rational operator+(Rational&, Rational&);
+	friend Rational operator-(Rational&, Rational&);
+	Rational operator*(Rational&);
+	Rational operator/(Rational&);
+private:
+	int num;
+	int dem;
+};
+
+Rational::Rational()
+{
+	num = 1;
+	dem = 1;
+}
+
+Rational::~Rational()
+{
+	//std::cout << "Deleted.\n";
+}
+
+Rational::Rational(int x, int y)
+{
+	num = x;
+	dem = y;
+}
+
+Rational operator+(Rational& x, Rational& y)
+{
+	Rational t;
+	t.dem = x.dem * y.dem;
+	t.num = x.num * y.dem + y.num * x.dem;
+	return t;
+}
+
+Rational operator-(Rational& x, Rational& y)
+{
+	Rational t;
+	t.dem = x.dem * y.dem;
+	t.num = x.num * y.dem - y.num * x.dem;
+	return t;
+}
+
+Rational Rational::operator*(Rational& x)
+{
+	return Rational(num * x.num, dem * x.dem);
+}
+Rational Rational::operator/(Rational& x)
+{
+	return Rational(num * x.dem, dem * x.num);
+}
+
+void Rational::rationalPrint()
+{
+	if (dem > num)
+	{
+		std::cout << num << "\n" << "--\n" << dem << std::endl<<std::endl;
+	}
+	else
+	{
+		if (num % dem == 0)
+		{
+			std::cout << num / dem<<"\n" << std::endl;
+		}
+		else
+		{
+			std::cout << num << "\n" << "--\n" << dem << std::endl << std::endl;
+		}
+	}
+}
+int main()
+{
+	Rational x(4, 4), y(3,5), z;
+	x.rationalPrint();
+	y.rationalPrint();
+	z = x + y;
+	z.rationalPrint();
+	z = x - y;
+	z.rationalPrint();
+	z = x * y;
+	z.rationalPrint();
+	z = x / y;
+	z.rationalPrint();
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
 /*using namespace std;*/
 
 class Complex {
