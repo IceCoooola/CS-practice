@@ -7,6 +7,78 @@ public:
 	Complex();
 	Complex(int, int);
 	~Complex();
+	void complexPrint();
+	Complex operator+(Complex& x);
+	Complex operator-(Complex& x);
+	Complex operator*(Complex& x);
+	Complex operator/(Complex& x);
+private:
+	int real;
+	int img;
+};
+
+Complex Complex::operator+(Complex& x)
+{
+	return Complex(real + x.real, img + x.img);
+}
+
+Complex Complex::operator-(Complex& x)
+{
+	return Complex(real - x.real, img - x.img);
+}
+
+Complex Complex::operator*(Complex& x)
+{
+	return Complex(real * x.real, img * x.img);
+}
+
+Complex Complex::operator/(Complex& x)
+{
+	return Complex(real / x.real, img / x.img);
+}
+
+Complex::Complex(int x, int y)
+{
+	real = x;
+	img = y;
+	std::cout << "created.2\n";
+}
+
+Complex::Complex()
+{
+	real = 0;
+	img = 0;
+	std::cout << "created.1\n";
+}
+
+Complex::~Complex()
+{
+	std::cout << "deleted" << std::endl;
+}
+
+
+void Complex::complexPrint()
+{
+	std::cout << "real part: " << real << std::endl;
+	std::cout << "imaginary part: " << img << std::endl;
+}
+int main()
+{
+	Complex x(2, 2), y(10, 5), z;
+	z = x + y;
+	z.complexPrint();
+	return 0;
+}
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+/*using namespace std;*/
+
+class Complex {
+public:
+	Complex();
+	Complex(int, int);
+	~Complex();
 	Complex complexAdd(Complex& x);
 	void complexPrint();
 private:
