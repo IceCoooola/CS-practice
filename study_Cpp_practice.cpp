@@ -1,3 +1,74 @@
+#include<iostream>
+
+class Animal {
+public:
+	Animal(std::string name);
+	~Animal();
+	virtual void play() = 0;
+private:
+	std::string name;
+};
+
+Animal::Animal(std::string name)
+{
+	this->name = name;
+	std::cout << name << " has born.\n";
+}
+Animal::~Animal()
+{
+	std::cout << name << " has dead.\n";
+}
+class Pig:public Animal 
+{
+public:
+	Pig(std::string name);
+	void play();
+};
+
+Pig::Pig(std::string name):Animal(name)
+{
+
+}
+
+void Pig::play()
+{
+	std::cout << "Pig is playing.\n";
+}
+
+
+class Bird :public Animal
+{
+public:
+	Bird(std::string name);
+	~Bird();
+	void play();
+};
+
+Bird::Bird(std::string name) :Animal(name)
+{
+
+}
+
+void Bird::play()
+{
+	std::cout << "bird flying!\n";
+}
+
+int main()
+{
+	Animal* pig = new Pig("peiqi");
+	pig->play();
+	{
+		Animal* pig2 = new Pig("peiqima");
+		pig2->play();
+	}
+	Animal* bird = new Bird("QWQ");
+	bird->play();
+
+	return 0;
+}
+
+
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 
