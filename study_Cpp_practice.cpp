@@ -1,3 +1,6 @@
+//如何继承析构器？
+
+
 #include<iostream>
 
 class Animal {
