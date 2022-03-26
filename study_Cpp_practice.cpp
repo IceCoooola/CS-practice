@@ -1,5 +1,99 @@
 //如何继承析构器？
 
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+class Student {
+public:
+	Student(string input, int = 0, int = 0, int = 0);
+	~Student();
+	void setData(string, int, int, int);
+	void setTest1(int);
+	void setTest2(int);
+	void setTest3(int);
+	int getTest1();
+	int getTest2();
+	int getTest3();
+	void printData();
+private:
+	int test1, test2, test3;
+	string name;
+};
+
+Student::Student(string input, int a, int b, int c)
+{
+	setData(input, a, b, c);
+}
+
+Student::~Student()
+{
+	std::cout <<name<< " destroyed.\n";
+}
+
+void Student::setData(string input, int a, int b, int c)
+{
+	name = input;
+	test1 = a;
+	test2 = b;
+	test3 = c;
+}
+
+void Student::setTest1(int a)
+{
+	test1 = a;
+}
+void Student::setTest2(int a)
+{
+	test2 = a;
+}
+void Student::setTest3(int a)
+{
+	test3 = a;
+}
+
+int Student::getTest1()
+{
+	return test1;
+}
+int Student::getTest2()
+{
+	return test2;
+}
+int Student::getTest3()
+{
+	return test3;
+}
+
+void Student::printData()
+{
+	cout << "|" << setw(15) << "NAME" << "|"
+		<<setw(8)<<"TEST 1"<< "|"
+		<< setw(8) << "TEST 2" << "|"
+		<< setw(8) << "TEST 3" << "|"<<endl;
+	cout<<"|"<<setw(15)<<name<<"|"
+		<<setw(8)<<test1<<"|"
+		<<setw(8)<<test2<<"|"
+		<< setw(8) << test3 << "|" << endl;
+}
+int main()
+{
+	Student s1("andrew"), s2("vika"), s3("jing"), s4("dee");
+	cout << "default argument is\n\n";
+	s1.printData();
+	cout << "Data set 1:\n\n";
+	s2.setTest1(20);
+	s2.printData();
+	cout << "Data set 2:\n\n";
+	s3.setTest2(50);
+	s3.printData();
+	s4.setTest3(80);
+	s4.printData();
+	int test3 = s4.getTest3();
+	cout << "Data get" << test3 << endl;
+	return 0;
+}
+
 
 #include<iostream>
 
