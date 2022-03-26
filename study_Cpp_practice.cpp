@@ -1,6 +1,81 @@
 //如何继承析构器？
 
 #include<iostream>
+
+class Student
+{
+public:
+	Student(int=0, int = 0, int = 0);
+	~Student();
+	void setData(int a,int b,int c);
+	int getTest1();
+	int getTest2();
+	int getTest3();
+	void printData();
+private:
+	int test1, test2, test3;
+	int* test = new int;
+};
+
+Student::Student(int a, int b, int c)
+{
+	setData(a,b,c);
+}
+
+Student::~Student()
+{
+	std::cout << "deleted." << std::endl;
+	delete test;
+}
+
+void Student::setData(int a, int b, int c)
+{
+	test1 = a;
+	test2 = b;
+	test3 = c;
+	*test = a;
+}
+
+int Student::getTest1()
+{
+	return test1;
+}
+
+int Student::getTest2()
+{
+	return test2;
+}
+
+int Student::getTest3()
+{
+	return test3;
+}
+
+void Student::printData()
+{
+	std::cout << "Test1: " << test1 << " Test2: " << test2 << " Test3: " << test3 << std::endl << std::endl;
+	std::cout << "Test* " << *test << std::endl;
+}
+
+void addPoint(Student& input);
+
+int main()
+{
+	Student* s1 = new Student(30,50,80);
+	s1->printData();
+	addPoint(*s1);
+	s1->printData();
+	delete s1;
+
+	return 0;
+}
+
+void addPoint(Student& input)
+{
+	input.setData(input.getTest1(),input.getTest2()+20, input.getTest3()+30);
+}
+
+#include<iostream>
 #include<iomanip>
 using namespace std;
 
