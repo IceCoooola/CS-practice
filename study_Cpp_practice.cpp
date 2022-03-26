@@ -2,6 +2,55 @@
 
 #include<iostream>
 
+class Student {
+public:
+	Student();
+	~Student();
+	void setData(int a);
+	void addData(Student&, Student&);
+	void printData();
+private:
+	int test;
+};
+
+Student::Student()
+{
+	test = 1;
+}
+
+Student::~Student()
+{
+	std::cout << "destructed.\n";
+}
+
+void Student::addData(Student& a, Student& b)
+{
+	test = a.test + b.test;
+}
+
+void Student::setData(int a)
+{
+	test = a;
+}
+
+void Student::printData()
+{
+	std::cout << "test: " << test << std::endl;
+}
+int main()
+{
+	Student one, two, three;
+	one.printData();
+	two.setData(59);
+	two.printData();
+	three.addData(one, two);
+	three.printData();
+	return 0;
+}
+
+
+#include<iostream>
+
 class Student
 {
 public:
