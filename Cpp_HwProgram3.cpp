@@ -38,21 +38,41 @@ Complex Complex::complexMul(Complex& x)
 
 void Complex::complexPrint()
 {
-	std::cout << "The complex number is : " << real << '+' << img << "i.\n";
+	if (img >= 0)
+	std::cout << real << '+' << img << "i.\n";
+	else
+	std::cout << real << img << "i.\n";
 }
+
 void Complex::complexCube()
 {
 	Complex temp = Complex(real, img);
 	temp = complexMul(temp);
-	complexMul(temp);
+	temp = complexMul(temp);
 	real = temp.real;
 	img = temp.img;
 }
 
 int main()
 {
-	float a = 2.2;
-	float b = 23.3;
-	Complex(a, b);
+	Complex x(3.14, 1.26);
+	Complex y(0.5, 3.1);
+	std::cout << "Two complex number created. The two complex numbers are:\n";
+	x.complexPrint();
+	y.complexPrint();
+	Complex z = x.complexAdd(y);
+	std::cout << "\nThe sum of those two complex numbers is:\n";
+	z.complexPrint();
+	std::cout << "\nThe difference of those two complex numbers is:\n";
+	z = x.complexSub(y);
+	z.complexPrint();
+	std::cout << "\nThe product of those two complex numbers is:\n";
+	z = x.complexMul(y);
+	z.complexPrint();
+	std::cout << "\nAfter cubed. Those two complex numbers are:\n";
+	x.complexCube();
+	y.complexCube();
+	x.complexPrint();
+	y.complexPrint();
 	return 0;
 }
