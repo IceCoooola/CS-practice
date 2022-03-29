@@ -1,4 +1,37 @@
-//如何继承析构器？
+#include<iostream>
+
+int timeComplexity(int n)
+{
+	int count = 0;
+	for (int i = 0; i < n; i++)
+	{
+		count++;
+	}
+	for (int t = 0; t < 2*n; t++)
+	{
+		count++;
+	}
+
+	int M = 10;
+	while (M--)
+	{
+		count++;
+	}
+	return count;
+}
+
+int main()
+{
+	std::cout << "enter a number:>";
+	int x;
+	std::cin >> x;
+	int y = timeComplexity(x);
+	std::cout << "time complexity is :"<< y;
+	//时间复杂度就是这个程序跑了多少次
+	//因为每个机器的用时都不一样，好机器跑得快，差机器跑的慢。
+	//算不出具体时间
+	//就算跑了多少次就是时间复杂度
+}
 
 #include<iostream>
 
