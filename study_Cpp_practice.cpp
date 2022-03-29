@@ -2,6 +2,47 @@
 
 #include<iostream>
 
+class Test {
+public:
+	Test(int = 0, int = 0);
+	~Test();
+	friend std::ostream& operator<<(std::ostream&, Test);
+private:
+	int x;
+	int y;
+};
+
+Test::Test(int x, int y)
+{
+	this->x = x;
+	this->y = y;
+}
+
+Test::~Test()
+{
+	std::cout << "(" << x << "," << y << ")" << " destroyed.\n";
+}
+
+std::ostream& operator<<(std::ostream&, Test x);
+
+int main()
+{
+	Test t1, t2(1,2),t3(3,4);
+	std::cout<<t1<<t2<<t3;//cout调用重载<<函数复制了一个进去
+	//所以析构器被执行了
+	//然后出了作用域自动分解
+	return 0;
+}
+
+std::ostream& operator<<(std::ostream& os, Test x)
+{
+	std::cout << "x = " << x.x << ", y = " << x.y << std::endl;
+	return os;
+}
+
+
+#include<iostream>
+
 class Student {
 public:
 	Student();
