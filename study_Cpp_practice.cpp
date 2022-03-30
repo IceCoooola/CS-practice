@@ -1,4 +1,27 @@
 #include<iostream>
+using namespace std;
+int main()
+{
+	char arr[10] = { 0 };
+	cin.getline(arr, 10);
+	int count = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		//ASCII 
+		if ((arr[i]>=65&&arr[i]<=90)||(arr[i]>=97&&arr[i]<=122))
+		{
+			count++;
+		}
+	}
+	if (count)
+		cout << "valid.\n";
+	else
+		cout << "invalid.\n";
+
+	return 0;
+}
+
+#include<iostream>
 
 int timeComplexity(int n)
 {
