@@ -1,3 +1,16 @@
+int missingNumber(int* nums, int numsSize) {
+    int i = 0;
+    int sum = 0;
+    for (i = 0; i <= numsSize; i++)
+    {
+        sum += i;
+        if (i != numsSize)
+            sum -= nums[i];
+    }
+    return sum;
+}
+
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
