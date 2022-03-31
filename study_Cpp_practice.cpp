@@ -1,4 +1,38 @@
 #include<iostream>
+
+//this function returns an array of fibonacci sequence
+long long* Fib(int n)
+{
+	if (n == 0)
+	{
+		return NULL;
+	}
+	long long* fib = new long long[n+1];
+	fib[0] = 0;
+	fib[1] = 1;
+	if(n>=3)
+	for (int i = 2; i < n; i++)
+	{
+		fib[i] = fib[i - 1] + fib[i - 2];
+	}
+	return fib;
+}
+
+
+int main()
+{
+	const int n = 8;
+	long long* Fibb = Fib(n);
+	for (int i = 0; i < n; i++)
+	{
+		std::cout << Fibb[i] << std::endl;
+	}
+	delete Fibb;
+	return 0;
+}
+
+
+#include<iostream>
 using namespace std;
 int main()
 {
