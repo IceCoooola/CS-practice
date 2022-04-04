@@ -1,5 +1,38 @@
 #include<iostream>
 
+class SeqList 
+{
+public:
+	SeqList();
+	~SeqList();
+	void InitList();
+	void listPushback();
+	void listPopback();
+	void listPushfront();
+	void listPopfront();
+	void listInsert();
+	void listErase();
+	void listFind();
+	void listReverse();
+	void listSort();
+	
+private:
+	int *m_pData;
+	int m_iLength;
+	int m_iCapacity;
+};
+
+int main()
+{
+	//this program will create a sequence list
+	//and then print the list
+	//and then delete the list
+		
+	return 0;
+}
+
+#include<iostream>
+
 //this function returns an array of fibonacci sequence
 long long* Fib(int n)
 {
