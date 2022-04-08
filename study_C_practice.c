@@ -1,5 +1,32 @@
 
 
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* twoSum(int* nums, int numsSize, int target, int* returnSize){
+
+    int* returnValue = malloc(2*sizeof(int));
+    for(int i = 0; i<numsSize;i++)
+    {
+        for(int j = i+1;j<numsSize;j++)
+        {
+            if (nums[i] + nums[j] == target)
+            {
+                returnValue[0] = i;
+                returnValue[1] = j;
+                break;
+            }
+        }
+        if(returnValue[0] == i)
+        {
+            break;
+        }
+    }
+    
+    *returnSize = 2;
+    return returnValue;
+}
+
 int removeDuplicates(int* nums, int numsSize){
     int k = numsSize;
     for(int i = numsSize-1;i>0;i--)
