@@ -1,3 +1,21 @@
+
+
+int removeDuplicates(int* nums, int numsSize){
+    int k = numsSize;
+    for(int i = numsSize-1;i>0;i--)
+    {
+        if(nums[i-1] == nums[i])
+        {
+            for(int j = i-1;j<k-1;j++)
+            {
+                nums[j] = nums[j+1];
+            }
+            k--;
+        }
+    }
+    return k;
+}
+
 int missingNumber(int* nums, int numsSize) {
     int i = 0;
     int sum = 0;
