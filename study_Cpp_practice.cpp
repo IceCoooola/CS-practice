@@ -1,3 +1,112 @@
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<string>
+
+//multiple inheritage
+
+class Person 
+{
+public:
+	Person(std::string name, int age);
+	virtual void introduce();
+protected:
+	std::string name;
+	int age;
+};
+
+Person::Person(std::string theName, int theAge)
+{
+	name = theName;
+	age = theAge;
+}
+
+void Person::introduce()
+{
+	std::cout << "My name is " << name << " and I am " << age << " years old." << std::endl;
+}
+class Student:public Person
+{
+public:
+	Student(std::string, int,std::string);
+	void study();
+	void introduce();
+protected:
+	std::string major;
+};
+
+Student::Student(std::string theName, int theAge, std::string major) :Person(theName, theAge)
+{
+	this->major = major;
+}
+
+void Student::introduce()
+{
+	std::cout <<"My name is " << name << " and I am a student major in "<<major<<". " << std::endl;
+}
+
+void Student::study()
+{
+	std::cout << "student styding.\n";
+}
+
+class Teacher:public Person
+{
+public:
+	Teacher(std::string, int, std::string);
+	void teach();
+protected:
+	std::string classTeaching;
+};
+
+Teacher::Teacher(std::string theName, int theAge, std::string classTeach) :Person(theName, theAge)
+{
+	classTeaching = classTeach;
+}
+
+void Teacher::teach()
+{
+	std::cout << "my name is " << name << " and  I am teaching " << classTeaching << ". "<< std::endl;
+}
+
+class TA:public Teacher,public Student
+{
+public:
+	TA(std::string, int, std::string, std::string);
+	void introduce();
+};
+
+TA::TA(std::string theName, int theAge, std::string classTeaching, std::string classAttending)
+	:Teacher(theName,theAge,classTeaching),
+	Student(theName, theAge,classAttending)
+{
+	
+}
+
+void TA :: introduce()
+{
+	std::cout << "my name is " << Student::name << " and I am a TA.\n";
+	std::cout << "I am teaching " << Teacher::classTeaching << ".\n";
+	std::cout << "And also I am studying " << Student::major << std::endl;
+}
+
+int main()
+{
+	Student andrew("andrew", 25, "statistic");
+	Teacher janna("janna", 40, "calculus");
+	TA cola("cola", 23, "trigonometry", "calculus");
+	andrew.introduce();
+	andrew.study();
+	std::cout << std::endl;
+	janna.introduce();
+	janna.teach();
+	cola.introduce();
+	cola.study();
+	cola.teach();
+
+	return 0;
+}
+
 #include<iostream>
 
 class SeqList 
