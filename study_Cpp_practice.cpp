@@ -1,4 +1,106 @@
 
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<iomanip>
+
+// demonstration of the this pointer to cascade member function calls
+class Student 
+{
+public:
+	Student(int = 0, int = 0, int = 0);
+	~Student();
+	Student& getData(int, int, int);
+	Student& setTest1(int);
+	Student& setTest2(int);
+	Student& setTest3(int);
+	int getTest1() const;
+	int getTest2() const;
+	int getTest3() const;
+	void printData() const;
+private:
+	int test1;
+	int test2;
+	int test3;
+
+};
+
+Student::Student(int t1, int t2, int t3)
+{
+	getData(t1, t2, t3);
+
+}
+
+Student::~Student()
+{
+	std::cout << "Test1: " << test1 << " Test2: " << test2 << " Test3: " << test3 << " destroyed.\n\n";
+}
+
+Student& Student::getData(int t1, int t2, int t3)
+{
+	setTest1(t1);
+	setTest2(t2);
+	setTest3(t3);
+	return *this;
+}
+
+Student& Student::setTest1(int t1)
+{
+	test1 = t1;
+	return *this;
+}
+
+Student& Student::setTest2(int t2)
+{
+	test2 = t2;
+	return *this;
+}
+
+Student& Student::setTest3(int t3)
+{
+	test3 = t3;
+	return *this;
+}
+
+int Student::getTest1() const
+{
+	return test1;
+}
+
+int Student::getTest2() const
+{
+	return test2;
+}
+
+int Student::getTest3() const
+{
+	return test3;
+}
+
+void Student::printData() const
+{
+	std::cout << "Test1: " <<std::setw(6)<< test1<<std::endl;
+	std::cout << "Test2: " << std::setw(6) << test2<< std::endl;
+	std::cout << "Test3: " << std::setw(6) << test3<< std::endl;
+	std::cout<< std::endl;
+}
+
+int main()
+{
+	Student one, two;
+	one.setTest1(10).setTest2(20).setTest3(30);
+	// cascade member function calls
+	std::cout << "student one data is" << std::endl;
+	one.printData();
+	std::cout << std::endl << "student two data is" << std::endl;
+	two.getData(50, 60, 70).printData();
+	std::cout << std::endl;
+
+	int test1 = two.getTest1();
+	std::cout << "student two first test score is " << test1<< std::endl;
+
+	return 0;
+}
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<string>
