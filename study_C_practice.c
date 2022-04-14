@@ -1,6 +1,11 @@
 int main()
 {
-	printf("\a\a\a\a\a\a");
+	printf("\a\a\a\a\a\a");//\a是 警告声音
+	printf("\061\n");//\ddd是按照三个数字/2个数字的 8进制的 ascii码值 打印出来 那个对应的字符
+	printf("\x5F\n");// \xdd 是按照十六进制的ascii码值 打印出来 那个对应的字符.
+	printf("%c\n", '\'');
+	printf("%s\n", "\"");
+	printf("%d\n", strlen("c:\test\328\test.c"));//\32被转换成\ddd所以是一个字符，\t\t也是一个字符
 	return 0;
 }
 
