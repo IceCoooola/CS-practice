@@ -1,3 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+
+int main()
+{
+	int n = 0;
+	std::cout << "Enter a number: ";
+	std::cin >> n;
+	int factorial = 1;
+	int sum = 0;
+	for (int i = 1; i <= n; i++)
+	{
+		factorial *= i;
+		sum += factorial;
+	}
+
+	std::cout <<n<<"'s factorial is "<< factorial << std::endl;
+	std::cout << n << "'s sum of the factorial is " << sum << std::endl;
+
+	return 0;
+}
 
 
 #define _CRT_SECURE_NO_WARNINGS
