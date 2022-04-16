@@ -1,3 +1,66 @@
+
+#define _crt_secure_no_warnings
+#include<iostream>
+
+class Student
+{
+public:
+	friend class Person;
+	Student()
+	{
+		test1 = test2 = test3 = big = small = 0;
+	}
+private:
+	int test1, test2, test3, big, small;
+	int biggest(int t1, int t2, int t3)
+	{
+		int largest = t1;
+		if (largest < t2)
+			largest = t2;
+		if (largest < t3)
+			largest = t3;
+		return largest;
+	}
+	int smallest(int t1, int t2, int t3)
+	{
+		int smallest = t1;
+		if (smallest > t2)
+			smallest = t2;
+		if (smallest > t3)
+			smallest = t3;
+		return smallest;
+	}
+};
+
+class Person 
+{
+public:
+	Student s;
+	int stock1, stock2, stock3, big, small;
+	void getinfo();
+	Person()
+	{
+		getinfo();
+	}
+};
+
+void Person::getinfo()
+{
+	std::cout << "enter three stock values.:\n";
+	std::cin >> stock1 >> stock2 >> stock3;
+	std::cout << "The three stock values are: " << stock1 << " " << stock2 << " " << stock3 << std::endl;
+	big = s.biggest(stock1, stock2, stock3);
+	small = s.smallest(stock1, stock2, stock3);
+	std::cout << "the biggest stock value is " << big << "\nthe smallest stock value is " << small << std::endl;
+}
+
+int main()
+{
+	Person p;
+	return 0;
+}
+
+
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 
