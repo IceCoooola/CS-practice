@@ -1,3 +1,86 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+
+class Student
+{
+public:
+	Student(int = 0, int = 0, int = 0);
+	friend std::ostream& operator<<(std::ostream&, const Student&);
+	friend std::istream& operator>>(std::istream&, Student&);
+	Student& operator+=(int);
+	Student& operator++();
+	Student operator++(int);
+private:
+	int test1, test2, test3;
+	float avg;
+};
+
+Student::Student(int t1, int t2, int t3)
+{
+	test1 = t1;
+	test2 = t2;
+	test3 = t3;
+	avg = (t1 + t2 + t3) / (float)3;
+}
+
+std::ostream& operator<<(std::ostream& os, const Student& pupil)
+{
+	os << "test 1: " << pupil.test1 << std::endl;
+	os << "test 2: " << pupil.test2 << std::endl;
+	os << "test 3: " << pupil.test3 << std::endl;
+	os << "avg: " << pupil.avg << std::endl;
+	return os;
+}
+
+std::istream& operator>>(std::istream& is, Student& pupil)
+{
+	is >> pupil.test1 >> pupil.test2 >> pupil.test3;
+	pupil.avg = (pupil.test1 + pupil.test2 + pupil.test3) / (float)3;
+	return is;
+}
+
+Student& Student::operator+=(int num)
+{
+	test1 += num;
+	test2 += num;
+	test3 += num;
+	avg = (test1 + test2 + test3) / (float)3;
+
+	return *this;
+}
+
+Student& Student::operator++()
+{
+	test1++;
+	test2++;
+	test3++;
+	avg = (test1 + test2 + test3) / (float)3;
+	return *this;
+}
+
+Student Student::operator++(int)
+{
+	Student temp = *this;
+	++(*this);
+	return temp;
+}
+
+int main()
+{
+
+	Student one, two(10,20,30), three(1,2,3);
+	std::cout << "Student one: \n" << one << std::endl;
+	one += 5;
+	std::cout << "Student one += 5\n" << one<<std::endl;
+	std::cout << "Student two: \n" << two << std::endl;
+	std::cout << "Student two preincrement: \n" << ++two << std::endl;
+	std::cout << "Student three: \n" << three << std::endl;
+	std::cout << "Student three postincrement: \n" << three++ << std::endl;
+	std::cout << "Student three after post increment: \n" << three << std::endl;
+
+	return 0;
+}
+
 
 #define _crt_secure_no_warnings
 #include<iostream>
