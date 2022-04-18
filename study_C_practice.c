@@ -1,3 +1,365 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+
+int fibb(int x)
+{
+	if (x >= 2)
+	{
+		return fibb(x-1)+fibb(x-2);
+	}
+	else
+	{
+		return 1;
+	}
+}
+
+int main()
+{
+	
+	int input;
+	printf("plese enter a number\n");
+	scanf("%d", &input);
+	printf("%d\n", fibb(input));
+	return 0;
+}
+
+//int calc(int num, int k)
+//{
+//	if (k>1)
+//		return num * calc(num, k - 1);
+//	else
+//		return num;
+//}
+//
+//int main()
+//{
+//	int n = 10;
+//	int k = 4;
+//	int result = calc(n, k);
+//	printf("%d\n", result);
+//	return 0;
+//}
+
+//int addEachNum(int num)
+//{
+//	if (num > 9)
+//		return num % 10 + addEachNum(num / 10);
+//	else
+//		return num;
+//}
+//
+//int main()
+//{
+//		int input;
+//		printf("plese enter a number\n");
+//		scanf("%d", &input);
+//		printf("%d\n", addEachNum(input));
+//	
+//}
+
+//void strReverse(char * arr, int sz)
+//{
+//	int left = 0;
+//	int right = sz - 1;
+//	while (left <= right)
+//	{
+//		char t = arr[left];
+//		arr[left] = arr[right];
+//		arr[right] = t;
+//		right--;
+//		left++;
+//	}
+//	
+//}
+//
+//int main()
+//{
+//	char arr[10] = "bcdef";
+//	printf("%s\n", arr);
+//	strReverse(arr,5);
+//	printf("%s\n", arr);
+//
+//}
+
+//int my_strlen(char* str)
+//{
+//	if (*str != '\0')
+//		return 1 + my_strlen(str + 1);
+//	else
+//		return 0;
+//}
+//
+//int main()
+//{
+//	char arr[10] = "wwhat";
+//	printf("%d\n", my_strlen(arr));
+//	return 0;
+//}
+
+//int fac(int num)
+//{
+//	if (num)
+//	{
+//		return num * fac(num - 1);
+//	}
+//	else
+//	{
+//		return 1;
+//	}
+//}
+//int main()
+//{
+//	int input;
+//	printf("plese enter a number\n");
+//	scanf("%d", &input);
+//	printf("%d\n", fac(input));
+//	
+//}
+//void printEachNum(int num)
+//{
+//	if (num > 9)
+//	{
+//		printEachNum(num / 10);
+//		printf("%d ", num%10);
+//	}
+//	else
+//	{
+//		printf("%d ", num);
+//	}
+//}
+//
+//int main()
+//{
+//	int input;
+//	printf("plese enter a number\n");
+//	scanf("%d", &input);
+//	printEachNum(input);
+//	return 0;
+//}
+//void printChart(int n)
+//{
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for(int j = 1;j<=i;j++)
+//		{
+//			printf("%d * %d = %d ", i, i, i * j);
+//		}
+//		printf("\n");
+//	}
+//}
+//
+//int main()
+//{
+//	int input;
+//	printf("plese enter a number\n");
+//	scanf("%d", &input);
+//	printChart(input);
+//	return 0;
+//}
+
+//void switchNum(int* a, int* b)
+//{
+//	*a = (*a) ^ (*b);
+//	*b = (*a) ^ (*b);
+//	*a = (*a) ^ (*b);
+//}
+//int main()
+//{
+//	int a = 5;
+//	int b = 3;
+//	switchNum(&a, &b);
+//	printf("%d %d", a, b);
+//}
+
+//int isLeapYear(int num)
+//{
+//	if (((num % 4 == 0) && (num % 100 != 0)) || (num % 400 == 0))
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return 0;
+//	}
+//}
+//
+//int main()
+//{
+//	int year;
+//	printf("Enter the year: ");
+//	scanf("%d", &year);
+//	if (isLeapYear(year))
+//	{
+//		printf("%d is a leap year", year);
+//	}
+//	else
+//	{
+//		printf("%d is not a leap year", year);
+//	}
+//	return 0;
+//}
+
+//int isPrime(int num)
+//{
+//	for(int i = 2;i<=sqrt(num);i++)
+//	{
+//		if(num%i==0)
+//			return 0;
+//	}
+//	return 1;
+//}
+//
+//int main()
+//{
+//	int input;
+//	printf("plese enter a number\n");
+//	scanf("%d", &input);
+//	int result = isPrime(input);
+//	if (result)
+//	{
+//		printf("it is prime number.\n");
+//	}
+//	else 
+//	{
+//		printf("it is not prime number.\n");
+//	}
+//	
+//	for (int i = 100; i <= 200; i++)
+//	{
+//		if (isPrime(i))
+//		{
+//			printf("%d ", i);
+//		}
+//	}
+//	
+//	return 0;
+//}
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int left = 0;
+//	int right = 9;
+//	int input;
+//	int mid;
+//	printf("plese enter the number that you would like to search\n");
+//	scanf("%d", &input);
+//	while (right >= left)
+//	{
+//		mid = (left + right) / 2;
+//		if (input > arr[mid])
+//		{
+//			left = mid + 1;
+//		}
+//		else if (input < arr[mid])
+//		{
+//			right = mid - 1;
+//		}
+//		else
+//		{
+//			break;
+//		}
+//	}
+//	if (arr[mid] == input)
+//	{
+//		printf("%d has found, the index is %d\n", input, mid);
+//	}
+//	else {
+//		printf("no found\n");
+//	}
+//	return 0;
+//}
+//#include<time.h>
+//#include<random>
+//int main()
+//{
+//	srand(time(NULL));
+//	int a = rand() % 11;
+//	int input;
+//	printf("a random number generated. 0-10\n");
+//	do
+//	{
+//		printf("Please enter your guess:\n");
+//		scanf("%d", &input);
+//		if (input > a)
+//		{
+//			printf("your guess is larger than the number\n");
+//		}
+//		else if (input < a)
+//		{
+//			printf("your guess is smaller than the number\n");
+//		}
+//	} while (input != a);
+//	if (input == a)
+//	{
+//		printf("your guess is correct!\n");
+//	}
+//}
+
+//int main()
+//{
+//	for (int i = 1; i <= 9; i++)
+//	{
+//		for (int j = 1; j <= i; j++)
+//		{
+//			printf("%d*%d=%d ", i, j, i*j);
+//		} 
+//		printf("\n");
+//	}
+//	return 0;
+//}
+//int main()
+//{	
+//	//1-100有多少个9
+//	int count = 0;
+//	for (int i = 1; i <= 100; i++)
+//	{
+//		if (i % 10 == 9)
+//		{
+//			count++;
+//		}
+//		if (i / 10 == 9)
+//		{
+//			count++;
+//		}
+//	}
+//	printf("%d\n", count);
+//	return 0;
+//}
+
+//int main()
+//{
+//	double sum = 0.0;
+//	float flag = 1.0;
+//	for (int i = 1; i <= 99; i++)
+//	{
+//		sum += flag * (1.0 / i);
+//		flag = -flag;
+//	}
+//	printf("%lf\n", sum);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int x, y;
+//	int cmd;
+//	int temp;
+//	printf("plese enter two numbers :\n");
+//	scanf("%d%d", &x, &y);
+//	cmd = x % y;
+//	temp = y;
+//	while (cmd)
+//	{
+//		int t = cmd;
+//		cmd = temp%cmd;
+//		temp = t;
+//	}
+//	printf("cmd = %d \n", temp);
+//	return 0;
+//}
+
+
 int main()
 {
 	printf("\a\a\a\a\a\a");//\a是 警告声音
