@@ -1,3 +1,37 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+
+struct ListNode* reverseList(struct ListNode* head){
+
+    if(head == NULL)
+    {
+        return head;
+    }
+    if(head->next == NULL)
+    {
+        return head;
+    }
+    struct ListNode* end = NULL;
+    struct ListNode* back = head;
+    struct ListNode* front = head->next;
+    while(front)
+    {
+        back->next = end;
+        end = back;
+        back = front;
+        front = front->next;
+    }
+    back->next = end;
+    return back;
+}
+
+
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 
