@@ -1,3 +1,49 @@
+
+int main()
+{
+	//不允许创建临时变量，交换两个整数的内容
+	int a = 10;
+	int b = 15;
+	printf("%d %d\n", a, b);
+	a = a ^ b;
+	b = a ^ b;
+	a = a ^ b;
+	printf("%d %d\n", a, b);
+	return 0;
+}
+
+
+int main()
+{
+	//统计二进制中1的个数
+	int a = -1;
+	int count = 0;
+	while (a)
+	{
+		a= a&(a - 1);
+		count++;
+	}
+	printf("%d\n", count);
+	return 0;
+}
+
+int main()
+{
+	//获取一个整数二进制序列中所有的偶数位和奇数位，分别打印出二进制序列
+	int a = 2299;
+	///00000000 00000000 00001000 11111011
+	for (int i = 30; i >= 0; i-=2)
+	{
+		printf("%d ", (a >> i) & 1);
+	}
+	printf("\n");
+	for (int i = 31; i >= 1; i -= 2)
+	{
+		printf("%d ", (a >> i) & 1);
+	}
+	return 0;
+}
+
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 
