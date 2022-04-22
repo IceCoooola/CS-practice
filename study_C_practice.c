@@ -1,3 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+
+int main()
+{
+	int a = 2299;
+	int b = 1999;
+	int count = 0;
+	//两个int（32位）整数m和n的二进制表达中，有多少个位(bit)不同？ 
+	//00000000 00000000 00000000 00001010
+	//00000000 00000000 00000000 00010100	
+	for (int i = 0; i < 32; i++)
+	{
+		if ((a >> i ^ b >> i) % 2 == 1)
+		{
+			count++;
+		}
+	}
+	printf("%d\n", count);
+	return 0;
+}
+
 /**
  * Definition for singly-linked list.
  * struct ListNode {
