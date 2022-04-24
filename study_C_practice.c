@@ -1,4 +1,53 @@
 
+#include <stdio.h>
+#include<math.h>
+
+int main()
+{
+	int i = 0;
+	int num = 6;
+	int star = 1;
+	for (i; i < 7; i++)
+	{
+		for (int j = 0; j < num; j++)
+		{
+			printf(" ");
+		}
+		for (int j = 0; j < star; j++)
+		{
+			printf("*");
+		}
+		for (int j = 0; j < num; j++)
+		{
+			printf(" ");
+		}
+		num -= 1;
+		star += 2;
+		printf("\n");
+	}
+	num += 2;
+	star -= 4;
+	for (i = 0; i < 6; i++)
+	{
+		for (int j = 0; j < num; j++)
+		{
+			printf(" ");
+		}
+		for (int j = 0; j < star; j++)
+		{
+			printf("*");
+		}
+		for (int j = 0; j < num; j++)
+		{
+			printf(" ");
+		}
+		num += 1;
+		star -= 2;
+		printf("\n");
+	}
+	return 0;
+}
+
 
 #include <stdio.h>
 #include<math.h>
