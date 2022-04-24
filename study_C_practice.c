@@ -1,4 +1,91 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
 
+
+int main()
+{
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int left = 0;
+	int right = 9;
+	while (right >= left)
+	{
+		while (arr[left] % 2 != 0)
+		{
+			left++;
+		}
+		while (arr[right] % 2 != 1)
+		{
+			right--;
+		}
+		int temp = arr[left];
+		arr[left] = arr[right];
+		arr[right] = temp;
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	return 0;
+}
+
+//char* myStrcpy(char* dest, const char* src)
+//{
+//	if (dest == NULL || src == NULL)
+//	{
+//		return NULL;
+//	}
+//	while (*src != '\0')
+//	{
+//		*dest = *src;
+//		src++;
+//		dest++;
+//	}
+//}
+//int main()
+//{
+//	char arr1[20] = {0};
+//	char arr2[10] = "abcd";
+//	myStrcpy(arr1, arr2);
+//	printf("%s\n", arr1);
+//	return 0;
+//}
+
+//int myStrlen(const char* arr)
+//{
+//	if (arr == NULL)
+//	{
+//		return -1;
+//	}
+//	int count = 0;
+//	while (*arr != '\0')
+//	{
+//		count++;
+//		arr++;
+//	}
+//	return count;
+//}
+//
+//int main()
+//{
+//	char arr[] = "abcd";
+//	printf("%d\n",myStrlen(arr));
+//}
+
+//int main()
+//{
+//	int bottle = 0;
+//	int coke = 0;
+//	int money = 20;
+//	bottle = coke = 20;
+//	while (bottle)
+//	{
+//		bottle -= 2;
+//		coke += 1;
+//		bottle += 1;
+//	}
+//	printf("%d\n", coke);
+//	return 0;
+//}
 #include <stdio.h>
 #include<math.h>
 
