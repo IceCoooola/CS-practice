@@ -1,4 +1,19 @@
-
+// 
+int main()
+{
+	int arr[] = { 1,2,3,4,5 };
+	short* arr2 = arr;
+	int i = 0;
+	for (i = 0; i < 4; i++)
+	{
+		*(arr2 + i) = 0;
+	}
+	for (i = 0; i < 5; i++)
+	{
+		printf("%d ",arr[i]);
+	}
+	return 0;
+}
 int main()
 {
 	//不允许创建临时变量，交换两个整数的内容
