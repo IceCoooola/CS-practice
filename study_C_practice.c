@@ -1,4 +1,35 @@
-// 
+
+
+#include <stdio.h>
+#include<math.h>
+
+int main()
+{
+	int i = 0;
+
+	for (i = 0; i < 100000; i++)
+	{
+		int temp = i;
+		int count = 0;
+		int sum = 0;
+		while (temp)
+		{
+			temp /= 10;
+			count++;
+		}
+		temp = i;
+		for (int j = 0; j < count; j++)
+		{
+			sum += pow(temp % 10, count);
+			temp /= 10;
+		}
+		if (sum == i)
+		{
+			printf("%d ", sum);
+		}
+	}
+	return 0;
+}// 
 int calc(int x)
 {
 	int sum = 0;
