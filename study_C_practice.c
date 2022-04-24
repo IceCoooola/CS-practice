@@ -1,4 +1,54 @@
 // 
+int calc(int x)
+{
+	int sum = 0;
+	for (int i = 0; i < 5; i++)
+	{
+		sum += x;
+		x = x * 10 + x%10;
+	}
+	return sum;
+}
+
+int main()
+{
+	int x = 4;
+	int sum = calc(x);
+	printf("%d\n", sum);
+	return 0;
+
+}
+
+//void reverse(int* arr, int sz)
+//{
+//	int left = 0;
+//	int right = sz - 1;
+//	while (right >= left)
+//	{
+//		int temp = arr[left];
+//		arr[left] = arr[right];
+//		arr[right] = temp;
+//		left++;
+//		right--;
+//	}
+//}
+//
+//void print(int* arr, int sz)
+//{
+//	int i = 0;
+//	for (i; i < sz; i++)
+//	{
+//		printf("%d\n", *(arr + i));
+//	}
+//}
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6 };
+//	print(arr, sizeof(arr)/sizeof(int));
+//	reverse(arr, sizeof(arr)/sizeof(int));
+//	print(arr, sizeof(arr)/sizeof(int));
+//	return 0;
+//}
 int main()
 {
 	int arr[] = { 1,2,3,4,5 };
