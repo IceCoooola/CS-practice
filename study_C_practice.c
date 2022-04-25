@@ -1,3 +1,33 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+//Middle of the Linked List.
+
+struct ListNode* middleNode(struct ListNode* head){
+   
+    int sz = 0;
+    struct ListNode* temp = head;
+    while(temp)
+    {
+        temp = temp->next;
+        sz++;
+    }
+    
+    temp = head;
+    
+    for(int i = 0; i<sz/2;i++)
+    {
+        temp = temp->next;
+    }
+    return temp;
+}
+
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
