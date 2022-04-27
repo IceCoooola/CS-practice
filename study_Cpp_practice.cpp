@@ -1,3 +1,108 @@
+#define _crt_secure_no_warnings
+#include<iostream>
+using namespace std;
+
+class Prop {
+public:
+	int num;
+	int yes;
+	int no;
+	int total;
+	float peryes;
+	Prop(int, int, int, int, float);
+	Prop(int, int, int);
+	bool operator<=(const Prop& prop) const
+	{
+		return peryes <= prop.peryes;
+	}
+	Prop operator+(const Prop&) const;
+	Prop& operator++();
+	Prop operator++(int);
+	friend ostream& operator<<(ostream& os, const Prop& prop);
+	friend istream& operator>>(istream& is, Prop& prop);
+};
+
+Prop::Prop(int num, int y, int no, int t, float pery)
+{
+	this->num = num;
+	this->yes = y;
+	this->no = no;
+	this->total = t;
+	this->peryes = pery;
+}
+
+Prop::Prop(int number, int y, int n)
+{
+	num = number;
+	yes = y;
+	no = n;
+	total = yes + no;
+	peryes = yes / (float)total * 100;
+}
+
+Prop& Prop::operator++()
+{
+	yes++;
+	total++;
+	peryes = yes / (float)total * 100;
+	return *this;
+}
+
+Prop Prop::operator++(int)
+{
+	Prop temp = *this;
+	yes++;
+	total++;
+	peryes = yes / (float)total * 100;
+	return temp;
+}
+
+Prop Prop::operator+(const Prop& prop) const
+{
+	return Prop(num, yes + prop.yes, no + prop.no, total + prop.total, (yes + prop.yes) / (float)(total + prop.total) * 100);
+	return Prop(num, yes + prop.yes, no + prop.no);
+}
+
+ostream& operator<<(ostream& os, const Prop& prop)
+{
+	os << "Proposition numer : " << prop.num << endl;
+	os << "Yes vote : " << prop.yes << endl;
+	os << "No vote : " << prop.no << endl;
+	os << "Total vote : " << prop.total << endl;
+	os << "Percentage of yes vote : " << prop.peryes << endl;
+	return os;
+}
+
+istream& operator>>(istream& is, Prop& prop)
+{
+	is >> prop.num >> prop.yes >> prop.no;
+	prop.total = prop.yes + prop.no;
+	prop.peryes = prop.yes / (float)prop.total;
+	return is;
+}
+
+int main()
+{
+	Prop prop111(111, 111, 5), PROP111(111,6,10);
+	cout << prop111<<PROP111;
+	cout << prop111 + PROP111;
+	cout << prop111++;
+	cout << prop111;
+	cout << ++prop111;
+	if (prop111 <= PROP111)
+	{
+		printf("PROP 111 per yes is <= prop 111\n");
+	}
+	else
+	{
+		printf("PROP 111 per yes is not <= prop 111\n");
+	}
+	Prop p(1,2,3);
+	cin >> p;
+	cout << p;
+	return 0;
+}
+
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 
