@@ -3,6 +3,43 @@
 
 int main()
 {
+	int i = 0;
+	for (i = 1; i <= 4; i++)
+	{
+		int sum = 0;
+		if (i != 1)
+			sum++;
+		if (i == 3)
+			sum++;
+		if (i == 4)
+			sum++;
+		if (i != 4)
+			sum++;
+		if (sum == 3)
+			break;
+	}
+	switch (i)
+	{
+	case 1:
+		printf("murderer is A\n");
+		break;
+	case 2:
+		printf("murderer is B\n");
+		break;
+	case 3:
+		printf("murderer is C\n");
+		break;
+	case 4:
+		printf("murderer is D\n");
+		break;
+	}
+	return 0;
+}
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+{
 	int arr[10][10] = { 0 };
 	arr[0][0] = 1;
 	for (int i = 1; i < 10; i++)
