@@ -1,3 +1,67 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+
+
+class Point
+{
+	friend ostream& operator<<(ostream& os,const Point&);
+public:
+	int get_x()
+	{
+		return x;
+	}
+	int get_y()
+	{
+		return y;
+	}
+	Point(int a = 0, int b = 0)
+	{
+		x = a;
+		y = b;
+	}
+protected:
+	int x;
+	int y;
+};
+
+ostream& operator<<(ostream& os,const Point& p)
+{
+	os << "[ " << p.x << "," << p.y << " ]\n";
+	return os;
+}
+
+class Circle : public Point
+{
+	friend ostream& operator<<(ostream&, const Circle&);
+public:
+	Circle(double n = 0.0, int a = 0,int b = 0):Point(a,b)
+	{
+		radius = (n >= 0 ? n:0);
+	}
+protected:
+	double radius;
+};
+
+ostream& operator<<(ostream& os,const Circle& c)
+{
+	os << "The center of the circle is at " << (Point)c;
+	os << "The radius is " <<setprecision(2)<<fixed<<showpoint << c.radius;
+	os << endl;
+	return os;
+}
+
+int main()
+{
+	Point a, b(5, 5);
+	cout << a << b<<endl;
+	Circle c,d(4.5,1,2);
+	cout << c << d;
+	return 0;
+}
+
 #define _crt_secure_no_warnings
 #include<iostream>
 using namespace std;
