@@ -3,7 +3,80 @@
 #include<iomanip>
 using namespace std;
 
+class Employee
+{
+public:
+	Employee(const char*, const char*);
+	~Employee();
+	void print() const;
+private:
+	char* last;
+	char* first;
 
+};
+
+Employee::Employee(const char* lastName, const char* firstName)
+{
+	last = new char[strlen(lastName)+1];
+	strcpy(last, lastName);
+	first = new char[strlen(firstName)+1];
+	strcpy(first, firstName);
+	cout << "Employee constructor.\n";
+}
+
+Employee::~Employee()
+{
+	cout << "Employee destructor destruct " << last << " " << first;
+	delete[] last;
+	delete[] first;
+}
+
+void Employee::print() const
+{
+	cout << first << " " << last;
+}
+
+class Worker :public Employee
+{
+public:
+	Worker(const char*, const char*, double hour, double wage);
+	double getPay() const;
+	void print() const;
+	~Worker();
+private:
+	double hour;
+	double wage;
+};
+
+Worker::Worker(const char* lastName, const char* firstName, double hour, double wage) 
+	:Employee(lastName, firstName)
+{
+	this->hour = hour;
+	this->wage = wage;
+}
+
+double Worker::getPay() const
+{
+	return hour * wage;
+}
+
+void Worker::print() const
+{
+	Employee::print();
+	cout << " wage is " << getPay()<<endl;
+}
+
+Worker::~Worker()
+{
+	cout << "Worker destructor.\n";
+}
+
+int main()
+{
+	Worker andrew("Ying", "Andrew", 5, 8.1);
+	andrew.print();
+	return 0;
+}
 
 class Point
 {
