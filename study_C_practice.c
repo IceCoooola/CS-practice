@@ -3,6 +3,48 @@
 
 int main()
 {
+	char A = 0;
+	char B = 0;
+	char C = 0;
+	char D = 0;
+	char E = 0;
+	for (A = 1; A <= 5; A++)
+	{
+		for (B = 1; B <= 5; B++)
+		{
+			for (C = 1; C <= 5; C++)
+			{
+				for (D = 1; D <= 5; D++)
+				{
+					for (E = 1; E <= 5; E++)
+					{
+						int count = 0;
+						if ((B == 2 && A != 3) || (B != 2 && A == 3))
+							count++;
+						if ((B == 2 && E != 4) || (B != 2 && E == 4))
+							count++;
+						if ((C == 1 && D != 2) || (C != 1 && D == 2))
+							count++;
+						if ((C == 5 && D != 3) || (C != 5 && D == 3))
+							count++;
+						if ((E == 4 && A != 1) || (E != 4 && A == 1))
+							count++;
+						if (A*B*C*D*E ==120 && count == 5)
+							goto print;
+
+					}
+				}
+			}
+		}
+	}
+print:
+	printf("A: %d B: %d C: %d D: %d E: %d", A, B, C, D, E);
+
+	return 0;
+}
+
+int main()
+{
 	int i = 0;
 	for (i = 1; i <= 4; i++)
 	{
