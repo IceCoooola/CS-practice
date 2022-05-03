@@ -1,7 +1,52 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+//234. Palindrome Linked List
+
+bool isPalindrome(struct ListNode* head){
+
+    struct ListNode* fast = head;
+    struct ListNode* slow = head;
+    while(fast&&fast->next)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    struct ListNode* tail = NULL;
+    struct ListNode* newNode = NULL;
+    while(slow)
+    {
+        newNode = slow;
+        slow = slow->next;
+        newNode->next = tail;
+        tail = newNode;
+    }
+    while(newNode)
+    {
+        if(head->val == newNode->val)
+        {
+            head = head->next;
+            newNode = newNode->next;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return true;
+   
+}
+
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<iomanip>
 using namespace std;
+
+
 
 class Employee
 {
