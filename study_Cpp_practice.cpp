@@ -1,3 +1,25 @@
+#define _crt_secure_no_warnings
+#include<iostream>
+
+class Super {
+	void print();
+	virtual void test() const = 0;
+};
+
+class Sub:Super
+{
+	void test()
+	{
+		std::cout << "test\n";
+	}
+};
+
+int main() 
+{
+	Super* ptr = new Super;
+	//只要有一个及以上的虚函数的类就是抽象类，就没办法instantiate
+	return 0;
+}
 /**
  * Definition for singly-linked list.
  * struct ListNode {
