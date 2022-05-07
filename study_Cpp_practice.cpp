@@ -1,6 +1,39 @@
 #define _crt_secure_no_warnings
 #include<iostream>
 
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode *detectCycle(struct ListNode *head) {
+    struct ListNode* fast = head;
+    struct ListNode* slow = head;
+    struct ListNode* meetPoint = NULL;
+    while(fast&&fast->next)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+        if(fast == slow)
+        {
+            meetPoint = slow;
+            break;
+        }
+    }
+    while(meetPoint)
+    {  
+        if(head == meetPoint)
+        {
+            break;
+        }
+        head = head->next;
+        meetPoint = meetPoint->next;
+    }
+    return meetPoint;
+}
+
 class Super {
 	void print();
 	virtual void test() const = 0;
