@@ -4,6 +4,26 @@
 #include<malloc.h>
 #include<assert.h>
 
+
+int findSingleDog(const int* arr, int sz)
+{
+	int t = 0;
+	while (sz--)
+	{
+		t ^= arr[sz];
+	}
+	return t;
+}
+
+int main()
+{
+	__FILE__;
+	int arr[10] = { 1,2,12,2,1,6,6,8,8 };
+	int singleDog = findSingleDog(arr,9);
+	printf("%d\n", singleDog);
+	return 0;
+}
+
 int my_atoi(char* arr)
 {
 	int i = 0;
