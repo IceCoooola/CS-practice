@@ -4,7 +4,36 @@
 #include<malloc.h>
 #include<assert.h>
 
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
 
+
+struct ListNode* deleteDuplicates(struct ListNode* head){
+    if(!head)
+        return head;
+    struct ListNode* slow = head;
+    struct ListNode* fast = head->next;
+    while(fast)
+    {
+        if(slow->val == fast->val)
+        {
+            fast = fast->next;
+        }
+        else
+        {
+            slow->next = fast;
+            fast = fast->next;
+            slow = slow->next;
+        }
+    }
+    slow->next = fast;
+    return head;
+}
 
 /**
  * Note: The returned array must be malloced, assume caller calls free().
