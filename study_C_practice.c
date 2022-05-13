@@ -1,3 +1,35 @@
+int my_atoi(char* arr)
+{
+	int i = 0;
+	int flag = 1;
+	while (arr[i]< '0' ||arr[i]> '9')
+	{
+		i++;
+	}
+	if(arr[i] == '\0')
+		return 0;
+	if (arr[i-1] == '+')
+		flag = 1;
+	else if (arr[i-1] == '-')
+		flag = -1;
+	
+	int num = 0;
+	while (arr[i] >= '0' && arr[i] <= '9')
+	{
+		num = num * 10 + (arr[i] - '0');
+		i++;
+	}
+	num *= flag;
+	return num;
+}
+
+int main()
+{
+	char arr[] = "ab-1234cdefg";
+	printf("%d\n",my_atoi(arr));
+	return 0;
+}
+
 /**
  * Definition for singly-linked list.
  * struct ListNode {
