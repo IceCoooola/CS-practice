@@ -4,6 +4,46 @@
 #include<malloc.h>
 #include<assert.h>
 
+#include<assert.h>
+
+#define offsetof(StructType, MemberName) (size_t)&(((StructType *)0)->MemberName)
+struct stu
+{
+	int a;
+	int b;
+	char c;
+}stu;
+
+
+int main()
+{
+	printf("%d\n",offsetof(struct stu, a));
+	return 0;
+}
+#define SWAP(n) (((n)&2863311530)>>1) | (((n)&1431655765)<<1)
+
+int main()
+{
+	int t = 5;
+	//0101
+	//1010
+	printf("%d\n", SWAP(t));
+	//00000000 00000000 00000000 00000101
+	//&
+	//10101010 10101010 10101010 10101010
+	//=
+	//00000000 00000000 00000000 00000000
+	//>>
+
+	//00000000 00000000 00000000 00000101
+	//&
+	//01010101 01010101 01010101 01010101
+	//=
+	//00000000 00000000 00000000 00000101
+	//<<
+	//|
+	return 0;
+}
 
 int findSingleDog(const int* arr, int sz)
 {
