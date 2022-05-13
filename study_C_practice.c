@@ -1,3 +1,9 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<malloc.h>
+#include<assert.h>
+
 int my_atoi(char* arr)
 {
 	int i = 0;
@@ -23,13 +29,67 @@ int my_atoi(char* arr)
 	return num;
 }
 
-int main()
+char* my_strcat(char* dest, const char* src)
 {
-	char arr[] = "ab-1234cdefg";
-	printf("%d\n",my_atoi(arr));
-	return 0;
+	char* start = dest;
+	while (*dest != '\0')
+	{
+		dest++;
+	}
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return start;
 }
 
+char* my_strncat(char* dest, const char* src, int n)
+{
+	assert(dest);
+	assert(src);
+	char* start = dest;
+	while (*dest != '\0')
+	{
+		dest++;
+	}
+	while (*src != '\0' && n > 0)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+		n--;
+	}
+	*dest = '\0';
+	return start;
+}
+
+char* my_strncpy(char* dest, const char* src, int n)
+{
+	char* start = dest;
+	while (n--&&*src)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return start;
+}
+
+int main()
+{
+	char arr1[222] = "avcdsdasd";
+	char arr[] = "ab-1234cdefg";
+	//printf("%d\n",my_atoi(arr));
+	//my_strcat(arr1, arr);
+	//my_strncat(arr1, arr,3);
+	my_strncpy(arr1, arr, 3);
+	printf("%s\n", arr1);
+	return 0;
+}
 /**
  * Definition for singly-linked list.
  * struct ListNode {
