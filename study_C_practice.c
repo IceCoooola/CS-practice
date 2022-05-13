@@ -5,6 +5,55 @@
 #include<assert.h>
 
 
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* singleNumber(int* nums, int numsSize, int* returnSize){
+    
+    int key = 0;
+    int i;
+    for(i = 0; i<numsSize; i++)
+    {
+        key^=nums[i];
+    }
+    int k = 0;
+    while(((key>>k)&1) != 1)
+    {
+        k++;
+    }
+    int arr1[numsSize];
+    int arr2[numsSize];
+    int arr1sz = 0;
+    int arr2sz = 0;
+    for(i = 0; i<numsSize;i++)
+    {
+        if ((((nums[i]>>k)^(key>>k))&1) == 0)
+        {
+            arr1[arr1sz] = nums[i];
+            arr1sz++;
+        }
+        else
+        {
+            arr2[arr2sz] = nums[i];
+            arr2sz++;
+        }
+    }
+    int* list = (int*)malloc(sizeof(int)*2);
+    list[0] = 0;
+    list[1] = 0;
+    for(i = 0; i<arr1sz; i++)
+    {
+        list[0] ^= arr1[i];
+    }
+    for(i = 0; i<arr2sz; i++)
+    {
+        list[1] ^= arr2[i];
+    }
+    *returnSize = 2;
+    return list;
+}
+
 int singleNumber(int* nums, int numsSize){
 
     int temp = 0;
