@@ -3,7 +3,77 @@
 #include<string.h>
 #include<malloc.h>
 #include<assert.h>
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<iomanip>
+using namespace std;
 
+class tool
+{
+public:
+	tool();
+	~tool();
+	void a()
+	{
+		cout << "tool: a\n";
+	}
+};
+tool::tool()
+{
+	cout << "constructor tool\n";
+}
+
+tool::~tool()
+{
+	cout << "destructor tool\n";
+}
+
+class method
+{
+public:
+	method();
+	~method();
+};
+
+method::method()
+{
+	cout << "constructor method\n";
+
+}
+
+method::~method()
+{
+	cout << "destructor method\n";
+
+}
+
+class hammer : public tool, public method
+{
+public:
+	hammer();
+	~hammer(); 
+	void a()
+	{
+		cout << "hammer: a\n";
+	}
+};
+
+hammer::hammer()
+{
+	cout << "constructor hammer\n";
+}
+
+hammer::~hammer()
+{
+	cout << "destructor hammer\n";
+}
+
+int main()
+{
+	hammer p;
+	p.a();
+	return 0;
+}
 /**
  * Definition for singly-linked list.
  * struct ListNode {
