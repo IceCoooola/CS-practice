@@ -1,4 +1,135 @@
+#define StackDataType int
 
+typedef struct Stack
+{
+	StackDataType* data;
+	int top;
+	int capacity;
+} Stack;
+
+void BuyData(Stack* s)
+{
+	assert(s);
+	StackDataType* temp = realloc(s->data, sizeof(StackDataType) * (s->capacity*2));
+	if (temp)
+	{
+		s->data = temp;
+		s->capacity*=2;
+	}
+	else
+	{
+		printf("realloc failed\n");
+		exit(-1);
+	}
+}
+
+void InitStack(Stack* s)
+{
+	assert(s);
+	s->data = (StackDataType*)malloc(sizeof(StackDataType) * 3);
+	s->top = 0;
+	s->capacity = 3;
+}
+void PushStack(Stack* s, StackDataType x)
+{
+	assert(s);
+	if (s->top == s->capacity)
+	{
+		BuyData(s);
+	}
+	s->data[s->top] = x;
+	s->top++;
+}
+void PopStack(Stack* s)
+{
+	assert(s&&(s->top != 0));
+	s->top--;
+}
+void DestoryStack(Stack* s)
+{
+	assert(s);
+	free(s->data);
+	s->data = NULL;
+	s->top = 0;
+	s->capacity = 0;
+}
+
+StackDataType TopStack(Stack* s)
+{
+	return s->data[s->top-1];
+}
+bool IsEmptyStack(Stack* s)
+{
+	return(s->top == 0);
+}
+int StackSize(Stack* s)
+{
+	return s->top;
+}
+
+
+
+typedef struct {
+    Stack enQueue;
+    Stack deQueue;
+} MyQueue;
+
+
+MyQueue* myQueueCreate() {
+    MyQueue* obj = (MyQueue*)malloc(sizeof(MyQueue));
+    InitStack(&obj->enQueue);
+    InitStack(&obj->deQueue);
+    return obj;
+}
+
+void myQueuePush(MyQueue* obj, int x) {
+    PushStack(&obj->enQueue, x);
+}
+
+
+int myQueuePeek(MyQueue* obj) {
+  
+    if(IsEmptyStack(&obj->deQueue))
+    {
+        while(!IsEmptyStack(&obj->enQueue))
+        {
+            PushStack(&obj->deQueue, TopStack(&obj->enQueue));
+            PopStack(&obj->enQueue);
+        }
+    }
+    return TopStack(&obj->deQueue);
+}
+
+int myQueuePop(MyQueue* obj) {
+  
+    int top = myQueuePeek(obj);
+    PopStack(&obj->deQueue);
+    return top;
+}
+
+bool myQueueEmpty(MyQueue* obj) {
+  
+    return IsEmptyStack(&obj->deQueue) && IsEmptyStack(&obj->enQueue);
+}
+
+void myQueueFree(MyQueue* obj) {
+    DestoryStack(&obj->deQueue);
+    DestoryStack(&obj->enQueue);
+}
+
+/**
+ * Your MyQueue struct will be instantiated and called as such:
+ * MyQueue* obj = myQueueCreate();
+ * myQueuePush(obj, x);
+ 
+ * int param_2 = myQueuePop(obj);
+ 
+ * int param_3 = myQueuePeek(obj);
+ 
+ * bool param_4 = myQueueEmpty(obj);
+ 
+ * myQueueFree(obj);
+*/
 typedef int QueueDataType;
 typedef struct QueneNode
 {
