@@ -1,12 +1,217 @@
+
+typedef int QueueDataType;
+typedef struct QueneNode
+{
+	QueueDataType data;
+	struct QueneNode* next;
+}QueueNode;
+
+typedef struct Quene
+{
+	QueueNode* head;
+	QueueNode* tail;
+}Q;
+
+
+void initQueue(Q* q)
+{
+	assert(q);
+	//initiate quene to size of element. 
+	q->head = NULL;
+	q->tail = NULL;
+}
+
+bool isEmptyQueue(Q* q)
+{
+	assert(q);
+	//return true if quene is empty, return false if quene is not empty.
+	return q->head == NULL;
+}
+
+void enQueue(Q* q, QueueDataType x)
+{
+	assert(q);
+	//add one element to the back of quene
+	if (isEmptyQueue(q))
+	{
+		q->head = (QueueNode*)malloc(sizeof(QueueNode));
+		if (q->head == NULL)
+		{
+			exit(-1);
+		}
+		q->head->data = x;
+		q->head->next = NULL;
+		q->tail = q->head;
+	}
+	else
+	{
+		q->tail->next = (QueueNode*)malloc(sizeof(QueueNode));
+		if (q->tail->next == NULL)
+		{
+			exit(-1);
+		}
+		q->tail->next->data = x;
+		q->tail->next->next = NULL;
+		q->tail = q->tail->next;
+	}
+
+}
+void deQueue(Q* q)
+{
+	//delete one element from the front of quene
+	assert(q);
+	if (isEmptyQueue(q))
+	{
+		return;
+	}
+	if (q->head->next == NULL)
+	{
+		free(q->head);
+		q->head = q->tail = NULL;
+	}
+	else
+	{
+		QueueNode* temp = q->head;
+		q->head = q->head->next;
+		free(temp);
+	}
+}
+QueueDataType getFrontQueue(Q* q)
+{
+	assert(q);
+	if (isEmptyQueue(q))
+	{
+		return -1;
+	}
+	return q->head->data;
+}
+QueueDataType getBackQueue(Q* q)
+{
+	assert(q);
+	if (isEmptyQueue(q))
+	{
+		return -1;
+	}
+	return q->tail->data;
+}
+void destroyQueue(Q* q)
+{
+	//delete all elements in quene
+	while (q->head)
+	{
+		QueueNode* temp = q->head;
+		q->head = q->head->next;
+		free(temp);
+	}
+	q->tail = NULL;
+}
+
+int getQueueLength(Q* q)
+{
+	int size = 0;
+	QueueNode* cur = q->head;
+	while (cur != NULL)
+	{
+		size++;
+		cur = cur->next;
+	}
+	return size;
+}
+
+typedef struct {
+    Q Q1;
+    Q Q2;
+} MyStack;
+
+
+MyStack* myStackCreate() {
+
+    MyStack* obj = (MyStack*)malloc(sizeof(MyStack));
+    initQueue(&obj->Q1);
+    initQueue(&obj->Q2);
+    return obj;
+}
+
+void myStackPush(MyStack* obj, int x) {
+    
+    if(!isEmptyQueue(&obj->Q1))
+    {
+        enQueue(&obj->Q1, x);        
+    }  
+    else
+    {
+        enQueue(&obj->Q2, x);        
+    }
+    
+}
+
+int myStackPop(MyStack* obj) {
+  
+    Q* Empty = &obj->Q1;
+    Q* NotEmpty = &obj->Q2;
+    if(!isEmptyQueue(&obj->Q1))
+    {
+        Empty = &obj->Q2;
+        NotEmpty = &obj->Q1;
+    }
+    
+    while(getQueueLength(NotEmpty)>1)
+    {
+        enQueue(Empty, getFrontQueue(NotEmpty));
+        deQueue(NotEmpty);
+    }
+    int top = getFrontQueue(NotEmpty);
+    deQueue(NotEmpty);
+    return top;
+}
+
+int myStackTop(MyStack* obj) {
+   
+    if(!isEmptyQueue(&obj->Q1))
+    {
+        return (getBackQueue(&obj->Q1));
+    }
+    else
+    {
+        return (getBackQueue(&obj->Q2));        
+    }
+    
+}
+
+bool myStackEmpty(MyStack* obj) {
+  return isEmptyQueue(&obj->Q1) && isEmptyQueue(&obj->Q2);
+}
+
+void myStackFree(MyStack* obj) {
+    if(!isEmptyQueue(&obj->Q1))
+    {
+        destroyQueue(&obj->Q1);
+    }
+    else
+    {
+        destroyQueue(&obj->Q2);
+    }
+}
+
+/**
+ * Your MyStack struct will be instantiated and called as such:
+ * MyStack* obj = myStackCreate();
+ * myStackPush(obj, x);
+ 
+ * int param_2 = myStackPop(obj);
+ 
+ * int param_3 = myStackTop(obj);
+ 
+ * bool param_4 = myStackEmpty(obj);
+ 
+ * myStackFree(obj);
+*/
+
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<string.h>
 #include<malloc.h>
 #include<assert.h>
-#define _CRT_SECURE_NO_WARNINGS
-#include<iostream>
-#include<iomanip>
-using namespace std;
 
 class tool
 {
