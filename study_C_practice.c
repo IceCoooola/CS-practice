@@ -1,3 +1,21 @@
+TreeKLevelSize(BTNode* root, int k)
+{
+	if(k ==1)
+	{
+		if(!root)
+		{
+			return 0;
+		}
+		else
+		{
+			return 1;
+		}
+	}	
+	return TreeKLevelSize(root->left, k-1) + TreeKLevelSize(root->right, k-1) ;
+
+}
+
+
 #define StackDataType int
 
 typedef struct Stack
