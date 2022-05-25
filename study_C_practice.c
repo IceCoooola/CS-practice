@@ -1,5 +1,82 @@
 
 
+void swap(int* num1, int* num2)
+{
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+}
+
+void reverse(int* arr, int size)
+{
+    int first = 0;
+    int last = size -1;
+    while(last>first)
+    {
+        swap(&arr[last], &arr[first]);
+        last--;
+        first++;
+    }
+}
+
+void rotate(int* nums, int numsSize, int k){
+
+    k = k%numsSize;
+    reverse(&nums[0], numsSize-k);
+    reverse(&nums[numsSize-k], k);
+    reverse(nums, numsSize);
+}
+
+void rotate(int* nums, int numsSize, int k){
+
+    while(k)
+    {
+        int temp = nums[numsSize-1];
+        for(int i = numsSize-1; i>0; i--)
+        {
+            nums[i] = nums[i-1];
+        }
+        nums[0] = temp;
+    }
+    
+}
+
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
+
+    int newEnd = n+m-1;
+    int end1 = m-1;
+    int end2 = n-1;
+    while(end1>=0 && end2 >=0)
+    {
+        if(nums1[end1] > nums2[end2])
+        {
+            nums1[newEnd] = nums1[end1];
+            end1--;
+            newEnd--;
+        }
+        else
+        {
+            nums1[newEnd] = nums2[end2];
+            end2--;
+            newEnd--;
+        }
+    }
+    while(end2 >=0)
+    {
+        
+            nums1[newEnd] = nums2[end2];
+            end2--;
+            newEnd--;
+    }
+    while(end1 >= 0)
+    {
+        
+            nums1[newEnd] = nums1[end1];
+            end1--;
+            newEnd--;
+        
+    }
+}
 
 void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
 
