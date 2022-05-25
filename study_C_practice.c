@@ -1,5 +1,49 @@
 
 
+
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
+
+    int newArr[m+n];
+    int ptr1 = 0;
+    int ptr2 = 0;
+    int newPtr = 0;
+    while(ptr1 < m && ptr2 < n)
+    {
+        if(nums1[ptr1] < nums2[ptr2])
+        {
+            newArr[newPtr] = nums1[ptr1];
+            ptr1++;
+            newPtr++;
+        }
+        else
+        {
+            newArr[newPtr] = nums2[ptr2];
+            ptr2++;
+            newPtr++;
+            
+        }
+    }
+    while(ptr1 != m)
+    {
+        
+        newArr[newPtr] = nums1[ptr1];
+        ptr1++;
+        newPtr++;
+    }
+    while(ptr2 != n)
+    {
+        
+        newArr[newPtr] = nums2[ptr2];
+        ptr2++;
+        newPtr++;
+    }
+    newPtr = 0;
+    while(newPtr < m+n)
+    {
+        nums1[newPtr] = newArr[newPtr];
+        newPtr++;
+    }
+}
 int removeElement(int* nums, int numsSize, int val){
 
     int fast = 0;
