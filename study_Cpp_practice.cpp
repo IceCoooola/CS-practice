@@ -4,6 +4,46 @@ struct ListNode {
     struct ListNode *next;
     ListNode(int x) : val(x), next(NULL) {}
 };*/
+class PalindromeList {
+public:
+    bool chkPalindrome(ListNode* A) {
+        // write code here
+        ListNode* fast = A;
+        ListNode* slow = A;
+        while(fast && fast->next)
+        {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        ListNode* ReversedList = NULL;
+        while(slow)
+        {
+            ListNode* next = slow->next;
+            slow->next = ReversedList;
+            ReversedList = slow;
+            slow = next;
+        }
+        while(ReversedList)
+        {
+            if(ReversedList->val != A->val)
+            {
+                return false;
+            }
+            else
+            {
+                ReversedList = ReversedList->next;
+                A = A->next;
+            }
+        }
+        return true;
+    }
+};
+/*
+struct ListNode {
+    int val;
+    struct ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};*/
 class Partition {
 public:
     ListNode* partition(ListNode* pHead, int x) {
