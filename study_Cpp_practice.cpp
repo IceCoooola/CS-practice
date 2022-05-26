@@ -1,3 +1,42 @@
+/*
+struct ListNode {
+    int val;
+    struct ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};*/
+class Partition {
+public:
+    ListNode* partition(ListNode* pHead, int x) {
+        // write code here
+    ListNode* smallHead = (ListNode*)malloc(sizeof(ListNode));
+    ListNode* largeHead = (ListNode*)malloc(sizeof(ListNode));
+    ListNode* smallTail = (ListNode*)malloc(sizeof(ListNode));
+    ListNode* largeTail = (ListNode*)malloc(sizeof(ListNode));
+    smallHead->next = NULL;
+    largeHead->next = NULL;
+    smallTail = smallHead;
+    largeTail = largeHead;
+    ListNode* cur = pHead;
+    while(cur)
+    {
+        if(cur->val <x)
+        {
+            smallTail->next = cur;
+            smallTail = smallTail->next;
+        }
+        else
+        {
+            largeTail->next = cur;
+            largeTail = largeTail->next;
+        }
+        cur = cur->next;
+    }
+        smallTail->next = largeHead->next;
+        largeTail->next = NULL;
+        return smallHead->next;
+    }
+};
+
 #define _crt_secure_no_warnings
 #include<iostream>
 
