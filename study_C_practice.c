@@ -1,4 +1,90 @@
 /**
+
+ * Definition for a binary tree node.
+
+ * struct TreeNode {
+
+ *   int val;
+
+ *   struct TreeNode *left;
+
+ *   struct TreeNode *right;
+
+ * };
+
+ */
+
+
+
+int TreeDepth(struct TreeNode* root)
+
+{
+
+  if(root == NULL)
+
+    return 0;
+
+   
+
+  return 1 + fmax(TreeDepth(root->left), TreeDepth(root->right)); 
+
+}
+
+
+
+bool isBalanced(struct TreeNode* root){
+
+
+
+  if(root == NULL)
+
+    return true;
+
+   
+
+  int leftLength = TreeDepth(root->left);
+
+  int rightLength = TreeDepth(root->right);
+
+   
+
+  if(abs(leftLength - rightLength) > 1)
+
+    return false;
+
+   
+
+  return isBalanced(root->left) && isBalanced(root->right);
+
+  return true;
+
+   
+
+}
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+bool _isUnivalTree(struct TreeNode* root, int val)
+{
+    if(root == NULL)
+        return true;
+    if(root->val != val)
+        return false;
+    return _isUnivalTree(root->left, val) && _isUnivalTree(root->right, val);
+}
+
+bool isUnivalTree(struct TreeNode* root){
+
+    return _isUnivalTree(root, root->val);
+}
+
+/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
