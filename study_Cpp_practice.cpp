@@ -1,3 +1,49 @@
+#include <iostream>
+
+/*
+根据输入的日期，计算是这一年的第几天。
+保证年份为4位数且日期合法。
+进阶：时间复杂度：O(n)\O(n) ，空间复杂度：O(1)\O(1) */
+
+int main()
+{
+    int year, month, day, ttlDay;
+    std::cin >> year >> month >> day;
+    //计算每个月总共天数，数组里按下标算的每个月天数
+    int arr[13] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365};
+    ttlDay = arr[month-1] + day;
+    if(month > 2 && ((year % 4 == 0 && year % 100 != 0)|| year % 400 == 0))
+    ttlDay += 1;
+    std::cout<<ttlDay;
+    return 0;
+}
+//求1+2+3+...+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。
+//
+//数据范围： 0 < n \le 2000<n≤200
+//进阶： 空间复杂度 O(1)O(1) ，时间复杂度 O(n)O(n)
+
+class Add{
+    public:
+    Add()
+    {
+        sum+=i;
+        i++;
+    }
+    static int i;
+    static int sum;
+};
+
+int Add::i = 1;
+int Add::sum = 0;
+class Solution {
+public:
+    int Sum_Solution(int n) {
+        Add::i = 1;
+        Add::sum = 0;
+        Add ret[n];
+        return Add::sum;
+    }
+};
 /**
  * Definition for a Node.
  * struct Node {
