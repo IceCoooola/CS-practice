@@ -1,5 +1,45 @@
 #include <iostream>
+#define _crt_secure_no_warnings
+#include<iostream>
 
+class A
+{
+public:
+	A() { _a++; }
+	static int GetA() { return _a; }
+private:
+	static int _a;//访问没有this指针
+	int _b;//访问时候会加上this->
+};
+int A::_a = 0;
+
+int main()
+{
+	A a;
+	std::cout<< A::GetA();
+	return 0;
+}
+int main()
+{
+    int temp1, temp2;
+    int year1, year2, month1, month2, day1, day2;
+    cin>>temp1;
+    cin>>temp2;
+    year1 = temp1 /10000;
+    temp1 = temp1 % 10000;
+    month1 = temp1 / 100;
+    temp1 = temp1 % 100;
+    day1 = temp1;
+    year2 = temp2 /10000;
+    temp2 = temp2 % 10000;
+    month2 = temp2 / 100;
+    temp2 = temp2 % 100;
+    day2 = temp2;
+    
+    Date d1(year1, month1, day1), d2(year2, month2, day2);
+    cout << (d1 - d2);
+    return 0;
+}
 /*
 根据输入的日期，计算是这一年的第几天。
 保证年份为4位数且日期合法。
