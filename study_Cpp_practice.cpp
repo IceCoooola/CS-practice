@@ -1,3 +1,42 @@
+#define _crt_secure_no_warnings
+#include<iostream>
+#include<assert.h>
+
+class A
+{
+public:
+	A();
+	~A();
+};
+
+A::A()
+{
+	std::cout << "constructor A\n";
+}
+
+A::~A()
+{
+	std::cout << "destructor A\n";
+}
+
+int main()
+{
+	//一个new调用operator new 先，然后调用里面的constructor
+	A* p = (A*)operator new(sizeof(A));
+	//这里调用了operator new, 相当于malloc
+	//但是没有调用constructor
+	//然后这里的new(变量名)类型名(参数)   再调用constructor   
+	new(p)A;
+	//注意constructor不能直接调用
+	//也就是等同于 new p
+
+	//但是destructor可以直接调用
+	p->~A();
+	operator delete(p);
+	//等同于 delete p
+	return 0;
+}
+
 #include<iostream>
 #include<assert.h>
 class Date
