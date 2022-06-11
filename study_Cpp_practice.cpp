@@ -1,3 +1,31 @@
+void Swap(int& a, int& b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+template <class T>
+void Swap(T& a, T& b)
+{
+	T temp = a;
+	a = b;
+	b = temp;
+}
+
+int main()
+{
+	int a = 10, b = 20;
+	//这里会直接调用上面的因为编译器有了Swap(int, int)的就不用调用模板去推类型了
+	Swap(a, b);
+	double c = 3.3, d = 4.4;
+	Swap(c, d);
+	//这里要推测类型所以会调用模板函数
+	Swap<int>(a, b);
+	//这里因为指定了类型模板所以会调用模板函数
+	return 0;
+}
+
 #define _crt_secure_no_warnings
 #include<iostream>
 #include<assert.h>
