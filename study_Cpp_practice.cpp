@@ -1,3 +1,52 @@
+#define _crt_secure_no_warnings
+#include<iostream>
+#include<assert.h>
+#include<string>
+
+int main()
+{
+	//三种最常用的构造函数
+	std::string s1 = "hello world";
+	std::string s2(s1);
+	std::string s3 = s1;
+	//三种遍历方式
+	//s1.operator[](int pos)
+	for (int i = 0; i < s1.size(); i++)
+	{
+		std::cout << s1[i] << " ";
+	}
+	std::cout << std::endl;
+	//iterator begin()迭代器遍历
+	std::string::iterator it = s1.begin();
+	while (it != s1.end())
+	{
+		std::cout << *it << " ";
+		it++;
+	}
+	std::cout << std::endl;
+	//auto遍历，语法是auto 变量名 : 字符串名， 将字符串的内容一个个赋给变量
+	for (auto e : s1)
+	{
+		std::cout << e << " ";
+	}
+	std::cout << std::endl;
+	s1 += '!';
+	std::cout << s1 << std::endl;
+	s1 += "!!";
+	std::cout << s1 << std::endl;
+	s1 += s2;
+	std::cout << s1 << std::endl;
+	s1.erase(0, 1);
+	std::cout << s1 << std::endl;
+	s1.push_back('~');
+	std::cout << s1 << std::endl;
+	s1.append("12345");
+	std::cout << s1 << std::endl;
+	std::cout<< s1.front();
+	std::cout<< s1.back();
+}
+
+
 void Swap(int& a, int& b)
 {
 	int temp = a;
