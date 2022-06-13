@@ -1,3 +1,62 @@
+class Solution {
+
+public:
+
+  int firstUniqChar(string s) {
+
+     
+
+  int temp[26] = {0};
+
+  for(int i = 0; i< s.size(); i++)
+
+  {
+
+    temp[s[i]-'a']++;
+
+  }
+
+  for(int i = 0; i < s.size(); i++)
+
+  {
+
+    if(temp[s[i]-'a'] == 1)
+
+    {
+
+      return i;
+
+    }
+
+  }
+
+  return -1;
+
+  }
+
+};
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        
+    for(int i=0; i<s.size(); ++i)
+
+    {
+
+      int index = s.find(s[i]);
+
+      int reverse_index = s.rfind(s[i]);  
+
+      if(index == reverse_index)
+
+        return i;
+
+    }
+
+    return -1;
+    }
+};
+
 #include<iostream>
 #include<string>
 using namespace std;
