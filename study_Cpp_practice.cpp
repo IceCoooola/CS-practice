@@ -1,3 +1,34 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    string s;
+    cin >> s;
+    int n = 0;
+    string::iterator it = s.begin();
+    int a[127] = {0};
+    while(it != s.end())
+    {
+        a[*it]++;
+        it++;
+    }
+    it = s.begin();
+    while(it != s.end())
+    {
+        if(a[*it] == 1)
+        {
+            cout<<*it;        
+            return 0;
+        }
+        it++;
+        
+    }
+    
+    cout<< -1;
+    return 0;
+}
 #define _crt_secure_no_warnings
 #include<iostream>
 #include<assert.h>
