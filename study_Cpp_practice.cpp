@@ -3,6 +3,25 @@
 #include<assert.h>
 #include<string>
 using namespace std;
+
+int main()
+
+{
+
+string str("Hello Bit.");
+
+str.reserve(111);
+
+str.resize(5);
+
+str.reserve(50);
+
+cout<<str.size()<<":"<<str.capacity()<<endl;
+
+return 0;
+
+}
+
 int main(int argc, char* argv[])
 
 {
