@@ -1,4 +1,42 @@
 class Solution {
+public:
+    int StrToInt(string str) {
+        int sum = 0;
+        int temp = 1;
+        int end = str.size() - 1;
+        while(end > 0)
+        {
+            if(str[end] - '0' < 10)
+            {
+                sum += ((str[end] - '0') * temp);
+                temp *= 10;
+            }
+            else
+            {
+                return 0;
+            }
+            end--;
+        }
+        if(str[0] == '+')
+        {
+            return sum;
+        }
+        else if(str[0] == '-')
+        {
+            return sum *= (-1);
+        }
+        else if ( str[0] >='0' && str[0] <= '9')
+        {
+           return sum += ((str[end] - '0') * temp);
+        }
+        else
+        {
+            return 0;   
+        }
+    }
+};
+
+class Solution {
 
 public:
 
