@@ -5,6 +5,30 @@ using namespace std;
 int main()
 {
     string s;
+    getline(cin, s);
+    int cur = s.size() - 1;
+    while (cur && s[cur] != ' ')
+    {
+        cur--;
+    }
+    if (cur)
+    {
+        string temp = s.substr(cur + 1, s.size() - cur + 1);
+        cout << temp.size();
+    }
+    else
+    {
+        cout << s.size();
+    }
+    return 0;
+}
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    string s;
     cin >> s;
     int n = 0;
     string::iterator it = s.begin();
