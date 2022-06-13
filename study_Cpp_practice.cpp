@@ -4,6 +4,48 @@
 #include<string>
 using namespace std;
 
+
+int main(int argc, char* argv[])
+
+{
+
+	string strText = "How are you?";
+
+	string strSeparator = " ";
+
+	string strResult;
+
+	int size_pos = 0;
+
+	int size_prev_pos = 0;
+	//size_pos = 7
+	while ((size_pos = strText.find_first_of(strSeparator, size_pos)) != string::npos)
+	{
+		// How are 
+		strResult = strText.substr(size_prev_pos, size_pos - size_prev_pos);
+		//How are 
+		cout << strResult << " ";
+		//size prev pos = 8
+		size_prev_pos = ++size_pos;
+
+	}
+	//8  
+	if (size_prev_pos != strText.size())
+
+	{
+		//you? 
+		strResult = strText.substr(size_prev_pos, size_pos - size_prev_pos);
+
+		cout << strResult << " ";
+
+	}
+
+	cout << endl;
+
+	return 0;
+
+}
+
 int main()
 
 {
