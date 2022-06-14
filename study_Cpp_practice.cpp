@@ -1,5 +1,51 @@
 class Solution {
 public:
+    string addStrings(string num1, string num2) {
+        string retstr;
+        int end1 = num1.size() - 1;
+        int end2 = num2.size() - 1;
+        int carry = 0;
+        while(end1 >= 0 || end2 >=0)
+        {
+            int temp1 = 0, temp2 = 0, ttl = 0; 
+            if(end1 >= 0)
+                temp1 = num1[end1] - '0';
+            if(end2 >= 0)
+                temp2 = num2[end2] - '0';
+            ttl = temp1 + temp2 + carry;
+            if(ttl > 9)
+            {
+                carry = 1;
+                ttl -= 10;
+            }
+            else
+            {
+                carry = 0;
+            }
+            retstr += (ttl + '0');
+            end1--;
+            end2--;
+        }
+        if(carry == 1)
+        {
+            retstr+='1';
+        }
+        int start = 0;
+        int end = retstr.size() - 1;
+        while(start < end)
+        {
+            swap(retstr[start], retstr[end]);
+            start++;
+            end--;
+        }
+        return retstr;
+        
+    }
+    
+};
+
+class Solution {
+public:
     int StrToInt(string str) {
         int sum = 0;
         int temp = 1;
