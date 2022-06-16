@@ -1,3 +1,37 @@
+//只解决正数 不解决负数
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int sum = 0;
+        int flag = 0;
+        for(int i = 0; i < nums.size(); i++)
+        {
+            sum += nums[i];
+        }
+        int remainder = sum % 3;
+        for(int i = 0; i < nums.size(); i++)
+        {
+            if(nums[i] % 3 == remainder)
+            {
+                flag = 0;
+                for(int j = 0; j < nums.size(); j++)
+                {
+                    if(nums[j] == nums[i] && i != j)
+                    {
+                        flag = 1;
+                        break;
+                    }
+                }
+                if(flag == 0)
+                {
+                    return nums[i];
+                }
+            }
+        }
+        return nums.size() -1;
+    }
+};
+
 
 class Solution {
 public:
