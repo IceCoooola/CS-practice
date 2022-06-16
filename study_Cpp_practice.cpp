@@ -1,5 +1,26 @@
 class Solution {
 public:
+    int removeDuplicates(vector<int>& nums) {
+        vector<int>::iterator slow = nums.begin();
+        vector<int>::iterator fast = nums.begin()+1;
+        while(fast != nums.end())
+        {
+            if(*fast == *slow)
+            {
+                fast = nums.erase(fast);
+            }
+            else
+            {
+                slow++;
+                fast++;
+            }
+        }
+        return slow - nums.begin() + 1;
+    }
+};
+
+class Solution {
+public:
     vector<vector<int>> generate(int numRows) {
         vector<vector<int>> ret;
         ret.resize(numRows);
