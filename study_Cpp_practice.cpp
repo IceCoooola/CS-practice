@@ -1,3 +1,23 @@
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+    
+        sort(nums.begin(), nums.end());
+        for(int i = 0; i < nums.size();i += 3)
+        {
+            if(i == nums.size() - 1)
+            {
+                return nums[i];
+            }
+            else if(nums[i] != nums[i+1])
+            {
+                return nums[i];
+            }
+        }
+        return 0;
+    }
+};
+
 //只解决正数 不解决负数
 class Solution {
 public:
