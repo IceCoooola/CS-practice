@@ -1,3 +1,91 @@
+
+class Solution 
+
+{
+
+public:
+
+  int FindGreatestSumOfSubArray(vector<int> array) 
+
+{
+
+    int cursum=array[0];
+
+    int maxsum=array[0];
+
+    for(int i=1;i<array.size();i++)
+
+{
+
+      cursum+=array[i];
+
+      if(cursum<array[i])
+
+        cursum=array[i];
+
+      if(cursum>maxsum)
+
+        maxsum=cursum;       
+
+    }
+
+return maxsum;
+
+  }
+
+};
+class Solution {
+
+public:
+
+  int max(const int& x,const int& y)
+
+  {
+
+    int max = x;
+
+    if(y > x)
+
+      max = y;
+
+    return max;
+
+  }
+
+  int FindGreatestSumOfSubArray(vector<int> array) {
+
+    int maxNum = array[array.size() - 1];
+
+    for(int i = 0; i < array.size(); i++)
+
+    {
+
+      int sum = array[i];
+
+      maxNum = max(sum, maxNum);
+
+      int j = i+1;
+
+      while(j < array.size())
+
+      {
+
+        sum += array[j];
+
+        maxNum = max(sum, maxNum);
+
+        j++;
+
+      }
+
+    }
+
+    return maxNum;
+
+  }
+
+};
+
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
