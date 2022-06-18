@@ -1,4 +1,27 @@
-
+class Solution {
+public:
+    int MoreThanHalfNum_Solution(vector<int> numbers) {
+        int halfSize = numbers.size() / 2;
+        sort(numbers.begin(), numbers.end());
+        for(int i = 0; i < numbers.size(); i++)
+        {
+            int count = 0;
+              int tmp = numbers[i];
+            for(int j = 1; j < numbers.size(); j++)
+            {
+                if(tmp == numbers[j])
+                {
+                    count++;
+                }
+                if(count > halfSize)
+                {
+                    return tmp;
+                }
+            }
+        }
+        return numbers[0];
+    }
+};
 class Solution 
 
 {
