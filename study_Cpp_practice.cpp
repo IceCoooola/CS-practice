@@ -1,3 +1,88 @@
+class Solution {
+public:
+    
+    vector<string> findLetters(const char& c)
+    {
+	vector<string> ret;
+	switch (c)
+	{
+	case '2':
+		ret.push_back("a");
+		ret.push_back("b");
+		ret.push_back("c");
+		break;
+	case '3':
+		ret.push_back("d");
+		ret.push_back("e");
+		ret.push_back("f");
+		break;
+	case '4':
+		ret.push_back("g");
+		ret.push_back("h");
+		ret.push_back("i");
+		break;
+	case '5':
+		ret.push_back("j");
+		ret.push_back("k");
+		ret.push_back("l");
+		break;
+	case '6':
+		ret.push_back("m");
+		ret.push_back("n");
+		ret.push_back("o");
+		break;
+	case '7':
+		ret.push_back("p");
+		ret.push_back("q");
+		ret.push_back("r");
+		ret.push_back("s");
+		break;
+	case '8':
+		ret.push_back("t");
+		ret.push_back("u");
+		ret.push_back("v");
+		break;
+	case '9':
+		ret.push_back("w");
+		ret.push_back("x");
+		ret.push_back("y");
+		ret.push_back("z");
+		break;
+	}
+	return ret;
+    }
+    
+    vector<string> calc(vector<string> a, vector<string> b)
+    {
+	vector<string> ret;
+	for (int i = 0; i < a.size(); i++)
+	{
+		for (int j = 0; j < b.size(); j++)
+		{
+			string c = a[i];
+			c += b[j];
+			ret.push_back(c);
+		}
+	}
+	return ret;
+    }
+    vector<string> letterCombinations(string digits) {
+    if(digits.size() == 0)
+    {
+        return vector<string>();
+    }
+	vector<string> tmp2 = findLetters(digits[digits.size()-1]);
+    for (int i = digits.size() - 2; i >=0; i--)
+	{
+		vector<string> tmp = findLetters(digits[i]);
+		vector<string> ret = calc(tmp, tmp2);
+		tmp2 = ret;
+	}
+    return tmp2;
+        
+    }
+};
+
 #include<iostream>
 #define CRT_SECURE_NO_WARNINGS
 using namespace std;
