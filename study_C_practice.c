@@ -1,3 +1,40 @@
+
+struct s
+{
+	int a;
+};
+
+int main()
+
+{
+
+	if (NULL == 0)
+	{
+		printf("yes.\n");
+	}
+//	struct s v1;
+//	struct s* v2 = (struct s*)malloc(sizeof(struct s));
+//	v1.a = 5;
+//	v2->a = 1;
+//	//or 
+//	(*v2).a = 2;
+
+
+	/*
+	int arr[10] = { 0 };
+	int* parr = &arr;
+	int* p = (int*)malloc(sizeof(int) * 10);
+	for (int i = 0; i < 10; i++)
+	{
+		p[i] = 5;
+		*(p + i) = 5;
+	}
+	printf("%d\n",sizeof(arr));
+	printf("%d\n",sizeof(parr));
+	printf("%d\n",sizeof(p));
+	return 0;*/
+}
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
