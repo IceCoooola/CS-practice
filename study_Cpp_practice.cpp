@@ -1,3 +1,50 @@
+﻿template<typename T>
+
+void removeDuplicates(list<T> &aList)
+
+{
+
+T curValue;
+
+list<T>::iterator cur, p;
+
+cur = aList.begin();
+
+while (cur != aList.end())
+
+{
+
+curValue = *cur;
+
+p=++cur;
+
+while (p != aList.end())
+
+{
+
+if (*p == curValue)
+
+{
+
+ p == cur ? cur = p = aList.erase(p) : p = aList.erase(p);
+}
+
+else
+
+{
+
+p++;
+
+}
+
+}
+
+}
+
+}
+
+
+
 int main()
 
 {
