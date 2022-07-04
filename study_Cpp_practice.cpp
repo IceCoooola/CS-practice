@@ -1,3 +1,61 @@
+class Solution {
+public:
+    
+    
+    int evalRPN(vector<string>& tokens) {
+        stack<int> st;
+        for(int i = 0;i<tokens.size();i++)
+        {
+            switch(tokens[i].back())
+            {
+                case '+':
+                    {
+                    int num1 = st.top();
+                    st.pop();
+                    int num2 = st.top();
+                    st.pop();
+                    st.push(num1 + num2);
+                    break;                        
+                    }
+                case '-':
+                    {
+                    int num1 = st.top();
+                    st.pop();
+                    int num2 = st.top();
+                    st.pop();
+                    st.push(num2 - num1);
+                    break;
+                    }
+                case '*':
+                    {
+                    int num1 = st.top();
+                    st.pop();
+                    int num2 = st.top();
+                    st.pop();
+                    st.push(num1 * num2);
+                    break;
+                    }
+                
+                case '/':
+                    
+              {
+                    int num1 = st.top();
+                    st.pop();
+                    int num2 = st.top();
+                    st.pop();
+                    st.push(num2 / num1);
+                    break;
+                
+                }
+                default:
+                st.push(stoi(tokens[i]));
+                break;
+            }
+        }
+        return st.top();
+        
+    }
+};
 class MinStack {
 public:
     MinStack() {
