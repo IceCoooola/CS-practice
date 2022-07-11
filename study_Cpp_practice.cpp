@@ -1,3 +1,20 @@
+queue.push(tree.root )
+
+while(true)
+
+node = queue.pop()
+
+output(node.value)//输出节点对应数字
+
+if(null==node)
+
+break
+
+for(child_node in node.children)
+
+queue.push(child_node)
+
+
 void main()
 
 {
