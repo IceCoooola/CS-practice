@@ -31,10 +31,10 @@ public:
         {
             while(q1.size() != 1)
             {
-                q2.push(q2.front());
+                q2.push(q1.front());
                 q1.pop();
             }
-                        tmp = q1.front();
+            tmp = q1.front();
             q1.pop();
             
         }
