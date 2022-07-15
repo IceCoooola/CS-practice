@@ -1,4 +1,19 @@
+#define CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
 
+
+int main()
+{
+    int nums[20];
+    int(*numsp0)[20] = &nums;
+    int** numps1 = &nums[0];
+    printf("numsp0: %x\n", numsp0);
+    printf("numsp1: %x\n", numps1);
+
+    printf("numsp0 + 1 : %x\n", numsp0+1);
+    printf("numsp1 + 1 : %x\n", numps1+1);
+	return 0;
+}
 struct s
 {
 	int a;
