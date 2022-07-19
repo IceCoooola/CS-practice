@@ -1,3 +1,26 @@
+class Solution {
+public:
+    bool IsPopOrder(vector<int> pushV,vector<int> popV) {
+        stack<int> st;
+        int j = 0;
+        int i = 0;
+        for(i; i < pushV.size();i++)
+        {
+            st.push(pushV[i]);
+            while((!st.empty()) && (popV[j] == st.top()))
+            {
+                st.pop();
+                j++;
+            }
+        }
+        if(j == popV.size())
+            return true;
+        else
+            return false;
+        
+    }
+};
+
 class MyQueue {
 public:
     MyQueue() {
