@@ -1,4 +1,38 @@
 
+#define CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+class Solution {
+public:
+    bool IsPopOrder(vector<int> pushV, vector<int> popV) {
+        stack<int> st;
+        int j = 0;
+        int i = 0;
+        for (i; i < pushV.size(); i++)
+        {
+            st.push(pushV[i]);
+            while ((!st.empty()) && (popV[j] == st.top()))
+            {
+                st.pop();
+                j++;
+            }
+        }
+        if (j == (popV.size() - 1))
+            return true;
+        else
+            return false;
+
+    }
+};
+int main()
+{
+    vector<int> v1 = { 1,2,3,4,5 };
+    vector<int> v2 = { 4,5,3,2,1 };
+    cout<<Solution().IsPopOrder(v1, v2);
+    int* arr[20] = { 0 };
+    int* (*ptr)[20] = &arr;
+    return 0;
+}
 class MinStack {
 public:
     MinStack() {
