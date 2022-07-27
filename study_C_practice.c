@@ -1,3 +1,23 @@
+
+struct Date
+{
+	int year;
+	int month;
+	int day;
+};
+
+void print(struct Date* dt)
+{
+	printf("%d / %d / %d\n", dt->year, dt->month, dt->day);
+}
+
+
+int main()
+{
+	struct Date dt{2022,7,27};
+	print(&dt);
+	return 0;
+}
 #define CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 
