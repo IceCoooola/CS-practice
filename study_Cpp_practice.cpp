@@ -1,3 +1,17 @@
+
+char* retString()
+{
+	static char arr[20] = "abcd\n";
+	return arr;
+}
+
+int main()
+{
+	char* ret = retString();
+	cout << ret;
+	return 0;
+}
+
 //双向队列,底层组成类似动态开辟二维数组
 //适合头尾操作，不适合中间操作
 dequeue<int> dq;
