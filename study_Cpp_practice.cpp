@@ -1,4 +1,6 @@
-
+//双向队列,底层组成类似动态开辟二维数组
+//适合头尾操作，不适合中间操作
+dequeue<int> dq;
 #define CRT_SECURE_NO_WARNINGS
 using namespace std;
 
