@@ -1,4 +1,13 @@
 
+int main()
+{
+	char name[20];
+	char name1[20];
+	gets_s(name, 20);
+	printf("%s\n", name);
+	scanf("%s", name1);
+	printf("%s\n", name1);
+}
 struct Date
 {
 	int year;
