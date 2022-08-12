@@ -1,3 +1,24 @@
+#include<iostream>
+#define CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+//用于静态开辟类型数组
+//string或double会报错
+//非类型模板参数，只能给int
+template<class T, int N = 10>
+class Array
+{
+private:
+	T arr[N];
+};
+
+int main()
+{
+	Array<int> a1;
+	Array<char, 30> a2;
+	return 0;
+}
+
 int main()
 
 {
