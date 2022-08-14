@@ -2,6 +2,58 @@
 #define CRT_SECURE_NO_WARNINGS
 using namespace std;
 
+//模板分类，
+//函数模板，例：
+template<class T>
+void swap(T& a, T& b)
+{
+	T tmp = a;
+	a = b;
+	b = tmp;
+}
+
+//类模板
+template<class T>
+class Test {
+
+};
+
+
+//模板的特化，对模板的特殊化处理
+template<class T>
+bool IsEqual(const T& a, const T& b)
+{
+	return a == b;
+}
+
+bool IsEqual(const char*& a, const char*& b)
+{
+	return strcmp(a, b) == 0 ? true : false;
+}
+
+bool IsEqual(char* a, char* b)
+{
+	return strcmp(a, b) == 0 ? true: false;
+}
+
+int main()
+{
+	int a = 1;
+	int b = 1;
+	std::cout << "a and b are " << IsEqual(a,b) << std::endl;
+	char arr1[] = "hello";
+	char arr2[] = "hello";
+	std::cout << "a and b are " << IsEqual(arr1, arr2) << std::endl;
+	const char* str1 = "hello";
+	const char* str2 = "hello";
+	std::cout << "a and b are " << IsEqual(str1, str2) << std::endl;
+	return 0;
+}
+ 
+#include<iostream>
+#define CRT_SECURE_NO_WARNINGS
+using namespace std;
+
 //用于静态开辟类型数组
 //string或double会报错
 //非类型模板参数，只能给int
