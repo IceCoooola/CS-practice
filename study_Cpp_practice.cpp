@@ -2,6 +2,74 @@
 #define CRT_SECURE_NO_WARNINGS
 using namespace std;
 
+template<class T1, class T2>
+class Test
+{
+public:
+	Test() {
+		cout << "Test<T1, T2>\n";
+	}
+private:
+	T1 t1;
+	T2 t2;
+};
+
+//模板的全特化处理
+template<>
+class Test<int, int>
+{
+public:
+	Test() {
+		cout << "Test<int, int>\n";
+	}
+private:
+	int t1;
+	int t2;
+};
+
+//模板的偏特化处理
+template<class T1>
+class Test<T1, int>
+{
+public:
+	Test() {
+		cout << "Test<T1, int>\n";
+	}
+private:
+	T1 t1;
+	int t2;
+
+};
+
+template<class T1>
+class Test<int, T1>
+{
+public:
+	Test() {
+		cout << "Test<int, T1>\n";
+	}
+private:
+	T1 t1;
+	int t2;
+
+};
+
+int main()
+{
+
+	//实例化对象的时候会和最匹配的进行匹配
+	Test<char, char> t1;//Test<T1, T2>
+	Test<char, int> t2;//Test<T1, int>
+	Test<int, char> t3;//Test<int, T1>
+	Test<int, int> t4;//Test<int, int>
+	return 0;
+}
+
+
+#include<iostream>
+#define CRT_SECURE_NO_WARNINGS
+using namespace std;
+
 //非类型模板参数，作为常数使用，只能给整形，必须在初始化时赋值
 template<class T, size_t N = 5>
 class Test
