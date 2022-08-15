@@ -2,6 +2,30 @@
 #define CRT_SECURE_NO_WARNINGS
 using namespace std;
 
+//非类型模板参数，作为常数使用，只能给整形，必须在初始化时赋值
+template<class T, size_t N = 5>
+class Test
+{
+public:
+	void test()
+	{
+		cout << sizeof(arr) << endl;
+	}
+
+private:
+	T arr[N];
+};
+
+int main()
+{
+	Test<int> t1;
+	t1.test();
+}
+
+#include<iostream>
+#define CRT_SECURE_NO_WARNINGS
+using namespace std;
+
 //模板分类，
 //函数模板，例：
 template<class T>
