@@ -1,4 +1,60 @@
 #include<iostream>
+#include<string>
+#include<fstream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+struct ServerInfo
+{
+	char _ip[32];//地址
+	int _port;//端口
+};
+
+class ConfigManager
+{
+public:
+	ConfigManager(const char* file = "test.config") :_configFile(file){}
+	void WriteBin(const ServerInfo& Info)
+	{
+		ofstream f(_configFile, ofstream::out | ofstream::binary);
+		f.write((const char*) &Info, sizeof(ServerInfo));
+		f.close();
+	}
+	void ReadBin(const ServerInfo& Info)
+	{
+		ifstream f(_configFile, ifstream::in | ifstream::binary);
+		f.read((char*)&Info, sizeof(ServerInfo));
+		f.close();
+	}
+	void WriteTxt(const ServerInfo& Info)
+	{
+		ofstream f(_configFile);
+		f << Info._ip << "\n" << Info._port << "\n";
+		f.close();
+	}
+	void ReadTxt(ServerInfo& Info)
+	{
+		ifstream ifs(_configFile);
+		ifs >> Info._ip >> Info._port;
+		ifs.close();
+	}
+private:
+	string _configFile;//配置文件
+};
+
+int main()
+{
+	ServerInfo s1 = { "192.168.1.1", 20};
+	ServerInfo s2;
+	//ConfigManager().WriteBin(s1);
+	//ConfigManager().ReadBin(s2);
+	ConfigManager writeTxt("config.txt");
+	writeTxt.WriteTxt(s1);
+	writeTxt.ReadTxt(s2);
+	cout << s2._ip << " " << s2._port << endl;
+	return 0;
+}
+
+#include<iostream>
 #define CRT_SECURE_NO_WARNINGS
 using namespace std;
 
