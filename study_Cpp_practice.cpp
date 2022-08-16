@@ -1,5 +1,41 @@
 #include<iostream>
 #include<string>
+#include<sstream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main()
+{
+	stringstream s;
+	int a = 1530757313;
+	string ss;
+	// 将一个整形变量转化为字符串，存储到string类对象中
+	int b;
+	s<<a;
+	s >> b;
+	//多次转换时，必须使用clear将上次转换状态清空掉
+	s.clear();
+	//不清空会转化失败
+	s << b;
+	s >> ss;
+	cout << b << endl << ss<<endl;
+	string sss;
+	s.str("");
+	s.clear();
+	s << ss;
+	//多次数据类型转化时，一定要用clear()来清空，才能正确转化，但clear()不会将stringstream底层的string对象清空。
+	//可以使用s. str("")方法将底层string对象设置为""空字符串。
+	sss = s.str();
+	cout << sss << endl<< s.str()<<endl;
+	s.str("");
+	s.clear();
+	s << "hello " << "I am" << " groot\n";
+	cout << s.str();
+	return 0;
+}
+
+#include<iostream>
+#include<string>
 #include<fstream>
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
