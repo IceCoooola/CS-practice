@@ -1,4 +1,45 @@
 #include<iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+template<class Type>
+Type Max(const Type &a, const Type &b)
+{
+	cout<<"This is Max<Type>"<<endl;
+	return a > b ? a : b;
+}
+
+template<>
+int Max<int>(const int &a, const int &b)
+{
+	cout<<"This is Max<int>"<<endl;
+	return a > b ? a : b;
+}
+
+template<>
+char Max<char>(const char &a, const char &b)
+{
+	cout<<"This is Max<char>"<<endl;
+	return a > b ? a : b;
+}
+
+int Max(const int &a, const int &b)
+{
+	cout<<"This is Max"<<endl;
+	return a > b ? a : b;
+}
+
+int main()
+{
+	Max(10,20);//This is Max
+	Max(12.34,23.45);//This is Max<Type>
+	Max('A','B');//This is Max<char>
+	Max<int>(20,30);//This is Max<int>
+	return 0;
+}
+
+
+#include<iostream>
 #include<string>
 #include<sstream>
 #define _CRT_SECURE_NO_WARNINGS
