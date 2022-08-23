@@ -1,4 +1,57 @@
 
+int main()
+{
+	char arr[100];
+	cout << "please enter a line of text.>:";
+	cin.getline(arr, 100);
+	string tmp;
+	for (int i = 0; i < sizeof(arr); i++)
+	{
+		if (arr[i] != ' ' && arr[i] != '\0')
+		{
+			tmp.push_back(arr[i]);
+		}
+		else
+		{
+			if (atoi(tmp.c_str()))
+			{
+				cout << atoi(tmp.c_str()) * 2 <<endl;
+				tmp.erase();
+			}
+			else
+			{
+				cout << tmp << endl;
+				tmp.erase();
+			}
+		}
+	}
+	return 0;
+}
+
+#define CRT_SECURE_NO_WARNINGS
+#include<iostream>
+using namespace std;
+
+int search(const int* arr, int size, int key)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] == key)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+int main()
+{
+	int arr[] = { 523,6345,43,56,8,4,3,-3412,-534,52,53,4,6 };
+	cout<< search(arr, sizeof(arr), 4);
+	return 0;
+}
+
+
 #define CRT_SECURE_NO_WARNINGS
 #include<iostream>
 using namespace std;
