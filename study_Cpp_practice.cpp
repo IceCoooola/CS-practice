@@ -1,3 +1,37 @@
+
+#define CRT_SECURE_NO_WARNINGS
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int n;
+	cout << "please enter the size of array.>:";
+	cin >> n;
+	int* arr = new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		cout << "please enter a numbber, or -1 to exit >:";
+		int tmp;
+		cin >> tmp;
+		if (tmp != -1)
+		{
+			arr[i] = tmp;
+		}
+		else
+		{
+			n = i;
+			break;
+		}
+
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	delete[] arr;
+	return 0;
+}
 #include<iostream>
 #include<string>
 #include<sstream>
