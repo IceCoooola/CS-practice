@@ -1,4 +1,35 @@
+#define CRT_SECURE_NO_WARNINGS
+#include<iostream>
+using namespace std;
 
+int main()
+{
+	char arr[100];
+	cout << "please enter a line of text.>:";
+	cin.getline(arr, 100);
+	string tmp;
+	for (int i = 0; i < sizeof(arr); i++)
+	{
+		if (arr[i] != ' ' && arr[i] != '\0')
+		{
+			tmp.push_back(arr[i]);
+		}
+		else
+		{
+			if (atoi(tmp.c_str()))
+			{
+				cout << atof(tmp.c_str()) * 2 << endl;
+				tmp.erase();
+			}
+			else
+			{
+				cout << tmp << endl;
+				tmp.erase();
+			}
+		}
+	}
+	return 0;
+}
 int main()
 {
 	char arr[100];
