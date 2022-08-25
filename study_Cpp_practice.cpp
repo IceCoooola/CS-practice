@@ -9,6 +9,102 @@ public:
 	ListNode* _next;
 };
 
+class SortedLinkedList
+{
+public:
+	SortedLinkedList():_head(nullptr){}
+	void push(int data)
+	{
+		if (_head == nullptr)
+		{
+			_head = new ListNode;
+			_head->_data = data;
+			_head->_next = nullptr;
+			cout << _head->_data;
+			cout << endl;
+		}
+		else
+		{
+			if (data < _head->_data)
+			{
+				ListNode* tmp = new ListNode;
+				tmp->_data = data;
+				tmp->_next = _head;
+				_head = tmp;
+			}
+			else
+			{
+				ListNode* prev = _head;
+				ListNode* next = _head->_next;
+				while (next != nullptr)
+				{
+					if (data > next->_data)
+					{
+						prev = next;
+						next = next->_next;
+					}
+					else
+					{
+						break;
+					}
+				}
+				ListNode* tmp = new ListNode;
+				tmp->_data = data;
+				tmp->_next = next;
+				prev->_next = tmp;
+
+			}
+			ListNode* cur = _head;
+			while (cur != nullptr)
+			{
+				cout << cur->_data<<" ";
+				cur = cur->_next;
+			}
+			cout << endl;
+		}
+	}
+
+	~SortedLinkedList()
+	{
+		while (_head != nullptr)
+			{
+			ListNode* tmp = _head;
+			_head = _head->_next;
+			delete tmp;
+			}
+		
+	}
+
+private:
+	ListNode* _head;
+};
+
+int main()
+{
+	SortedLinkedList st;
+	int input;
+	cout << "please enter a number>:";
+	cin >> input;
+	while (input != -1)
+	{
+		st.push(input);
+		cout << "please enter a number>:";
+		cin >> input;
+	}
+	return 0;
+}
+
+#include<iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+class ListNode
+{
+public:
+	int _data;
+	ListNode* _next;
+};
+
 class Queue
 {
 public:
