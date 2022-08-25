@@ -1,3 +1,41 @@
+ #include<iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int binarySearch(int* arr, int size, int key)
+{
+	int left = 0;
+	int right = size - 1;
+	while (right >= left)
+	{
+		int mid = (right + left) / 2;
+		if (key == arr[mid])
+		{
+			return mid;
+		}
+		else if(key > arr[mid])
+		{
+			left = mid + 1;
+		}
+		else
+		{
+			right = mid - 1;
+		}
+	}
+	return -1;
+
+}
+
+int main()
+{
+	int arr[] = { -356,-256,-128,-45,-5,-3,7,8,10,21,22 };
+	cout << "enter a number you would like to search>:";
+	int input;
+	cin >> input;
+	cout<<binarySearch(arr, sizeof(arr)/sizeof(int), input);
+	return 0;
+}
+
 #include<iostream>
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
