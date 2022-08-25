@@ -1,3 +1,69 @@
+#include<iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+class Queue
+{
+public:
+	Queue() :_count(0), _front(0), _back(0)
+	{
+		for (int i = 0; i < maxSize; i++)
+		{
+			_arr[i] = 0;
+		}
+	}
+	void enqueue(int data)
+	{
+		if (_count == 10)
+		{
+			throw;
+		}
+		_arr[_back++] = data;
+		_count++;
+	}
+	int dequeue()
+	{
+		if (_count == 0)
+		{
+			throw;
+		}
+		int tmp = _arr[0];
+		if (_count == 1)
+		{
+			--_count;
+			return tmp;
+		}
+		for (int i = 0; i < _count-1; i++)
+		{
+			_arr[i] = _arr[i + 1];
+		}
+		_count--;
+		return tmp;
+	}
+
+private:
+	const static int maxSize = 10;
+	int _arr[maxSize];
+	int _count;
+	int _front;
+	int _back;
+};
+
+int main()
+{
+	Queue q;
+	q.enqueue(1);
+	q.enqueue(2);
+	q.enqueue(3);
+	q.enqueue(4);
+	q.enqueue(5);
+	for (int i = 0; i < 5; i++)
+	{
+		cout << q.dequeue()<<endl;
+	}
+	return 0;
+}
+
 #define CRT_SECURE_NO_WARNINGS
 #include<iostream>
 using namespace std;
