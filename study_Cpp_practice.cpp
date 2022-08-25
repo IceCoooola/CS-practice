@@ -2,6 +2,92 @@
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
 
+class ListNode
+{
+public:
+	int _data;
+	ListNode* _next;
+};
+
+class Queue
+{
+public:
+	Queue():_front(nullptr),_end(nullptr),_count(0)	{		
+	}
+
+	void enQueue(int data)
+	{
+		if (_count == 0)
+		{
+			_front = _end = new ListNode;
+			_front->_data = data;
+			_front->_next = nullptr;
+		}
+		else
+		{
+			ListNode* tmp = new ListNode;
+			tmp->_data = data;
+			tmp->_next = nullptr;
+			_end->_next = tmp;
+			_end = tmp;
+		}
+		++_count;
+	}
+
+	int deQueue()
+	{
+		if (_count == 0)
+		{
+			throw;
+		}
+		int ret = _front->_data;
+		ListNode* tmp = _front;
+		_front = _front->_next;
+		delete tmp;
+		--_count;
+		return ret;
+	}
+
+	bool isEmpty()
+	{
+		return _count == 0;
+	}
+
+	~Queue()
+	{
+		while (_count != 0)
+		{
+			ListNode* tmp = _front;
+			_front = _front->_next;
+			delete tmp;
+			--_count;
+		}
+	}
+private:
+	ListNode* _front;
+	ListNode* _end;
+	int _count;
+};
+
+int main()
+{
+	Queue q;
+	q.enQueue(1);
+	q.enQueue(2);
+	q.enQueue(3);
+	q.enQueue(4);
+	q.enQueue(5);
+	q.enQueue(6);
+	while (!q.isEmpty())
+	{
+		cout << q.deQueue() << endl;
+	}
+	return 0;
+}
+#include<iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
 class Queue
 {
 public:
