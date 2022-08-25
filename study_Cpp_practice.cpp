@@ -18,6 +18,90 @@ public:
 		{
 			throw;
 		}
+		if (_back == maxSize)
+		{
+			_back = 0;
+		}
+		_arr[_back++] = data;
+		_count++;
+	}
+	int dequeue()
+	{
+		if (_count == 0)
+		{
+			throw;
+		}
+		int tmp = _arr[_front];
+		++_front;
+		if (_front == maxSize)
+		{
+			_front = 0;
+		}
+			--_count;
+			return tmp;
+	}
+
+	bool isEmpty()
+	{
+		return _count == 0;
+	}
+
+private:
+	const static int maxSize = 10;
+	int _arr[maxSize];
+	int _count;
+	int _front;
+	int _back;
+};
+
+int main()
+{
+	Queue q;
+	q.enqueue(1);
+	q.enqueue(2);
+	q.enqueue(3);
+	q.enqueue(4);
+	q.enqueue(5);
+	q.enqueue(6);
+	q.enqueue(7);
+	q.enqueue(8);
+	q.enqueue(9);
+	q.enqueue(10);
+	for (int i = 0; i < 10; i++)
+	{
+		cout << q.dequeue()<<endl;
+	}
+	q.enqueue(11);
+	q.enqueue(12);
+	q.enqueue(13);
+	q.enqueue(14);
+	while (!q.isEmpty())
+	{
+		cout<<q.dequeue() << endl;
+	}
+	return 0;
+}
+
+#include<iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+class Queue
+{
+public:
+	Queue() :_count(0), _front(0), _back(0)
+	{
+		for (int i = 0; i < maxSize; i++)
+		{
+			_arr[i] = 0;
+		}
+	}
+	void enqueue(int data)
+	{
+		if (_count == 10)
+		{
+			throw;
+		}
 		_arr[_back++] = data;
 		_count++;
 	}
