@@ -1,5 +1,77 @@
 
+#include<iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
 
+void selectionSort(int* arr, const int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		int smallIndex = i;
+		int j = i;
+		while (j < size)
+		{
+			if (arr[smallIndex] > arr[j])
+			{
+				smallIndex = j;
+			}
+			++j;
+		}
+		if (i != smallIndex)
+		{
+			swap(arr[i], arr[smallIndex]);
+		}
+	}
+}
+
+void InsertionSort(int* arr, const int size)
+{
+	for (int i = 1; i < size; i++)
+	{
+		int key = arr[i];
+		int j = i;
+		while (j)
+		{
+			if (key < arr[j-1])
+			{
+				arr[j] = arr[j-1];
+				j--;
+			}
+			else
+			{
+				break;
+			}
+		}
+		arr[j] = key;
+	}
+}
+
+void BubbleSort(int* arr, const int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size - i - 1; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				swap(arr[j], arr[j + 1]);
+			}
+		}
+	}
+}
+int main()
+{
+	int arr[] = { 432,0,56,8,45,2,34,7,-67,-43,23 };
+	//BubbleSort(arr, sizeof(arr) / sizeof(int));
+	//InsertionSort(arr, sizeof(arr) / sizeof(int));
+	selectionSort(arr, sizeof(arr) / sizeof(int));
+	for (int i = 0; i < sizeof(arr) / sizeof(int); i++)
+	{
+		cout << arr[i] << endl;
+	}
+
+	return 0;
+}
  #include<iostream>
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
