@@ -1,4 +1,40 @@
+
+
  #include<iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+//Create a method that uses a loop to calculate the summation.
+int sum(int n)
+{
+	if (n < 1)
+		return 0;
+	return sum(n - 1) + n;
+}
+
+int sumLoop(int n)
+{
+	int sum = 0;
+	while (n > 0)
+	{
+		sum += n;
+		n--;
+	}
+	return sum;
+}
+
+int main()
+{
+	int input;
+	cout << "please enter a number>:";
+	cin >> input;
+	cout << sum(input)<<endl;
+	cout << sumLoop(input)<<endl;
+	
+	return 0;
+}
+#include<iostream>
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
 
