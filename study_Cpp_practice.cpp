@@ -3,6 +3,44 @@
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
 
+
+void InsertionSort(int* arr, const int size)
+{
+	//left index for sorted array
+	int left = 0;
+	//right index for sorted array
+	int right = size - 1;
+
+	while (right > left)
+	{
+		//choose the minimum number's index
+		int minIndex = left;
+		//choose the maximum number's index
+		int maxIndex = left;
+		for (int i = left + 1; i <= right; i++)
+		{
+			if (arr[i] > arr[maxIndex])
+			{
+				maxIndex = i;
+			}
+			if (arr[i] < arr[minIndex])
+			{
+				minIndex = i;
+			}
+		}
+		swap(arr[left], arr[minIndex]);
+		if (left == maxIndex)
+		{
+			maxIndex = minIndex;
+		}
+		swap(arr[right], arr[maxIndex]);
+		left++;
+		right--;
+	}
+	
+}
+
+
 void selectionSort(int* arr, const int size)
 {
 	for (int i = 0; i < size; i++)
