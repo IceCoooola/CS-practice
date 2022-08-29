@@ -1,4 +1,96 @@
+#define CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<assert.h>
+#include<string>
+using std::endl;
+using std::cout;
+using std::cin;
 
+template<class T>
+struct ListNode
+{
+	ListNode() :_data(),_next(nullptr){}
+	ListNode(const T& x = 0) :_data(x),_next(nullptr){}
+	T _data;
+	struct ListNode* _next;
+};
+
+template<class T>
+class Stack
+{
+public:
+	Stack():_Top(nullptr){}
+	
+	void push(const T& data)
+	{
+		if (_Top == nullptr)
+		{
+			_Top = new ListNode;
+			_Top->_next = nullptr;
+		}
+		else
+		{
+			ListNode* newNode = new ListNode();
+			newNode->_next = _Top;
+			newNode->_data = data;
+			_Top = newNode;
+		}
+	}
+
+	void pop()
+	{
+		assert(_Top);
+		ListNode* tmp = _Top;
+		_Top = _Top->next;
+		delete tmp;
+	}
+
+	T& top()
+	{
+		assert(_Top);
+		return _Top->_data;
+	}
+
+	bool empty() const
+	{
+		return _Top == nullptr;
+	}
+
+	~Stack()
+	{
+		while (_Top != nullptr)
+		{
+			pop();
+		}
+	}
+
+private:
+	ListNode<T>* _Top;
+};
+
+template<class T>
+T ReversePolishCalc(const std::string token)
+{
+	
+}
+
+int main()
+{
+	int input;
+	//cin >> input;
+	Stack<int> st;
+	st.push(1);
+	st.push(2);
+	st.push(3);
+	st.push(4);
+	st.push(5);
+	while (!st.empty())
+	{
+		cout << st.top();
+		st.pop();
+	}
+	return 0;
+}
 #include<iostream>
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
