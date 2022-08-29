@@ -9,8 +9,7 @@ using std::cin;
 template<class T>
 struct ListNode
 {
-	ListNode() :_data(),_next(nullptr){}
-	ListNode(const T& x = 0) :_data(x),_next(nullptr){}
+public:
 	T _data;
 	struct ListNode* _next;
 };
@@ -25,12 +24,13 @@ public:
 	{
 		if (_Top == nullptr)
 		{
-			_Top = new ListNode;
+			_Top = new ListNode<T>;
+			_Top->_data = data;
 			_Top->_next = nullptr;
 		}
 		else
 		{
-			ListNode* newNode = new ListNode();
+			ListNode<T>* newNode = new ListNode<T>;
 			newNode->_next = _Top;
 			newNode->_data = data;
 			_Top = newNode;
@@ -40,8 +40,8 @@ public:
 	void pop()
 	{
 		assert(_Top);
-		ListNode* tmp = _Top;
-		_Top = _Top->next;
+		ListNode<T>* tmp = _Top;
+		_Top = _Top->_next;
 		delete tmp;
 	}
 
@@ -86,11 +86,13 @@ int main()
 	st.push(5);
 	while (!st.empty())
 	{
-		cout << st.top();
+		cout << st.top()<<endl;
 		st.pop();
 	}
 	return 0;
 }
+
+
 #include<iostream>
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
