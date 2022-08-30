@@ -1,6 +1,156 @@
 #define CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<assert.h>
+#include<sstream>
+#include<string>
+#include<vector>
+using std::endl;
+using std::cout;
+using std::cin;
+
+template<class T>
+struct ListNode
+{
+public:
+	T _data;
+	struct ListNode* _next;
+};
+
+template<class T>
+class Stack
+{
+public:
+	Stack():_Top(nullptr){}
+	
+	void push(const T& data)
+	{
+		if (_Top == nullptr)
+		{
+			_Top = new ListNode<T>;
+			_Top->_data = data;
+			_Top->_next = nullptr;
+		}
+		else
+		{
+			ListNode<T>* newNode = new ListNode<T>;
+			newNode->_next = _Top;
+			newNode->_data = data;
+			_Top = newNode;
+		}
+	}
+
+	void pop()
+	{
+		assert(_Top);
+		ListNode<T>* tmp = _Top;
+		_Top = _Top->_next;
+		delete tmp;
+	}
+
+	T& top()
+	{
+		assert(_Top);
+		return _Top->_data;
+	}
+
+	bool empty() const
+	{
+		return _Top == nullptr;
+	}
+
+	~Stack()
+	{
+		while (_Top != nullptr)
+		{
+			pop();
+		}
+	}
+
+private:
+	ListNode<T>* _Top;
+};
+
+
+float ReversePolishCalc(const std::vector<std::string> token)
+{
+	Stack<float> st;
+	for (int i = 0; i < token.size(); i++)
+	{
+		int tmp = atof(token[i].c_str());
+		if (tmp)
+		{
+			st.push(tmp);
+		}
+		else
+		{
+			float a = 0, b = 0, ret;
+			switch (token[i][0])
+			{
+			case '+':
+				a = st.top();
+				st.pop();
+				b = st.top();
+				st.pop();
+				ret = b + a;
+				st.push(ret);
+				break;
+			case '-':
+				a = st.top();
+				st.pop();
+				b = st.top();
+				st.pop();
+				ret = b - a;
+				st.push(ret);
+				break;
+			case '*':
+				a = st.top();
+				st.pop();
+				b = st.top();
+				st.pop();
+				ret = b * a;
+				st.push(ret);
+				break;
+			case '/':
+				a = st.top();
+				assert(a!=0);
+				st.pop();
+				b = st.top();
+				st.pop();
+				ret = b / a;
+				st.push(ret);
+				break;
+			default:
+				throw;
+				break;
+			}
+		}
+	}
+	return st.top();
+}
+
+int main()
+{
+	std::string str;
+	while (getline(cin, str))
+	{
+		if (strcmp(str.c_str(), "0"))
+		{
+			break;
+		}
+		std::stringstream stringstr(str);
+		std::vector<std::string> input;
+		while (stringstr >> str)
+		{
+			input.push_back(str);
+		}
+		cout << ReversePolishCalc(input) << endl;
+	}
+	return 0;
+}
+
+#define CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<assert.h>
 #include<string>
 using std::endl;
 using std::cout;
