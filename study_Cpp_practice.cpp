@@ -1,5 +1,72 @@
 #define CRT_SECURE_NO_WARNINGS
 #include<iostream>
+using namespace std;
+
+template<class T>
+int partSort(T* arr, int leftIndex, int rightIndex)
+{
+	//set the leftmost number as key
+	T key = arr[leftIndex];
+	//record the leftmost index
+	int begin = leftIndex;
+	while (leftIndex < rightIndex)
+	{
+		//we have to have right move first
+		//otherwise it will end up with a number that is larger than key
+		while (leftIndex < rightIndex && arr[rightIndex] >= key)
+		{
+			//find the number smaller than key from right
+			rightIndex--;
+		}
+		while (leftIndex < rightIndex && arr[leftIndex] <= key)
+		{
+			//find the number larger than key from left
+			leftIndex++;
+		}
+		//swap these two numbers
+		swap(arr[leftIndex], arr[rightIndex]);
+	}
+	//and swap the key with the final index
+	swap(arr[begin], arr[leftIndex]);
+	//return to sorted position
+	return leftIndex;
+}
+template<class T>
+void _quickSort(T* arr, const int left, const int right)
+{
+	if (left >= right)
+	{
+		return;
+	}
+	int key = partSort(arr, left, right);
+	//recursively sort the array
+	//devide the array by two part and sort it
+	_quickSort(arr, left, key-1);
+	_quickSort(arr, key +1, right);
+	
+}
+
+
+template<class T>
+void quickSort(T* arr, const int size)
+{
+	_quickSort(arr, 0, size - 1);
+}
+
+int main()
+{
+	int arr[] = { 1,5,7,432,22,-3,6,3 };
+	quickSort(arr, sizeof(arr)/sizeof(int));
+	for (auto e : arr)
+	{
+		cout << e<<endl;
+	}
+	return 0;
+}
+
+
+#define CRT_SECURE_NO_WARNINGS
+#include<iostream>
 #include<assert.h>
 #include<sstream>
 #include<string>
