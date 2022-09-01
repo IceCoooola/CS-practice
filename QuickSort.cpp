@@ -1,6 +1,38 @@
 #define CRT_SECURE_NO_WARNINGS
 #include<iostream>
+#include<assert.h>
+#include<time.h>
 using namespace std;
+
+void InsertSort(int* a, int n)
+{
+	assert(a);
+	for (int i = 0; i < n - 1; i++)
+	{
+		int end = i;
+		int temp = a[end + 1];
+		while (end >= 0)
+		{
+			if (temp < a[end])
+			{
+				a[end + 1] = a[end];
+				end--;
+			}
+			else
+			{
+				break;
+			}
+		}
+		a[end + 1] = temp;
+	}
+}
+
+
+template<class T>
+int partSort3(T* arr, int left, int right)
+{
+
+}
 
 //digging hole method
 template<class T>
@@ -34,7 +66,7 @@ int partSort2(T* arr, int left, int right)
 	
 }
 
-//horea method 
+//hoare method 
 template<class T>
 int partSort1(T* arr, int leftIndex, int rightIndex)
 {
@@ -64,6 +96,7 @@ int partSort1(T* arr, int leftIndex, int rightIndex)
 	//return to sorted position
 	return leftIndex;
 }
+
 template<class T>
 void _quickSort(T* arr, const int left, const int right)
 {
@@ -71,8 +104,8 @@ void _quickSort(T* arr, const int left, const int right)
 	{
 		return;
 	}
-	//int key = partSort1(arr, left, right);
-	int key = partSort2(arr, left, right);
+	//int key = partSort(arr, left, right);
+	int key = partSort1(arr, left, right);
 	//recursively sort the array
 	//devide the array by two part and sort it
 	_quickSort(arr, left, key-1);
@@ -84,16 +117,37 @@ void _quickSort(T* arr, const int left, const int right)
 template<class T>
 void quickSort(T* arr, const int size)
 {
+	assert(arr);
 	_quickSort(arr, 0, size - 1);
 }
 
 int main()
 {
-	int arr[] = { 1,5,7,432,22,-3,6,3 };
-	quickSort(arr, sizeof(arr)/sizeof(int));
-	for (auto e : arr)
+	int* arr1 = new int[100000];
+	for (int i = 0; i < 100000; i++)
 	{
-		cout << e<<endl;
+		arr1[i] = rand();
 	}
+	clock_t t;
+	t = clock();
+	quickSort(arr1, 100000);
+	/*for (auto e : arr)
+	{
+		cout << e<<" ";
+	}*/
+	t = clock() - t;
+	cout << t<<endl;
+
+	int* arr2 = new int[100000];
+	for (int i = 0; i < 100000; i++)
+	{
+		arr2[i] = rand();
+	}
+	clock_t t2;
+	t2 = clock();
+	InsertSort(arr2, 100000);
+	t2 = clock() - t2;
+	cout << t2 << endl;
+
 	return 0;
 }
