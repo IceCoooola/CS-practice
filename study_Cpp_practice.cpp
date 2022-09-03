@@ -1,3 +1,145 @@
+int FindLast(int numbers[], int size, int key) {
+
+
+int lastOcc = -1;
+
+
+for(int i = 0; i < size; i++)
+
+
+{
+
+
+if (numbers[i] == key)
+
+
+lastOcc = i;
+
+
+return lastOcc;
+
+
+}
+
+
+}
+
+void Queue::Enqueue(int value)
+
+
+{
+
+
+if(count == 100)
+
+
+{
+
+
+cout << "Queue is full!\n";
+
+
+throw;
+
+
+}
+
+
+if(back == 100)
+
+
+{
+
+
+back = 0;
+
+
+}
+
+
+array[back] = value;
+
+
+++count;
+
+
+}
+
+int* front = head->next;
+
+
+while(front->data < 27)
+
+
+{
+
+
+front = front->next;
+
+
+}
+
+
+int* newNode = new ListNode;
+
+
+newNode-> data = 27;
+
+
+newNode-> next = front;
+
+
+newNode->prev = front->prev;
+
+
+front->prev->next = newNode;
+
+
+front->prev = newNode;
+
+
+
+int FindSencondOccurrence(const vector<int>& arr, int key)
+
+
+{
+
+
+for(int i = 0; i < arr.size(); i++)
+
+
+{
+
+
+int flag = 0;
+
+
+if(arr[i] == key)//if the element is what we looking for
+
+
+{
+
+
+flag++;
+
+
+}
+
+
+if(flag == 2)
+
+
+return i;
+
+
+}
+
+
+return -1;
+
+
+}
+
 #define CRT_SECURE_NO_WARNINGS
 #include<iostream>
 using namespace std;
