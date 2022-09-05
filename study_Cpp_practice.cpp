@@ -2,6 +2,46 @@ class A
 
 {
 
+public: 
+
+  virtual void f()
+
+  {
+
+    cout<<"A::f()"<<endl;
+
+  }
+
+};
+
+
+
+class B : public A
+
+{
+
+public:
+
+   virtual void f()
+
+  {
+
+    cout<<"B::f()"<<endl;
+
+  }
+
+};
+
+
+
+A* pa = (A*)new B;
+
+pa->f();
+
+class A
+
+{
+
 public:
 
   A ():m_iVal(0){test();}
