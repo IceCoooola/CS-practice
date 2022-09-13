@@ -1,3 +1,46 @@
+int count = 0;
+for(int i = 0; i < size; ++i)
+{
+
+                if(numbers[i] == key)
+                {
+
+                ++count;
+
+                if(count == occurrence)
+                return i;
+
+}
+
+}
+
+return -1;
+void Node::Dequeue()
+{
+
+                if(first == nullptr)
+                {
+                std::cout<<”queue is empty!\n”;
+                return;
+                }
+                if(first == last)
+                {
+                delete first;
+                first = last = nullptr;
+
+                }
+
+                else
+                {
+                Node* tmp = first;
+
+                first = first->next;
+                delete tmp;
+                }
+
+
+}
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
