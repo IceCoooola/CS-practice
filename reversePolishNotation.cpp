@@ -2,6 +2,7 @@
 #include<iostream>
 #include<assert.h>
 #include<sstream>
+#include<cstring>
 #include<string>
 #include<vector>
 using std::endl;
@@ -99,43 +100,47 @@ float ReversePolishCalc(const std::vector<std::string> token)
 			}
 			float a = 0, b = 0, ret;
 			//switch operator to each case. if no operator matched then throw error. 
+			if (!st.empty())
+			{
+				a = st.top();
+				st.pop();
+			}
+			else
+			{
+				cout << "too many operator!\n";
+				throw;
+			}
+			if (!st.empty())
+			{
+				b = st.top();
+				st.pop();
+			}
+			else
+			{
+				cout << "too many operator!\n";
+				throw;
+			}
 			switch (token[i][0])
 			{
 			case '+':
-				a = st.top();
-				st.pop();
-				b = st.top();
-				st.pop();
 				ret = b + a;
 				st.push(ret);
 				break;
 			case '-':
-				a = st.top();
-				st.pop();
-				b = st.top();
-				st.pop();
 				ret = b - a;
 				st.push(ret);
 				break;
 			case '*':
-				a = st.top();
-				st.pop();
-				b = st.top();
-				st.pop();
 				ret = b * a;
 				st.push(ret);
 				break;
 			case '/':
-				a = st.top();
 				//check if divided by 0
 				if (a == 0)
 				{
 					cout << "divided by 0.\n";
 					throw;
 				}
-				st.pop();
-				b = st.top();
-				st.pop();
 				ret = b / a;
 				st.push(ret);
 				break;
@@ -150,7 +155,7 @@ float ReversePolishCalc(const std::vector<std::string> token)
 	st.pop();
 	if (!st.empty())
 	{
-		cout << "too many variables.\n";
+		cout << "too many operand.\n";
 		throw;
 	}
 	return retVal;
