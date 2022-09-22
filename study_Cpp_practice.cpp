@@ -30,11 +30,6 @@ public:
 		TreeNode* root = pRootOfTree;
 		while(root->left)
 		root = root->left;
-		TreeNode* root2 = pRootOfTree;
-		while(root2->right)
-		root2 = root2->right;
-		root->left = root2;
-		root2->right = root;
 		return root;
     }
 };
