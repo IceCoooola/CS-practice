@@ -1,3 +1,44 @@
+/*
+struct TreeNode {
+	int val;
+	struct TreeNode *left;
+	struct TreeNode *right;
+	TreeNode(int x) :
+			val(x), left(NULL), right(NULL) {
+	}
+};*/
+class Solution {
+public:
+	TreeNode* prev;
+	void InOrderConvert(TreeNode* root)
+	{
+		if(root == nullptr)
+			return;
+		InOrderConvert(root->left);
+		root->left = prev;
+		if(prev)
+		prev->right = root;
+		prev = root;
+		InOrderConvert(root->right);
+
+	}
+
+    TreeNode* Convert(TreeNode* pRootOfTree) {
+		if(!pRootOfTree)
+		return pRootOfTree;
+        InOrderConvert(pRootOfTree);
+		TreeNode* root = pRootOfTree;
+		while(root->left)
+		root = root->left;
+		TreeNode* root2 = pRootOfTree;
+		while(root2->right)
+		root2 = root2->right;
+		root->left = root2;
+		root2->right = root;
+		return root;
+    }
+};
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
