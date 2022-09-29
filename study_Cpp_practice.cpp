@@ -36,6 +36,57 @@ public:
     }
 };
 
+class Solution {
+public:
+
+    void buildTree(TreeNode* root, TreeNode*& newRoot)
+    {
+        if(root == nullptr)
+        {
+            return;
+        }
+        if(root->left == nullptr && root->right == nullptr)
+        {
+            newRoot = new TreeNode(0);
+        }
+        if(root->left == nullptr)
+        {
+            newRoot = new TreeNode(root->right->val);
+            buildTree(root->right, newRoot->right);
+        }
+        else if(root->right == nullptr)
+        {
+            newRoot = new TreeNode(root->left->val);
+            buildTree(root->left, newRoot->left);
+        }
+        else
+        {
+            newRoot = new TreeNode(abs(root->left->val - root->right->val));
+            buildTree(root->left, newRoot->left);
+            buildTree(root->right, newRoot->right);
+        }
+    }
+    
+    int findTilt(TreeNode* root) {
+        TreeNode* newRoot = new TreeNode;
+        buildTree(root, newRoot);
+        stack<TreeNode*> st;
+        TreeNode* cur = newRoot;
+        int sum = 0;
+        while(newRoot || !st.empty())
+        {
+            while(cur)
+            {
+                st.push(cur);
+                cur = cur->left;
+            }
+            sum += st.top()->val;
+            cur = st.top()->right;
+            st.pop();
+        }
+        return sum;
+    }
+};
 /*
 struct TreeNode {
 	int val;
