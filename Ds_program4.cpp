@@ -30,10 +30,11 @@ struct Hash<string>
     size_t operator()(const string& key)
     {
         int ret = 0;
+        int i = 1;
         for(auto ch : key)
         {
-            ret += ch;
-            ret *= 131;
+            ret += ch * i;
+            i++;
         }
         return ret;
     }
@@ -44,7 +45,15 @@ class HashTable
 {
     typedef Node<Key, Value> HashNode;
 public:
+    HashTable(const int& size)
+    {
+        _hashTable.resize(size, nullptr);
+    }
     Value& operator[](const Key& key)
+    {
+        Value& ret = find(key);
+    }
+    Value& find(const Key& key)
     {
         
     }
