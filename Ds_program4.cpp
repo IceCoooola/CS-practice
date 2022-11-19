@@ -10,15 +10,26 @@
 #include <sstream>
 using namespace std;
 
+template<class K, class V>
 struct Node
 {
-    string _key;
-    int _value;
+    K _key;
+    V _value;
     Node* _next;
-    Node(const pair<string, int>& data):_key(data.first),_value(data.second),_next(nullptr){}
+    Node(const pair<K, V>& data):_key(data.first),_value(data.second),_next(nullptr){}
 };
 
+template<class T>
 struct Hash
+{
+    size_t operator()(const T& input)
+    {
+        return input;
+    }
+};
+
+template<>
+struct Hash<string>
 {
     size_t operator()(const string& key)
     {
@@ -33,16 +44,17 @@ struct Hash
     }
 };
 
+template<class K, class V>
 class HashTable
 {
-    typedef Node HashNode;
+    typedef Node<K, V> HashNode;
 public:
     HashTable(const int& size)
     {
         _hashTable.resize(size, nullptr);
     }
     
-    bool insert(const pair<string, int>& data)
+    bool insert(const pair<K, V>& data)
     {
         HashNode* ret = find(data.first);
         //check if data already exist
@@ -60,9 +72,8 @@ public:
                 while(cur)
                 {
                     HashNode* next = cur->_next;
-                    Hash hf;
-                    int hashVal = hf(cur->_key);
-                    size_t index = hashVal % newTable.size();
+                    Hash<K> hf;
+                    size_t index = hf(cur->_key) % newTable.size();
                     cur->_next = newTable[index];
                     newTable[index] = cur;
                     cur = next;
@@ -71,7 +82,7 @@ public:
             }
             _hashTable.swap(newTable);
         }
-        Hash hf;
+        Hash<K> hf;
         int i = hf(data.first) % _hashTable.size();
         HashNode* cur = _hashTable[i];
         if(!cur)
@@ -89,9 +100,9 @@ public:
         
     }
     
-    HashNode* find(const string& key)
+    HashNode* find(const K& key)
     {
-            Hash hf;
+            Hash<K> hf;
             int i = hf(key) % _hashTable.size();
             HashNode* cur = _hashTable[i];
             while(cur)
@@ -104,11 +115,12 @@ public:
         return nullptr;
     }
     
-    int& operator[](const string& key)
+    V& operator[](const K& key)
     {
         HashNode* ret = find(key);
         if(!ret)
         {
+            cout<<"data does not exists.\n";
             throw;
         }
         return ret->_value;
@@ -116,7 +128,7 @@ public:
     
     void printTable()
     {
-        for(int i = 0; i< _hashTable.size(); i++)
+        for(int i = 0; i < _hashTable.size(); i++)
         {
             HashNode* j = _hashTable[i];
             while(j)
@@ -133,7 +145,7 @@ private:
 };
 
 int main() {
-    HashTable ht(25);
+    HashTable<string, int> ht(25);
     ht.insert(make_pair("test1", 1));
     ht.insert(make_pair("test", 2));
     ht.insert(make_pair("test3", 3));
