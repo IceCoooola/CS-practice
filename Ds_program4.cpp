@@ -174,11 +174,17 @@ private:
 template<class K, class V>
 bool createNewVar(queue<K>& q,HashTable<K, V> hsTable)
 {
+    if(q.empty())
+        return false;
     K key = q.front();
     q.pop();
+    if(q.empty())
+        return false;
     if(q.front() != "=")
         return false;
     q.pop();
+    if(q.empty())
+        return false;
     V value = q.front();
     hsTable.insert(make_pair(key, value));
     return true;
@@ -224,8 +230,26 @@ int main()
                             cout<<"create variable false. Please check expression.\n";
                         break;
                     case VAR:
+                        //find local var first and find global var
+                        if(!LocalVar.find(q.front()))
+                        {
+                            if(!GlobalVar.find(q.front()))
+                            {
+                                cout<<"variable does not exists.\n";
+                            }
+                            else
+                            {
+                                //check expression next ++ --
+                            }
+                        }
+                        else
+                        {
+                            //check expression next ++ --
+                        }
                         break;
                     case PRINT:
+                        q.pop();
+                        //find local var && find global var
                         break;
                     default:
                         cout<<"switch case error.\n";
