@@ -166,6 +166,15 @@ public:
         }
     }
     
+    bool printOneKV(const K& key)
+    {
+        HashNode* ret = find(key);
+        if(!ret)
+            return false;
+        else
+            cout<<ret->_key<<" is "<<ret->_value<<endl;
+        return true;
+    }
 private:
     vector<HashNode*> _hashTable;
     size_t _n;
@@ -185,14 +194,65 @@ bool createNewVar(queue<K>& q,HashTable<K, V> hsTable)
     q.pop();
     if(q.empty())
         return false;
-    V value = q.front();
+    V value = stof(q.front());
     hsTable.insert(make_pair(key, value));
     return true;
 }
 
+template<class K, class V>
+void reviseVar(queue<K>& q,HashTable<K, V>& var)
+{
+    Node<K, V>* ret = var.find(q.front());
+    q.pop();
+    if(q.front() == "++")
+    {
+        ret->_value++;
+        q.pop();
+    }
+    else if(q.front() == "--")
+    {
+        ret->_value--;
+        q.pop();
+    }
+    else
+    {
+        char sign = q.front()[0];
+        q.pop();
+        V value = stof(q.front());
+        q.pop();
+        switch (sign) {
+            case '+':
+                ret->_value += value;
+                break;
+            case '-':
+                ret->_value -= value;
+                break;
+            case '*':
+                ret->_value *= value;
+                break;
+            case '/':
+                ret->_value /= value;
+                break;
+            case '%':
+               // ret->_value %= (int)value;
+                break;
+            case '^':
+                while(--value)
+                {
+                    V tmp = ret->_value;
+                    ret->_value *= tmp;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+
 int main()
 {
-    HashTable<string, int> GlobalVar(25);
+    HashTable<string, float> GlobalVar(25);
     ifstream ifs("text.txt");
     string str;
     string name;
@@ -239,17 +299,26 @@ int main()
                             }
                             else
                             {
-                                //check expression next ++ --
+                                //check expression next ++ -- in global variable
+                                reviseVar(q, GlobalVar);
                             }
                         }
                         else
                         {
-                            //check expression next ++ --
+                            //check expression next ++ -- in local variable
+                            reviseVar(q, LocalVar);
                         }
                         break;
                     case PRINT:
                         q.pop();
                         //find local var && find global var
+                        if(!LocalVar.printOneKV(q.front()))
+                        {
+                            if(!GlobalVar.printOneKV(q.front()))
+                            {
+                                cout<<"no data exists. Please check spelling\n";
+                            }
+                        }
                         break;
                     default:
                         cout<<"switch case error.\n";
