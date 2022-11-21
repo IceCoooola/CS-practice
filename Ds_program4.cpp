@@ -5,7 +5,6 @@
 //
 #include <iostream>
 #include <fstream>
-#include <vector>
 #include <utility>
 #include <sstream>
 #include <queue>
@@ -253,7 +252,7 @@ void reviseVar(queue<K>& q,HashTable<K, V>& var)
 int main()
 {
     HashTable<string, float> GlobalVar(25);
-    ifstream ifs("text.txt");
+    ifstream ifs("/Users/dibao/Documents/random/xbox/program 5/program 5/test.txt");
     string str;
     string name;
     while(getline(ifs, str))
