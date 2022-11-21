@@ -8,6 +8,7 @@
 #include <vector>
 #include <utility>
 #include <sstream>
+#include <queue>
 using namespace std;
 
 template<class K, class V>
@@ -43,6 +44,32 @@ struct Hash<string>
         return ret;
     }
 };
+
+enum COMMAND
+{
+    START,
+    FINISH,
+    COM,
+    NEWVAR,
+    VAR,
+    PRINT
+};
+
+COMMAND BORGCommand(const string& str)
+{
+    if(str == "START")
+        return START;
+    else if (str == "FINISH")
+        return FINISH;
+    else if (str == "COM")
+        return COM;
+    else if (str == "VAR")
+        return NEWVAR;
+    else if (str == "PRINT")
+        return PRINT;
+    else
+        return VAR;
+}
 
 template<class K, class V>
 class HashTable
@@ -144,21 +171,69 @@ private:
     size_t _n;
 };
 
-int main() {
-    HashTable<string, int> ht(25);
-    ht.insert(make_pair("test1", 1));
-    ht.insert(make_pair("test", 2));
-    ht.insert(make_pair("test3", 3));
-    ht.insert(make_pair("test22", 22));
-    ht.insert(make_pair("test222", 2222));
-    ht.printTable();
+template<class K, class V>
+bool createNewVar(queue<K>& q,HashTable<K, V> hsTable)
+{
+    K key = q.front();
+    q.pop();
+    if(q.front() != "=")
+        return false;
+    q.pop();
+    V value = q.front();
+    hsTable.insert(make_pair(key, value));
+    return true;
+}
+
+int main()
+{
+    HashTable<string, int> GlobalVar(25);
     ifstream ifs("text.txt");
     string str;
+    string name;
     while(getline(ifs, str))
     {
         stringstream stringstr(str);
-        vector<string> vct;
-
+        queue<string> q;
+        stringstr >> str;
+        
+        if(BORGCommand(str) == COM)
+        {
+            continue;
+        }
+        
+        if(BORGCommand(str) == START)
+        {
+            HashTable<string, int> LocalVar(25);
+            while(getline(ifs, str))
+            {
+                stringstream stringstr2(str);
+                stringstr2 >> str;
+                if(BORGCommand(str) == COM)
+                    continue;
+                if(BORGCommand(str) == FINISH)
+                    break;
+                q.push(str);
+                while(stringstr2 >> str)
+                {
+                    q.push(str);
+                }
+                switch (BORGCommand(q.front())) {
+                    case NEWVAR:
+                        q.pop();
+                        if(!createNewVar(q, LocalVar))
+                            cout<<"create variable false. Please check expression.\n";
+                        break;
+                    case VAR:
+                        break;
+                    case PRINT:
+                        break;
+                    default:
+                        cout<<"switch case error.\n";
+                        throw;
+                        break;
+                }
+            }
+        }
     }
 
     return 0;
