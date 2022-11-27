@@ -175,6 +175,37 @@ public:
         return true;
     }
 
+    void printWithOperator(const char& operation, const string& key, const string& value)
+    {
+        V val = find(key)->_value;
+        V tmp = stof(value);
+        switch (operation)
+        {
+        case '+':
+            cout << key << " " << operation << " " << value <<" is "<< val + tmp;
+            break;
+        case '-':
+            cout << key << " " << operation << " " << value <<" is "<< val - tmp;
+            break;
+        case '*':
+            cout << key << " " << operation << " " << value <<" is "<< val * tmp;
+            break;
+        case '/':
+            cout << key << " " << operation << " " << value <<" is "<< val / tmp;
+            break;
+        case '%':
+            while(val >= 0)
+            {
+                val -= tmp;
+            }
+            val += tmp;
+            cout << key << " " << operation << " " << value <<" is "<< val;
+            break;
+        default:
+            cout << "error printing operator. \n";
+        }
+
+    }
 private:
     vector<HashNode*> _hashTable;
     size_t _n;
@@ -350,27 +381,7 @@ int main()
                                 q.pop();
                                 char operation = q.front()[0];
                                 q.pop();
-                                switch (operation)
-                                {
-                                case '+':
-                                    cout << tmp << " is " << GlobalVar[tmp] + stof(q.front());
-                                    break;
-                                case '-':
-                                    cout << tmp << " is " << GlobalVar[tmp] - stof(q.front());
-                                    break;
-                                case '*':
-                                    cout << tmp << " is " << GlobalVar[tmp] * stof(q.front());
-                                    break;
-                                case '/':
-                                    cout << tmp << " is " << GlobalVar[tmp] / stof(q.front());
-                                    break;
-                                case '%':
-                                    //cout << tmp << " is " << GlobalVar[tmp] % stoi(q.front());
-                                    break;
-                                default:
-                                    cout << "error printing operator. \n";
-                                }
-
+                                GlobalVar.printWithOperator(operation, tmp, q.front());
                             }
                         }
                         else
@@ -379,32 +390,8 @@ int main()
                             q.pop();
                             char operation = q.front()[0];
                             q.pop();
-                            switch (operation)
-                            {
-                            case '+':
-                                cout << tmp << " is " << LocalVar[tmp] + stof(q.front());
-                                break;
-                            case '-':
-                                cout << tmp << " is " << LocalVar[tmp] - stof(q.front());
-                                break;
-                            case '*':
-                                cout << tmp << " is " << LocalVar[tmp] * stof(q.front());
-                                break;
-                            case '/':
-                                cout << tmp << " is " << LocalVar[tmp] / stof(q.front());
-                                break;
-                            case '%':
-                                //cout << tmp << " is " << LocalVar[tmp] % stoi(q.front());
-                                break;
-                            default:
-                                cout << "error printing operator. \n";
-                            }
+                            LocalVar.printWithOperator(operation, tmp, q.front());
                         }
-                        //
-                        //
-                        //
-                        //
-
                     }
                     while (!q.empty())
                     {
@@ -465,26 +452,7 @@ int main()
                 q.pop();
                 char operation = q.front()[0];
                 q.pop();
-                switch (operation)
-                {
-                case '+':
-                    cout << tmp << " is " << GlobalVar[tmp] + stof(q.front());
-                    break;
-                case '-':
-                    cout << tmp << " is " << GlobalVar[tmp] - stof(q.front());
-                    break;
-                case '*':
-                    cout << tmp << " is " << GlobalVar[tmp] * stof(q.front());
-                    break;
-                case '/':
-                    cout << tmp << " is " << GlobalVar[tmp] / stof(q.front());
-                    break;
-                case '%':
-                    //cout << tmp << " is " << GlobalVar[tmp] % stoi(q.front());
-                    break;
-                default:
-                    cout << "error printing operator. \n";
-                }
+                GlobalVar.printWithOperator(operation, tmp, q.front());
             }
             while (!q.empty())
             {
