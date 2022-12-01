@@ -1,8 +1,8 @@
 //  main.cpp
 //  program 4
+//  Created by Cola on 11/15/22.
 //
-//  Created by Di Bao on 11/15/22.
-//
+
 #define CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <fstream>
@@ -525,3 +525,17 @@ int main()
 
     return 0;
 }
+
+/*
+BORAMIR is 25
+LEGOLAS is 101
+GANDALF does not exists.
+BORAMIR * 2 is 52
+GANDALF is 49
+BORAMIR is 26
+GANDALF does not exists.
+LEGOLAS is 1000
+LEGOLAS is 1000
+LEGOLAS is 999
+
+*/
