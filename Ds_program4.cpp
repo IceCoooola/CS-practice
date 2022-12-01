@@ -3,13 +3,14 @@
 //
 //  Created by Di Bao on 11/15/22.
 //
+#define CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <fstream>
 #include <utility>
 #include <sstream>
+#include <stack>
 #include <queue>
 using namespace std;
-
 template<class K, class V>
 struct Node
 {
@@ -182,29 +183,29 @@ public:
         switch (operation)
         {
         case '+':
-            cout << key << " " << operation << " " << value <<" is "<< val + tmp;
+            cout << key << " " << operation << " " << value << " is " << val + tmp;
             break;
         case '-':
-            cout << key << " " << operation << " " << value <<" is "<< val - tmp;
+            cout << key << " " << operation << " " << value << " is " << val - tmp;
             break;
         case '*':
-            cout << key << " " << operation << " " << value <<" is "<< val * tmp;
+            cout << key << " " << operation << " " << value << " is " << val * tmp;
             break;
         case '/':
-            cout << key << " " << operation << " " << value <<" is "<< val / tmp;
+            cout << key << " " << operation << " " << value << " is " << val / tmp;
             break;
         case '%':
-            while(val >= 0)
+            while (val >= 0)
             {
                 val -= tmp;
             }
             val += tmp;
-            cout << key << " " << operation << " " << value <<" is "<< val;
+            cout << key << " " << operation << " " << value << " is " << val;
             break;
         default:
             cout << "error printing operator. \n";
         }
-
+        cout << "\n";
     }
 private:
     vector<HashNode*> _hashTable;
@@ -276,7 +277,7 @@ void reviseVar(queue<K>& q, HashTable<K, V>& var)
             ret->_value /= value;
             break;
         case '%':
-            while(ret->_value >= 0)
+            while (ret->_value >= 0)
             {
                 ret->_value -= value;
             }
@@ -295,9 +296,156 @@ void reviseVar(queue<K>& q, HashTable<K, V>& var)
     }
 }
 
+HashTable<string, float> GlobalVar(25);
+
+void StartNewScope(ifstream& ifs, vector<HashTable<string, float>*> prevLocalVar)
+{
+    string str;
+    HashTable<string, float> LocalVar(25);
+    queue<string> q;
+    while (getline(ifs, str))
+    {
+        stringstream stringstr2(str);
+        stringstr2 >> str;
+        if (BORGCommand(str) == COM)
+            continue;
+        if (BORGCommand(str) == START)
+        {
+            prevLocalVar.push_back(&LocalVar);
+            StartNewScope(ifs, prevLocalVar);
+            prevLocalVar.pop_back();
+            continue;
+        }
+        if (BORGCommand(str) == FINISH)
+            break;
+        q.push(str);
+        while (stringstr2 >> str)
+        {
+            q.push(str);
+        }
+        switch (BORGCommand(q.front())) {
+        case NEWVAR:
+            if (!createNewVar(q, LocalVar))
+                cout << "create variable false. Please check expression.\n";
+            break;
+        case VAR:
+            //find local var first and find previous local var, then global var
+            if (!LocalVar.find(q.front()))
+            {
+                bool status = false;
+                for (auto e : prevLocalVar)
+                {
+                    if (e->find(q.front()))
+                    {
+                        reviseVar(q, *e);
+                        status = true;
+                        break;
+                    }
+                }
+                if (status == false)
+                {
+                    if (!GlobalVar.find(q.front()))
+                    {
+                        cout << q.front() << " does not exists.\n";
+                    }
+                    else
+                    {
+                        //check expression next ++ -- in global variable
+                        reviseVar(q, GlobalVar);
+                    }
+                }
+            }
+            else
+            {
+                //check expression next ++ -- in local variable
+                reviseVar(q, LocalVar);
+            }
+            break;
+        case PRINT:
+            q.pop();
+            //if printing variable only
+            if (q.size() == 1)
+            {
+                //find local var && find global var
+                if (!LocalVar.printOneKV(q.front()))
+                {
+                    bool status = false;
+                    for (auto e : prevLocalVar)
+                    {
+                        if (e->printOneKV(q.front()))
+                        {
+                            status = true;
+                            break;
+                        }
+                    }
+                    if (status == false)
+                    {
+                        if (!GlobalVar.printOneKV(q.front()))
+                        {
+                            cout << q.front() << " does not exists.\n";
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (!LocalVar.find(q.front()))
+                {
+                    bool status = false;
+                    for (auto e : prevLocalVar)
+                    {
+                        if (e->find(q.front()))
+                        {
+                            string tmp = q.front();
+                            q.pop();
+                            char operation = q.front()[0];
+                            q.pop();
+                            e->printWithOperator(operation, tmp, q.front());
+                            status = true;
+                            break;
+                        }
+                    }
+                    if (status == false)
+                    {
+                        if (!GlobalVar.find(q.front()))
+                        {
+                            cout << q.front() << " does not exists.\n";
+                        }
+                        else
+                        {
+                            string tmp = q.front();
+                            q.pop();
+                            char operation = q.front()[0];
+                            q.pop();
+                            GlobalVar.printWithOperator(operation, tmp, q.front());
+                        }
+                    }
+                }
+                else
+                {
+                    string tmp = q.front();
+                    q.pop();
+                    char operation = q.front()[0];
+                    q.pop();
+                    LocalVar.printWithOperator(operation, tmp, q.front());
+                }
+            }
+            while (!q.empty())
+            {
+                q.pop();
+            }
+            break;
+        default:
+            cout << "switch case error.\n";
+            throw;
+            break;
+        }
+    }
+}
+
+
 int main()
 {
-    HashTable<string, float> GlobalVar(25);
     ifstream ifs("test.txt");
     string str;
     string name;
@@ -314,99 +462,8 @@ int main()
 
         if (BORGCommand(str) == START)
         {
-            HashTable<string, int> LocalVar(25);
-            while (getline(ifs, str))
-            {
-                stringstream stringstr2(str);
-                stringstr2 >> str;
-                if (BORGCommand(str) == COM)
-                    continue;
-                if (BORGCommand(str) == FINISH)
-                    break;
-                q.push(str);
-                while (stringstr2 >> str)
-                {
-                    q.push(str);
-                }
-                switch (BORGCommand(q.front())) {
-                case NEWVAR:
-                    if (!createNewVar(q, LocalVar))
-                        cout << "create variable false. Please check expression.\n";
-                    break;
-                case VAR:
-                    //find local var first and find global var
-                    if (!LocalVar.find(q.front()))
-                    {
-                        if (!GlobalVar.find(q.front()))
-                        {
-                            cout << q.front() << " does not exists.\n";
-                        }
-                        else
-                        {
-                            //check expression next ++ -- in global variable
-                            reviseVar(q, GlobalVar);
-                        }
-                    }
-                    else
-                    {
-                        //check expression next ++ -- in local variable
-                        reviseVar(q, LocalVar);
-                    }
-                    break;
-                case PRINT:
-                    q.pop();
-                    //if printing variable only
-                    if (q.size() == 1)
-                    {
-                        //find local var && find global var
-                        if (!LocalVar.printOneKV(q.front()))
-                        {
-                            if (!GlobalVar.printOneKV(q.front()))
-                            {
-                                cout << q.front() << " does not exists.\n";
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (!LocalVar.find(q.front()))
-                        {
-                            if (!GlobalVar.find(q.front()))
-                            {
-                                cout << q.front() << " does not exists.\n";
-                            }
-                            else
-                            {
-                                string tmp = q.front();
-                                q.pop();
-                                char operation = q.front()[0];
-                                q.pop();
-                                GlobalVar.printWithOperator(operation, tmp, q.front());
-                            }
-                        }
-                        else
-                        {
-                            string tmp = q.front();
-                            q.pop();
-                            char operation = q.front()[0];
-                            q.pop();
-                            LocalVar.printWithOperator(operation, tmp, q.front());
-                        }
-                    }
-                    while (!q.empty())
-                    {
-                        q.pop();
-                    }
-                    break;
-                default:
-                    cout << "switch case error.\n";
-                    throw;
-                    break;
-                }
-            }
-        }
-        if (BORGCommand(str) == FINISH)
-        {
+            vector<HashTable<string, float>*> localVar;
+            StartNewScope(ifs, localVar);
             continue;
         }
         q.push(str);
@@ -423,7 +480,7 @@ int main()
             //find local var first and find global var
             if (!GlobalVar.find(q.front()))
             {
-                cout <<q.front() << " does not exists.\n";
+                cout << q.front() << " does not exists.\n";
             }
             else
             {
