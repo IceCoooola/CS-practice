@@ -1,3 +1,27 @@
+//
+//  main.cpp
+//  practice
+//
+//  Created by Di Bao on 12/4/22.
+//
+
+#include <iostream>
+
+struct point{
+    int x;
+    int y;
+};
+
+int main() {
+    int b = {1};
+    int array[]{1,3,5,6,7};
+    int arr[22]{0};
+    point p{1,2};
+    std::cout<<p.x<<" "<<p.y<<std::endl;
+    return 0;
+}
+
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
