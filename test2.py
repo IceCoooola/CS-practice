@@ -17,3 +17,9 @@ elif avg >= 70:
     print('Grade C',"23123"*6)
 else:
     print('Grade F')
+
+#output
+#enter the test score 1100
+#enter the test score 280
+#enter the test score 395
+#Grade A
