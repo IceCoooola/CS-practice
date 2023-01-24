@@ -8,3 +8,10 @@ print('-'*13)
 for start in range(start, end+1):
     print(format(start, '6'), format(start*start, '6'))
 
+num = int(input('Please enter a number>: '))
+largest = num
+while num != -999 :
+    num = int(input('Please enter a number, or -999 to quit>: '))
+    if num > largest:
+        largest = num
+print('Largest number is',largest)
