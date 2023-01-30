@@ -46,3 +46,17 @@ function totalYen = ConvertToYen(totalDollars)
 end
 
 ConvertToYen(325)
+
+function highScores = GetHighScores(gameScores, minScore)
+% gameScores: Array contains all player scores
+% minScore: Scores greater than minScore are added to highScores
+
+    meetsThreshold = (gameScores > minScore);  % Logic array indicates which 
+                                               % elements are greater than minScore
+
+    % Construct a row array highScores containing all player scores greater than minScore
+    highScores = gameScores(meetsThreshold);
+   
+end
+
+GetHighScores([2, 5, 7, 6, 1, 9, 1], 5)
