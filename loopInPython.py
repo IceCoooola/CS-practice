@@ -15,3 +15,6 @@ while num != -999 :
     if num > largest:
         largest = num
 print('Largest number is',largest)
+for num in range(1,5):
+    print(num)
+print(num)
