@@ -1,3 +1,34 @@
+function [ newMatrixA, deletedElems ] = DeleteRowColumn( origMatrixA, delRow, delCol )
+% DeleteRowColumn: Delete the row and column specified by delRow
+% and delCol from input matrixA and returns the modified matrix and
+% the deleted elements as a column array.
+%   Inputs: origMatrixA - input matrix
+%           delRow - row to delete
+%           delCol - column to delete
+%
+%   Outputs: newMatrixA - input matrix with specified row and column deleted 
+%            deletedElems - deleted elements from input matrix
+%                           returned as a column array
+
+    % Assign newMatrixA with origMatrixA
+    newMatrixA = origMatrixA;
+    
+    % Assign deletedElems with row of newMatrixA to be deleted 
+    % (Hint: Use the transpose operator to convert a row to a column)
+    deletedElems = newMatrixA(delRow, :);  % FIXME
+    deletedElems = deletedElems.';
+    % Remove row delRow from newMatrixA
+    newMatrixA(delRow, :) = [];    % FIXME
+
+    % Append deletedElems with the with column of newMatrixA to be deleted
+    deletedElems = [deletedElems;newMatrixA(:, delCol)];  % FIXME
+    
+    % Remove column delCol from newMatrixA
+    newMatrixA(:,delCol) = [];    % FIXME
+
+end
+
+
 %create new matrix
 mat1 = [1,2,3;4,5,6]
 mat2 = [1,3,5;2,4,6;7,8,9;10,11,12]
