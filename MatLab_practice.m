@@ -1,3 +1,16 @@
+function [outMat] = CustomSort( inMat )
+% Takes a 2D array inMat with random integers between (inclusively) -100 and 100, 
+% and produces a  n by m array outMat that  consists of sorts values 
+% in inMat such that the lowest value in inMat is the (1,1) position 
+% in outMat, and order the remaining elements left to right on 
+% the first row till last column, starting with the next row and so on. 
+    newMat = sort(inMat(:));
+    sz = size(inMat);
+    outMat = reshape(newMat, sz(2),sz(1)).';
+   % Your code goes here % 
+   
+end
+
 function identifiedCars = selectCars(topSpeeds, carNames, lowerBound, upperBound)
 % select cars that have top speed within a given range
 % and display the names to the command line.  
