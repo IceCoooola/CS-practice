@@ -1,3 +1,20 @@
+function identifiedCars = selectCars(topSpeeds, carNames, lowerBound, upperBound)
+% select cars that have top speed within a given range
+% and display the names to the command line.  
+% Inputs: column array topSpeeds with top speeds in mile/hour,
+%            corresponding column string array carNames with the  car names
+%            lowerBound and upperBound  in km/h
+%.
+
+%   Convert topSpeeds to km/h
+    topSpeeds =  topSpeeds * 1.609;   %  complete code
+%  Create a logical array to extract the indices to the desired cars 
+    logicalIndexArray = topSpeeds > lowerBound & topSpeeds < upperBound;   %  complete code
+    identifiedCars = carNames(logicalIndexArray,:);
+    disp(identifiedCars)
+end
+
+
 function [ newMatrixA, deletedElems ] = DeleteRowColumn( origMatrixA, delRow, delCol )
 % DeleteRowColumn: Delete the row and column specified by delRow
 % and delCol from input matrixA and returns the modified matrix and
