@@ -1,3 +1,15 @@
+function [B, C, D] = matrixFun(A);
+%Enter the commands for your function below. Be sure to assign values 
+%to each of the output variables defined in the function command on line 1.
+
+sz = size(A);
+B = [A(1,:);A(sz(1), :)];
+C = [A(1,1), A(1, end); A(end, 1), A(end)];
+A(1,:) = [];
+A(:, 1) = [];
+D = A;
+end
+
 function [outMat] = CustomSort( inMat )
 % Takes a 2D array inMat with random integers between (inclusively) -100 and 100, 
 % and produces a  n by m array outMat that  consists of sorts values 
