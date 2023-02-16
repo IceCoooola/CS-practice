@@ -1,3 +1,42 @@
+function decodedString  = DecoderMessage( userString )
+  switch(userString)
+      case 'LOL'
+          decodedString = "laughing out loud";
+      case 'IDK'
+          decodedString = "I don't know";
+      case 'BFF'
+          decodedString = "best friends forever";
+      case 'IMHO'
+          decodedString = "in my humble opinion";
+      case 'TMI'
+          decodedString = "too much information";
+      otherwise
+          decodedString = "Unknown";
+  end
+    % Insert your code here % 
+    
+end
+
+
+function greekLetter = ConvertAlphabet(origLetter)
+
+    % Complete the switch statement to assign greekSymbol with 'Alpha',
+    % 'Beta', or 'Unknown' based on origLetter
+    switch ( origLetter ) 
+        case 'a'
+            greekLetter = 'Alpha';
+        case 'A'
+            greekLetter = 'Alpha';
+        case 'b'
+            greekLetter = 'Beta';
+        case 'B'
+            greekLetter = 'Beta';
+        otherwise 
+            greekLetter = 'Unknown';
+    end
+
+end
+
 function finalValue = AssignValue(userValue)
     if userValue > 100
         finalValue  = userValue + 5;
