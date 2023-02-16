@@ -1,3 +1,27 @@
+function finalValue = AssignValue(userValue)
+    if userValue > 100
+        finalValue  = userValue + 5;
+    else
+        finalValue = userValue + 3;
+    end
+    % Assign finalValue with userValue + 5 if userValue is greater than 100
+    % Otherwise, assign finalValue with userValue + 3
+
+end
+
+function dosageAmount = CalculateDosage(userWeight)
+% userWeight: User's weight in kg
+    if userWeight < 50
+        dosageAmount = 10;
+    else if userWeight > 140
+            dosageAmount = 30;
+    else
+        dosageAmount = 20;
+    % Assign dosageAmount with the appropriate amount given userWeight
+    end
+end
+
+
 function [B, C, D] = matrixFun(A);
 %Enter the commands for your function below. Be sure to assign values 
 %to each of the output variables defined in the function command on line 1.
