@@ -1,3 +1,19 @@
+function safetyCheck = CargoLimit(passengerWeight, cargoWeight)
+% passengerWeight: Total passenger weight (pounds)
+% cargoWeight: Total cargo weight (pounds)
+
+    maxWeight = 500;      % Maximum weight allowed
+    if (cargoWeight + passengerWeight) <= maxWeight
+        safetyCheck = 1;
+    else 
+        safetyCheck = 0;
+    end
+    % Assigns safetyCheck with 1 if the sum of passengerWeight and cargoWeight is less 
+    % than or equal maxWeight. Otherwise, assign safetyCheck with 0
+    
+   
+end
+
 function decodedString  = DecoderMessage( userString )
   switch(userString)
       case 'LOL'
