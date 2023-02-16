@@ -1,3 +1,186 @@
+% this script creates a meny for getting an order from a pizza menu
+
+clear;clc;
+
+choice = menu("Please pick a pizza from this menu:", "Cheese Lover", "Vegie Lover", "Meat Lover", "Cancel My Order");
+
+switch choice
+    case 1
+        disp("Excellent choice!");
+    case 2
+        disp("Healthy Choice!");
+    case 3
+        disp("Delicous Choice");
+    otherwise
+        disp("Sorry to see you leave.");
+end
+% 
+% if choice == 1
+%      disp("Excellent choice!");
+% elseif choice == 2
+%      disp("Healthy choice!");
+% elseif choice == 3
+%     disp("Delicous Choice");
+% else 
+%     disp("Sorry to see you leave.");
+% end
+
+%this script will calculate the cost of sending a package by delivery
+% $15 for 1st 2 ounds 
+% $2 for every extra ound
+% $15 extra for over 70 pounds
+% over 100 pounds package is not acceptable
+% written by Dee Bao
+
+clear;clc;
+
+weight = input('Please enter the weight of the packages:>');
+
+cost = costOfMailingPackage(weight);
+
+if cost ~= 99999 && cost ~= -99999
+    fprintf("The cost of shipping a %.2f pounds package is %.2f\n",weight, cost);
+end
+
+function cost = costOfMailingPackage(weight)
+
+cost = 0;
+max = 100;
+baseCost = 15;
+overCost = 15;
+baseWeight = 2;
+extraCost = 2;
+overWeight = 70;
+if weight > max
+    fprintf('package over weight');
+    cost = 99999;
+elseif weight <= 0
+    fprintf('invalid input!');
+    cost = -99999;
+else 
+    if weight > overWeight
+        cost = cost + overCost;
+    end
+    
+    if weight - baseWeight > 0
+        cost = cost + baseCost;
+        cost = cost + (weight - baseWeight) * extraCost;
+    else 
+        cost = baseCost;
+    end
+
+end
+end
+
+function y = findY(x)
+% this function returns a value for y based on the input of x
+% y = 1 for x < -1
+% y = x^2 for -1 <= x <= 2
+% y = 4 for x > 2
+% written by Dee Bao
+
+if x < -1
+    y = 1;
+elseif x > 2
+        y = 4;
+else
+    y = x.^2;
+end
+
+end
+function root = findPositiveRoots(arr, type)
+%this function finds the positive roots of an array depending on "type"
+% the function will return the roots of only the even positive numbers,
+% only the odd positive numbers, or all positive numbers. 
+%author: Dee Bao
+
+arr = arr(arr > 0);
+
+num = nargin;
+
+% if num == 2
+%     if type == 'e' || type == 'E'
+%         arr = arr(mod(arr, 2) == 0);
+%         root = sqrt(arr);
+%     elseif type == 'o' || type == 'O'
+%         arr = arr(mod(arr, 2) ~= 0);
+%         root = sqrt(arr);
+%     else 
+%         root = sqrt(arr);
+%     end
+% else 
+%     root = sqrt(arr);
+% end
+
+switch num
+    case 1
+        root = sqrt(arr);
+    case 2
+        switch lower(type)
+            case 'e'
+                arr = arr(rem(arr,2) == 0);
+                root = sqrt(arr);
+            case 'o'
+                arr = arr(rem(arr,2) ~= 0);
+                root = sqrt(arr);
+            otherwise
+                disp('invalid type input!\n');
+                root = 'invalid type input';
+        end
+    otherwise
+        disp('invalid type input!\n');
+        root = 'invalid type input';
+
+end
+
+end
+%this script will calculate the cost of sending a package by delivery
+% $15 for 1st 2 ounds 
+% $2 for every extra ound
+% $15 extra for over 70 pounds
+% over 100 pounds package is not acceptable
+% written by Dee Bao
+
+clear;clc;
+
+weight = input('Please enter the weight of the packages:>');
+
+cost = costOfMailingPackage(weight);
+
+if cost ~= 99999 && cost ~= -99999
+    fprintf("The cost of shipping a %.2f pounds package is %.2f\n",weight, cost);
+end
+
+function cost = costOfMailingPackage(weight)
+
+cost = 0;
+max = 100;
+baseCost = 15;
+overCost = 15;
+baseWeight = 2;
+extraCost = 2;
+overWeight = 70;
+if weight > max
+    fprintf('package over weight');
+    cost = 99999;
+elseif weight <= 0
+    fprintf('invalid input!');
+    cost = -99999;
+else 
+    if weight > overWeight
+        cost = cost + overCost;
+    end
+    
+    if weight - baseWeight > 0
+        cost = cost + baseCost;
+        cost = cost + (weight - baseWeight) * extraCost;
+    else 
+        cost = baseCost;
+    end
+
+end
+end
+
 function safetyCheck = CargoLimit(passengerWeight, cargoWeight)
 % passengerWeight: Total passenger weight (pounds)
 % cargoWeight: Total cargo weight (pounds)
