@@ -1,3 +1,19 @@
+
+
+% specific the second argument as string
+name = input('Please enter your name:>','s');
+name2 = input("Please enter your name:>",'s');
+%d exponential  %c char, %s string
+wid = input('enter the value:> ')
+aa = calcArea(1234,23)
+
+function area = calcArea(wid, hei)
+
+area = wid * hei;
+
+end
+
+
 % this script creates a meny for getting an order from a pizza menu
 
 clear;clc;
