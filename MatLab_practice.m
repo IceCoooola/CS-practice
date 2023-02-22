@@ -1,5 +1,42 @@
 
 
+F = input('please enter the fahrenheit temp');
+CK = degF_toCK(F);
+fprintf('%d F is equal to %d C and %d K.',F,ceil(CK(1)),ceil(CK(2)));
+
+function CK = degF_toCK(tempF)
+
+C = (tempF - 32) * 5 / 9;
+K = C + 273.15;
+CK = [C K];
+
+end
+
+
+
+x = randi(5, 2, 1)
+
+% arr1 = 1:5
+% arr2 = 9:-2:1
+% arr3 = [arr1 arr2]
+% arr4 = [arr1 ; arr2]
+% [a,b] = max(arr2)
+% arr5 = arr2((arr2 == 9) | (arr2 == 3))
+% 
+% % specific the second argument as string
+% name = input('Please enter your name:>','s');
+% name2 = input("Please enter your name:>",'s');
+% %d exponential  %c char, %s string
+% wid = input('enter the value:> ')
+% aa = calcArea(1234,23)
+% 
+% function area = calcArea(wid, hei)
+% 
+% area = wid * hei;
+% 
+% end
+
+
 % specific the second argument as string
 name = input('Please enter your name:>','s');
 name2 = input("Please enter your name:>",'s');
