@@ -1,4 +1,38 @@
 
+arr = [1,2,3,4,5,6,7,8,-1,-2,-3,-4];
+arr = [2 0 1 7 6 -9];
+[r a] = returnOddPosNums(arr)
+
+function [odds idx] = returnOddPosNums(arr)
+
+index = 1:1:length(arr);
+idx = index(arr > 0 & mod(arr,2) ~= 0);
+odds = arr(arr > 0 & mod(arr,2) ~= 0);
+
+end
+
+
+arr = [1,2,3,4,5,6,7,8,-1,-2,-3,-4];
+r = returnOddPosNums(arr)
+
+function ret = returnOddPosNums(arr)
+
+ret = arr(arr > 0 & mod(arr,2) ~= 0);
+
+
+end
+
+
+a = [2;4;6];
+b = [1;-4;3];
+c = [-2;0;8];
+
+mat = [a,b,c]
+
+rowA = mat(1,:)
+rowB = mat(2,:)
+rowC = mat(3,:)
+
 
 F = input('please enter the fahrenheit temp');
 CK = degF_toCK(F);
