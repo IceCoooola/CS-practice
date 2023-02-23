@@ -1,3 +1,50 @@
+num = input('enter number:>')
+if num == 0
+    disp('Goodbye!')
+elseif num == 4444
+    disp('welcome')
+else 
+    disp('incorrect')
+end
+
+num = input('enter number:>')
+while num ~= -999
+switch num
+    case 0
+    disp('Goodbye!')
+    case 4444
+    disp('welcome')
+    otherwise
+    disp('incorrect')
+end
+num = input('enter number:>')
+end
+
+inMat = [8 19 8 11;17 6 12 16;12 16 2 19;11 16 2 3]
+
+sorted = sort(inMat(:))
+
+outMat = reshape(sorted, 8 ,2)'
+
+% problem 4
+A = [3 7 5 3 9; 3 11 19 5 -10; 5 20 5 -11 13; 2 4 0 7 12; 14 2 6 7 -12]
+
+find(A > 2 & mod(A, 2) == 0)
+A(A > 2 & mod(A, 2) == 0)
+
+arr = [1,2,3,4,;7,8,-1,-2;2,1,-3,-4];
+arr(arr > 3)  % create a column array 
+max(arr(:)) % return the largest in whole matrix
+max(arr) % return the largest in each column
+
+
+
+arr = [10 20 0 4 5 6 0 8 9 10]
+arr = arr'
+reshape(arr, 2, 5)
+logArr = arr > 5;
+find(logArr) % giving non zeros in arr and find index
+
 
 arr = [1,2,3,4,;7,8,-1,-2;2,1,-3,-4];
 arr(arr > 3)  % create a column array 
