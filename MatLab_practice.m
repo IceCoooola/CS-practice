@@ -1,5 +1,13 @@
 
+student = 1:20
+test1 = [68 83 61 70 75 82 57 5 76 85 62 71 96 78 76 68 72 75 83 93 201 42 402]
+std(test1)
+var(test1)
+mean(test1)
+mean([12 12 12])
 
+test1(rem(test1, 2) == 0 & rem(test1, 3) ==0 & test1 < 200)
+max(test1(mod(test1, 5) == 0))
 
 num = 2
 switch num
