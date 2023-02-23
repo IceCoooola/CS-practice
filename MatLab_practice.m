@@ -1,3 +1,13 @@
+
+% problem 6
+x = linspace(0,25,100)
+linspace(0,3,5)
+sum([1,2,3,4,5])
+x = exp(x)
+
+sum(x)
+
+
 num = input('enter number:>')
 if num == 0
     disp('Goodbye!')
