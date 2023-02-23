@@ -1,4 +1,8 @@
 
+arr = [1,2,3,4,;7,8,-1,-2;2,1,-3,-4];
+arr(arr > 3)  % create a column array 
+
+
 arr = [1,2,3,4,5,6,7,8,-1,-2,-3,-4];
 arr = [2 0 1 7 6 -9];
 [r a] = returnOddPosNums(arr)
