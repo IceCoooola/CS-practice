@@ -1,4 +1,37 @@
 
+
+
+num = 2
+switch num
+    case -1
+        disp('f3')
+    case 0
+        disp('f2')
+    case 1
+        disp('f2')
+    case 2
+        disp('f2')
+    case 3
+        disp('f4')
+    otherwise
+        disp('f1')
+end
+
+if num < -2 || num > 4
+    disp('f1')
+else
+    if num <= 2
+        if num >= 0
+        disp('f2')
+        else
+        disp('f3')
+        end
+    else
+        disp('f4')
+    end
+end
+
+
 % problem 6
 x = linspace(0,25,100)
 linspace(0,3,5)
