@@ -1,3 +1,37 @@
+user_score = 0;
+simon_pattern = 'RRGBRYYBGY';
+user_pattern  = 'RRGBBRYBGY';
+
+for i=1:10
+    if simon_pattern(i) == user_pattern(i)
+          user_score =  user_score+1;
+        
+          % Your code goes here
+    else
+        break;
+    end
+end
+fprintf('User score:   %d \n',user_score)
+
+
+
+function outputMatrix = timesTable( sizeOfTable)
+
+    % Insert code to determine the size of the times table
+    sizeOfTable = round(abs(sizeOfTable));
+    % Insert code to initialize the table by filling all entries with zeros
+    outputMatrix = zeros(sizeOfTable);
+    % Insert code to fill the first column and first row with consecutive integers 
+    % starting with 1
+    outputMatrix(:, 1) = 1:sizeOfTable';
+    i = 2;
+    while i <= sizeOfTable
+        outputMatrix(:, i) = outputMatrix(:, 1) .* i;
+        i = i + 1;
+    end
+    % Use a loop structure to fill the remaining entries in the times table
+    
+end
 
 student = 1:20
 test1 = [68 83 61 70 75 82 57 5 76 85 62 71 96 78 76 68 72 75 83 93 201 42 402]
