@@ -12,7 +12,7 @@ lat_var = nc_file.variables["lat"]
 temp_var = nc_file.variables["pottmp"][0, 0, :, :]  # extract first time and first level
 
 # Define map boundaries
-m = Basemap(llcrnrlon=168, llcrnrlat=40, urcrnrlon=217, urcrnrlat=70, resolution="i")
+m = Basemap(llcrnrlon=178, llcrnrlat=50, urcrnrlon=207, urcrnrlat=70, resolution="i")
 
 # Convert lat/lon to map coordinates
 lon, lat = np.meshgrid(lon_var, lat_var)
@@ -40,7 +40,7 @@ data.loc[data["LONGITUDE"] < 0, "LONGITUDE"] += 360
 x_c, y_c = m(data["LONGITUDE"].values, data["LATITUDE"].values)
 
 # Plot the data as scatter points with size proportional to CPUE
-plt.scatter(x_c, y_c, s=data["CPUE"]/50000, alpha=0.6, edgecolors='none', color='b')
+plt.scatter(x_c, y_c, s=data["CPUE"]/55000)
 
 # Show plot
 plt.show()
