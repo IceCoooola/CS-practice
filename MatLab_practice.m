@@ -1,3 +1,13 @@
+function s2 = RemoveConsonants(s1)
+    s1 = char(s1);
+    isFound = ismember(['a', 'i', 'u', 'e', 'o'], lower(s1));
+    % strfind(lower(s1), ['a', 'i', 'u', 'e', 'o']);
+    ret = strcmpi(['a', 'i', 'u', 'e', 'o'],lower(s1));
+    s2 = s1(ret);
+    % Your solution goes here %
+    
+end
+
 function multResult = MultiplyString(inputString)
     inputString = erase(inputString, 'times');
     inputString = split(inputString);
