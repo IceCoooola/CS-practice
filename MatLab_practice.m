@@ -1,3 +1,13 @@
+function out = isPassCode(passCode)
+    if length(find(isstrprop(passCode, 'upper'))) > 0 & length(find(isstrprop(passCode, 'lower'))) > 0 & length(find(isstrprop(passCode, 'punct'))) > 0 & length(find(isstrprop(passCode, 'digit'))) > 0
+        out = true;
+    else 
+        out = false;
+    end
+ % You code goes here
+ 
+end
+
 user_score = 0;
 simon_pattern = 'RRGBRYYBGY';
 user_pattern  = 'RRGBBRYBGY';
