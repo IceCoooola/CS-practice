@@ -1,3 +1,12 @@
+function multResult = MultiplyString(inputString)
+    inputString = erase(inputString, 'times');
+    inputString = split(inputString);
+    inputString = str2double(inputString); 
+    multResult = inputString(1) * inputString(2);
+   % Your solution goes here
+   
+end
+
 function out = isPassCode(passCode)
     if length(find(isstrprop(passCode, 'upper'))) > 0 & length(find(isstrprop(passCode, 'lower'))) > 0 & length(find(isstrprop(passCode, 'punct'))) > 0 & length(find(isstrprop(passCode, 'digit'))) > 0
         out = true;
