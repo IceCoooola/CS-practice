@@ -1,4 +1,8 @@
-
+list = [10, 20, 30, 40] 
+ 
+index = 0 
+for index in range(4): 
+    print(list[index]) 
 def add(a = 10, b = 20, c = 30) -> int:
     return a + b + c
 
