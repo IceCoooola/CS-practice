@@ -1,3 +1,18 @@
+clear;clc;
+% create a cell array
+cellArr = cell(2,2);
+% assign value to cell array
+cellArr = {1 "abc" ; "def" 4}
+
+clear;clc;
+% create the cell array
+exclaimCell = {'Bravo! ', "Fantastic job! ", 'Great job! ', "Way to go! "};
+% get the length of the cell arr
+len = length(exclaimCell);
+% pick a random number from 1 to len and display it.
+num = randi(len);
+disp(exclaimCell{num});
+
 function s2 = RemoveConsonants(s1)
     s1 = char(s1);
     isFound = ismember(['a', 'i', 'u', 'e', 'o'], lower(s1));
