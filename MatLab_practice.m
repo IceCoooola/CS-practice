@@ -1,4 +1,12 @@
 clear;clc;
+%input and create a structure
+studentInfo.firstname = input("Please enter the first name:>","s");
+studentInfo.lastname = input("Please enter the last name:>","s");
+studentInfo.studentNo = input("Please enter the studnet ID number:>","s");
+studentInfo.GPA = input("Please enter the GPA:>");
+disp(studentInfo)
+
+clear;clc;
 % create a cell array
 cellArr = cell(2,2);
 % assign value to cell array
@@ -13,6 +21,20 @@ len = length(exclaimCell);
 num = randi(len);
 disp(exclaimCell{num});
 
+% input informations
+clear;clc;
+parts(3) = struct("partno", 106, "quantity", 20, "costper", 7.5);
+parts(2) = struct("partno", 142, "quantity", 1, "costper", 150);
+parts(1) = struct("partno", 123, "quantity", 4, "costper", 33);
+
+for i = 1:length(parts)
+    if i == 1 
+        fprintf('Part No    Total Cost (USD)\n');
+    end
+    totalCost = parts(i).quantity .* parts(i).costper;
+    fprintf("%d        %.2f\n",parts(i).partno, totalCost);
+end
+
 function s2 = RemoveConsonants(s1)
     s1 = char(s1);
     isFound = ismember(['a', 'i', 'u', 'e', 'o'], lower(s1));
@@ -22,6 +44,8 @@ function s2 = RemoveConsonants(s1)
     % Your solution goes here %
     
 end
+
+
 
 function multResult = MultiplyString(inputString)
     inputString = erase(inputString, 'times');
