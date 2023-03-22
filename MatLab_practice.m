@@ -1,3 +1,34 @@
+function pizzasInStore = CreateArrayOfStructure(numberCalofBBQ)
+ %  Barbecue pizza, the ingredients are Beef, chicken, bacon, barbecue sauce ....
+ %   and the calories equals an integer variable.  
+ % pizzasInStore.name(1) = "Barbecue";
+  %pizzasInStore.name(2) = "Carbonara";
+  %pizzasInStore.name(3) = "Ham and Cheese";
+  %pizzasInStore.ingredients(1) = "Beef, chicken, bacon, barbecue sauce";
+ % pizzasInStore.ingredients(2) = "Mushrooms, onion, creamy sauce";
+ % pizzasInStore.ingredients(3) = "Ham, cheese, bacon";
+  %pizzasInStore.calories(1) = numberCalofBBQ;
+  %pizzasInStore.calories(2) = 25;
+  %pizzasInStore.calories(3) = 30;
+ 
+  % pizzasInStore.name = "Barbecue";
+  % pizzasInStore.ingredients = "Beef, chicken, bacon, barbecue sauce";
+  % pizzasInStore.calories = numberCalofBBQ;
+ 
+ pizzasInStore = repmat(struct("name", "Barbecue", "ingredients", "Beef, chicken, bacon, barbecue sauce", "calories", numberCalofBBQ),1,3);
+ %  Carbonara pizza, the ingredients are Mushrooms, onion, creamy sauce ...
+ %   and the calories equals 5 calories less that the Barbecue pizza. 
+ pizzasInStore(1) = struct("name", "Barbecue", "ingredients", "Beef, chicken, bacon, barbecue sauce", "calories", 30); 
+ 
+ pizzasInStore(2) = struct("name", "Carbonara", "ingredients", "Mushrooms, onion, creamy sauce", "calories", 25); 
+ %  Ham and Cheese pizza, the ingredients are Ham, cheese, bacon ...
+ %   and the calories equals that of the Barbecue pizza
+ pizzasInStore(3) = struct("name", "Ham and Cheese", "ingredients", "Ham, cheese, bacon", "calories", 30);
+    
+%  Your code goes here % 
+
+end
+
 clear;clc;
 %input and create a structure
 studentInfo.firstname = input("Please enter the first name:>","s");
