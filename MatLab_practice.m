@@ -1,3 +1,11 @@
+function tempVal = ConvertToDecadesAndYears( totalYears)
+   tempVal.decades = floor(totalYears ./ 10);
+   tempVal.years = rem(totalYears, 10);
+   % your solution goes here %;
+    
+end
+TimeDecadesYears = []; 
+TimeDecadesYears = ConvertToDecadesAndYears(24)
 function pizzasInStore = CreateArrayOfStructure(numberCalofBBQ)
  %  Barbecue pizza, the ingredients are Beef, chicken, bacon, barbecue sauce ....
  %   and the calories equals an integer variable.  
