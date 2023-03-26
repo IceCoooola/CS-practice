@@ -1,3 +1,19 @@
+function TimeHrMin = SetTimeConstruct( hoursVal, minutesVal)
+
+    % Your code goes here %
+    if (hoursVal >= 0 && hoursVal <= 24)
+        TimeHrMin.hours = hoursVal;
+    else
+        TimeHrMin.hours = 0;
+    end
+    if (minutesVal >= 0 && minutesVal <= 60)
+    TimeHrMin.mins = minutesVal;
+    else
+        TimeHrMin.mins = 0;
+    end
+        
+end
+
 function tempVal = ConvertToDecadesAndYears( totalYears)
    tempVal.decades = floor(totalYears ./ 10);
    tempVal.years = rem(totalYears, 10);
