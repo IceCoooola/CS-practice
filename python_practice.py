@@ -1,3 +1,15 @@
+def getData() -> (int, int):
+    base = int(input("enter base:>"))
+    height = int(input('enter height>:'))
+    return base, height
+
+def trigData(height:int, base: int) -> float:
+    return (height * base / 2)
+
+def displayData(height:int, base: int, area: float):
+    print(f"height: {height}")
+    print(f"base: {base}")
+    print(f"area: {area}")
 
 
 # write a function show_interest() to take in 3 parameters with default
