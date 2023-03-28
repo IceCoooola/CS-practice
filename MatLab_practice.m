@@ -1,3 +1,22 @@
+function floorNumber = FindFloor(lastName)
+
+    lastName = lower(lastName);
+    % Your code goes here
+    switch lastName
+        case 'lovelace'
+            floorNumber = 1;
+        case 'hooper'
+            floorNumber = 2;
+        case 'snyder'
+            floorNumber = 2;
+        case 'mcNulty'
+            floorNumber = 3;
+        otherwise
+            floorNumber = -1;
+    end
+    
+end
+
 function TimeHrMin = SetTimeConstruct( hoursVal, minutesVal)
 
     % Your code goes here %
