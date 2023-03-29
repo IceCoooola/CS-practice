@@ -1,4 +1,25 @@
 
+def test(x , y):
+    print(f"x = {x}")
+    print(f"y = {y}")
+
+def main():
+    test(1,3)
+    test(y = 3, x = 1)
+
+def factor(n):
+    ret = 1
+    for i in range(1, n + 1):
+        ret *= i
+    return ret
+
+def factorRecursion(n):
+    if n == 0:
+        return 1
+    else:
+        return factorRecursion(n - 1) * n
+    
+    
 def factor(n):
     ret = 1
     for i in range(1, n + 1):
