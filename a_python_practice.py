@@ -1,5 +1,20 @@
-import random
 
+def factor(n):
+    ret = 1
+    for i in range(1, n + 1):
+        ret *= i
+    return ret
+
+def factorRecursion(n):
+    if n == 0:
+        return 1
+    else:
+        return factorRecursion(n - 1) * n
+
+
+def main():
+    print(factor(5))
+    print(factorRecursion(1))
 x = 10 # global variable
 
 def test():
