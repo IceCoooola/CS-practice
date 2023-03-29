@@ -1,3 +1,34 @@
+import random
+
+x = 10 # global variable
+
+def test():
+    global x # 声明x是全局变量，然后就可以修改全局变量。
+    x = 20
+    if True:
+        y = 30  # 函数代码块不涉及作用域，只有函数和类才会涉及到作用域
+    print(y)
+
+def test1(): # 函数只是在定义，不会执行函数体的内容。
+    print("执行函数体代码")
+    print("执行函数体代码")
+    print("执行函数体代码")
+
+
+
+def main():
+    # test()
+    # print(x)
+    print("11111")
+    test1()
+    print("22222")
+    test1()
+    print("33333")
+    test1()
+
+if __name__ == "__main__":
+    main()
+
 def getData() -> (int, int):
     base = int(input("enter base:>"))
     height = int(input('enter height>:'))
