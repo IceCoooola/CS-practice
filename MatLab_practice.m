@@ -1,3 +1,56 @@
+% class act 3
+% phoneNumbers.m
+% Author: Dee Bao
+
+% open the file
+f = fopen('phones.dat', 'r');
+
+% check if file opended 
+if f == -1
+    disp("File did not open.");
+else
+    disp("File opened successfully.");
+    % get each line of the file
+    aline = fgetl(f);
+    % read all the data from the file
+    while aline ~= -1      % while feof(fid) == 0
+        % check if it is a valid number
+        if length(aline) ~= 10
+            disp("%s is Not A valid Phone Number!!", aline)
+        else
+        % print it into correct format, 3 numbers - 3 numbers - 4 numbers
+        fprintf("%s-%s-%s\n", aline(1:3), aline(4:6), aline(7:10));
+        end
+        % read another line
+        aline = fgetl(f);
+    end
+    % close the file
+    cf = fclose(f);
+    % check if file closed successfully
+    if cf == -1
+        disp("File closed failed!");
+    else
+        disp("File closed successfully.");
+    end
+end
+
+% class act 1
+% convertTempFileIO.m
+% Author: Dee Bao
+
+% create new matrix
+newMat = [8,55;10,70;12,78;14,76;16,70;18,63;20,55]
+% save it.
+save tempF.dat newMat -ascii
+
+% load the data
+tempF = load('tempF.dat')
+% convert F to C
+tempC = [tempF(:,1) ,(tempF(:,2) - 32) ./ 9 .* 5]
+% save the temp C data
+save tempC.dat tempC -ascii
+
+
 % class act 1
 % convertTempFileIO.m
 % Author: Dee Bao
