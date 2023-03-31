@@ -1,3 +1,58 @@
+% class act 4
+% classmatesInfo.m
+% Author: Dee Bao
+
+
+% how many classmates info need to add
+classmatesNo = 3;
+% open the file with writting mode
+f = fopen('classmates_formatted.dat', 'w');
+% check if file opened
+if f == -1
+    disp("File open failed!");
+else
+    disp("File opened successfully.")
+    % loop to write the file
+    for i = 1:classmatesNo
+        % input the data
+        first = input("enter the first name>: ", "s")
+        last = input("enter the last name>: ", "s")
+        numSibling = input("enter the number of siblings>: ")
+        favorAct = input("enter the favorite sport / activitys>: ", "s")
+        % write it into the file
+        fprintf(f, '%s %s %d %s\n', first, last, numSibling, favorAct);
+    end
+    % close the file
+    cf = fclose(f);
+    % check if file closed successfully
+    if cf == -1
+        disp("File closed failed!");
+    else
+        disp("File closed.");
+    end
+end
+
+% class act 5
+% patientFromExcel.m
+% Author: Dee Bao
+% read the excel sheet
+[nums, txt] = xlsread('patientFromExcel.xlsx');
+% extract the age
+age = nums(:,1);
+%extract the weight
+weight = nums(:,2);
+% calculate the average age
+avgAge = sum(age) / length(age);
+% calculate the average weight
+avgWeight = sum(weight) / length(weight);
+% write the header into the excel sheet
+xlswrite("patientFromExcel.xlsx",{"Average Age"}, 1, 'F1');
+xlswrite("patientFromExcel.xlsx", {"Average Weight"}, 1, 'G1');
+% write the data into the excel sheet
+xlswrite("patientFromExcel.xlsx", avgAge, 1, 'F2');
+xlswrite("patientFromExcel.xlsx", avgWeight, 1, 'G2');
+
+
 % class act 3
 % phoneNumbers.m
 % Author: Dee Bao
