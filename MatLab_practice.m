@@ -1,3 +1,19 @@
+% class act 1
+% convertTempFileIO.m
+% Author: Dee Bao
+
+% create new matrix
+newMat = [8,55;10,70;12,78;14,76;16,70;18,63;20,55]
+% save it.
+save tempF.dat newMat -ascii
+
+% load the data
+tempF = load('tempF.dat')
+% convert F to C
+tempC = [tempF(:,1) ,(tempF(:,2) - 32) ./ 9 .* 5]
+% save the temp C data
+save tempC.dat tempC -ascii
+
 function TimeHrMin = SetTimeConstruct( hoursVal, minutesVal)
 
     % Your code goes here %
