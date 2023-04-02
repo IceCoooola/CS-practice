@@ -1,3 +1,20 @@
+def test1(x = 15, y = 20, z = 5):
+    print(f"x = {x}, y = {y}, z = {z}")
+    return x * y * z
+
+def main():
+    print("no argument passing")
+    test1()
+    print("with positional argument passing")
+    test1(1,1)
+    print("with keyword argument passing")
+    test1(x = 5, z = 15)
+    print("with positional argument and keyword argument passing")
+    test1(x = 5,y= 5)
+
+
+if __name__ == "__main__":
+    main()
 
 def test(x , y):
     print(f"x = {x}")
