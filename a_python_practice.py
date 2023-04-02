@@ -1,4 +1,45 @@
 
+def main():
+    str1 = "abc123"
+    str2 = 'def'
+    str3 = 'Fef 12'
+    str4 = "\t\t   \n\n"
+    # str3 = str1 + str2
+    # print(str3)
+    # print('abc' in str3)
+    # print("abc" in str3)
+    # print("abbc" in str3)
+    # print("abc" not in str3)
+    print(str1.isalnum()) # true
+    print(str1.isdigit()) # false
+    print(str1.isalpha()) # false
+    print(str1.islower()) # true
+    print(str1.isupper()) # false
+    print(str1.isspace()) # false
+    print("\n\n")
+    print(str2.isalnum()) # true
+    print(str2.isdigit()) # false
+    print(str2.isalpha()) # true
+    print(str2.islower()) # true
+    print(str2.isupper()) # false
+    print(str2.isspace()) # false
+    print("\n\n")
+    print(str3.isalnum()) # false
+    print(str3.isdigit()) # false
+    print(str3.isalpha()) # false
+    print(str3.islower()) # false
+    print(str3.isupper()) # false
+    print(str3.isspace()) # false
+    print("\n\n")
+    print(str4.isalnum()) # false
+    print(str4.isdigit()) # false
+    print(str4.isalpha()) # false
+    print(str4.islower()) # false
+    print(str4.isupper()) # false
+    print(str4.isspace()) # true
+
+if __name__ == "__main__":
+    main()
 x = 5
 
 def test1():
