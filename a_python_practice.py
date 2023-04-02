@@ -1,3 +1,22 @@
+
+x = 5
+
+def test1():
+    global x
+    x = 3
+    print(x)
+    str1 = "hello"
+    str1[1] = '1'
+    print(str1)
+
+def main():
+    test1()
+    print(x)
+
+if __name__ == "__main__":
+    main()
+
+
 def test(x:float, u:int, y = 10, z = 20):
     print(f"x = {x}, y = {y}, z = {z}, u = {u}")
 
