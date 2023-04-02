@@ -1,3 +1,12 @@
+plot(2,3,'r*');
+
+y = [2 4 9 10 12];
+plot(y);
+
+x = [2 4 6 8 10];
+plot(x,y);
+
+
 % class act 4
 % classmatesInfo.m
 % Author: Dee Bao
