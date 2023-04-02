@@ -1,3 +1,15 @@
+def test(x:float, u:int, y = 10, z = 20):
+    print(f"x = {x}, y = {y}, z = {z}, u = {u}")
+
+def main():
+    test(10, 20)
+
+
+if __name__ == "__main__":
+    main()
+
+
+
 def test1(x = 15, y = 20, z = 5):
     print(f"x = {x}, y = {y}, z = {z}")
     return x * y * z
