@@ -1,3 +1,40 @@
+plot(1, 2, 'r*');
+ylabel = [2 4 6 8 9 12];
+plot(ylabel);
+x = [2,7,8,10,15,22];
+plot(x, ylabel);
+
+clc;clear;clf;
+angle = 45;
+v = 35;
+g = 9.8;
+t = (0:0.1:5);
+x = v * cosd(angle) * t;
+y = v * sind(angle) * t - 0.5 * g * t.^ 2;
+plot(x, y);
+hold on;
+xlabel('haha')
+ylabel('heihei')
+plot(x, y, 'rd');
+plot(x, y, 'm*');
+grid on;
+hold off;
+
+clc;clear;clf;
+
+for i = 1:2
+    x = linspace(0, 2*pi, 10 * i);
+    y = sin(x);
+    subplot(1,2,i);
+    plot(x, y, 'ko');
+    ylabel('sin(x)');
+    title(sprintf('%d Points',10*i));
+end
+    
+
+
+
+
 plot(2,3,'r*');
 
 y = [2 4 9 10 12];
