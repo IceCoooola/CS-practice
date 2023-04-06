@@ -1,3 +1,52 @@
+% for i = 1:100
+% %    writeDigitalPin(a, 'D10', 1)
+%     writeDigitalPin(a, 'D13', 1)
+%     pause(0.1)
+%     writeDigitalPin(a, 'D9', 1)
+%     pause(0.2)
+% %    writeDigitalPin(a, 'D10', 0)
+%     writeDigitalPin(a, 'D13', 0)
+%     pause(0.2)
+%     writeDigitalPin(a, 'D9', 0)
+%     pause(0.1)
+% end
+
+step = 1/20;
+
+writeDigitalPin(a, 'D9', 0);
+for i = 1:20
+    writePWMDutyCycle(a, 'D9', i * step);
+    writePWMDutyCycle(a, 'D11', i * step);
+    pause(0.1);
+end
+
+for i = 1:20
+    writePWMDutyCycle(a, 'D9', 1 - i * step);
+    writePWMDutyCycle(a, 'D11', 1 - i * step);
+    pause(0.1);
+end
+
+v = readVoltage(a, 'A0');
+
+tempK = SteinhartVoltagetoTemp5V(v);
+tempC = tempK - 273.15;
+tempF = 9/5 * tempC +32;
+disp(tempF);
+
+function tempK = SteinhartVoltagetoTemp5V(voltage)
+    seriesResist = 10000;
+    thermistorResist = 10000;
+    resistance = seriesResist * voltage ./ (5-voltage);
+    A1 = 3.354016E-03;
+    B1 = 2.569850E-04;
+    C1 = 2.620131E-06;
+    D1 = 6.383091E-08;
+
+    resRatio = log(resistance ./ thermistorResist);
+    tempK = 1./ (A1 + B1.* resRatio + C1 .* resRatio.^ 2 + D1.*resRatio.^3);
+end
+
+
 plot(1, 2, 'r*');
 ylabel = [2 4 6 8 9 12];
 plot(ylabel);
