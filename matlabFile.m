@@ -6,30 +6,33 @@ if fid == -1
     disp('open file failed.')
 else
     disp('file open successfully');
-    % display a menu
-    choice = menu('40 largest countries in the world', ...
-        'a. Find the countries with the minimum and maximum life expectancy', ...
-        'b. Find the countries with the minimum and maximum number of people per television', ...
-        'c. Find the countries with the minimum and maximum number of people per physician.', ...
-        'd. Find all the information about a specific country.', ...
-        'e. Exit');
+
     % read file into data
     data = textscan(fid, '%s %f %f %d');
-    % check which one user choose
-    switch choice
-        case 1
-            [minLifeCountry, maxLifeCountry] = findMinMaxLifeExpectancy(data);
-            fprintf('Name, ');
-        case 2
-            [minTVCountry, maxTVCountry] = findMinMaxTelevision(data);
-        case 3
-            [minPhysician, maxPhysician] = findMinMaxPhysician(data);
-        case 4
-            infomation = findRecord(data, 'Ethiopia');
-        otherwise
-
+    % display a menu
+    while 1
+        choice = menu('40 largest countries in the world', ...
+            'a. Find the countries with the minimum and maximum life expectancy', ...
+            'b. Find the countries with the minimum and maximum number of people per television', ...
+            'c. Find the countries with the minimum and maximum number of people per physician.', ...
+            'd. Find all the information about a specific country.', ...
+            'e. Exit');
+        % check which one user choose
+        switch choice
+            case 1
+                findMinMaxLifeExpectancy(data);
+            case 2
+                findMinMaxTelevision(data);
+            case 3
+                findMinMaxPhysician(data);
+            case 4
+                target = input('Plesae enter the name of the country you want to search>:','s');
+                infomation = findRecord(data, target);
+            otherwise
+                disp('goodbye!');
+                break;
+        end
     end
-
     % close file
     f = fclose(fid);
     if f == -1
@@ -40,6 +43,10 @@ else
 end
 
 function [minLifeCountry, maxLifeCountry] = findMinMaxLifeExpectancy(data)
+    % this function returns the minimum life expectancy and maximum life
+    % expectancy country, and display these two country with correspoding
+    % life expectancy
+
     % save the name and life expectancy into arrays.
     name = data{1};
     lifeExp = data{2};
@@ -61,10 +68,19 @@ function [minLifeCountry, maxLifeCountry] = findMinMaxLifeExpectancy(data)
 
     % find min life expectancy country
     minLifeCountry = name{logicMin};
+    %display the data
+    fprintf('Country |  Life Expectancy\n');
+    fprintf('%s | %.1f\n',minLifeCountry,minLife);
+    fprintf('%s | %.1f\n',maxLifeCountry,maxLife);
+
 end
 
 
 function [minTVsetCountry, maxTVsetCountry] = findMinMaxTelevision(data)
+    % this function returns the country of minimum TV set per person and country of 
+    % maximum TV set per person, and display these two country with correspoding
+    % TV set per person
+    
     % save the name and TV set per person into array
     name = data{1};
     peoplePerTVset = data{3};
@@ -82,7 +98,10 @@ function [minTVsetCountry, maxTVsetCountry] = findMinMaxTelevision(data)
     logicMin = peoplePerTVset == minTV;
     % find max television set country
     minTVsetCountry = name{logicMin};
-
+    % display the data 
+    fprintf('Country |  People per TV\n');
+    fprintf('%s | %.1f \n',minTVsetCountry, minTV);
+    fprintf('%s | %.1f \n',maxTVsetCountry, maxTV);
 end
 
 function [minPhysician, maxPhysician] = findMinMaxPhysician(data)
@@ -91,18 +110,22 @@ function [minPhysician, maxPhysician] = findMinMaxPhysician(data)
     peoplePerPhysician = data{4};
 
     % find the max physician 
-    maxPhysician = max(peoplePerPhysician);
+    maxNum = max(peoplePerPhysician);
     % create a logic array
-    logicMax = maxPhysician == peoplePerPhysician;
+    logicMax = maxNum == peoplePerPhysician;
     % find max physician country
     maxPhysician = name{logicMax};
 
     % find the min physician 
-    minPhysician = min(peoplePerPhysician);
+    minNum = min(peoplePerPhysician);
     % create a logic array
-    logicMin = minPhysician == peoplePerPhysician;
+    logicMin = minNum == peoplePerPhysician;
     % find max physician country
     minPhysician = name{logicMin};
+    % display the data
+    fprintf('Country |  People per physician\n');
+    fprintf('%s | %d \n',minPhysician, minNum);
+    fprintf('%s | %d \n',maxPhysician, maxNum);
 
 end
 
@@ -125,5 +148,7 @@ function info = findRecord(data, target)
             break;
         end
     end
+    fprintf('Country | Life Expectancy | People per TV | People per Physician\n');
+    fprintf('%s | %.1f | %.1f | %d\n',info{1}, info{2}, info{3}, info{4});
 
 end
