@@ -1,3 +1,33 @@
+% exam review
+clear;clc;
+% 1. 
+
+[nums, txt] = xlsread("cars.xls.xlsx")
+
+year = nums(:,1)'
+mile = nums(:,2)'
+accident = nums(:,3)'
+price = nums(:,4)'
+
+make = txt(:, 1)
+make(1) = []
+
+for i = 1 : length(mile)
+    fprintf('i = %d\n',i)
+    fprintf('mile = %d\n',mile(i))
+    if mile(i) < 30000
+        fprintf('price = %d\n',price(i))
+        price(i) = price(i) + 4000
+    end
+    if mile(i) > 90000
+        price(i) = price(i) - 2000
+    end
+    price(i) = price(i) - accident(i) * 1000
+end
+
+
+    
+
 % for i = 1:100
 % %    writeDigitalPin(a, 'D10', 1)
 %     writeDigitalPin(a, 'D13', 1)
