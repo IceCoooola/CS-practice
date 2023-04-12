@@ -1,4 +1,48 @@
 clear;clc;
+fid = fopen("cars.txt","r");
+if fid == -1
+    disp("Open file failed!");
+else
+    fgetl(fid);
+    data = textscan(fid,'%s %d %d %d %d');
+    % make year mileage accidents cost
+    make = data{1};
+    year = data{2};
+    mile = data{3};
+    accidents = data{4};
+    cost = data{5};
+    for i = 1 : length(mile)
+        if mile(i) < 30000
+            cost(i) = cost(i) + 4000;
+        end
+        if mile(i) > 90000
+            cost(i) = cost(i) - 2000;
+        end
+        cost(i) = cost(i) - accidents(i) * 1000;
+    end
+    % close file
+    fc = fclose(fid);
+    if fc == -1
+        disp("close file failed!");
+    else
+        disp("file closed.");
+    end
+%     % save into new files.
+%     newMat = [year, mile, accidents, cost]
+%     save newcars.txt make -ascii
+    fid = fopen("newcars.txt","w");
+    if fid == -1
+        disp("Open file failed!");
+    else
+        for i = 1 : length(make)
+        fprintf(fid, "%s, %d, %d, %d, %d\n",make{i}, year(i), mile(i),accidents(i),cost(i));
+        end
+        fclose(fid);
+    end
+end
+
+
+clear;clc;
 
 [nums, txt] = xlsread("cars.xls.xlsx")
 title = txt(1, :)
