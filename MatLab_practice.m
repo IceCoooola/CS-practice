@@ -1,3 +1,44 @@
+% exam review
+
+
+clear;clc;
+fid = fopen("cars.txt","r");
+if fid == -1
+    disp("Open file failed!");
+else
+    Aline = fgetl(fid);
+    Aline = fgetl(fid);
+    fw = fopen("Wewcars.txt","w");
+    if fw == -1
+        disp("open file failed.")
+        exit(-1)
+    end
+    while Aline ~= -1
+        data = split(Aline)';
+        mile = str2num(data{3});
+        cost = str2num(data{5});
+        accident = str2num(data{4});
+        if mile > 90000
+            cost = cost - 2000;
+        end
+        if mile < 30000
+            cost = cost + 4000;
+        end
+        cost = cost - accident * 1000;
+        % write into file
+        fprintf(fw,"%s, %s, %d, %d, %d\n",data{1},data{2},mile,accident,cost);
+
+
+        Aline = fgetl(fid);
+    end
+    fcd = fclose(fid);
+    if fcd == -1
+    else
+        disp("file closed.");
+    end
+    fc2 = fclose(fw);
+end
+
 clear;clc;
 fid = fopen("cars.txt","r");
 if fid == -1
