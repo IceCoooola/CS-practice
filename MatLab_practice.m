@@ -1,3 +1,31 @@
+clear;clc;
+
+[nums, txt] = xlsread("cars.xls.xlsx")
+title = txt(1, :)
+year = nums(:,1);
+mile = nums(:,2);
+accident = nums(:,3);
+price = nums(:,4);
+
+make = txt(:, 1);
+make(1) = [];
+
+for i = 1 : length(mile)
+    if mile(i) < 30000
+        price(i) = price(i) + 4000;
+    end
+    if mile(i) > 90000
+        price(i) = price(i) - 2000;
+    end
+    price(i) = price(i) - accident(i) * 1000;
+end
+xlswrite("newCar.xlsx",title,1,'A1:E1')
+xlswrite("newCar.xlsx",make,1,'A2:A5')
+xlswrite("newCar.xlsx",year,1,'B2:B5')
+xlswrite("newCar.xlsx",mile,1,'C2:C5')
+xlswrite("newCar.xlsx",accident,1,'D2:D5')
+xlswrite("newCar.xlsx",price,1,'E2:E5')
+
 % exam review
 clear;clc;
 % 1. 
