@@ -2,7 +2,33 @@
 % exam review
 clear;clc;
 
-% 5
+% 6
+fid = fopen("home.txt",'r');
+if fid == -1
+    disp("failed open file");
+else
+    line1 = fgetl(fid);
+    line2 = fgetl(fid);
+    line3 = fgetl(fid);
+    yearArr = split(line1);
+    incomeArr = split(line2);
+    homePriceArr = split(line3);
+    year = [];
+    ratio = [];
+    for i = 1:length(yearArr)
+        year(i) = str2num(yearArr{i})
+        ratio(i) = str2num(homePriceArr{i}) / str2num(incomeArr{i});
+    end
+    mat = [year ; ratio]
+    save newHome.txt mat -ascii
+    fc = fclose(fid);
+    if fc == -1
+        disp("close failed.");
+    else
+        disp("file closed.")
+    end
+end
+
 
 % some provided variables.
 
