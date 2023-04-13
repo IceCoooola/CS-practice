@@ -1,4 +1,26 @@
 % exam review
+% exam review
+clear;clc;
+
+% 5
+
+% some provided variables.
+
+fid = fopen("sales.txt",'r');
+if fid == -1
+    disp("failed open file");
+else
+    data = textscan(fid, "%d %d");
+    profit = data{:, 2} - data{:, 1};
+    ttlQuater = length(profit);
+    netProfit = sum(profit);
+    profitable = profit((profit > 0));
+    len = length(profitable);
+    fprintf("Records collected from the last %d quarters show that the company \n" + ...
+        "has been profitable only in %d quarters. \n" + ...
+        "The total net profit was equal to: $%d dollarAmount\n",ttlQuater,len, netProfit);
+
+end
 
 W = 100;
 lc = 2;
