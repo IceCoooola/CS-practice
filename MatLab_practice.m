@@ -1,5 +1,22 @@
 % exam review
 
+W = 100;
+lc = 2;
+lp = 2;
+% set up the equation
+d = 0.3;
+minimumT = W*lc*lp/d/sqrt(lp^2-d^2);
+minimum_d = 0.3;
+while d <= 1.8
+    T = W*lc*lp/d/sqrt(lp^2-d^2);
+    if T < minimumT
+        minimum_d = d;
+        minimumT = T;
+    end
+    d = d + 0.1;
+end
+fprintf("the minimum tension distance is : %.2f, Tension is %.2f\n",minimum_d,minimumT);
+
 
 clear;clc;
 fid = fopen("cars.txt","r");
