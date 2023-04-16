@@ -1,3 +1,23 @@
+clf;
+x = 1:6;
+y = [33 11 5 9 22 30]';
+figure(1);
+plot(x, y);
+title('Regular Plot');
+figure(2);
+bar(x, y);
+title('bar');
+figure(3);
+barh(x, y);
+title('barh');
+figure(4);
+area(x, y);
+title('area');
+figure(5);
+stem(x, y);
+title('stem');
+
+
 % exam review
 % exam review
 clear;clc;
