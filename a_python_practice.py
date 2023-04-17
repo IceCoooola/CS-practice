@@ -1,3 +1,26 @@
+def main():
+    a = dict([(1, '1'), (2, '2')])
+    print(a)
+    b = a.pop(1)
+    print(b)
+
+    f = open("testFile.txt","w")
+    f.write('abc\n\n')
+    f.write('def\n\n')
+    f.write('ghl\n\n')
+    f.close()
+    f = open("testFile.txt","r")
+    print(f.readline())
+    # print(f.readline())
+    # print(f.readline())
+    print('next line')
+    print(f.readline())
+    f.close()
+
+if __name__ == "__main__":
+    main()
+
+
 ls = [1,2,3,4,5]
 ls.pop(2)
 print(ls)
