@@ -1,3 +1,16 @@
+
+
+def main():
+    # n = int(input('enter a number:\n'))
+    # for i in range(n):
+    #     print(i)
+    a = dict([(1, '1'), (2, '2'), (3 , '3')])
+    print(a.keys())
+    print(type(a.keys()))
+    print(type(a.values()))
+    ls = list([[1,2,3],[4,5,6],[7,8,9]])
+    print(ls)
+
 def main():
     a = dict([(1, '1'), (2, '2')])
     print(a)
