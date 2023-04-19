@@ -1,3 +1,81 @@
+% class act 1
+% open file and load the data
+clc;clear;clf;
+tempFArr = load("tempF.dat");
+% save the data into different variable
+time = tempFArr(:,1);
+tempF = tempFArr(:,2);
+% convert tempF to tempC
+tempC = (tempF - 32) ./ 1.8;
+% plot the graph
+plot(time, tempC,'b*-');
+hold on;
+% plot the second graph onto the first graph
+plot(time, tempF, 'rd--');
+% plot the title
+title("Temperature in a room from 8:00AM to 8:00PM");
+% plot the xlable name
+xlabel("time of the day");
+% plot the y lable name
+ylabel("temperature");
+% plot the two legend
+legend("Degree C", "Degree F");
+
+% class act 2
+
+clc;clear;clf;
+% load the data
+temp = load("avghighs.dat");
+% save the location
+locations = temp(:,1);
+% delete the first colume
+temp(:,1) = [];
+% find number of rows and columns 
+[row, column] = size(temp);
+% create the plot using subplot
+for i = 1:row
+    subplot(1,row,i);
+    plot(temp(i,:));
+    xlabel('month');
+    ylabel('tempin degree F');
+    title(sprintf("location %d",locations(i)));
+    axis([0, 13, 30, 90]);
+end
+
+% class act 2
+
+clc;clear;clf;
+% create an array of x and y
+x = 2:5;
+y = x;
+% random the width
+width = randi(10);
+% plot the graph and change the width
+h = plot(x,y);
+h.LineWidth = width;
+h.Color = [0,0.5,0.1];
+
+
+% class act 4
+clear;clc;clf;
+pizza = [1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3];
+subplot(1,2,1);
+h = histogram(pizza);
+% gca is get handle to current axis
+set(gca, 'XTick',(1:3));
+set(gca, 'XTickLabel', {'Cheese', 'pepperoni','mushroom'});
+
+% cheese = sum(pizza == 1);
+% pepp = sum(pizza == 2);
+% mush = sum(pizza == 3);
+values = h.Values;
+lables = {'Cheese', 'pepperoni','mushroom'};
+subplot(1,2,2);
+pie(values, lables);
+
+
+
+
 clf;
 x = 1:6;
 y = [33 11 5 9 22 30]';
