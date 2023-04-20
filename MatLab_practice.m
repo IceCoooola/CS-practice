@@ -1,3 +1,113 @@
+% example 1
+clear;clc;
+a = arduino;
+% blink the light 1 time per seconds.
+for i = 1:20
+    writeDigitalPin(a, "D13", 1);
+    pause(0.5);
+    writeDigitalPin(a, "D13", 0);
+    pause(0.5);
+end
+
+
+% blink the light 5 times per seconds.
+for i = 1:20
+    writeDigitalPin(a, "D13", 1);
+    pause(0.2);
+    writeDigitalPin(a, "D13", 0);
+    pause(0.2);
+end
+
+
+% example 2
+clear;clc;
+a = arduino;
+% challenge 1
+% make the light blink for D9
+for i = 1:20
+    writeDigitalPin(a, "D9", 1);
+    pause(0.2);
+    writeDigitalPin(a, "D9", 0);
+    pause(0.2);
+end
+
+% challenge 2
+% make the light blink for D9 and D13 for different frequencies
+for i = 1:20
+    writeDigitalPin(a, "D9", 1);
+    pause(0.1);
+    writeDigitalPin(a, "D13", 1);  
+    pause(0.2);
+    writeDigitalPin(a, "D13", 0);
+    pause(0.2);
+    writeDigitalPin(a, "D9", 0);
+    pause(0.1);
+end
+
+
+% example 3
+clear;clc;
+a = arduino;
+%define the step size
+brightness_step = (1-0)/20;   % 0.05
+
+%tun the LED off
+writeDigitalPin(a, 'D9', 0);
+
+%increase the brightness of the LED in 20 steps
+% the brightness gradually changes from 0 (off) to 1 (brightest)
+for i = 1:20
+    writePWMDutyCycle(a, 'D9', i * brightness_step);   % i = 1, 0.05     i = 2,  0.1,  i = 3 ,  0.15   0 - 1
+    pause(0.1);
+end
+
+writeDigitalPin(a, 'D9', 0);
+writeDigitalPin(a, 'D13', 0);
+
+%decrease the brightness of the LED in 20 steps
+for i = 1:20
+    writePWMDutyCycle(a, 'D13', i * brightness_step );
+    pause(0.1);
+end
+
+writeDigitalPin(a, 'D13', 0);
+writeDigitalPin(a, 'D9', 0);
+
+% example 4
+clc; clear;
+
+a = arduino;
+% Read current voltage value
+v = readVoltage(a,'A0');
+% Calculate temperature from voltage (based on data sheet)
+tempK = SteinhartVoltagetoTemp5V(v);
+%conver the temperature to Celcius
+tempC = tempK - 273.15;
+%convert the temperature to Fahrenheit
+tempF = 9/5 * tempC + 32;
+fprintf("temperature in F is %.2f\n", tempF);
+
+
+function tempK = SteinhartVoltagetoTemp5V(voltage)
+    %This function uses an equation called the “Steinhart relation” to convert the voltage
+    %read by Arduino to a temperature in Kelvin
+    SeriesResistor = 10000; % the 10K ohm resistor is used in the circuit
+    ThermistorResistance = 10000; %The resistance of thermistor
+
+    %With NTC thermistors, resistance decreases as temperature increases
+    resistance = SeriesResistor .* voltage ./ (5 - voltage);
+
+    %Constants used in Steinhart equation
+    A1 = 3.354016E-03;
+    B1 = 2.569850E-04;
+    C1 = 2.620131E-06;
+    D1 = 6.383091E-08;
+    resRatio = log(resistance ./ ThermistorResistance);
+    tempK = 1 ./ (A1 + B1 .* resRatio + C1 .* resRatio .^ 2 + D1 .* resRatio .^ 3);
+end
+
+
+
 % class act 1
 % open file and load the data
 clc;clear;clf;
