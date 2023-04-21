@@ -1,4 +1,10 @@
 
+def main():
+    print(hash(9))
+    print(hash('123'))
+    print(hash("233"))
+    print(hash((1,3,5)))
+    print(hash(True))
 
 def main():
     # n = int(input('enter a number:\n'))
