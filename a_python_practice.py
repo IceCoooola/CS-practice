@@ -1,4 +1,20 @@
+def main():
 
+    a = list([1,2,3])
+    b = ['asd',"123",2,True]
+    c = list("123456")
+    print(a)
+    print(b)
+    print(c)
+    for i in b:
+        i = 1
+        print(i)
+
+    for i in range(len(b)):
+        print(b[i])
+        i = i + 1
+
+    print(b)
 def main():
     print(hash(9))
     print(hash('123'))
