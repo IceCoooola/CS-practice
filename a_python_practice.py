@@ -1,3 +1,34 @@
+def test(i: int):
+    i = 15
+
+def main():
+    a = 1
+    test(a)
+    print(a)
+    
+
+def test(ls:list):
+    ls.pop(0)
+    ls.pop(0)
+
+def main():
+
+
+    list1 = [1,2,2,2,3,4,True,7,False,0]
+
+    try:
+        idx = list1.index(1)
+        idx = list1.index(1)
+        idx = list1.index(1)
+        print("hahah")
+        idx = list1.index(33)
+    except ValueError:
+        print("item no found.")
+    test(list1)
+    print(list1)
+    
+    
+    
 def main():
     list1 = [1,2,2,2,3,4,True,7,False]
     if "123123" in list1:
