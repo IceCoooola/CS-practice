@@ -1,4 +1,15 @@
 def main():
+    list1 = [1,2,2,2,3,4,True,7,False]
+    if "123123" in list1:
+        print(list1)
+    print(list1.index(2))
+    list1.append(1)
+    print(list1)
+    list1.sort()
+    print(list1)
+
+
+def main():
     a = [1,2,3,4]
     a[0] = 5
     a[2] = 'a'
