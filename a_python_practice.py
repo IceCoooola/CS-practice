@@ -1,4 +1,16 @@
 def main():
+    a = [1,2,3,4]
+    a[0] = 5
+    a[2] = 'a'
+    b = a[1:3]
+    print(a)
+    print(b)
+    c = a[:]
+    print(c)
+    c[1] = 555
+    print(a)
+
+def main():
 
     a = list([1,2,3])
     b = ['asd',"123",2,True]
