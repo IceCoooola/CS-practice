@@ -1,3 +1,18 @@
+
+def main():
+    a = [1,2,3,4]
+    b = tuple(a)
+    c = 1
+    print(type(b))
+    d = [1,]
+    d = [1]
+    print(type(d))
+    e = tuple(d)
+    print(type(e))
+    f = {1,5,7,4,2,3,4}
+    g = {2}
+    print(f)
+    print(type(g))
 def test(i: int) -> (int, int, int):
     i = 15
     return 1,2,3
