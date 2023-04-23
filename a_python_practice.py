@@ -1,3 +1,35 @@
+def test(i: int) -> (int, int, int):
+    i = 15
+    return 1,2,3
+
+def main():
+    # a = 1
+    # test(a)
+    # print(a)
+    Dlist = [[1,2],[],[1,2,3]]
+    print(Dlist[0][0])
+    NewList = list()
+    # creating a 2D list with 2 rows and 4 cols:
+    for r in range(2):
+        NewList.append([])
+        for c in range(4):
+            NewList[r].append(0)
+
+    print(NewList)
+    NewList.append([])
+    print(NewList)
+    t1 = (1,2)
+    t2 = ("1")
+    t3 = ("1",)
+    print(type(t2))
+    print(type(t3))
+    t4, t5 = (2,3)
+    print(type(t4))
+    print(type(t5))
+    a = test(1)
+    print(a)
+    print(type(a))
+
 def test(i: int):
     i = 15
 
