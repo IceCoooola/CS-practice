@@ -1,4 +1,23 @@
 
+def test(x , y, z = 15):
+    print(x,y,z,sep = '  ')
+
+def main():
+    # list3 = list(['a',1,True])
+    # print(list3)
+    # list2 = list3[1:2]
+    # print(list2)
+    # test(1,2)
+    set1 = set([1,55,4,5])
+    set2 = set((1,22,4,5))
+    print(set1)
+    print(set2)
+    tuple1 = (1,2)
+    tuple2 = (3,4)
+    tuple3 = tuple1 + tuple2
+    print(tuple3)
+    
+    
 def main():
     a = [1,2,3,4]
     b = tuple(a)
