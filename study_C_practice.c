@@ -1,3 +1,28 @@
+//
+//  main.c
+//  tes2
+//
+//  Created by Di Bao on 4/26/23.
+//
+
+#include <stdio.h>
+#include <string.h>
+int main(int argc, const char * argv[]) {
+    // insert code here...
+    //printf("Hello, World!\n");
+    
+    char a[] = "123";
+    int b = 12;
+    int c = 23;
+    int d = 23;
+    printf("%p\n",a);
+    printf("%p\n",&b);
+    printf("%p\n",&c);
+    printf("%p\n",&d);
+    
+    return 0;
+}
+
 
 int main()
 {
