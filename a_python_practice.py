@@ -1,4 +1,18 @@
 
+def createTuple(inputStr : str):
+    list1 = inputStr.split()
+    positiveList = []
+    for item in list1:
+        num = int(item)
+        if num > 0:
+            positiveList.append(num)
+    myTuple = tuple(positiveList)
+    print(myTuple)
+
+def main():
+    inputStr = input("enter a tuple:>")
+    createTuple(inputStr)
+
 def test(x , y, z = 15):
     print(x,y,z,sep = '  ')
 
