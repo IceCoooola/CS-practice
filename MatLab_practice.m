@@ -1,3 +1,19 @@
+function planeNormal = getPlaneNormal( point1, point2, point3 )
+
+    % Calculate first vector in plane by subtracting the first point's 
+    % coordinates from the second point
+    inPlaneVec1 = point2 - point1;
+    inPlaneVec2 = point3 - point1;
+    % Calculate second vector in plane by subtracting the first point's 
+    % coordinates from the third point
+    
+    % Calculate vector normal to the plane by calculationg the cross product 
+    % of the two vectors lying in the plane
+    planeNormal = cross(inPlaneVec1, inPlaneVec2); 
+ 
+end
+
+
 function [ outputPowerInterp outputPowerSpline ] = EstimateWindTurbinePower( windSpeed )
 % EstimateWindTurbinePower: Estimates wind turbine output power using two interpolation methods
 %   Inputs: windSpeed - wind speed for power estimate
