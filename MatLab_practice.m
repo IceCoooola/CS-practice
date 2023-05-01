@@ -1,3 +1,15 @@
+function inPlane = CheckInPlane( testVector, normalVector )
+    
+    if (dot(testVector, normalVector) == 0)
+       inPlane = 1;
+    else
+        inPlane = 0;
+    end
+    % Assign inPlane with 1 (true) if testVector lies in samplePlane, 0 (false) otherwise.
+                % Provide you code
+ 
+end
+
 function planeNormal = getPlaneNormal( point1, point2, point3 )
 
     % Calculate first vector in plane by subtracting the first point's 
