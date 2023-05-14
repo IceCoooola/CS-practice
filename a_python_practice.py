@@ -1,3 +1,28 @@
+import tkinter
+
+class MyGUI:
+    def __init__(self):
+        main_window = tkinter.Tk()
+        tkinter.mainloop()
+        self.test1Frame = tkinter.Frame(main_window)
+        self.test1Text = tkinter.Label(self.test1Frame, text="try")
+
+def main():
+    outFile = open("test.txt",'w')
+    outFile.write("1\n2\n3\n4")
+    outFile.close()
+    inFile = open("test.txt","r")
+    # content = inFile.read()
+    # print(content)
+    content = inFile.readlines()
+    print(content)
+    for line in content:
+        line.rstrip()
+    print(content)
+
+
+if __name__ == "__main__":
+    main()
 
 def createTuple(inputStr : str):
     list1 = inputStr.split()
