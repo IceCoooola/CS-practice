@@ -1,3 +1,39 @@
+% problem 9
+v1 = [-1 1 4]';
+v2 = [0 1 3]';
+dotVal = dot(v1, v2);
+cosAngel = dotVal / norm(v1) / norm(v2);
+angle = acos(cosAngel)
+
+clear;clc;clf;
+% problem 8
+v1 = [2 -1]';
+v2 = [-2 1]';
+if (det([v1 v2])) == 0
+    disp("these two vector are perpendicular to each other");
+else
+    disp("these two vector are not perpendicular to each other");    
+end
+
+% problem 7
+v1 = [-1 0 2]'
+v2 = [2 5 7]'
+
+length(v1)
+length(v2)
+% problem 6
+
+
+syms x
+y = 4 * x^3 - x +3;
+derivative = diff(y);
+
+eval(subs(derivative,x, -1))
+eval(subs(derivative,x, 3))
+derivative2 = polyder([4 0 -1 3]);
+polyval(derivative2, -1)
+polyval(derivative2, 3)
+
 clear;clc;
 % problem 1
 A = [2 2 1;0 1 2; 1 1 3];
