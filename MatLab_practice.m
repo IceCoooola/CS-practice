@@ -1,3 +1,77 @@
+clear;clc;
+% problem 1
+A = [2 2 1;0 1 2; 1 1 3];
+b = [2; 1; 3];
+x1 = A\b
+x2 = inv(A) * b;
+syms x1 x2 x3
+b1 = 2 * x1 + 2 * x2 + x3 == 2;
+b2 = x2 + 2 * x3 == 1;
+b3 = x1 + x2 + 3 * x3 == 3;
+solution = solve([b1,b2,b3]);
+sb1 = eval(solution.x1)
+sb2 = eval(solution.x2)
+sb3 = eval(solution.x3)
+	
+	clear;clc;
+% problem 2
+syms N N0 t T
+equation = log10(N) == log10(N0) + t/ (T * log10(2)) 
+double(solve(subs(equation,[N0 N t],[10^2 10^8 8]), T))
+
+clear;clc;
+% problem 3
+x = 1:4;
+y = [23 35 46 39];
+fitsubs(x, y);
+
+clear;clc;clf;
+% problem 4
+var = load('acme.dat');
+profit = var(:,2) - var(:,1);
+bar(var(:,1));
+title('bar chart for costs');
+bar(var(:,2));
+title('bar chart for sales');
+bar(profit);
+title('bar chart for profit');
+nextQuaterCosts = spline([1:4],var(:,1), 5);
+% plot([1:5], [var(:,1);nextQuaterCosts]);
+fprintf("the possible cost for next quater is %.2f\n", nextQuaterCosts);
+
+% problem 5
+
+f = @(x)  4 * x.^3 - x + 3
+x = [-1, 3];
+y = f(x);
+trapz(x , y)
+integral(f,-1, 3)
+syms x1
+f1 = 4 * x1 ^ 3 - x1 + 3;
+eval(int(f1,x1, [-1, 3]))
+	% problem 6
+
+derivative1 = polyder([4 0 -1 3])
+derivative2 = polyder([4 0 -1 3])
+
+syms x
+y = 4 * x^3 - x +3
+diff(y)
+
+function fitsubs(x, y)
+    newX = 1:0.1:4;
+    for i = 1:3
+        subplot(1,3,i);
+        pcoef = polyfit(x, y, i);
+        newY = polyval(pcoef, newX);
+        plot(newX, newY);
+        hold on;
+        plot(x, y, 'o');
+        axis([0,4,20,50]);
+        title(sprintf("Degree %d",i));
+    end
+end
+
 function inPlane = CheckInPlane( testVector, normalVector )
     
     if (dot(testVector, normalVector) == 0)
