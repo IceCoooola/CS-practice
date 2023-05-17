@@ -1,3 +1,20 @@
+% problem 11
+clear; clc;
+syms x
+exp = 1716 == x * (x + 1)*(x + 2)
+num1 = eval(solve(exp, x,"Real",true))
+fprintf("the three numbers are, %d %d %d",num1, num1+1,num1+2);
+
+
+% problem 10
+clear;clc;
+syms x
+
+y = -0.4 * x^4 + 7 * x^2 - 20.5*x - 28
+
+fplot(y,[-5 4])
+
+
 % problem 9
 v1 = [-1 1 4]';
 v2 = [0 1 3]';
