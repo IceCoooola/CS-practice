@@ -1,3 +1,27 @@
+% problem 12
+clear;clc;clf;
+syms C C0 t m
+
+exp = C == C0 * exp(-30 * t / m)
+person1 = subs(exp, [C0 m], [85 120]);
+person2 = subs(exp, [C0 m], [85 300]);
+concentrate1 = [];
+concentrate2 = [];
+
+for i = 0:0.1:4
+    concentrate1 = [concentrate1, double(solve(subs(person1, t, i)))];
+    concentrate2 = [concentrate2, double(solve(subs(person2, t, i)))];
+
+end
+subplot(2,1,1);
+plot(0:0.1:4,concentrate1);
+axis([0 4 20 90]);
+title("concentration for person 1, weighted 120 pound");
+subplot(2,1,2);
+plot(0:0.1:4,concentrate2);
+axis([0 4 20 90]);
+title("concentration for person 2, weighted 300 pound");
+
 % problem 11
 clear; clc;
 syms x
