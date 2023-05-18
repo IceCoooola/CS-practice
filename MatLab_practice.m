@@ -1,4 +1,32 @@
+% problem 18
+clear;clc;clf;
 
+f = fopen("houseafford.dat",'r');
+line = fgetl(f);
+fclose(f);
+dat = load("houseafford.dat");
+year = dat(1, :);
+income = dat(2,:);
+price = dat(3, :);
+ratio = price ./ income;
+plot(year, ratio);
+title("housing affordability");
+xlabel("year");
+ylabel("housing affordability index");
+% problem 17
+clear;clc;clf;
+
+radius = 5;
+colo = 'r';
+thick = 2;
+xCenter = 5;
+yCenter = 5;
+theta = 0:0.01:2*pi;
+x = radius * cos(theta) + xCenter;
+y = radius * sin(theta) + yCenter;
+plot(x, y, color = colo,LineWidth = thick);
+axis([-25, 25, -25, 25]);
+grid on;
 % problem 15
 clear;clc;clf;
 x = [39,86,81,94,61,67,100,81,44,56,33,81,81,58,100,56,69,97, 31, 89, 56, 81, 100, 69, 58, 72, 97, 64];
