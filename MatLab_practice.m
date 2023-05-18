@@ -1,3 +1,45 @@
+
+% problem 15
+clear;clc;clf;
+x = [39,86,81,94,61,67,100,81,44,56,33,81,81,58,100,56,69,97, 31, 89, 56, 81, 100, 69, 58, 72, 97, 64];
+A = x(x >= 90);
+B = x(x >= 80);
+C = x(x >= 70);
+D = x(x >= 60);
+F = x(x < 60);
+subplot(1,2,1);
+histogram(x);
+xlabel("grade");
+ylabel("frequency");
+subplot(1,2,2);
+labels = {'A','B','C','D','F'};
+pie([length(A) length(B) length(C) length(D) length(F)], labels);
+
+
+
+% problem 14
+clear;clc;clf;
+resistance = [10 15 25 40 65 100];
+current = [11.11 8.04 6.03 2.77 1.97 1.51];
+plot(resistance, current);
+title("resistance vs current");
+xlabel("resistance");
+ylabel("current");
+clf;
+plot(1./resistance, current);
+title("1 / resistance vs current");
+xlabel("1 / resistance");
+ylabel("current");
+coef = polyfit(1./resistance, current, 1);
+newCurrent = polyval(coef, 1./resistance);
+clf;
+plot(1./resistance, current, 'o');
+title("1 / resistance vs current");
+xlabel("1 / resistance");
+ylabel("current");
+hold on;
+plot(1./resistance, newCurrent, '--');
+
 % problem 13
 clear;clc;clf;
 
