@@ -1,3 +1,19 @@
+% problem 13
+clear;clc;clf;
+
+syms t
+density = 2.7;
+outterRadius = 12.5;
+innerRadius = 12.5 - t;
+height = 40;
+botThickness = 1.5 * t;
+VolumeOfCylinder = (height - botThickness) * pi * (outterRadius^2 - innerRadius^2);
+VolumeOfTop = 2 * pi * (outterRadius^2 - innerRadius^2);
+VolumeOfBot = pi * outterRadius^2 * botThickness;
+double(solve((VolumeOfCylinder + VolumeOfTop+ VolumeOfBot)* density == 27.5, t, "Real",true))
+	
+	
+	
 % problem 12
 clear;clc;clf;
 syms C C0 t m
