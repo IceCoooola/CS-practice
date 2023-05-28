@@ -1,3 +1,11 @@
+
+import qrcode
+
+def main():
+    image = qrcode.make("i love you")
+if __name__ == '__main__':
+    main()
+
 import turtle
 turtle.hideturtle()
 turtle.pensize(3)
