@@ -1,3 +1,28 @@
+class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> ret;
+        vector<int> tmp;
+        _combinationSum(candidates, target, ret, tmp, 0);
+        return ret;
+    }
+
+    void _combinationSum(vector<int>& candidates, int sum, vector<vector<int>>& ret, vector<int> tmpArr, int i)
+    {
+        if(sum == 0)
+            ret.push_back(tmpArr);
+            return;
+        if(sum < 0)
+            return;
+        if (i == tmpArr.size())
+            return;
+        _combinationSum(candidates, sum, ret, tmpArr, i + 1);
+        tmpArr.push_back(candidates[i]);
+        _combinationSum(candidates, sum - candidates[i], ret, tmpArr, i);
+        tmpArr.pop_back();
+    }
+};
+
 //
 //  main.cpp
 //  practice
