@@ -1,5 +1,35 @@
 class Solution {
 public:
+    vector<vector<int>> ret;
+    void _combinationSum(const vector<int>& candidates, int sum, vector<int>& tmpArr, int i)
+    {
+        if (i == tmpArr.size())
+            return;
+
+        sum -= candidates[i];
+        tmpArr.push_back(candidates[i]);
+        if(sum == 0)
+        {
+            ret.push_back(tmpArr);
+            return;
+        }
+        if(sum < 0)
+            return;
+
+        _combinationSum(candidates, sum, tmpArr, i);
+        tmpArr.pop_back();
+        _combinationSum(candidates, sum + candidates[i], tmpArr, i + 1);
+        
+    }
+
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<int> tmp = {};
+        _combinationSum(candidates, target, tmp, 0);
+        return ret;
+    }
+};
+class Solution {
+public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         vector<vector<int>> ret;
         vector<int> tmp;
