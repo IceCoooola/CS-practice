@@ -1,5 +1,31 @@
 class Solution {
 public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        unordered_map<int, vector<int>> mp;
+        for(int i = 0; i< nums.size(); i++)
+        {
+            mp[nums[i]].push_back(i);
+        }
+        for(auto& e: mp)
+        {
+            int minnum = e.second[0];
+            for(int i = 1; i < e.second.size(); i++)
+            {
+                if(e.second[i] < minnum)
+                {
+                    minnum = e.second[i];
+                }
+                if(e.second[i] - minnum > k)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
+class Solution {
+public:
     vector<vector<int>> ret;
     void _combinationSum(const vector<int>& candidates, int sum, vector<int>& tmpArr, int i)
     {
