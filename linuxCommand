@@ -1,3 +1,74 @@
+Last login: Mon Jun  5 13:08:43 on ttys000
+dibao@Ice-Cola-MacBook-Pro ~ % man 1 printf
+dibao@Ice-Cola-MacBook-Pro ~ % 
+dibao@Ice-Cola-MacBook-Pro ~ % man 2 printf
+No manual entry for printf
+dibao@Ice-Cola-MacBook-Pro ~ % ls  
+Applications			Downloads			Pictures			matlab_crash_dump.1431-1
+Arduino_IO.txt			Library				Projects
+Desktop				Movies				Public
+Documents			Music				PycharmProjects
+dibao@Ice-Cola-MacBook-Pro ~ % cd Documents
+dibao@Ice-Cola-MacBook-Pro Documents % ls
+41_1668059143.mp4		TencentMeeting			lesson10StateTaxProgram.py	random
+Arduino				WechatIMG31.jpeg		linux				test2.py
+MATLAB				cs10_HW				loop2.py
+OneDrive			for loop.py			pic
+dibao@Ice-Cola-MacBook-Pro Documents % cd linux
+dibao@Ice-Cola-MacBook-Pro linux % ls
+file2		text.txt
+dibao@Ice-Cola-MacBook-Pro linux % brew install man
+==> Downloading https://formulae.brew.sh/api/formula.jws.json
+######################################################################################################################################### 100.0%
+==> Downloading https://formulae.brew.sh/api/cask.jws.json
+######################################################################################################################################### 100.0%
+Warning: No available formula with the name "man". Did you mean mad, mas or mon?
+==> Searching for similarly named formulae and casks...
+==> Formulae
+aftman                       juman                        midnight-commander           powerman-dockerize           txt2man
+byteman                      jumanpp                      modman                       rds-command-line-tools       virt-manager
+commandbox                   libflowmanager               myman                        riemann                      watchman
+conman                       man-db                       newman                       riemann-client               xmltoman
+cppman                       man2html                     nlohmann-json                schema-evolution-manager     ykman
+foreman                      mandoc                       pacman4console               scm-manager                  mad
+gearman                      mandown                      pg_partman                   spaceman-diff                mas
+git-credential-manager       manifest-tool                pixman                       stdman                       mon
+go-md2man                    manticoresearch              pod2man                      stuntman
+goreman                      marksman                     podman                       talisman
+helmsman                     mecab-jumandic               podman-compose               todoman
+help2man                     meta-package-manager         powerman                     tre-command
+
+To install aftman, run:
+  brew install aftman
+
+==> Casks
+android-commandlinetools            keeper-password-manager             mucommander                         remote-desktop-manager-free
+another-redis-desktop-manager       keyman                              music-manager                       runcat-plugins-manager
+astro-command-center                keymanager                          name-mangler                        safeincloud-password-manager
+better-window-manager               launchpad-manager                   niftyman                            session-manager-plugin
+command-pad                         makehuman                           nimble-commander                    spaceman
+command-tab-plus                    mana-security                       ninja-download-manager-ndm          sqlitemanager
+commander-one                       manico                              nordic-nrf-command-line-tools       squidman
+commandq                            manictime                           not-pacman                          ssh-tunnel-manager
+craftmanager                        manila                              odbc-manager                        stepmania
+dcommander                          manta                               outline-manager                     superhuman
+double-commander                    manuskript                          persepolis-download-manager         tinymediamanager
+dropletmanager                      manymc                              pg-commander                        tiptoi-manager
+eusamanager                         manyverse                           podman-desktop                      trolcommander
+final-cut-library-manager           mat                                 portfolioperformance                vagrant-manager
+fman                                mediahuman-audio-converter          postman                             vimediamanager
+free-download-manager               mediahuman-youtube-downloader       postman-agent                       website-watchman
+html-mangareader                    mendeley-reference-manager          postman-cli                         workman
+ilok-license-manager                milkman                             power-manager                       yubico-yubikey-manager
+ilya-birman-typography-layout       min                                 preference-manager
+ipa-manager                         mindjet-mindmanager                 proxyman
+iphoto-library-manager              moneymanager                        remote-desktop-manager
+
+To install android-commandlinetools, run:
+  brew install --cask android-commandlinetools
+dibao@Ice-Cola-MacBook-Pro linux % 
+
+
 Last login: Thu Jun  1 16:14:08 on console
 dibao@Ice-Cola-MacBook-Pro ~ % ll
 zsh: command not found: ll
