@@ -1,0 +1,46 @@
+Last login: Thu Jun  1 16:14:08 on console
+dibao@Ice-Cola-MacBook-Pro ~ % ll
+zsh: command not found: ll
+dibao@Ice-Cola-MacBook-Pro ~ % ls 
+Applications			Music
+Arduino_IO.txt			Pictures
+Desktop				Projects
+Documents			Public
+Downloads			PycharmProjects
+Library				matlab_crash_dump.1431-1
+Movies
+dibao@Ice-Cola-MacBook-Pro ~ % pwd
+/Users/dibao
+dibao@Ice-Cola-MacBook-Pro ~ % cd Documents
+dibao@Ice-Cola-MacBook-Pro Documents % ls
+41_1668059143.mp4		for loop.py
+Arduino				lesson10StateTaxProgram.py
+MATLAB				loop2.py
+OneDrive			pic
+TencentMeeting			random
+WechatIMG31.jpeg		test2.py
+cs10_HW
+dibao@Ice-Cola-MacBook-Pro Documents % mkdir linux 
+dibao@Ice-Cola-MacBook-Pro Documents % cd linux
+dibao@Ice-Cola-MacBook-Pro linux % ls
+dibao@Ice-Cola-MacBook-Pro linux % echo "hello world"
+hello world
+dibao@Ice-Cola-MacBook-Pro linux % echo "hello" > text.txt
+dibao@Ice-Cola-MacBook-Pro linux % ls
+text.txt
+dibao@Ice-Cola-MacBook-Pro linux % cat text.txt
+hello
+dibao@Ice-Cola-MacBook-Pro linux % "Hello" > text.txt
+zsh: command not found: Hello
+dibao@Ice-Cola-MacBook-Pro linux % echo "Hi" > text.txt
+dibao@Ice-Cola-MacBook-Pro linux % ll
+zsh: command not found: ll
+dibao@Ice-Cola-MacBook-Pro linux % ls
+text.txt
+dibao@Ice-Cola-MacBook-Pro linux % cat text.txt
+Hi
+dibao@Ice-Cola-MacBook-Pro linux % echo "hello" >> text.txt
+dibao@Ice-Cola-MacBook-Pro linux % cat text.txt
+Hi
+hello
+dibao@Ice-Cola-MacBook-Pro linux %  
