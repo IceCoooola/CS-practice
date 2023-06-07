@@ -1,3 +1,180 @@
+
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 280
+-rw-r--r--  1 dibao  staff  108905 Jun  7 01:03 file.txt
+drwxr-xr-x@ 5 dibao  staff     160 Jun  7 00:28 file2
+-rw-r--r--  1 dibao  staff      12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff      12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % tree .
+.
+├── file.txt
+├── file2
+│   ├── test
+│   ├── text.txt
+│   └── tsx.txt
+├── test2.txt
+└── text.txt
+
+3 directories, 5 files
+dibao@Ice-Cola-MacBook-Pro linux % zip -r t.zip ./file2
+  adding: file2/ (stored 0%)
+  adding: file2/test/ (stored 0%)
+  adding: file2/tsx.txt (stored 0%)
+  adding: file2/text.txt (stored 0%)
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 288
+-rw-r--r--  1 dibao  staff  108905 Jun  7 01:03 file.txt
+drwxr-xr-x@ 5 dibao  staff     160 Jun  7 00:28 file2
+-rw-r--r--  1 dibao  staff     634 Jun  7 01:13 t.zip
+-rw-r--r--  1 dibao  staff      12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff      12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % unzip t.zip . 
+Archive:  t.zip
+caution: filename not matched:  .
+dibao@Ice-Cola-MacBook-Pro linux % unzip t.zip  
+Archive:  t.zip
+replace file2/tsx.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename: ll
+error:  invalid response [ll]
+replace file2/tsx.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename: n
+replace file2/text.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename: n
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 288
+-rw-r--r--  1 dibao  staff  108905 Jun  7 01:03 file.txt
+drwxr-xr-x@ 5 dibao  staff     160 Jun  7 00:28 file2
+-rw-r--r--  1 dibao  staff     634 Jun  7 01:13 t.zip
+-rw-r--r--  1 dibao  staff      12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff      12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % mkdir te
+dibao@Ice-Cola-MacBook-Pro linux % unzip t.zip te
+Archive:  t.zip
+caution: filename not matched:  te
+dibao@Ice-Cola-MacBook-Pro linux % unzip t.zip ./te
+Archive:  t.zip
+caution: filename not matched:  ./te
+dibao@Ice-Cola-MacBook-Pro linux % unzip ./te t.zip
+unzip:  cannot find or open ./te, ./te.zip or ./te.ZIP.
+dibao@Ice-Cola-MacBook-Pro linux % unzip t.zip -d /te
+Archive:  t.zip
+checkdir:  cannot create extraction directory: /te
+           Read-only file system
+dibao@Ice-Cola-MacBook-Pro linux % unzip t.zip -d ./te
+Archive:  t.zip
+   creating: ./te/file2/
+   creating: ./te/file2/test/
+ extracting: ./te/file2/tsx.txt      
+ extracting: ./te/file2/text.txt     
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 288
+-rw-r--r--  1 dibao  staff  108905 Jun  7 01:03 file.txt
+drwxr-xr-x@ 5 dibao  staff     160 Jun  7 00:28 file2
+-rw-r--r--  1 dibao  staff     634 Jun  7 01:13 t.zip
+drwxr-xr-x@ 3 dibao  staff      96 Jun  7 01:15 te
+-rw-r--r--  1 dibao  staff      12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff      12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % tree .
+.
+├── file.txt
+├── file2
+│   ├── test
+│   ├── text.txt
+│   └── tsx.txt
+├── t.zip
+├── te
+│   └── file2
+│       ├── test
+│       ├── text.txt
+│       └── tsx.txt
+├── test2.txt
+└── text.txt
+
+6 directories, 8 files
+dibao@Ice-Cola-MacBook-Pro linux % tar -czvf q.tar.gz ./te
+a ./te
+a ./te/file2
+a ./te/file2/test
+a ./te/file2/tsx.txt
+a ./te/file2/text.txt
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 296
+-rw-r--r--  1 dibao  staff  108905 Jun  7 01:03 file.txt
+drwxr-xr-x@ 5 dibao  staff     160 Jun  7 00:28 file2
+-rw-r--r--  1 dibao  staff     556 Jun  7 01:19 q.tar.gz
+-rw-r--r--  1 dibao  staff     634 Jun  7 01:13 t.zip
+drwxr-xr-x@ 3 dibao  staff      96 Jun  7 01:15 te
+-rw-r--r--  1 dibao  staff      12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff      12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % tar -xzvf q.tar.gz ./te
+x ./te/
+x ./te/file2/
+x ./te/file2/test/
+x ./te/file2/tsx.txt
+x ./te/file2/text.txt
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 296
+-rw-r--r--  1 dibao  staff  108905 Jun  7 01:03 file.txt
+drwxr-xr-x@ 5 dibao  staff     160 Jun  7 00:28 file2
+-rw-r--r--  1 dibao  staff     556 Jun  7 01:19 q.tar.gz
+-rw-r--r--  1 dibao  staff     634 Jun  7 01:13 t.zip
+drwxr-xr-x@ 3 dibao  staff      96 Jun  7 01:19 te
+-rw-r--r--  1 dibao  staff      12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff      12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % tree ./te
+./te
+└── file2
+    ├── test
+    ├── text.txt
+    └── tsx.txt
+
+3 directories, 2 files
+dibao@Ice-Cola-MacBook-Pro linux % tar -xzvf q.tar.gz ./te/file2/
+x ./te/file2/
+x ./te/file2/test/
+x ./te/file2/tsx.txt
+x ./te/file2/text.txt
+dibao@Ice-Cola-MacBook-Pro linux % tree ./te
+./te
+└── file2
+    ├── test
+    ├── text.txt
+    └── tsx.txt
+
+3 directories, 2 files
+dibao@Ice-Cola-MacBook-Pro linux % tar -xzvf q.tar.gz -C ./te/file2/ 
+x ./te/
+x ./te/file2/
+x ./te/file2/test/
+x ./te/file2/tsx.txt
+x ./te/file2/text.txt
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 296
+-rw-r--r--  1 dibao  staff  108905 Jun  7 01:03 file.txt
+drwxr-xr-x@ 5 dibao  staff     160 Jun  7 00:28 file2
+-rw-r--r--  1 dibao  staff     556 Jun  7 01:19 q.tar.gz
+-rw-r--r--  1 dibao  staff     634 Jun  7 01:13 t.zip
+drwxr-xr-x@ 3 dibao  staff      96 Jun  7 01:20 te
+-rw-r--r--  1 dibao  staff      12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff      12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % tree ./te/
+./te/
+└── file2
+    ├── te
+    │   └── file2
+    │       ├── test
+    │       ├── text.txt
+    │       └── tsx.txt
+    ├── test
+    ├── text.txt
+    └── tsx.txt
+
+6 directories, 4 files
+dibao@Ice-Cola-MacBook-Pro linux % uname
+Darwin
+dibao@Ice-Cola-MacBook-Pro linux % uname -r
+22.5.0
+dibao@Ice-Cola-MacBook-Pro linux % uname -a
+Darwin Ice-Cola-MacBook-Pro.local 22.5.0 Darwin Kernel Version 22.5.0: Mon Apr 24 20:52:43 PDT 2023; root:xnu-8796.121.2~5/RELEASE_ARM64_T8112 arm64
+
+
 Last login: Mon Jun  5 13:08:43 on ttys000
 dibao@Ice-Cola-MacBook-Pro ~ % man 1 printf
 dibao@Ice-Cola-MacBook-Pro ~ % 
