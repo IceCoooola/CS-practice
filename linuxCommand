@@ -1,3 +1,246 @@
+dibao@Ice-Cola-MacBook-Pro ~ % man 1 printf
+dibao@Ice-Cola-MacBook-Pro ~ % 
+dibao@Ice-Cola-MacBook-Pro ~ % man 2 printf
+No manual entry for printf
+dibao@Ice-Cola-MacBook-Pro ~ % ls  
+Applications			Downloads			Pictures			matlab_crash_dump.1431-1
+Arduino_IO.txt			Library				Projects
+Desktop				Movies				Public
+Documents			Music				PycharmProjects
+dibao@Ice-Cola-MacBook-Pro ~ % cd Documents
+dibao@Ice-Cola-MacBook-Pro Documents % ls
+41_1668059143.mp4		TencentMeeting			lesson10StateTaxProgram.py	random
+Arduino				WechatIMG31.jpeg		linux				test2.py
+MATLAB				cs10_HW				loop2.py
+OneDrive			for loop.py			pic
+dibao@Ice-Cola-MacBook-Pro Documents % cd linux
+dibao@Ice-Cola-MacBook-Pro linux % ls
+file2		text.txt
+dibao@Ice-Cola-MacBook-Pro linux % brew install man
+==> Downloading https://formulae.brew.sh/api/formula.jws.json
+######################################################################################################################################### 100.0%
+==> Downloading https://formulae.brew.sh/api/cask.jws.json
+######################################################################################################################################### 100.0%
+Warning: No available formula with the name "man". Did you mean mad, mas or mon?
+==> Searching for similarly named formulae and casks...
+==> Formulae
+aftman                       juman                        midnight-commander           powerman-dockerize           txt2man
+byteman                      jumanpp                      modman                       rds-command-line-tools       virt-manager
+commandbox                   libflowmanager               myman                        riemann                      watchman
+conman                       man-db                       newman                       riemann-client               xmltoman
+cppman                       man2html                     nlohmann-json                schema-evolution-manager     ykman
+foreman                      mandoc                       pacman4console               scm-manager                  mad
+gearman                      mandown                      pg_partman                   spaceman-diff                mas
+git-credential-manager       manifest-tool                pixman                       stdman                       mon
+go-md2man                    manticoresearch              pod2man                      stuntman
+goreman                      marksman                     podman                       talisman
+helmsman                     mecab-jumandic               podman-compose               todoman
+help2man                     meta-package-manager         powerman                     tre-command
+
+To install aftman, run:
+  brew install aftman
+
+==> Casks
+android-commandlinetools            keeper-password-manager             mucommander                         remote-desktop-manager-free
+another-redis-desktop-manager       keyman                              music-manager                       runcat-plugins-manager
+astro-command-center                keymanager                          name-mangler                        safeincloud-password-manager
+better-window-manager               launchpad-manager                   niftyman                            session-manager-plugin
+command-pad                         makehuman                           nimble-commander                    spaceman
+command-tab-plus                    mana-security                       ninja-download-manager-ndm          sqlitemanager
+commander-one                       manico                              nordic-nrf-command-line-tools       squidman
+commandq                            manictime                           not-pacman                          ssh-tunnel-manager
+craftmanager                        manila                              odbc-manager                        stepmania
+dcommander                          manta                               outline-manager                     superhuman
+double-commander                    manuskript                          persepolis-download-manager         tinymediamanager
+dropletmanager                      manymc                              pg-commander                        tiptoi-manager
+eusamanager                         manyverse                           podman-desktop                      trolcommander
+final-cut-library-manager           mat                                 portfolioperformance                vagrant-manager
+fman                                mediahuman-audio-converter          postman                             vimediamanager
+free-download-manager               mediahuman-youtube-downloader       postman-agent                       website-watchman
+html-mangareader                    mendeley-reference-manager          postman-cli                         workman
+ilok-license-manager                milkman                             power-manager                       yubico-yubikey-manager
+ilya-birman-typography-layout       min                                 preference-manager
+ipa-manager                         mindjet-mindmanager                 proxyman
+iphoto-library-manager              moneymanager                        remote-desktop-manager
+
+To install android-commandlinetools, run:
+  brew install --cask android-commandlinetools
+dibao@Ice-Cola-MacBook-Pro linux % ls
+file2		text.txt
+dibao@Ice-Cola-MacBook-Pro linux % cd file2
+dibao@Ice-Cola-MacBook-Pro file2 % touch text.txt
+dibao@Ice-Cola-MacBook-Pro file2 % mkdir test
+dibao@Ice-Cola-MacBook-Pro file2 % cd ..
+dibao@Ice-Cola-MacBook-Pro linux % ls
+file2		text.txt
+dibao@Ice-Cola-MacBook-Pro linux % tree .
+.
+├── file2
+│   ├── test
+│   └── text.txt
+└── text.txt
+
+3 directories, 2 files
+dibao@Ice-Cola-MacBook-Pro linux % clear
+
+dibao@Ice-Cola-MacBook-Pro linux % ls
+file2		text.txt
+dibao@Ice-Cola-MacBook-Pro linux % alies
+zsh: command not found: alies
+dibao@Ice-Cola-MacBook-Pro linux % alias ll 'ls - l'
+dibao@Ice-Cola-MacBook-Pro linux % ll
+zsh: command not found: ll
+dibao@Ice-Cola-MacBook-Pro linux % alias ll 'ls -l'
+dibao@Ice-Cola-MacBook-Pro linux % ll
+zsh: command not found: ll
+dibao@Ice-Cola-MacBook-Pro linux % alias 'ls -l' ll
+dibao@Ice-Cola-MacBook-Pro linux % ll
+zsh: command not found: ll
+dibao@Ice-Cola-MacBook-Pro linux % man alias
+dibao@Ice-Cola-MacBook-Pro linux % man alias
+dibao@Ice-Cola-MacBook-Pro linux % man 1 alias
+dibao@Ice-Cola-MacBook-Pro linux % alias ll = 'ls - l'
+zsh: bad assignment
+dibao@Ice-Cola-MacBook-Pro linux % ll
+zsh: command not found: ll
+dibao@Ice-Cola-MacBook-Pro linux % alias ll="ls -l"
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 8
+drwxr-xr-x@ 4 dibao  staff  128 Jun  5 13:58 file2
+-rw-r--r--  1 dibao  staff   12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 8
+drwxr-xr-x@ 4 dibao  staff  128 Jun  5 13:58 file2
+-rw-r--r--  1 dibao  staff   12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dibao@Ice-Cola-MacBook-Pro linux % alias ll='ls -l'
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 8
+drwxr-xr-x@ 4 dibao  staff  128 Jun  5 13:58 file2
+-rw-r--r--  1 dibao  staff   12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 8
+drwxr-xr-x@ 4 dibao  staff  128 Jun  5 13:58 file2
+-rw-r--r--  1 dibao  staff   12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % cp text.txt .
+cp: ./text.txt and text.txt are identical (not copied).
+dibao@Ice-Cola-MacBook-Pro linux % cp text.txt test2.txt
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 16
+drwxr-xr-x@ 4 dibao  staff  128 Jun  5 13:58 file2
+-rw-r--r--  1 dibao  staff   12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff   12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % cp text.txt ./file2/tsx.txt
+dibao@Ice-Cola-MacBook-Pro linux % ll 
+total 16
+drwxr-xr-x@ 5 dibao  staff  160 Jun  7 00:27 file2
+-rw-r--r--  1 dibao  staff   12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff   12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % tree
+.
+├── file2
+│   ├── test
+│   ├── text.txt
+│   └── tsx.txt
+├── test2.txt
+└── text.txt
+
+3 directories, 4 files
+dibao@Ice-Cola-MacBook-Pro linux % mv ./text.txt ../  
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 8
+drwxr-xr-x@ 5 dibao  staff  160 Jun  7 00:28 file2
+-rw-r--r--  1 dibao  staff   12 Jun  7 00:27 test2.txt
+dibao@Ice-Cola-MacBook-Pro linux % cd ..
+dibao@Ice-Cola-MacBook-Pro Documents % ll
+total 4824
+-rw-r-----@  1 dibao  staff  2242972 Nov  9  2022 41_1668059143.mp4
+drwxr-xr-x@  3 dibao  staff       96 Apr  6 13:21 Arduino
+drwxr-xr-x@ 12 dibao  staff      384 May  4 14:06 MATLAB
+lrwxr-xr-x@  1 dibao  staff       51 Dec 28 10:00 OneDrive -> /Users/dibao/Library/CloudStorage/OneDrive-Personal
+drwxr-xr-x@  2 dibao  staff       64 Mar 25 19:10 TencentMeeting
+-rw-r-----@  1 dibao  staff   201534 Oct 27  2022 WechatIMG31.jpeg
+drwxr-xr-x@  3 dibao  staff       96 Mar 27 11:48 cs10_HW
+-rw-r--r--   1 dibao  staff      249 Jan 24 13:08 for loop.py
+-rw-r--r--   1 dibao  staff      639 Jan 23 11:57 lesson10StateTaxProgram.py
+drwxr-xr-x@  4 dibao  staff      128 Jun  7 00:28 linux
+-rw-r--r--   1 dibao  staff      224 Jan 24 13:18 loop2.py
+drwxr-xr-x@  6 dibao  staff      192 Nov  7  2022 pic
+drwxr-xr-x@  3 dibao  staff       96 Apr 26 14:14 random
+-rw-r--r--   1 dibao  staff      553 Jan 23 12:23 test2.py
+-rw-r--r--   1 dibao  staff       12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro Documents % mv text.txt ./linux/
+dibao@Ice-Cola-MacBook-Pro Documents % ll 
+total 4816
+-rw-r-----@  1 dibao  staff  2242972 Nov  9  2022 41_1668059143.mp4
+drwxr-xr-x@  3 dibao  staff       96 Apr  6 13:21 Arduino
+drwxr-xr-x@ 12 dibao  staff      384 May  4 14:06 MATLAB
+lrwxr-xr-x@  1 dibao  staff       51 Dec 28 10:00 OneDrive -> /Users/dibao/Library/CloudStorage/OneDrive-Personal
+drwxr-xr-x@  2 dibao  staff       64 Mar 25 19:10 TencentMeeting
+-rw-r-----@  1 dibao  staff   201534 Oct 27  2022 WechatIMG31.jpeg
+drwxr-xr-x@  3 dibao  staff       96 Mar 27 11:48 cs10_HW
+-rw-r--r--   1 dibao  staff      249 Jan 24 13:08 for loop.py
+-rw-r--r--   1 dibao  staff      639 Jan 23 11:57 lesson10StateTaxProgram.py
+drwxr-xr-x@  5 dibao  staff      160 Jun  7 00:28 linux
+-rw-r--r--   1 dibao  staff      224 Jan 24 13:18 loop2.py
+drwxr-xr-x@  6 dibao  staff      192 Nov  7  2022 pic
+drwxr-xr-x@  3 dibao  staff       96 Apr 26 14:14 random
+-rw-r--r--   1 dibao  staff      553 Jan 23 12:23 test2.py
+dibao@Ice-Cola-MacBook-Pro Documents % cd linux
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 16
+drwxr-xr-x@ 5 dibao  staff  160 Jun  7 00:28 file2
+-rw-r--r--  1 dibao  staff   12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff   12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % man vim
+dibao@Ice-Cola-MacBook-Pro linux % vim text.txt
+
+zsh: suspended  vim text.txt
+dibao@Ice-Cola-MacBook-Pro linux % echo text.txt
+text.txt
+dibao@Ice-Cola-MacBook-Pro linux % cat text.txt
+Hi
+hello
+HI
+dibao@Ice-Cola-MacBook-Pro linux % man cat
+dibao@Ice-Cola-MacBook-Pro linux % cat -n text.txt
+     1	Hi
+     2	hello
+     3	HI
+dibao@Ice-Cola-MacBook-Pro linux % count = 0; while [ $count -le 10000]; do echo "hello ${count}"; let count++
+while>                
+while> 
+dibao@Ice-Cola-MacBook-Pro linux % count = 0; while [ $count -le 10000]; do echo "hello ${count}"; let count++; 
+
+while> 
+dibao@Ice-Cola-MacBook-Pro linux % count = 0; while [ $count -le 10000]; do echo "hello ${count}"; let count++; done > file.txt
+zsh: command not found: count
+[: ']' expected
+dibao@Ice-Cola-MacBook-Pro linux % count=0; while [ $count -le 10000 ]; do echo "hello ${count}"; let count++; done > file.txt
+dibao@Ice-Cola-MacBook-Pro linux % ll 
+total 280
+-rw-r--r--  1 dibao  staff  108902 Jun  7 00:45 file.txt
+drwxr-xr-x@ 5 dibao  staff     160 Jun  7 00:28 file2
+-rw-r--r--  1 dibao  staff      12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff      12 Jun  5 13:15 text.txt
+dibao@Ice-Cola-MacBook-Pro linux % cat file.txt
+hello 0
+
 Last login: Mon Jun  5 13:08:43 on ttys000
 dibao@Ice-Cola-MacBook-Pro ~ % man 1 printf
 dibao@Ice-Cola-MacBook-Pro ~ % 
