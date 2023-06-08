@@ -1,3 +1,45 @@
+ls [option] [file] 
+	-a d i k l n F r t s R 1
+pwd
+
+cd [directory] 
+	.	..	~ [user home]		- [recent directory]
+
+touch [option] [file]
+	-a c d f m r t
+
+mkdir [option] dirname
+	-p [parent]
+
+rmdir [-p][dirName] 
+	-p [if the child dir was deleted and parent dir becomes empty, also delete parent dir]
+
+rm [-f-i-r-v][dirName/dir] 
+
+man [option] command
+	-k a 
+
+cp [option] src dst
+	-f [force] i[interactive] r[recursion] R[recursive]
+
+mv [option] src dst
+	-f i 
+
+cat [option][file]
+	-b[with line numbers for blank lines] n[with line numbers] s[no output for multiple blanklines]
+
+more [option][file]		q to quit
+	-n 
+
+less [option][file]
+	-i [ignore Aa when searching] N[with line numbers] /[string] [searching string down] ?[stirng] [searching string up] n[keep searching] N[keep searching reversed order] q:quit
+
+head[option][file]
+tail[option][file]
+	-n
+Date [option]+[format]
+%Y%m%d%H%M%S%F%s
+
 
 dibao@Ice-Cola-MacBook-Pro linux % ll
 total 280
