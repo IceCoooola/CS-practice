@@ -1,3 +1,38 @@
+dibao@Ice-Cola-MacBook-Pro linux % find /Users/dibao/Documents/linux -name
+find: -name: requires additional arguments
+dibao@Ice-Cola-MacBook-Pro linux % /Users/dibao/Documents/linux -name 1
+zsh: permission denied: /Users/dibao/Documents/linux
+dibao@Ice-Cola-MacBook-Pro linux % find -name test
+find: illegal option -- n
+usage: find [-H | -L | -P] [-EXdsx] [-f path] path ... [expression]
+       find [-H | -L | -P] [-EXdsx] -f path [path ...] [expression]
+dibao@Ice-Cola-MacBook-Pro linux % grep
+usage: grep [-abcdDEFGHhIiJLlMmnOopqRSsUVvwXxZz] [-A num] [-B num] [-C[num]]
+	[-e pattern] [-f file] [--binary-files=value] [--color=when]
+	[--context[=num]] [--directories=action] [--label] [--line-buffered]
+	[--null] [pattern] [file ...]
+dibao@Ice-Cola-MacBook-Pro linux % 
+dibao@Ice-Cola-MacBook-Pro linux % 
+dibao@Ice-Cola-MacBook-Pro linux % bc 213/23
+
+Fatal error: cannot open file: 213/23
+    Function: (main)
+
+dibao@Ice-Cola-MacBook-Pro linux % bc
+>>> 123/2
+61
+>>> 23/2
+11
+>>> 11/323
+0
+>>> 333/12
+27
+>>> ^C
+interrupt (type "quit" to exit)
+ready for more input
+>>> quit
+dibao@Ice-Cola-MacBook-Pro linux % 
+
 ls [option] [file] 
 	-a d i k l n F r t s R 1
 pwd
