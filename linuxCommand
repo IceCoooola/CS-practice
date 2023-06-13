@@ -1,3 +1,22 @@
+dibao@Ice-Cola-MacBook-Pro linux % sudo shutdown -r
+Password:
+usage: shutdown [-] [-h [-u] [-n] | -r [-n] | -s | -k] time [warning-message ...]
+dibao@Ice-Cola-MacBook-Pro linux % sudo shutdown -s 2
+shutdown: bad time format
+dibao@Ice-Cola-MacBook-Pro linux % sudo shutdown     
+usage: shutdown [-] [-h [-u] [-n] | -r [-n] | -s | -k] time [warning-message ...]
+dibao@Ice-Cola-MacBook-Pro linux % clear
+
+dibao@Ice-Cola-MacBook-Pro linux % man shutdown
+dibao@Ice-Cola-MacBook-Pro linux % sudo shutdown -h
+usage: shutdown [-] [-h [-u] [-n] | -r [-n] | -s | -k] time [warning-message ...]
+dibao@Ice-Cola-MacBook-Pro linux % sudo shutdown -h 34
+shutdown: bad time format
+dibao@Ice-Cola-MacBook-Pro linux %   
+
+
+
+
 dibao@Ice-Cola-MacBook-Pro linux % find /Users/dibao/Documents/linux -name
 find: -name: requires additional arguments
 dibao@Ice-Cola-MacBook-Pro linux % /Users/dibao/Documents/linux -name 1
