@@ -1,3 +1,54 @@
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 616
+drwxr-xr-x@ 3 dibao  staff      96 Jun  7 14:31 1
+-rw-r--r--  1 dibao  staff  108905 Jun  7 01:03 file.txt
+drwxr-xr-x@ 5 dibao  staff     160 Jun  7 00:28 file2
+-rw-r--r--  1 dibao  staff       0 Jun 12 15:12 test.c
+-rw-r--r--  1 dibao  staff  142336 Jun 12 14:14 test.tar
+-rw-r--r--  1 dibao  staff      12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff      12 Jun 12 15:12 text.txt
+-rw-r--r--  1 dibao  staff   51344 Jun 12 22:42 try.zip
+dibao@Ice-Cola-MacBook-Pro linux % chmod u+rwx test.c
+dibao@Ice-Cola-MacBook-Pro linux % ll
+total 616
+drwxr-xr-x@ 3 dibao  staff      96 Jun  7 14:31 1
+-rw-r--r--  1 dibao  staff  108905 Jun  7 01:03 file.txt
+drwxr-xr-x@ 5 dibao  staff     160 Jun  7 00:28 file2
+-rwxr--r--  1 dibao  staff       0 Jun 12 15:12 test.c
+-rw-r--r--  1 dibao  staff  142336 Jun 12 14:14 test.tar
+-rw-r--r--  1 dibao  staff      12 Jun  7 00:27 test2.txt
+-rw-r--r--  1 dibao  staff      12 Jun 12 15:12 text.txt
+-rw-r--r--  1 dibao  staff   51344 Jun 12 22:42 try.zip
+dibao@Ice-Cola-MacBook-Pro linux % cd 1       
+dibao@Ice-Cola-MacBook-Pro 1 % mv ../test.c .
+dibao@Ice-Cola-MacBook-Pro 1 % ll
+total 0
+drwxr-xr-x@ 3 dibao  staff  96 Jun  7 14:31 1
+-rwxr--r--  1 dibao  staff   0 Jun 12 15:12 test.c
+dibao@Ice-Cola-MacBook-Pro 1 % chmod +a test.c 
+usage:	chmod [-fhv] [-R [-H | -L | -P]] [-a | +a | =a  [i][# [ n]]] mode|entry file ...
+	chmod [-fhv] [-R [-H | -L | -P]] [-E | -C | -N | -i | -I] file ...
+dibao@Ice-Cola-MacBook-Pro 1 % ll
+total 0
+drwxr-xr-x@ 3 dibao  staff  96 Jun  7 14:31 1
+-rwxr--r--  1 dibao  staff   0 Jun 12 15:12 test.c
+dibao@Ice-Cola-MacBook-Pro 1 % chmod u-rwx test.c 
+dibao@Ice-Cola-MacBook-Pro 1 % ll
+total 0
+drwxr-xr-x@ 3 dibao  staff  96 Jun  7 14:31 1
+----r--r--  1 dibao  staff   0 Jun 12 15:12 test.c
+dibao@Ice-Cola-MacBook-Pro 1 % cat test.c
+cat: test.c: Permission denied
+dibao@Ice-Cola-MacBook-Pro 1 % chmod u+a test.c
+chmod: Invalid file mode: u+a
+dibao@Ice-Cola-MacBook-Pro 1 % chmod u+rwx test.c
+dibao@Ice-Cola-MacBook-Pro 1 % ll
+total 0
+drwxr-xr-x@ 3 dibao  staff  96 Jun  7 14:31 1
+-rwxr--r--  1 dibao  staff   0 Jun 12 15:12 test.c
+dibao@Ice-Cola-MacBook-Pro 1 % ll
+
+
 dibao@Ice-Cola-MacBook-Pro linux % sudo shutdown -r
 Password:
 usage: shutdown [-] [-h [-u] [-n] | -r [-n] | -s | -k] time [warning-message ...]
