@@ -1,3 +1,43 @@
+dibao@Ice-Cola-MacBook-Pro try % ll
+total 0
+-rw-r--r--  1 dibao  staff  0 Jun 15 17:09 test.c
+dibao@Ice-Cola-MacBook-Pro try % cd ..
+dibao@Ice-Cola-MacBook-Pro 1 % ll 
+total 0
+drwxr-xr-x@ 3 dibao  staff  96 Jun  7 14:31 1
+-rwxr--r--  1 dibao  staff   0 Jun 12 15:12 test.c
+drwxr-xr-x@ 3 dibao  staff  96 Jun 15 17:09 try
+dibao@Ice-Cola-MacBook-Pro 1 % chmod u+rwx try
+dibao@Ice-Cola-MacBook-Pro 1 % ll
+total 0
+drwxr-xr-x@ 3 dibao  staff  96 Jun  7 14:31 1
+-rwxr--r--  1 dibao  staff   0 Jun 12 15:12 test.c
+drwxr-xr-x@ 3 dibao  staff  96 Jun 15 17:09 try
+dibao@Ice-Cola-MacBook-Pro 1 % chmod u-rwx, g-rwx, test.c
+chmod: Invalid file mode: u-rwx,
+dibao@Ice-Cola-MacBook-Pro 1 % chmod u-rwx, g-rwx test.c 
+chmod: Invalid file mode: u-rwx,
+dibao@Ice-Cola-MacBook-Pro 1 % chmod u-rwx test.c       
+dibao@Ice-Cola-MacBook-Pro 1 % ll
+total 0
+drwxr-xr-x@ 3 dibao  staff  96 Jun  7 14:31 1
+----r--r--  1 dibao  staff   0 Jun 12 15:12 test.c
+drwxr-xr-x@ 3 dibao  staff  96 Jun 15 17:09 try
+dibao@Ice-Cola-MacBook-Pro 1 % cat test.c
+cat: test.c: Permission denied
+dibao@Ice-Cola-MacBook-Pro 1 % rm rest.c
+rm: rest.c: No such file or directory
+dibao@Ice-Cola-MacBook-Pro 1 % rm test.c
+override ---r--r-- dibao/staff for test.c? ^[[A^[[B^[[B^C
+dibao@Ice-Cola-MacBook-Pro 1 % rm ./test.c
+override ---r--r-- dibao/staff for ./test.c? y
+dibao@Ice-Cola-MacBook-Pro 1 % ll
+total 0
+drwxr-xr-x@ 3 dibao  staff  96 Jun  7 14:31 1
+drwxr-xr-x@ 3 dibao  staff  96 Jun 15 17:09 try
+dibao@Ice-Cola-MacBook-Pro 1 %  
+
+
 dibao@Ice-Cola-MacBook-Pro linux % ll
 total 616
 drwxr-xr-x@ 3 dibao  staff      96 Jun  7 14:31 1
