@@ -1,3 +1,292 @@
+
+*** System restart required ***
+Last login: Fri Jun 16 21:30:11 2023 from 35.235.242.210
+renhanchen@linux:~$ whoami
+renhanchen
+renhanchen@linux:~$ ll
+total 92
+drwxr-xr-x 4 renhanchen renhanchen  4096 Jun 17 01:29 ./
+drwxr-xr-x 4 root       root        4096 Jun 16 21:21 ../
+-rw------- 1 renhanchen renhanchen   289 Jun 17 01:29 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen  3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen  4096 Jun 16 21:21 .cache/
+-rw-r--r-- 1 renhanchen renhanchen 53248 Jun 16 22:52 .mycode.c.swp
+-rw-r--r-- 1 renhanchen renhanchen   807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen  4096 Jun 19 05:50 .ssh/
+-rw------- 1 renhanchen renhanchen  1994 Jun 17 01:29 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen    90 Jun 16 22:26 mycode.c
+renhanchen@linux:~$ cd ~
+renhanchen@linux:~$ ll
+total 92
+drwxr-xr-x 4 renhanchen renhanchen  4096 Jun 17 01:29 ./
+drwxr-xr-x 4 root       root        4096 Jun 16 21:21 ../
+-rw------- 1 renhanchen renhanchen   289 Jun 17 01:29 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen  3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen  4096 Jun 16 21:21 .cache/
+-rw-r--r-- 1 renhanchen renhanchen 53248 Jun 16 22:52 .mycode.c.swp
+-rw-r--r-- 1 renhanchen renhanchen   807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen  4096 Jun 19 05:50 .ssh/
+-rw------- 1 renhanchen renhanchen  1994 Jun 17 01:29 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen    90 Jun 16 22:26 mycode.c
+renhanchen@linux:~$ pwd
+/home/renhanchen
+renhanchen@linux:~$ su rhc1
+Password: 
+$ whoami
+rhc1
+$ cd ~
+sh: 2: cd: can't cd to /home/rhc1
+$ cd ~
+sh: 3: cd: can't cd to /home/rhc1
+$ su renhanchen
+Password: 
+renhanchen@linux:~$ alias ll='ls -l'
+renhanchen@linux:~$ ll
+total 4
+-rw-rw-r-- 1 renhanchen renhanchen 90 Jun 16 22:26 mycode.c
+renhanchen@linux:~$ chmod u+x mycode.c 
+renhanchen@linux:~$ ll
+total 4
+-rwxrw-r-- 1 renhanchen renhanchen 90 Jun 16 22:26 mycode.c
+renhanchen@linux:~$ ch
+chage                   check-language-support  choom                   chrt
+chardet3                chfn                    chown                   chsh
+chardetect3             chgpasswd               chpasswd                chvt
+chattr                  chgrp                   chronyc                 
+chcon                   chmem                   chronyd                 
+chcpu                   chmod                   chroot                  
+renhanchen@linux:~$ ch
+chage                   check-language-support  choom                   chrt
+chardet3                chfn                    chown                   chsh
+chardetect3             chgpasswd               chpasswd                chvt
+chattr                  chgrp                   chronyc                 
+chcon                   chmem                   chronyd                 
+chcpu                   chmod                   chroot                  
+renhanchen@linux:~$ ch
+chage                   check-language-support  choom                   chrt
+chardet3                chfn                    chown                   chsh
+chardetect3             chgpasswd               chpasswd                chvt
+chattr                  chgrp                   chronyc                 
+chcon                   chmem                   chronyd                 
+chcpu                   chmod                   chroot                  
+renhanchen@linux:~$ ch
+chage                   check-language-support  choom                   chrt
+chardet3                chfn                    chown                   chsh
+chardetect3             chgpasswd               chpasswd                chvt
+chattr                  chgrp                   chronyc                 
+chcon                   chmem                   chronyd                 
+chcpu                   chmod                   chroot                  
+renhanchen@linux:~$ chmod u+x mycode.c 
+renhanchen@linux:~$ ll
+total 4
+-rwxrw-r-- 1 renhanchen renhanchen 90 Jun 16 22:26 mycode.c
+renhanchen@linux:~$ chmod +a mycode.c 
+chmod: invalid mode: ‘+a’
+Try 'chmod --help' for more information.
+renhanchen@linux:~$ chmod u+wrx, g+wrx, o-wrx mycode.c 
+chmod: invalid mode: ‘u+wrx,’
+Try 'chmod --help' for more information.
+renhanchen@linux:~$ chmod u+x, g+wx, o-wrx mycode.c 
+chmod: invalid mode: ‘u+x,’
+Try 'chmod --help' for more information.
+renhanchen@linux:~$ chmod u+x,g+wx,o-wrx mycode.c 
+renhanchen@linux:~$ ll
+total 4
+-rwxrwx--- 1 renhanchen renhanchen 90 Jun 16 22:26 mycode.c
+renhanchen@linux:~$ chmod u+a mycode.c 
+chmod: invalid mode: ‘u+a’
+Try 'chmod --help' for more information.
+renhanchen@linux:~$ chmod a+x mycode.c 
+renhanchen@linux:~$ chmod 777 mycode.c 
+renhanchen@linux:~$ ll
+total 4
+-rwxrwxrwx 1 renhanchen renhanchen 90 Jun 16 22:26 mycode.c
+renhanchen@linux:~$ chown rhc1 mycode.c 
+chown: changing ownership of 'mycode.c': Operation not permitted
+renhanchen@linux:~$ ll
+total 4
+-rwxrwxrwx 1 renhanchen renhanchen 90 Jun 16 22:26 mycode.c
+renhanchen@linux:~$ su
+Password: 
+root@linux:/home/renhanchen# chown rhc1 mycode.c 
+root@linux:/home/renhanchen# ll
+total 92
+drwxr-xr-x 4 renhanchen renhanchen  4096 Jun 17 01:29 ./
+drwxr-xr-x 4 root       root        4096 Jun 16 21:21 ../
+-rw------- 1 renhanchen renhanchen   289 Jun 17 01:29 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen  3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen  4096 Jun 16 21:21 .cache/
+-rw-r--r-- 1 renhanchen renhanchen 53248 Jun 16 22:52 .mycode.c.swp
+-rw-r--r-- 1 renhanchen renhanchen   807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen  4096 Jun 19 05:53 .ssh/
+-rw------- 1 renhanchen renhanchen  1994 Jun 17 01:29 .viminfo
+-rwxrwxrwx 1 rhc1       renhanchen    90 Jun 16 22:26 mycode.c*
+root@linux:/home/renhanchen# chgrp rhc1 mycode.c 
+root@linux:/home/renhanchen# ll
+total 92
+drwxr-xr-x 4 renhanchen renhanchen  4096 Jun 17 01:29 ./
+drwxr-xr-x 4 root       root        4096 Jun 16 21:21 ../
+-rw------- 1 renhanchen renhanchen   289 Jun 17 01:29 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen  3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen  4096 Jun 16 21:21 .cache/
+-rw-r--r-- 1 renhanchen renhanchen 53248 Jun 16 22:52 .mycode.c.swp
+-rw-r--r-- 1 renhanchen renhanchen   807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen  4096 Jun 19 05:53 .ssh/
+-rw------- 1 renhanchen renhanchen  1994 Jun 17 01:29 .viminfo
+-rwxrwxrwx 1 rhc1       rhc1          90 Jun 16 22:26 mycode.c*
+root@linux:/home/renhanchen# su renhanchen
+renhanchen@linux:~$ ll
+total 92
+drwxr-xr-x 4 renhanchen renhanchen  4096 Jun 17 01:29 ./
+drwxr-xr-x 4 root       root        4096 Jun 16 21:21 ../
+-rw------- 1 renhanchen renhanchen   289 Jun 17 01:29 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen  3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen  4096 Jun 16 21:21 .cache/
+-rw-r--r-- 1 renhanchen renhanchen 53248 Jun 16 22:52 .mycode.c.swp
+-rw-r--r-- 1 renhanchen renhanchen   807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen  4096 Jun 19 05:53 .ssh/
+-rw------- 1 renhanchen renhanchen  1994 Jun 17 01:29 .viminfo
+-rwxrwxrwx 1 rhc1       rhc1          90 Jun 16 22:26 mycode.c*
+renhanchen@linux:~$ vim mycode.c 
+renhanchen@linux:~$ vim mycode.c 
+renhanchen@linux:~$ cat mycode.c | new.txt
+new.txt: command not found
+renhanchen@linux:~$ cat mycode.c | cat > new.txt
+renhanchen@linux:~$ ll
+total 48
+drwxr-xr-x 4 renhanchen renhanchen 4096 Jun 19 06:39 ./
+drwxr-xr-x 4 root       root       4096 Jun 16 21:21 ../
+-rw------- 1 renhanchen renhanchen  289 Jun 17 01:29 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen  220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen 3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen 4096 Jun 16 21:21 .cache/
+-rw-r--r-- 1 renhanchen renhanchen  807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen 4096 Jun 19 05:53 .ssh/
+-rw------- 1 renhanchen renhanchen 4173 Jun 19 06:38 .viminfo
+-rwxrwxrwx 1 rhc1       rhc1       3384 Jun 19 06:38 mycode.c*
+-rw-rw-r-- 1 renhanchen renhanchen 3384 Jun 19 06:39 new.txt
+renhanchen@linux:~$ vim new.txt 
+renhanchen@linux:~$ mkdir trytry
+renhanchen@linux:~$ ll
+total 52
+drwxr-xr-x 5 renhanchen renhanchen 4096 Jun 19 06:42 ./
+drwxr-xr-x 4 root       root       4096 Jun 16 21:21 ../
+-rw------- 1 renhanchen renhanchen  289 Jun 17 01:29 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen  220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen 3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen 4096 Jun 16 21:21 .cache/
+-rw-r--r-- 1 renhanchen renhanchen  807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen 4096 Jun 19 05:53 .ssh/
+-rw------- 1 renhanchen renhanchen 6725 Jun 19 06:39 .viminfo
+-rwxrwxrwx 1 rhc1       rhc1       3384 Jun 19 06:38 mycode.c*
+-rw-rw-r-- 1 renhanchen renhanchen 3384 Jun 19 06:39 new.txt
+drwxrwxr-x 2 renhanchen renhanchen 4096 Jun 19 06:42 trytry/
+renhanchen@linux:~$ sudo chmod u-rwx trytry/
+[sudo] password for renhanchen: 
+renhanchen is not in the sudoers file.  This incident will be reported.
+renhanchen@linux:~$ su root
+Password: 
+root@linux:/home/renhanchen# ls
+mycode.c  new.txt  trytry
+root@linux:/home/renhanchen# cd ..
+root@linux:/home# pwd
+/home
+root@linux:/home# ls
+renhanchen  ubuntu
+root@linux:/home# cd ..
+root@linux:/# ls
+bin   dev  home  lib32  libx32      media  opt   root  sbin  srv  tmp  var
+boot  etc  lib   lib64  lost+found  mnt    proc  run   snap  sys  usr
+root@linux:/# vim /etc/sudoers
+root@linux:/# su renhanchen
+renhanchen@linux:/$ cd ~
+renhanchen@linux:~$ sudo ls
+[sudo] password for renhanchen: 
+mycode.c  new.txt  trytry
+renhanchen@linux:~$ ls
+mycode.c  new.txt  trytry
+renhanchen@linux:~$ ll
+total 52
+drwxr-xr-x 5 renhanchen renhanchen 4096 Jun 19 06:42 ./
+drwxr-xr-x 4 root       root       4096 Jun 16 21:21 ../
+-rw------- 1 renhanchen renhanchen  289 Jun 17 01:29 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen  220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen 3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen 4096 Jun 16 21:21 .cache/
+-rw-r--r-- 1 renhanchen renhanchen  807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen 4096 Jun 19 05:53 .ssh/
+-rw------- 1 renhanchen renhanchen 6725 Jun 19 06:39 .viminfo
+-rwxrwxrwx 1 rhc1       rhc1       3384 Jun 19 06:38 mycode.c*
+-rw-rw-r-- 1 renhanchen renhanchen 3384 Jun 19 06:39 new.txt
+drwxrwxr-x 2 renhanchen renhanchen 4096 Jun 19 06:42 trytry/
+renhanchen@linux:~$ sudo chmod 000 trytry/
+renhanchen@linux:~$ ll
+total 52
+drwxr-xr-x 5 renhanchen renhanchen 4096 Jun 19 06:42 ./
+drwxr-xr-x 4 root       root       4096 Jun 16 21:21 ../
+-rw------- 1 renhanchen renhanchen  289 Jun 17 01:29 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen  220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen 3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen 4096 Jun 16 21:21 .cache/
+-rw-r--r-- 1 renhanchen renhanchen  807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen 4096 Jun 19 05:53 .ssh/
+-rw------- 1 renhanchen renhanchen 6725 Jun 19 06:39 .viminfo
+-rwxrwxrwx 1 rhc1       rhc1       3384 Jun 19 06:38 mycode.c*
+-rw-rw-r-- 1 renhanchen renhanchen 3384 Jun 19 06:39 new.txt
+d--------- 2 renhanchen renhanchen 4096 Jun 19 06:42 trytry/
+renhanchen@linux:~$ alias ll='ls -l'
+renhanchen@linux:~$ ll
+total 12
+-rwxrwxrwx 1 rhc1       rhc1       3384 Jun 19 06:38 mycode.c
+-rw-rw-r-- 1 renhanchen renhanchen 3384 Jun 19 06:39 new.txt
+d--------- 2 renhanchen renhanchen 4096 Jun 19 06:42 trytry
+renhanchen@linux:~$ cd trytry/
+bash: cd: trytry/: Permission denied
+renhanchen@linux:~$ sudo cd trytry/
+sudo: cd: command not found
+renhanchen@linux:~$ chmod u+x trytry/
+renhanchen@linux:~$ ll
+total 12
+-rwxrwxrwx 1 rhc1       rhc1       3384 Jun 19 06:38 mycode.c
+-rw-rw-r-- 1 renhanchen renhanchen 3384 Jun 19 06:39 new.txt
+d--x------ 2 renhanchen renhanchen 4096 Jun 19 06:42 trytry
+renhanchen@linux:~$ cd trytry/
+renhanchen@linux:~/trytry$ ls
+ls: cannot open directory '.': Permission denied
+renhanchen@linux:~/trytry$ cd ..
+renhanchen@linux:~$ chmod a+x trytry/
+renhanchen@linux:~$ ll
+total 12
+-rwxrwxrwx 1 rhc1       rhc1       3384 Jun 19 06:38 mycode.c
+-rw-rw-r-- 1 renhanchen renhanchen 3384 Jun 19 06:39 new.txt
+d--x--x--x 2 renhanchen renhanchen 4096 Jun 19 06:42 trytry
+renhanchen@linux:~$ chmod a+r trytry/
+renhanchen@linux:~$ ll
+total 12
+-rwxrwxrwx 1 rhc1       rhc1       3384 Jun 19 06:38 mycode.c
+-rw-rw-r-- 1 renhanchen renhanchen 3384 Jun 19 06:39 new.txt
+dr-xr-xr-x 2 renhanchen renhanchen 4096 Jun 19 06:42 trytry
+renhanchen@linux:~$ cd trytry/
+renhanchen@linux:~/trytry$ ls
+renhanchen@linux:~/trytry$ cd ..
+renhanchen@linux:~$ cd trytry/
+renhanchen@linux:~/trytry$ touch test.c
+touch: cannot touch 'test.c': Permission denied
+renhanchen@linux:~/trytry$ cd ..
+renhanchen@linux:~$ chmod u+w,g+w trytry/
+renhanchen@linux:~$ ls
+mycode.c  new.txt  trytry
+renhanchen@linux:~$ cd trytry/
+renhanchen@linux:~/trytry$ touch test.c
+renhanchen@linux:~/trytry$ ls
+test.c
+renhanchen@linux:~/trytry$ cd ..
+renhanchen@linux:~$ 
 $ ll
 sh: 7: ll: not found
 $ ls
