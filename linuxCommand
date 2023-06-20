@@ -1,4 +1,35 @@
-
+  120  file mycode
+  121  lld mycode
+  122  vim mycode
+  123  rm mycode
+  124  vim mycode.c 
+  125  sudo chmod +t mycode.c 
+  126  ll
+  127  chmod o-w mycode.c
+  128  chmod o+w trytry/
+  129  ll
+  130  chmod +t trytry/
+  131  ll
+  132  su rhc1
+  133  ll
+  134  rmdir a
+  135  ll
+  136  rm try.txt
+  137  ll
+  138  cd ..
+  139  ll
+  140  yum install g++
+  141  apt install yum
+  142  sudo apt install yum
+  143  ll
+  144  cd ..
+  145  ll
+  146  cd trytry/
+  147  touch renhanchen.c
+  148  touch test.txt
+  149  mkdir t1
+  150  su rhc1
+  151  history
 *** System restart required ***
 Last login: Fri Jun 16 21:30:11 2023 from 35.235.242.210
 renhanchen@linux:~$ whoami
