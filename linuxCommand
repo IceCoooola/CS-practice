@@ -1,4 +1,52 @@
-  120  file mycode
+  191  ll
+  192  gcc -E mycode.c -o mycode.i
+  193  ll
+  194  vim mycode.i
+  195  rm mycode
+  196  ll
+  197  gcc -S mycode.i -o mycode.s
+  198  ll
+  199  vim mycode.s
+  200  gcc -c mycode.s mycode.o
+  201  gcc -c mycode.s -o mycode.o
+  202  ll
+  203  vim mycode.o
+  204  gcc mycode.o -o mycode
+  205  ./mycode
+  206  vim mycode.c
+  207  rm mycode.i
+  208  rm mycode.o
+  209  rm mycode.s
+  210  ll
+  211  rm mycode
+  212  ll
+  213  gcc -E mycode.c -o mycode.i
+  214  vim mycode.i
+  215  gcc mycode.c mycode
+  216  gcc mycode.c -o mycode
+  217  vim mycode.c
+  218  gcc mycode.c -o mycode
+  219  ./mycode
+  220  ll
+  221  rm mycode
+  222  rm mycode.i
+  223  ll
+  224  gcc -E mycode.c -o mycode.i
+  225  vim mycode.i
+  226  pwd
+  227  ll
+  228  vim mycode.c
+  229  gcc test.c -o test
+  230  gcc mycode.c -o mytest
+  231  ./mystest
+  232  ./mytest
+  233  ll
+  234  clear
+  235  pwd
+  236  ll
+  237  history  120  
+
+file mycode
   121  lld mycode
   122  vim mycode
   123  rm mycode
