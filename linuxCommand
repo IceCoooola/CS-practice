@@ -1,4 +1,161 @@
-  191  ll
+renhanchen@linux:~$ ll
+total 992
+drwxr-xr-x 5 renhanchen renhanchen   4096 Jun 21 21:57 ./
+drwxr-xr-x 5 root       root         4096 Jun 19 07:09 ../
+-rw------- 1 renhanchen renhanchen   2737 Jun 21 23:13 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen    220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen   3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen   4096 Jun 16 21:21 .cache/
+-rw-r--r-- 1 renhanchen renhanchen    807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen   4096 Jun 24 06:10 .ssh/
+-rw------- 1 renhanchen renhanchen  11923 Jun 21 21:54 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen      7 Jun 20 04:17 .vimrc
+-rwxrwxrwt 1 rhc1       rhc1          285 Jun 21 21:03 mycode.c*
+-rw-rw-r-- 1 renhanchen renhanchen  43300 Jun 21 21:04 mycode.i
+-rwxrwxr-x 1 renhanchen renhanchen  16744 Jun 21 21:57 mytest*
+-rw-rw-r-- 1 renhanchen renhanchen   3384 Jun 19 06:39 new.txt
+drwxrwxrwt 3 renhanchen renhanchen   4096 Jun 20 04:26 trytry/
+-rw-rw-r-- 1 renhanchen renhanchen 885287 Nov 30  2018 yum-3.2.28.tar.gz
+renhanchen@linux:~$ ls
+mycode.c  mycode.i  mytest  new.txt  trytry  yum-3.2.28.tar.gz
+renhanchen@linux:~$ mkdir testMakefile
+renhanchen@linux:~$ cd testMakefile/
+renhanchen@linux:~/testMakefile$ ls
+renhanchen@linux:~/testMakefile$ touch proc.c
+renhanchen@linux:~/testMakefile$ ls
+proc.c
+renhanchen@linux:~/testMakefile$ ll > Makefile
+renhanchen@linux:~/testMakefile$ ll
+total 12
+drwxrwxr-x 2 renhanchen renhanchen 4096 Jun 24 06:11 ./
+drwxr-xr-x 6 renhanchen renhanchen 4096 Jun 24 06:11 ../
+-rw-rw-r-- 1 renhanchen renhanchen  243 Jun 24 06:11 Makefile
+-rw-rw-r-- 1 renhanchen renhanchen    0 Jun 24 06:11 proc.c
+renhanchen@linux:~/testMakefile$ vim Makefile 
+renhanchen@linux:~/testMakefile$ vim Makefile 
+renhanchen@linux:~/testMakefile$ vim Makefile 
+renhanchen@linux:~/testMakefile$ vim proc.c 
+renhanchen@linux:~/testMakefile$ make
+
+Command 'make' not found, but can be installed with:
+
+apt install make        # version 4.2.1-1.2, or
+apt install make-guile  # version 4.2.1-1.2
+
+Ask your administrator to install one of them.
+
+renhanchen@linux:~/testMakefile$ apt install make
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+renhanchen@linux:~/testMakefile$ ll
+total 16
+drwxrwxr-x 2 renhanchen renhanchen 4096 Jun 24 06:14 ./
+drwxr-xr-x 6 renhanchen renhanchen 4096 Jun 24 06:14 ../
+-rw-rw-r-- 1 renhanchen renhanchen   65 Jun 24 06:13 Makefile
+-rw-rw-r-- 1 renhanchen renhanchen   52 Jun 24 06:14 proc.c
+renhanchen@linux:~/testMakefile$ make
+
+Command 'make' not found, but can be installed with:
+
+apt install make        # version 4.2.1-1.2, or
+apt install make-guile  # version 4.2.1-1.2
+
+Ask your administrator to install one of them.
+
+renhanchen@linux:~/testMakefile$ sudo apt install make
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libatasmart4 libblockdev-fs2 libblockdev-loop2 libblockdev-part-err2 libblockdev-part2 libblockdev-swap2
+  libblockdev-utils2 libblockdev2 libmbim-glib4 libmbim-proxy libmm-glib0 libnspr4 libnss3 libnuma1
+  libparted-fs-resize0 libqmi-glib5 libqmi-proxy libudisks2-0 libxmlb2 usb-modeswitch usb-modeswitch-data
+Use 'sudo apt autoremove' to remove them.
+Suggested packages:
+  make-doc
+The following NEW packages will be installed:
+  make
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 162 kB of archives.
+After this operation, 393 kB of additional disk space will be used.
+Get:1 http://us-west4.gce.archive.ubuntu.com/ubuntu focal/main amd64 make amd64 4.2.1-1.2 [162 kB]
+Fetched 162 kB in 0s (725 kB/s)
+Selecting previously unselected package make.
+(Reading database ... 95981 files and directories currently installed.)
+Preparing to unpack .../make_4.2.1-1.2_amd64.deb ...
+Unpacking make (4.2.1-1.2) ...
+Setting up make (4.2.1-1.2) ...
+Processing triggers for man-db (2.9.1-1) ...
+renhanchen@linux:~/testMakefile$ make
+gcc -o proc proc.c
+renhanchen@linux:~/testMakefile$ ll
+total 36
+drwxrwxr-x 2 renhanchen renhanchen  4096 Jun 24 06:16 ./
+drwxr-xr-x 6 renhanchen renhanchen  4096 Jun 24 06:14 ../
+-rw-rw-r-- 1 renhanchen renhanchen    65 Jun 24 06:13 Makefile
+-rwxrwxr-x 1 renhanchen renhanchen 16696 Jun 24 06:16 proc*
+-rw-rw-r-- 1 renhanchen renhanchen    52 Jun 24 06:14 proc.c
+renhanchen@linux:~/testMakefile$ proc
+
+Command 'proc' not found, did you mean:
+
+  command 'proj' from deb proj-bin (6.3.1-1)
+  command 'pro' from deb ubuntu-advantage-tools (27.14.4~20.04)
+  command 'nproc' from deb coreutils (8.30-3ubuntu2)
+
+Try: apt install <deb name>
+
+renhanchen@linux:~/testMakefile$ ./proc 
+hi
+renhanchen@linux:~/testMakefile$ make clean
+rm -f proc
+renhanchen@linux:~/testMakefile$ ll
+total 16
+drwxrwxr-x 2 renhanchen renhanchen 4096 Jun 24 06:16 ./
+drwxr-xr-x 6 renhanchen renhanchen 4096 Jun 24 06:14 ../
+-rw-rw-r-- 1 renhanchen renhanchen   65 Jun 24 06:13 Makefile
+-rw-rw-r-- 1 renhanchen renhanchen   52 Jun 24 06:14 proc.c
+renhanchen@linux:~/testMakefile$ vim proc.c 
+renhanchen@linux:~/testMakefile$ make
+gcc -o proc proc.c
+renhanchen@linux:~/testMakefile$ cat proc.c
+#include<stdio.h>
+#include<unistd.h>
+int main()
+{
+        printf("hi\n");
+        sleep(1);
+        return 0;
+}
+
+renhanchen@linux:~/testMakefile$ make
+make: 'proc' is up to date.
+renhanchen@linux:~/testMakefile$ ./proc 
+hi
+renhanchen@linux:~/testMakefile$ vim proc
+renhanchen@linux:~/testMakefile$ make clean 
+rm -f proc
+renhanchen@linux:~/testMakefile$ ll
+total 16
+drwxrwxr-x 2 renhanchen renhanchen 4096 Jun 24 06:20 ./
+drwxr-xr-x 6 renhanchen renhanchen 4096 Jun 24 06:20 ../
+-rw-rw-r-- 1 renhanchen renhanchen   65 Jun 24 06:13 Makefile
+-rw-rw-r-- 1 renhanchen renhanchen   92 Jun 24 06:18 proc.c
+renhanchen@linux:~/testMakefile$ vim proc.c 
+renhanchen@linux:~/testMakefile$ ll
+total 16
+drwxrwxr-x 2 renhanchen renhanchen 4096 Jun 24 06:21 ./
+drwxr-xr-x 6 renhanchen renhanchen 4096 Jun 24 06:21 ../
+-rw-rw-r-- 1 renhanchen renhanchen   65 Jun 24 06:13 Makefile
+-rw-rw-r-- 1 renhanchen renhanchen   90 Jun 24 06:21 proc.c
+renhanchen@linux:~/testMakefile$ make
+gcc -o proc proc.c
+renhanchen@linux:~/testMakefile$ vim proc.c
+renhanchen@linux:~/testMakefile$ make
+gcc -o proc proc.c
+renhanchen@linux:~/testMakefile$ ./proc 
+hirenhanchen@linux:~/testMakefile$ 
+191  ll
   192  gcc -E mycode.c -o mycode.i
   193  ll
   194  vim mycode.i
