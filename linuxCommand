@@ -1,3 +1,49 @@
+renhanchen@linux:~$ ls
+mycode.c  mycode.i  mytest  new.txt  testMakefile  trytry  yum-3.2.28.tar.gz
+renhanchen@linux:~$ ldd mytest
+        linux-vdso.so.1 (0x00007ffce8b33000)
+        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f1a6cfef000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f1a6d1ef000)
+renhanchen@linux:~$ gcc -c mycode.i -o mycode.o
+renhanchen@linux:~$ ldd mycode.o
+        not a dynamic executable
+renhanchen@linux:~$ ll
+total 1004
+drwxr-xr-x 7 renhanchen renhanchen   4096 Jun 26 07:34 ./
+drwxr-xr-x 5 root       root         4096 Jun 19 07:09 ../
+-rw------- 1 renhanchen renhanchen   3034 Jun 24 06:53 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen    220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen   3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen   4096 Jun 16 21:21 .cache/
+drwx------ 3 renhanchen renhanchen   4096 Jun 25 00:43 .config/
+-rw-r--r-- 1 renhanchen renhanchen    807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen   4096 Jun 26 07:33 .ssh/
+-rw------- 1 renhanchen renhanchen  11276 Jun 26 07:31 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen      7 Jun 26 07:30 .vimrc
+-rwxrwxrwt 1 rhc1       rhc1          285 Jun 21 21:03 mycode.c*
+-rw-rw-r-- 1 renhanchen renhanchen  43300 Jun 21 21:04 mycode.i
+-rw-rw-r-- 1 renhanchen renhanchen   2032 Jun 26 07:34 mycode.o
+-rwxrwxr-x 1 renhanchen renhanchen  16744 Jun 21 21:57 mytest*
+-rw-rw-r-- 1 renhanchen renhanchen   3384 Jun 19 06:39 new.txt
+drwxrwxr-x 2 renhanchen renhanchen   4096 Jun 24 06:21 testMakefile/
+drwxrwxrwt 3 renhanchen renhanchen   4096 Jun 20 04:26 trytry/
+-rw-rw-r-- 1 renhanchen renhanchen 885287 Nov 30  2018 yum-3.2.28.tar.gz
+renhanchen@linux:~$ file mytest.o
+mytest.o: cannot open `mytest.o' (No such file or directory)
+renhanchen@linux:~$ file mycode.o
+mycode.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
+renhanchen@linux:~$ gcc -S mycode.c -o mycode.s
+renhanchen@linux:~$ ldd mycode.s
+        not a dynamic executable
+renhanchen@linux:~$ file mycode.s
+mycode.s: assembler source, ASCII text
+renhanchen@linux:~$ gcc -S mycode.c -o mycode.s -dynamic
+cc1: warning: unrecognized gcc debugging option: y
+cc1: warning: unrecognized gcc debugging option: n
+cc1: warning: unrecognized gcc debugging option: m
+cc1: warning: unrecognized gcc debugging option: i
+cc1: warning: unrecognized gcc debugging option: c
+
 renhanchen@linux:~$ ll
 total 992
 drwxr-xr-x 5 renhanchen renhanchen   4096 Jun 21 21:57 ./
