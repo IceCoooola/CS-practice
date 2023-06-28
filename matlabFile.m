@@ -1,3 +1,38 @@
+
+clear;clc;
+num = 7;
+fib(num)
+
+function result = fib(n)
+    if n == 1
+        result = 1;
+        return;
+    end
+    if n == 2
+        result = 1;
+        return;
+    end
+    result = (fib(n - 1) + fib(n - 2));
+end
+
+
+
+% % ask user to input a string, remember to input a string, a second argument
+% % 's' is needed.
+% str = input("enter a string>: ", 's');
+% % convert every character to lower case
+% str = lower(str);
+% % convert the first character to upper case.
+% str(1) = upper(str(1));
+% % display the string.
+% disp(str);
+
+% number = [2 3 4 5 6 8 9];
+% if number == int8(number)
+%     disp("integer!");
+% else
+%     disp("not integer!");
+% end
 clear;clc;
 % open file
 fid = fopen("Countries.dat",'r');
