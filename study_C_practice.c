@@ -4,7 +4,22 @@
 //
 //  Created by Di Bao on 4/26/23.
 //
+#include<stdio.h>
+#include<stdio.h>
 
+#define INT_PTR int*
+int main()
+{
+	//1. c
+	//2. b
+	//3. ABCD
+	typedef int* int_ptr;
+	INT_PTR a, b;
+	int_ptr c, d;
+
+	return 0;
+
+}
 #include <stdio.h>
 #include <string.h>
 int main(int argc, const char * argv[]) {
