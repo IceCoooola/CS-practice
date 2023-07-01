@@ -1,3 +1,32 @@
+//
+//  main.cpp
+//  test.cpp
+//
+//  Created by Di Bao on 6/7/23.
+//
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+
+int main(int argc, const char * argv[]) {
+    int num = 0;
+    int i = 0;
+    cout<<"enter a number:>";
+    cin>>num;
+    cout << pow(10,num);
+    while (true) {
+        cout<<i<<" ";
+        ++i;
+        if(i / pow(10,num) == 1)
+            break;
+    }
+    
+    return 0;
+}
+
+
 #include<stdio.h>
 #include<stdio.h>
 #define INT_PTR int*
