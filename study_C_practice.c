@@ -4,7 +4,41 @@
 //
 //  Created by Di Bao on 6/7/23.
 //
+#include<stdio.h>
+#include<stdio.h>
+#include<math.h>
+#define INT_PTR int*
+int main()
+{
+	//1. c
+	//2. b
+	//3. A CD
+	//4. C
+	//5. A B 
 
+	typedef int* int_ptr;
+	INT_PTR a, b;
+	int_ptr c, d; 
+	char c1[] = { '1','2','3','4','5' };
+	double x[5] = { 2.0, 4.0, 6.0, 8.0, 10.0 };
+	char c2[] = { '\x10', '\xa', '\8' };
+	int y[5 + 3] = { 0, 1, 3, 5, 7, 9 };
+
+
+	int n = 0;
+	printf("please enter a number>");
+	scanf_s("%d", &n);
+	n = pow(10, n);
+	int i = 1;
+	while (i / n != 1)
+	{
+		printf("%d\n", i);
+		i += 1;
+	}
+
+	return 0;
+
+}
 #include <iostream>
 #include<string>
 using namespace std;
