@@ -1,3 +1,34 @@
+#include <iostream>
+#include <vector>
+#include<math.h>
+using namespace std;
+
+int main() {
+    int num;
+    cin>>num;
+    int ret = 0;
+    for(int i = 1; i<= pow(num,3); i+=2)
+    {
+        int sum = 0;
+        for(int j = 1; j < num; j++)
+        {
+            sum += j * 2;
+        }
+        if((sum + i * num) == pow(num, 3))
+        {
+            ret = i;
+            break;
+        }
+    }
+    for(int i = 0; i < num; i++)
+    {
+        if(i != num - 1)
+            cout << ret <<"+";
+        ret += 2;
+    }
+    cout << ret - 2;
+}
+// 64 位输出请用 printf("%lld")
 class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
