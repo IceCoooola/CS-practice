@@ -1,4 +1,40 @@
 #include <iostream>
+#include<vector>
+using namespace std;
+
+int main() {
+    int num;
+    int count = 0;
+    int sum = 0;
+    int count2 = 0;
+    cin >> num;
+    vector<int> arr;
+    for(int i =0; i< num; i++)
+    {
+        int t = 0;
+        cin>>t;
+        arr.push_back(t);        
+    }
+    for(int i = 0; i < arr.size();i++)
+    {
+        if(arr[i] < 0)
+        {
+            count++;
+        }
+        else if(arr[i] > 0)
+        {
+            sum += arr[i];
+            count2++;
+        }
+    }
+    if(count2 == 0)
+        count2 = 1;
+    cout<<count<<" ";
+    printf("%.1f",float(sum) / float(count2));
+}
+// 64 位输出请用 printf("%lld")
+
+#include <iostream>
 using namespace std;
 
 int main() {
