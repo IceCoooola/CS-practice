@@ -1,4 +1,19 @@
 #include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cin>>num;
+    int sum = num * 2;
+    for(int i = 1; i <= num - 1; i++)
+    {
+        sum += i * 3;
+    }
+    cout <<sum;
+}
+// 64 位输出请用 printf("%lld")
+
+#include <iostream>
 #include <vector>
 #include<math.h>
 using namespace std;
