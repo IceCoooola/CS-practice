@@ -8,6 +8,33 @@ public:
      * @return int整型
      */
     int minNumberInRotateArray(vector<int>& nums) {
+        if(nums[nums.size() - 1] <= nums[0])
+        {
+            for(int i = nums.size() - 1; i > 0;i--)
+            {
+                if(nums[i-1] > nums[i])
+                {
+                    return nums[i];
+                }
+            }
+        }
+        else
+        {
+            return nums[0];
+        }
+        return nums[0];
+    }
+};
+class Solution {
+public:
+    /**
+     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+     *
+     * 
+     * @param nums int整型vector 
+     * @return int整型
+     */
+    int minNumberInRotateArray(vector<int>& nums) {
         int small = nums[0];
         for(int i = 1; i< nums.size(); i++)
         {
