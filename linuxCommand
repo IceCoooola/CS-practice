@@ -1,3 +1,553 @@
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.15.0-1035-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Jul  6 22:02:40 UTC 2023
+
+  System load:  0.08              Processes:             102
+  Usage of /:   37.7% of 9.51GB   Users logged in:       0
+  Memory usage: 8%                IPv4 address for ens4: 10.182.0.2
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+*** System restart required ***
+Last login: Wed Jun 28 20:27:33 2023 from 35.235.245.97
+renhanchen@linux:~$ sudo apt install TagList
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+E: Unable to locate package TagList
+renhanchen@linux:~$ cd ~/
+renhanchen@linux:~$ vim .vimrc
+renhanchen@linux:~$ ll
+total 68
+drwxr-xr-x 6 renhanchen renhanchen 4096 Jul  6 22:06 ./
+drwxr-xr-x 5 root       root       4096 Jun 19 07:09 ../
+-rw------- 1 renhanchen renhanchen 4610 Jun 28 21:58 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen  220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen 3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen 4096 Jun 16 21:21 .cache/
+drwx------ 3 renhanchen renhanchen 4096 Jun 25 00:43 .config/
+-rw-r--r-- 1 renhanchen renhanchen  807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen 4096 Jul  6 22:05 .ssh/
+-rw------- 1 renhanchen renhanchen 9453 Jul  6 22:06 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen    0 Jun 28 20:36 t
+-rw-rw-r-- 1 renhanchen renhanchen 5722 Jun 28 20:36 test.txt
+drwxrwxr-x 2 renhanchen renhanchen 4096 Jun 28 21:19 try/
+-rw-rw-r-- 1 renhanchen renhanchen 4074 Jul 17  2012 vimrc.zip
+renhanchen@linux:~$ vim .vimrc
+renhanchen@linux:~$ cd ~
+renhanchen@linux:~$ ll
+total 72
+drwxr-xr-x 6 renhanchen renhanchen 4096 Jul  6 22:10 ./
+drwxr-xr-x 5 root       root       4096 Jun 19 07:09 ../
+-rw------- 1 renhanchen renhanchen 4610 Jun 28 21:58 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen  220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen 3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen 4096 Jun 16 21:21 .cache/
+drwx------ 3 renhanchen renhanchen 4096 Jun 25 00:43 .config/
+-rw-r--r-- 1 renhanchen renhanchen  807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen 4096 Jul  6 22:05 .ssh/
+-rw------- 1 renhanchen renhanchen 9371 Jul  6 22:10 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen   32 Jul  6 22:10 .vimrc
+-rw-rw-r-- 1 renhanchen renhanchen    0 Jun 28 20:36 t
+-rw-rw-r-- 1 renhanchen renhanchen 5722 Jun 28 20:36 test.txt
+drwxrwxr-x 2 renhanchen renhanchen 4096 Jun 28 21:19 try/
+-rw-rw-r-- 1 renhanchen renhanchen 4074 Jul 17  2012 vimrc.zip
+renhanchen@linux:~$ touch test.c
+renhanchen@linux:~$ vim test.c
+renhanchen@linux:~$ vim .vimrc 
+renhanchen@linux:~$ gcc test.c -o hello
+renhanchen@linux:~$ ll
+total 96
+drwxr-xr-x 6 renhanchen renhanchen  4096 Jul  6 22:11 ./
+drwxr-xr-x 5 root       root        4096 Jun 19 07:09 ../
+-rw------- 1 renhanchen renhanchen  4610 Jun 28 21:58 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen  3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen  4096 Jun 16 21:21 .cache/
+drwx------ 3 renhanchen renhanchen  4096 Jun 25 00:43 .config/
+-rw-r--r-- 1 renhanchen renhanchen   807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen  4096 Jul  6 22:05 .ssh/
+-rw------- 1 renhanchen renhanchen  9518 Jul  6 22:11 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen    32 Jul  6 22:10 .vimrc
+-rwxrwxr-x 1 renhanchen renhanchen 16696 Jul  6 22:11 hello*
+-rw-rw-r-- 1 renhanchen renhanchen     0 Jun 28 20:36 t
+-rw-rw-r-- 1 renhanchen renhanchen    64 Jul  6 22:11 test.c
+-rw-rw-r-- 1 renhanchen renhanchen  5722 Jun 28 20:36 test.txt
+drwxrwxr-x 2 renhanchen renhanchen  4096 Jun 28 21:19 try/
+-rw-rw-r-- 1 renhanchen renhanchen  4074 Jul 17  2012 vimrc.zip
+renhanchen@linux:~$ ./hello 
+hello
+renhanchen@linux:~$ vim test.c
+renhanchen@linux:~$ gdb test.c
+
+Command 'gdb' not found, but can be installed with:
+
+apt install gdb
+Please ask your administrator.
+
+renhanchen@linux:~$ sudo apt install gdb
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libatasmart4 libblockdev-fs2 libblockdev-loop2 libblockdev-part-err2 libblockdev-part2 libblockdev-swap2
+  libblockdev-utils2 libblockdev2 libmbim-glib4 libmbim-proxy libmm-glib0 libnspr4 libnss3 libnuma1
+  libparted-fs-resize0 libqmi-glib5 libqmi-proxy libudisks2-0 libxmlb2 usb-modeswitch usb-modeswitch-data
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  gdbserver libbabeltrace1 libc6-dbg libdw1
+Suggested packages:
+  gdb-doc
+The following NEW packages will be installed:
+  gdb gdbserver libbabeltrace1 libc6-dbg libdw1
+0 upgraded, 5 newly installed, 0 to remove and 0 not upgraded.
+Need to get 23.8 MB of archives.
+After this operation, 42.1 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us-west4.gce.archive.ubuntu.com/ubuntu focal/main amd64 libdw1 amd64 0.176-1.1build1 [226 kB]
+Get:2 http://us-west4.gce.archive.ubuntu.com/ubuntu focal/main amd64 libbabeltrace1 amd64 1.5.8-1build1 [156 kB]
+Get:3 http://us-west4.gce.archive.ubuntu.com/ubuntu focal-updates/main amd64 gdb amd64 9.2-0ubuntu1~20.04.1 [3222 kB]
+Get:4 http://us-west4.gce.archive.ubuntu.com/ubuntu focal-updates/main amd64 gdbserver amd64 9.2-0ubuntu1~20.04.1 [222 kB]
+Get:5 http://us-west4.gce.archive.ubuntu.com/ubuntu focal-updates/main amd64 libc6-dbg amd64 2.31-0ubuntu9.9 [20.0 MB]
+Fetched 23.8 MB in 1s (24.4 MB/s)  
+Selecting previously unselected package libdw1:amd64.
+(Reading database ... 96932 files and directories currently installed.)
+Preparing to unpack .../libdw1_0.176-1.1build1_amd64.deb ...
+Unpacking libdw1:amd64 (0.176-1.1build1) ...
+Selecting previously unselected package libbabeltrace1:amd64.
+Preparing to unpack .../libbabeltrace1_1.5.8-1build1_amd64.deb ...
+Unpacking libbabeltrace1:amd64 (1.5.8-1build1) ...
+Selecting previously unselected package gdb.
+Preparing to unpack .../gdb_9.2-0ubuntu1~20.04.1_amd64.deb ...
+Unpacking gdb (9.2-0ubuntu1~20.04.1) ...
+Selecting previously unselected package gdbserver.
+Preparing to unpack .../gdbserver_9.2-0ubuntu1~20.04.1_amd64.deb ...
+Unpacking gdbserver (9.2-0ubuntu1~20.04.1) ...
+Selecting previously unselected package libc6-dbg:amd64.
+Preparing to unpack .../libc6-dbg_2.31-0ubuntu9.9_amd64.deb ...
+Unpacking libc6-dbg:amd64 (2.31-0ubuntu9.9) ...
+Setting up libdw1:amd64 (0.176-1.1build1) ...
+Setting up libc6-dbg:amd64 (2.31-0ubuntu9.9) ...
+Setting up libbabeltrace1:amd64 (1.5.8-1build1) ...
+Setting up gdbserver (9.2-0ubuntu1~20.04.1) ...
+Setting up gdb (9.2-0ubuntu1~20.04.1) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+renhanchen@linux:~$ gdb test.c
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+"/home/renhanchen/test.c": not in executable format: file format not recognized
+(gdb) r
+Starting program:  
+No executable file specified.
+Use the "file" or "exec-file" command.
+(gdb) quit
+renhanchen@linux:~$ gdb test.c
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+"/home/renhanchen/test.c": not in executable format: file format not recognized
+(gdb) gdb test.c
+Undefined command: "gdb".  Try "help".
+(gdb) m
+Ambiguous command "m": macro, maintenance, make, mem, monitor, mt.
+(gdb) r
+Starting program:  
+No executable file specified.
+Use the "file" or "exec-file" command.
+(gdb) n
+The program is not being run.
+(gdb) file test.c
+"/home/renhanchen/test.c": not in executable format: file format not recognized
+(gdb) quit
+renhanchen@linux:~$ gcc test.c -g
+renhanchen@linux:~$ ll
+total 116
+drwxr-xr-x 6 renhanchen renhanchen  4096 Jul  6 22:18 ./
+drwxr-xr-x 5 root       root        4096 Jun 19 07:09 ../
+-rw------- 1 renhanchen renhanchen  4610 Jun 28 21:58 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen  3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen  4096 Jun 16 21:21 .cache/
+drwx------ 3 renhanchen renhanchen  4096 Jun 25 00:43 .config/
+-rw-r--r-- 1 renhanchen renhanchen   807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen  4096 Jul  6 22:05 .ssh/
+-rw------- 1 renhanchen renhanchen  9647 Jul  6 22:14 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen    32 Jul  6 22:10 .vimrc
+-rwxrwxr-x 1 renhanchen renhanchen 19256 Jul  6 22:18 a.out*
+-rwxrwxr-x 1 renhanchen renhanchen 16696 Jul  6 22:11 hello*
+-rw-rw-r-- 1 renhanchen renhanchen     0 Jun 28 20:36 t
+-rw-rw-r-- 1 renhanchen renhanchen   255 Jul  6 22:14 test.c
+-rw-rw-r-- 1 renhanchen renhanchen  5722 Jun 28 20:36 test.txt
+drwxrwxr-x 2 renhanchen renhanchen  4096 Jun 28 21:19 try/
+-rw-rw-r-- 1 renhanchen renhanchen  4074 Jul 17  2012 vimrc.zip
+renhanchen@linux:~$ gdb a.out
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...
+(gdb) n
+The program is not being run.
+(gdb) r
+Starting program: /home/renhanchen/a.out 
+hello
+hi
+hello1
+hello2
+hello3
+hello4
+test
+hello5
+hello6
+[Inferior 1 (process 124442) exited normally]
+(gdb) l
+1       #include<stdio.h>
+2
+3       void test()
+4       {
+5               printf("test\n");
+6       }
+7
+8       int main()
+9       {
+10              printf("hello\n");
+(gdb) l
+11              printf("hi\n");
+12              printf("hello1\n");
+13              printf("hello2\n");
+14              printf("hello3\n");
+15              printf("hello4\n");
+16
+17              test();
+18              printf("hello5\n");
+19              printf("hello6\n");
+20              return 0;
+(gdb) l
+21      }
+(gdb) l
+Line number 22 out of range; test.c has 21 lines.
+(gdb) b 11
+Breakpoint 1 at 0x555555555174: file test.c, line 11.
+(gdb) r
+Starting program: /home/renhanchen/a.out 
+hello
+
+Breakpoint 1, main () at test.c:11
+11              printf("hi\n");
+(gdb) n
+hi
+12              printf("hello1\n");
+(gdb) n
+hello1
+13              printf("hello2\n");
+(gdb) n
+hello2
+14              printf("hello3\n");
+(gdb) n
+hello3
+15              printf("hello4\n");
+(gdb) n
+hello4
+17              test();
+(gdb) s
+test () at test.c:4
+4       {
+(gdb) n
+5               printf("test\n");
+(gdb) n
+test
+6       }
+(gdb) n
+main () at test.c:18
+18              printf("hello5\n");
+(gdb) n
+hello5
+19              printf("hello6\n");
+(gdb) n
+hello6
+20              return 0;
+(gdb) n
+21      }
+(gdb) n
+__libc_start_main (main=0x555555555160 <main>, argc=1, argv=0x7fffffffe4a8, init=<optimized out>, 
+    fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffffffe498) at ../csu/libc-start.c:342
+342     ../csu/libc-start.c: No such file or directory.
+(gdb) i
+"info" must be followed by the name of an info command.
+List of info subcommands:
+
+info address -- Describe where symbol SYM is stored.
+info all-registers -- List of all registers and their contents, for selected stack frame.
+info args -- All argument variables of current stack frame or those matching REGEXPs.
+info auto-load -- Print current status of auto-loaded files.
+info auxv -- Display the inferior's auxiliary vector.
+info bookmarks -- Status of user-settable bookmarks.
+info breakpoints -- Status of specified breakpoints (all user-settable breakpoints if no argument).
+info checkpoints -- IDs of currently known checkpoints.
+info classes -- All Objective-C classes, or those matching REGEXP.
+info common -- Print out the values contained in a Fortran COMMON block.
+info copying -- Conditions for redistributing copies of GDB.
+info dcache -- Print information on the dcache performance.
+info display -- Expressions to display when program stops, with code numbers.
+info exceptions -- List all Ada exception names.
+info extensions -- All filename extensions associated with a source language.
+info files -- Names of targets and files being debugged.
+info float -- Print the status of the floating point unit.
+info frame -- All about the selected stack frame.
+info frame-filter -- List all registered Python frame-filters.
+info functions -- All function names or those matching REGEXPs.
+info guile -- Prefix command for Guile info displays.
+info handle -- What debugger does when program gets various signals.
+info inferiors -- Print a list of inferiors being managed.
+info line -- Core addresses of the code for a source line.
+info locals -- All local variables of current stack frame or those matching REGEXPs.
+info macro -- Show the definition of MACRO, and it's source location.
+info macros -- Show the definitions of all macros at LINESPEC, or the current source location.
+info mem -- Memory region attributes.
+info module -- Print information about modules.
+info modules -- All module names, or those matching REGEXP.
+info os -- Show OS data ARG.
+info pretty-printer -- GDB command to list all registered pretty-printers.
+info probes -- Show available static probes.
+info proc -- Show additional information about a process.
+info program -- Execution status of the program.
+info record -- Info record options.
+info registers -- List of integer registers and their contents, for selected stack frame.
+info scope -- List the variables local to a scope.
+info selectors -- All Objective-C selectors, or those matching REGEXP.
+--Type <RET> for more, q to quit, c to continue without paging--q
+Quit
+(gdb) info b
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000555555555174 in main at test.c:11
+        breakpoint already hit 1 time
+(gdb) quit
+A debugging session is active.
+
+        Inferior 1 [process 124449] will be killed.
+
+Quit anyway? (y or n) y
+renhanchen@linux:~$ ll
+total 116
+drwxr-xr-x 6 renhanchen renhanchen  4096 Jul  6 22:18 ./
+drwxr-xr-x 5 root       root        4096 Jun 19 07:09 ../
+-rw------- 1 renhanchen renhanchen  4610 Jun 28 21:58 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen  3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen  4096 Jun 16 21:21 .cache/
+drwx------ 3 renhanchen renhanchen  4096 Jun 25 00:43 .config/
+-rw-r--r-- 1 renhanchen renhanchen   807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen  4096 Jul  6 22:05 .ssh/
+-rw------- 1 renhanchen renhanchen  9647 Jul  6 22:14 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen    32 Jul  6 22:10 .vimrc
+-rwxrwxr-x 1 renhanchen renhanchen 19256 Jul  6 22:18 a.out*
+-rwxrwxr-x 1 renhanchen renhanchen 16696 Jul  6 22:11 hello*
+-rw-rw-r-- 1 renhanchen renhanchen     0 Jun 28 20:36 t
+-rw-rw-r-- 1 renhanchen renhanchen   255 Jul  6 22:14 test.c
+-rw-rw-r-- 1 renhanchen renhanchen  5722 Jun 28 20:36 test.txt
+drwxrwxr-x 2 renhanchen renhanchen  4096 Jun 28 21:19 try/
+-rw-rw-r-- 1 renhanchen renhanchen  4074 Jul 17  2012 vimrc.zip
+renhanchen@linux:~$ vim Makefile
+renhanchen@linux:~$ make
+gcc test.c -E -o test.i
+gcc test.i -S -o test.s
+gcc test.s -C -o test.o
+gcc test.o -o test
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x24): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:2: test] Error 1
+renhanchen@linux:~$ vim test.c
+renhanchen@linux:~$ rm ./a.out
+renhanchen@linux:~$ rm hello 
+renhanchen@linux:~$ ll
+total 124
+drwxr-xr-x 6 renhanchen renhanchen  4096 Jul  6 22:38 ./
+drwxr-xr-x 5 root       root        4096 Jun 19 07:09 ../
+-rw------- 1 renhanchen renhanchen  4610 Jun 28 21:58 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen  3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen  4096 Jun 16 21:21 .cache/
+drwx------ 3 renhanchen renhanchen  4096 Jun 25 00:43 .config/
+-rw-r--r-- 1 renhanchen renhanchen   807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen  4096 Jul  6 22:05 .ssh/
+-rw------- 1 renhanchen renhanchen  9232 Jul  6 22:38 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen    32 Jul  6 22:10 .vimrc
+-rw-rw-r-- 1 renhanchen renhanchen   204 Jul  6 22:37 Makefile
+-rw-rw-r-- 1 renhanchen renhanchen     0 Jun 28 20:36 t
+-rw-rw-r-- 1 renhanchen renhanchen   255 Jul  6 22:14 test.c
+-rw-rw-r-- 1 renhanchen renhanchen 16506 Jul  6 22:37 test.i
+-rwxrwxr-x 1 renhanchen renhanchen 16728 Jul  6 22:37 test.o*
+-rw-rw-r-- 1 renhanchen renhanchen  1441 Jul  6 22:37 test.s
+-rw-rw-r-- 1 renhanchen renhanchen  5722 Jun 28 20:36 test.txt
+drwxrwxr-x 2 renhanchen renhanchen  4096 Jun 28 21:19 try/
+-rw-rw-r-- 1 renhanchen renhanchen  4074 Jul 17  2012 vimrc.zip
+renhanchen@linux:~$ make
+gcc test.o -o test
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x24): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:2: test] Error 1
+renhanchen@linux:~$ vim test.i
+renhanchen@linux:~$ clean
+
+Command 'clean' not found, did you mean:
+
+  command 'uclean' from deb svn-buildpackage (0.8.7)
+  command 'clear' from deb ncurses-bin (6.2-0ubuntu2.1)
+  command 'pclean' from deb pbuilder-scripts (22)
+
+Try: apt install <deb name>
+
+renhanchen@linux:~$ make clean
+rm -f test.i test.o test.s test
+renhanchen@linux:~$ ll
+total 80
+drwxr-xr-x 6 renhanchen renhanchen 4096 Jul  6 22:39 ./
+drwxr-xr-x 5 root       root       4096 Jun 19 07:09 ../
+-rw------- 1 renhanchen renhanchen 4610 Jun 28 21:58 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen  220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen 3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen 4096 Jun 16 21:21 .cache/
+drwx------ 3 renhanchen renhanchen 4096 Jun 25 00:43 .config/
+-rw-r--r-- 1 renhanchen renhanchen  807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen 4096 Jul  6 22:05 .ssh/
+-rw------- 1 renhanchen renhanchen 9311 Jul  6 22:39 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen   32 Jul  6 22:10 .vimrc
+-rw-rw-r-- 1 renhanchen renhanchen  204 Jul  6 22:37 Makefile
+-rw-rw-r-- 1 renhanchen renhanchen    0 Jun 28 20:36 t
+-rw-rw-r-- 1 renhanchen renhanchen  255 Jul  6 22:14 test.c
+-rw-rw-r-- 1 renhanchen renhanchen 5722 Jun 28 20:36 test.txt
+drwxrwxr-x 2 renhanchen renhanchen 4096 Jun 28 21:19 try/
+-rw-rw-r-- 1 renhanchen renhanchen 4074 Jul 17  2012 vimrc.zip
+renhanchen@linux:~$ make
+gcc test.c -E -o test.i
+gcc test.i -S -o test.s
+gcc test.s -C -o test.o
+gcc test.o -o test
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x24): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:2: test] Error 1
+renhanchen@linux:~$ make clean
+rm -f test.i test.o test.s test
+renhanchen@linux:~$ vim Makefile 
+renhanchen@linux:~$ make
+gcc test.c -E -o test.i
+gcc test.i -S -o test.s
+gcc test.s -c -o test.o
+gcc test.o -o test
+renhanchen@linux:~$ ll
+total 128
+drwxr-xr-x 6 renhanchen renhanchen  4096 Jul  6 22:39 ./
+drwxr-xr-x 5 root       root        4096 Jun 19 07:09 ../
+-rw------- 1 renhanchen renhanchen  4610 Jun 28 21:58 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen  3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen  4096 Jun 16 21:21 .cache/
+drwx------ 3 renhanchen renhanchen  4096 Jun 25 00:43 .config/
+-rw-r--r-- 1 renhanchen renhanchen   807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen  4096 Jul  6 22:05 .ssh/
+-rw------- 1 renhanchen renhanchen  9350 Jul  6 22:39 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen    32 Jul  6 22:10 .vimrc
+-rw-rw-r-- 1 renhanchen renhanchen   204 Jul  6 22:39 Makefile
+-rw-rw-r-- 1 renhanchen renhanchen     0 Jun 28 20:36 t
+-rwxrwxr-x 1 renhanchen renhanchen 16728 Jul  6 22:39 test*
+-rw-rw-r-- 1 renhanchen renhanchen   255 Jul  6 22:14 test.c
+-rw-rw-r-- 1 renhanchen renhanchen 16506 Jul  6 22:39 test.i
+-rw-rw-r-- 1 renhanchen renhanchen  2336 Jul  6 22:39 test.o
+-rw-rw-r-- 1 renhanchen renhanchen  1441 Jul  6 22:39 test.s
+-rw-rw-r-- 1 renhanchen renhanchen  5722 Jun 28 20:36 test.txt
+drwxrwxr-x 2 renhanchen renhanchen  4096 Jun 28 21:19 try/
+-rw-rw-r-- 1 renhanchen renhanchen  4074 Jul 17  2012 vimrc.zip
+renhanchen@linux:~$ test
+renhanchen@linux:~$ ./test 
+hello
+hi
+hello1
+hello2
+hello3
+hello4
+test
+hello5
+hello6
+renhanchen@linux:~$ ll
+total 128
+drwxr-xr-x 6 renhanchen renhanchen  4096 Jul  6 22:39 ./
+drwxr-xr-x 5 root       root        4096 Jun 19 07:09 ../
+-rw------- 1 renhanchen renhanchen  4610 Jun 28 21:58 .bash_history
+-rw-r--r-- 1 renhanchen renhanchen   220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 renhanchen renhanchen  3771 Feb 25  2020 .bashrc
+drwx------ 2 renhanchen renhanchen  4096 Jun 16 21:21 .cache/
+drwx------ 3 renhanchen renhanchen  4096 Jun 25 00:43 .config/
+-rw-r--r-- 1 renhanchen renhanchen   807 Feb 25  2020 .profile
+drwx------ 2 renhanchen renhanchen  4096 Jul  6 22:05 .ssh/
+-rw------- 1 renhanchen renhanchen  9350 Jul  6 22:39 .viminfo
+-rw-rw-r-- 1 renhanchen renhanchen    32 Jul  6 22:10 .vimrc
+-rw-rw-r-- 1 renhanchen renhanchen   204 Jul  6 22:39 Makefile
+-rw-rw-r-- 1 renhanchen renhanchen     0 Jun 28 20:36 t
+-rwxrwxr-x 1 renhanchen renhanchen 16728 Jul  6 22:39 test*
+-rw-rw-r-- 1 renhanchen renhanchen   255 Jul  6 22:14 test.c
+-rw-rw-r-- 1 renhanchen renhanchen 16506 Jul  6 22:39 test.i
+-rw-rw-r-- 1 renhanchen renhanchen  2336 Jul  6 22:39 test.o
+-rw-rw-r-- 1 renhanchen renhanchen  1441 Jul  6 22:39 test.s
+-rw-rw-r-- 1 renhanchen renhanchen  5722 Jun 28 20:36 test.txt
+drwxrwxr-x 2 renhanchen renhanchen  4096 Jun 28 21:19 try/
+-rw-rw-r-- 1 renhanchen renhanchen  4074 Jul 17  2012 vimrc.zip
+renhanchen@linux:~$ 
 renhanchen@linux:~$ ls
 mycode.c  mycode.i  mytest  new.txt  testMakefile  trytry  yum-3.2.28.tar.gz
 renhanchen@linux:~$ ldd mytest
