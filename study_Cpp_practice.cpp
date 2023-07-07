@@ -1,3 +1,38 @@
+class Solution {
+public:
+    int GetNumberOfK(vector<int>& nums, int k) {
+        int left = 0;
+        int right = nums.size() - 1;
+        while(right >= left)
+        {
+            int mid = (right + left) / 2;
+            if(nums[mid] == k)
+            {
+                int sum = 1;
+                int midLeft = mid - 1;
+                int midRight = mid + 1;
+                while(midLeft >= 0 && nums[midLeft--] == k)
+                {
+                    sum++;
+                }
+                while(midRight < nums.size() && nums[midRight++] == k)
+                {
+                    sum++;
+                }
+
+                return sum; 
+            }
+            else if(nums[mid] > k)
+            {
+                right = mid - 1;
+            }
+            else {
+                left = mid + 1;
+            }
+        }
+        return 0;
+    }
+};
 #include <cctype>
 #include <cstring>
 #include <iostream>
