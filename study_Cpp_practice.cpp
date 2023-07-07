@@ -1,3 +1,56 @@
+#include <cctype>
+#include <cstring>
+#include <iostream>
+#include<vector>
+#include<cctype>
+using namespace std;
+
+int main() {
+    int times;
+    cin >> times;
+    string str;
+    while(times--)
+    {
+        cin >> str;
+        int lower = 0, upper = 0, digit = 0;
+        if(str.length() < 8)
+        {
+            cout<<"NO\n";
+            continue;
+        }
+        if(isdigit(str[0]))
+        {
+            cout<<"NO\n";
+            continue;
+        }
+        for(auto e : str)
+        {
+            if('a'<= e && e <='z')
+            {
+                lower = 1;
+            }
+            else if('A'<= e && e <='Z')
+            {
+                upper = 1;
+            }
+            else if('0'<= e && e <='9')
+            {
+                digit = 1;
+            }
+            else {
+                break;
+            }
+        }
+        if(lower + upper + digit >= 2)
+        {
+            cout <<"YES\n";
+        }
+        else{
+            cout<<"NO\n";
+        }
+    }
+}
+
 class Solution {
 public:
     /**
