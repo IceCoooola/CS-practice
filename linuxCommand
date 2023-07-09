@@ -1,3 +1,32 @@
+    1  whoami
+    2  su -
+    3  sudo passwd root
+    4  sudo passwd renhanchen
+    5  curl -sLf http://gitee.com/HGtz2222/VimForCpp/raw/master/install.sh -o ./install.sh && bash ./install.sh
+    6  source ~/.bashrc
+    7  ll
+    8  cd ~
+    9  ll
+   10  mkdir test7/09/23
+   11  mkdir test7-07-09-23
+   12  ll
+   13  cd test7-07-09-23/
+   14  vim test.c
+   15  yum install sl
+   16  sudo yum install sl
+   17  sl
+   18  g++ test.c 
+   19  sudo yum install g++ -y
+   20  sudo yum install g++
+   21  sudo yum install gcc-c++
+   22  g++ test.c 
+   23  gdb test.c
+   24  sudo yum install gdb
+   25  make
+   26  sudo yum install git
+   27  sudo yum install make
+   28  man tar
+   29  history > his.txt
 Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.15.0-1035-gcp x86_64)
 
  * Documentation:  https://help.ubuntu.com
