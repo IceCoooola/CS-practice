@@ -1,3 +1,43 @@
+ 1: test.c  ⮀                                                                                                     ⮂⮂ buffers 
+  1 #include<stdio.h>
+  2 #include<unistd.h>
+  3 #include<string.h>
+  4 
+  5 int main()
+  6 {
+  7     int i = 0;
+  8     char bar[102];
+  9     memset(bar, 0 ,sizeof(bar));                                                                                           
+ 10     const char *lable="|/-\\";
+ 11     while(i <= 100 ){
+ 12         printf("[%-100s][%d%%][%c]\r", bar, i, lable[i%4]);
+ 13         fflush(stdout);
+ 14         bar[i++] = '#';
+ 15         usleep(10000);
+ 16     }
+ 17     printf("\n");
+ 18   return 0;
+ 19 }
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+ INSERT ⮀⮀ test.c                                                             ⮂ main ⮃ c   ⮂  utf-8    ⮂  7347%    99 :  9 
+                                                                                                                     
+
 //
 //  main.cpp
 //  test.cpp
