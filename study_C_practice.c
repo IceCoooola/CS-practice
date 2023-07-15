@@ -1,4 +1,13 @@
- 1: test.c  ⮀                                                                                                     ⮂⮂ buffers 
+int main() {
+char str[] = "Geneius"; print(str);
+return 0;
+}
+print(char *s) {
+if(*s) {
+print(++s);
+printf("%c", *s); }
+}
+1: test.c  ⮀                                                                                                     ⮂⮂ buffers 
   1 #include<stdio.h>
   2 #include<unistd.h>
   3 #include<string.h>
