@@ -1,4 +1,21 @@
 #include <iostream>
+#include<string>
+#include<set>
+using namespace std;
+
+int main() {
+    string str;
+    set<char> st;
+    cin >> str;
+    for(int i = 0; i < str.length(); i++)
+    {
+        st.insert(str[i]);
+    }
+    cout << st.size();
+}
+// 64 位输出请用 printf("%lld")
+
+#include <iostream>
 using namespace std;
 #include<string>
 int main() {
