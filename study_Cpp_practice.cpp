@@ -1,3 +1,22 @@
+#include <iostream>
+using namespace std;
+#include<string>
+int main() {
+    string str;
+    cin >> str;
+    for(int i = 0; i < str.length(); i++)
+    {
+        for(int j = 0; j < str.length() - 1; j++)
+        {
+            if(str[j] > str[j+1])
+            {
+                swap(str[j], str[j+1]);
+            }
+        }
+    }
+    cout<<str;
+}
+// 64 位输出请用 printf("%lld")
 class Solution {
 public:
     int GetNumberOfK(vector<int>& nums, int k) {
