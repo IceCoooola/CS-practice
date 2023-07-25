@@ -1,3 +1,28 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int arr[];
+        arr = new int[3];
+        arr[1] = 5;
+        int arr2[] = new int[]{1,3,5};
+        int arr3[] = {1,2,3,4,5,6};
+        System.out.println("print x");
+        System.out.println(Arrays.binarySearch(arr3, -2));
+        for(int i: arr3)
+        {
+            System.out.println(i);
+        }
+        System.out.println(arr2);
+        for(int i = 0; i < 3; i++)
+        {
+            //System.out.println(arr[i]);
+            System.out.println(arr2[i]);
+        }
+    }
+}
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
