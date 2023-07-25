@@ -1,3 +1,44 @@
+
+import java.util.*;
+
+public class Main{
+    public static void main(String args[])
+    {
+        int v;
+        int arr[] = {3,4,5,7,8,5,3};
+        Arrays.sort(arr);
+        System.out.println("Arr: "+Arrays.toString(arr));
+        int arr2[] = Arrays.copyOf(arr, 4);
+        System.out.println("Arr2: "+Arrays.toString(arr2));
+        int arr3[] = Arrays.copyOfRange(arr, 5,6);
+        System.out.println("Arr3: "+Arrays.toString(arr3));
+        System.out.println(Arrays.equals(arr, arr2));
+        int arr4[] = Arrays.copyOf(arr, arr.length);
+        System.out.println(Arrays.equals(arr, arr4));
+        int arr5[] = new int[6];
+        Arrays.fill(arr5, 10);
+        System.out.println("Arr5: "+Arrays.toString(arr5));
+        System.arraycopy(arr, 1,arr5,3,2);
+        System.out.println("Arr5: "+Arrays.toString(arr5));
+        int arr6[][] = new int[3][];
+        arr6[1] = arr;
+        arr6[2] = arr2;
+        arr6[0] = arr5;
+        for(int i = 0; i < arr6.length;++i)
+        {
+            for(int j: arr6[i])
+                System.out.print(j+" ");
+            System.out.println();
+        }
+        for(int[] i : arr6)
+        {
+            for(int j : i)
+                System.out.print(j+" ");
+            System.out.println();
+        }
+    }
+}
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
