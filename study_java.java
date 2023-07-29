@@ -1,3 +1,87 @@
+package cola.ice;
+
+public class Person {
+    Person(){
+
+    }
+    Person(String name, int age){
+        this.age = age;
+        this.name = name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void message(){
+        System.out.println("person");
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    String name;
+    int age;
+}
+
+package cola.ice;
+
+public class Student extends Person{
+    public Student(){}
+    Student(String name, int age){
+        super(name, age);
+    }
+    public void study(){
+        System.out.println("student is studying.");
+    }
+}
+
+
+package cola.ice;
+
+public class Teacher extends Person{
+    Teacher(){}
+    public Teacher(String name, int age)
+    {
+        super(name, age);
+    }
+    public void work()
+    {
+        System.out.println("teacher is teaching.");
+    }
+}
+
+
+import cola.ice.Person;
+import cola.ice.Student;
+
+import java.util.*;
+//封装  继承  多态，内部类
+public class Main{
+    public static void main(String args[])
+    {
+        StringBuilder sb = new StringBuilder();
+        StringJoiner sj = new StringJoiner(",");
+        sj.add("aaa").add("BBB").add("ccc");
+        System.out.println(sj);
+        System.out.println(sj.toString());
+        Person p = new Student();
+        p.message();
+        Student c = (Student)p;
+        c.study();
+
+    }
+}
+
 
 import java.util.*;
 
