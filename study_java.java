@@ -1,3 +1,16 @@
+        Runtime r = Runtime.getRuntime();
+        System.out.println(r.availableProcessors());
+        System.out.println(r.getRuntime());
+        //r.exit(0);
+        //get max memory
+        System.out.println(r.maxMemory() / 1024 / 1024/ 1024);
+
+        System.out.println(r.totalMemory()/1024);
+        try {
+            r.exec("notepad");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 package cola.ice;
 
 public class Person {
