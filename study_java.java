@@ -1,4 +1,83 @@
-        Runtime r = Runtime.getRuntime();
+import java.util.ArrayList;
+
+public class blockSearch {
+
+    public static void main(String[] args) {
+
+        int arr[] = {8,1,6,24,28,32,29,45,60,95,64,74,99};
+        Block b1 = new Block(20, 0, 2);
+        Block b2 = new Block(50, 3, 7);
+        Block b3 = new Block(100, 8, 12);
+        ArrayList<Block> alb = new ArrayList<>();
+        alb.add(b1);
+        alb.add(b2);
+        alb.add(b3);
+        int target = 99;
+        OUT:
+        for(int i = 0; i<alb.size();i++)
+        {
+            if(target > alb.get(i).getMaxVal())
+            {
+                continue;
+            }
+            else{
+                for(int j = alb.get(i).getLeftIndex(); j <= alb.get(i).getRightIndex(); j++)
+                {
+                    if(target == arr[j])
+                    {
+                        System.out.println("found");
+                        break OUT;
+                    }
+                }
+                System.out.println("no found");
+                break;
+            }
+        }
+
+    }
+
+
+
+
+}
+
+class Block {
+    public Block(int maxVal, int leftIndex, int rightIndex) {
+        this.maxVal = maxVal;
+        this.leftIndex = leftIndex;
+        this.rightIndex = rightIndex;
+    }
+
+    public int getMaxVal() {
+        return maxVal;
+    }
+
+    public int getLeftIndex() {
+        return leftIndex;
+    }
+
+    public int getRightIndex() {
+        return rightIndex;
+    }
+
+    public void setMaxVal(int maxVal) {
+        this.maxVal = maxVal;
+    }
+
+    public void setLeftIndex(int leftIndex) {
+        this.leftIndex = leftIndex;
+    }
+
+    public void setRightIndex(int rightIndex) {
+        this.rightIndex = rightIndex;
+    }
+
+    int maxVal;
+    int leftIndex;
+    int rightIndex;
+}
+
+Runtime r = Runtime.getRuntime();
         System.out.println(r.availableProcessors());
         System.out.println(r.getRuntime());
         //r.exit(0);
