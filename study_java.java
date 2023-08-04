@@ -1,3 +1,54 @@
+public class rabbit {
+    public static void main(String[] args) {
+        int next = 1;
+        int prev = 0;
+        int month = 11;
+        while(month != 0)
+        {
+            int t = next;
+            next += prev;
+            prev = t;
+            month--;
+            //System.out.println(next);
+        }
+        int sum = fib(12);
+        int peach = countPeach(1, 10);
+        int peach2 = countPeach2(1);
+        System.out.println(peach);
+        System.out.println(peach2);
+        System.out.println(sum);
+    }
+    static int fib(int x)
+    {
+        if(x == 1 || x == 2)
+            return 1;
+        else
+            return fib(x-1) + fib(x-2);
+    }
+    //day 10: peach = 1
+    //day 9: peach = day8 / 2 - 1
+    // day 8: peach = day7 / 2 - 1
+    //day 7: peach  = day6 / 2 - 1
+    //..
+    //day 2: peach = x / 2 - 1
+    //day 1: peach  = x
+
+    //( prevday + 1) * 2
+    static int countPeach(int peach, int day)
+    {
+        if(day == 1)
+            return peach;
+        return countPeach( (peach + 1) * 2, day - 1);
+    }
+
+    static int countPeach2(int day)
+    {
+        if(day == 10)
+            return 1;
+        return (countPeach2(day + 1) + 1) * 2;
+    }
+}
+
 public class InsertionSort {
     public static void main(String[] args) {
         int arr[] = {8,9,1,24,28,32,9,45,60,95,64,74,99};
