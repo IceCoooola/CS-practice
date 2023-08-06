@@ -1,3 +1,34 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.function.Consumer;
+
+public class testIterator {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(3);
+        list.add(2);
+        list.add(1);
+        list.set(0,4);
+        System.out.println(list.get(0));
+        Iterator<Integer> it = list.iterator();
+        while(it.hasNext())
+        {
+            System.out.println(it.next());
+        }
+        list.forEach(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) {
+                System.out.println(integer);
+            }
+        });
+        list.forEach(i-> System.out.println(i));
+        
+    }
+}
+
+
 public class rabbit {
     public static void main(String[] args) {
         int next = 1;
