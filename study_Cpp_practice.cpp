@@ -1,3 +1,27 @@
+vector<vector<int>> solution(vector<vector<int>> a) {
+    int sz = a.size();
+    
+    for(int i = 0; i<sz; i++)
+    {
+        for(int j = i+1; j < sz; j++)
+        {
+            swap(a[i][j],a[j][i]);
+        }
+    }
+    for(int i = 0; i<sz; i++)
+    {
+        int left = 0;
+        int right = sz-1;
+        while(right > left)
+        {
+            swap(a[i][left], a[i][right]);
+            left++;
+            right--;
+        }
+    }
+    return a;
+}
+
 #include <iostream>
 using namespace std;
 
