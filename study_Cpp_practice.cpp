@@ -1,3 +1,20 @@
+bool solution(vector<int> a, vector<int> b, int v) {
+    map<int, int> mp;
+    for(int i = 0; i < a.size(); i++)
+    {
+        mp[a[i]] = i;
+    }
+    for(int i = 0; i < b.size(); i++)
+    {
+        int num = v - b[i];
+        if(mp.find(num) != mp.end())
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 int solution(vector<int> nums, vector<vector<int>> queries) {
         vector<int> sum;
         sum.assign(nums.size(), 0);
