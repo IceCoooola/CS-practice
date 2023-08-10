@@ -1,3 +1,40 @@
+// Singly-linked lists are already defined with this interface:
+// template<typename T>
+// struct ListNode {
+//   ListNode(const T &v) : value(v), next(nullptr) {}
+//   T value;
+//   ListNode *next;
+// };
+//
+ListNode<int> * solution(ListNode<int> * l, int k) {
+    while(l && l->value == k)
+    {
+        l = l->next;
+    }
+    if(!l)
+        return nullptr;
+    ListNode<int>* head = l;
+    ListNode<int>* prev = l;
+    l = l->next;
+    while(l)
+    {
+        if(l->value == k)
+        {
+            l = l->next;
+        }
+        else {
+            prev->next = l;
+            prev = l;
+            l = l->next;
+        }
+    }
+    prev->next = l;
+    return head;
+    
+
+}
+
+
 bool solution(vector<int> a, vector<int> b, int v) {
     map<int, int> mp;
     for(int i = 0; i < a.size(); i++)
