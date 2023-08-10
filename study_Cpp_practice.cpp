@@ -7,6 +7,24 @@
 // };
 //
 ListNode<int> * solution(ListNode<int> * l, int k) {
+    if(!l)
+        return nullptr;
+    if(l->value == k)
+        l = solution(l->next, k);
+    else
+        l->next = solution(l->next, k);
+    return l;
+}
+
+// Singly-linked lists are already defined with this interface:
+// template<typename T>
+// struct ListNode {
+//   ListNode(const T &v) : value(v), next(nullptr) {}
+//   T value;
+//   ListNode *next;
+// };
+//
+ListNode<int> * solution(ListNode<int> * l, int k) {
     while(l && l->value == k)
     {
         l = l->next;
