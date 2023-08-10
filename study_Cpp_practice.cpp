@@ -1,3 +1,33 @@
+int solution(vector<int> nums, vector<vector<int>> queries) {
+        vector<int> sum;
+        sum.assign(nums.size(), 0);
+        sum[0] = nums[0];
+        long ret = 0;
+        for(int i= 1; i < nums.size(); i++)
+        {
+            sum[i] = sum[i-1] + nums[i];
+        }
+        
+        cout<<endl;
+        for(int i = 0; i< queries.size(); i++)
+        {
+            if(queries[i][0] == 0)
+            {
+                ret += sum[queries[i][1]];
+            }
+            else
+            {
+                int t = sum[queries[i][0] - 1];
+                ret = ret + sum[queries[i][1]] - t;
+            }
+            ret %= 1000000007;
+        }
+        if(ret < 0)
+            ret += 1000000007;
+        return ret;
+
+}
+
 vector<vector<int>> solution(vector<vector<int>> a) {
     int sz = a.size();
     
