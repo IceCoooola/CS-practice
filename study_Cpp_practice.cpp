@@ -1,3 +1,13 @@
+int solution(vector<int> inputArray) {
+    int biggest = inputArray[0] * inputArray[1];
+    for(int i = 1; i < inputArray.size() - 1; i++)
+    {
+        if(inputArray[i] * inputArray[i+1] > biggest)
+            biggest = inputArray[i] * inputArray[i+1];
+    }
+    return biggest;
+}
+
 vector<vector<string>> solution(vector<vector<string>> dishes) {
     map<string, set<string>>  mp;
     for(int i = 0; i < dishes.size(); i++)
