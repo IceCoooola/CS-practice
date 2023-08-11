@@ -1,3 +1,17 @@
+int solution(int n) {
+return n *n +(n-1)*(n-1);
+}
+
+int solution(int n) {
+// 1 +4  = 5  + 8 =  13  + 12 
+// 4 = 2 * 2 + 2 - 2
+int sum = 1;
+for(int i = 2; i <= n; i++)
+{
+    sum += i * 2 + (i-2)*2;
+}
+return sum;
+}
 int solution(vector<int> inputArray) {
     int biggest = inputArray[0] * inputArray[1];
     for(int i = 1; i < inputArray.size() - 1; i++)
