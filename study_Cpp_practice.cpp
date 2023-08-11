@@ -1,3 +1,31 @@
+vector<vector<string>> solution(vector<vector<string>> dishes) {
+    map<string, set<string>>  mp;
+    for(int i = 0; i < dishes.size(); i++)
+    {
+        for(int j = 1; j < dishes[i].size(); j++)
+        {
+            mp[dishes[i][j]].insert(dishes[i][0]);
+        }
+    }
+    int i = 0;
+    vector<vector<string>> ret(mp.size());
+    for(auto e : mp)
+    {
+        if(e.second.size() > 1){
+            ret[i].push_back(e.first);
+            for(auto u: e.second)
+            {
+                ret[i].push_back(u);
+            }
+            i++;
+        }
+        
+    }
+    ret.resize(i);
+    return ret;
+
+}
+
 // Singly-linked lists are already defined with this interface:
 // template<typename T>
 // struct ListNode {
