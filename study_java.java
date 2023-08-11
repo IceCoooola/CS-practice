@@ -1,4 +1,39 @@
-    public static void main(String args[])
+boolean solution(String[] crypt, char[][] solution) {
+    
+    HashMap<Character,Character> mp = new HashMap<>();
+    for(int i = 0; i < solution.length;i++)
+    {
+        mp.put(solution[i][0], solution[i][1]);
+    }
+    long sum = 0;
+    long result = 0;
+    for(int i = 0; i < 3; i++)
+    {
+        int sz = crypt[i].length();
+        
+        StringBuilder tmp = new StringBuilder();
+        char firstElement = mp.get(crypt[i].charAt(0));
+        if(firstElement == '0' && sz != 1)
+            return false;
+        tmp.append(firstElement);
+        
+        for(int j = 1; j < sz; j++)
+        {
+            tmp.append(mp.get(crypt[i].charAt(j)));
+        }
+        if(i != 2)
+            sum += Long.parseLong(tmp.toString());
+        else
+            result += Long.parseLong(tmp.toString());
+    }
+    if(sum != result)
+        return false;
+    return true;
+
+}
+
+
+public static void main(String args[])
     { Integer a = 127;
         Integer b = 127;
         Integer c = 128; Integer d = 128;
