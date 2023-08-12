@@ -5,6 +5,76 @@
 //   T value;
 //   ListNode *next;
 // };
+//// Singly-linked lists are already defined with this interface:
+// template<typename T>
+// struct ListNode {
+//   ListNode(const T &v) : value(v), next(nullptr) {}
+//   T value;
+//   ListNode *next;
+// };
+//
+ListNode<int> * solution(ListNode<int> * l, int k) {
+    if(!l)
+        return nullptr;
+    int t = k;
+    ListNode<int> * cur = l;
+    while(t && cur)
+    {
+        t--;
+        cur = cur->next;
+    }
+    if(t != 0)
+        return l;
+    ListNode<int> * prev = nullptr;
+    ListNode<int> * tail = l;
+    t = k;
+    while(k-- && l)
+    {
+        ListNode<int> * next = l->next;
+        l ->next = prev;
+        prev = l;
+        l = next;
+    }
+    tail->next = solution(l, t);
+    return prev;
+}
+
+
+
+ListNode<int> * solution(ListNode<int> * l, int k) {
+    if(!l)
+        return nullptr;
+    int t = k;
+    ListNode<int> * cur = l;
+    while(t && cur)
+    {
+        t--;
+        cur = cur->next;
+    }
+    if(t != 0)
+        return l;
+    ListNode<int> * prev = nullptr;
+    ListNode<int> * tail = l;
+    t = k;
+    while(k-- && l)
+    {
+        ListNode<int> * next = l->next;
+        l ->next = prev;
+        prev = l;
+        l = next;
+    }
+    tail->next = solution(l, t);
+    return prev;
+}
+
+
+// Singly-linked lists are already defined with this interface:
+// template<typename T>
+// struct ListNode {
+//   ListNode(const T &v) : value(v), next(nullptr) {}
+//   T value;
+//   ListNode *next;
+// };
 //
 ListNode<int> * solution(ListNode<int> * l, int k) {
     if(!l)
