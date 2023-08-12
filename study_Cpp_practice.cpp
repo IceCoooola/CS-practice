@@ -1,3 +1,27 @@
+//
+// Binary trees are already defined with this interface:
+// template<typename T>
+// struct Tree {
+//   Tree(const T &v) : value(v), left(nullptr), right(nullptr) {}
+//   T value;
+//   Tree *left;
+//   Tree *right;
+// };
+bool solution(Tree<int> * t, int s) {
+    if(!t)
+        return false;
+    s -= t->value;    
+    if(t->left == nullptr && t->right == nullptr)
+    {
+        if(s == 0)
+            return true;
+        else 
+        return false;
+    }
+    return solution(t->left, s) || solution(t->right, s);
+}
+
+
 // Singly-linked lists are already defined with this interface:
 // template<typename T>
 // struct ListNode {
