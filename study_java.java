@@ -1,3 +1,24 @@
+int solution(int[] coins, int[] quantity) {
+    HashSet<Integer> st= new HashSet<>();
+    for(int i = 0; i < coins.length; i++)
+    {
+        
+        HashSet<Integer> al = new HashSet<>();
+        for(int j = 1; j <= quantity[i]; j++)
+        {
+            int t = coins[i]* j;
+            Iterator<Integer> it = st.iterator();
+            while(it.hasNext())
+            {
+                al.add(it.next() + t);
+            }
+            al.add(t);
+        }
+        st.addAll(al);
+    }
+    return st.size();
+}
+
 boolean solution(String[] crypt, char[][] solution) {
     
     HashMap<Character,Character> mp = new HashMap<>();
