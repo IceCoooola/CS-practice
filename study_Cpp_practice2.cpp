@@ -1,3 +1,31 @@
+
+
+
+string buildStr(string str, int idx, int root)
+{
+    if(idx == root)
+    {
+        return str;
+    }
+    if(root > idx)
+        return "";
+    if(str == "Engineer")
+    {
+        return buildStr("Engineer", idx, root * 2 + 1) + buildStr("Doctor", idx, root*2 + 2);
+    }
+    if(str == "Doctor")
+    {
+        return buildStr("Doctor", idx, root * 2 + 1) + buildStr("Engineer", idx, root*2 + 2);
+    }
+    
+}
+
+string solution(int level, int pos) {
+    if(level == 1 && pos == 1)
+        return "Engineer";
+    int idx = pow(2, level - 1) - 2 + pos;
+    return buildStr("Engineer", idx, 0);
+}
 // Singly-linked lists are already defined with this interface:
 // template<typename T>
 // struct ListNode {
