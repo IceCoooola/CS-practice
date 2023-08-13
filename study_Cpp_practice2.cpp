@@ -1,3 +1,58 @@
+int test(Tree<int> * t, int& k)
+{
+    if(!t)
+        return 0;
+    int num = test(t->left, k);
+    k--;
+    cout<<k<<"->"<<t->value;
+    if(k == 0)
+        return t->value;
+    return num + test(t->right, k);
+}
+int solution(Tree<int> * t, int k) {
+    
+    return test(t, k);
+    // priority_queue<int,vector<int>, less<int>> q;
+    // traverse(q, t, k);
+    // int top = q.top();
+    // while(!q.empty())
+    // {
+    //     q.pop();
+    //     top = q.top();
+    // }
+    // return top;
+}
+// Binary trees are already defined with this interface:
+// template<typename T>
+// struct Tree {
+//   Tree(const T &v) : value(v), left(nullptr), right(nullptr) {}
+//   T value;
+//   Tree *left;
+//   Tree *right;
+// };
+
+bool isSame(Tree<int> * t1, Tree<int> * t2)
+{
+    if(t1 == nullptr && t2 == nullptr)
+        return true;
+    if(!t1)
+        return false;
+    if(!t2)
+        return false;
+    return t1->value == t2->value && isSame(t1->left, t2->left) && isSame(t1->right, t2->right);
+}
+
+bool solution(Tree<int> * t1, Tree<int> * t2) {
+    if(!t2)
+        return true;
+    if(!t1)
+        return false;
+    
+    if(isSame(t1, t2))
+        return true;
+    return solution(t1->left , t2)|| solution(t1->right, t2);
+}
+
 
 //
 // Binary trees are already defined with this interface:
