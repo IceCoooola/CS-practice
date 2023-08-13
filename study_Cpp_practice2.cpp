@@ -1,4 +1,31 @@
 
+//
+// Binary trees are already defined with this interface:
+// template<typename T>
+// struct Tree {
+//   Tree(const T &v) : value(v), left(nullptr), right(nullptr) {}
+//   T value;
+//   Tree *left;
+//   Tree *right;
+// };
+vector<int> solution(Tree<int> * t) {
+    vector<int> ret;
+    if(!t)
+        return ret;
+    queue<Tree<int>*> q;
+    q.push(t);
+    while(!q.empty())
+    {
+        Tree<int>* tmp = q.front();
+        q.pop();
+        ret.push_back(tmp->value);
+        if(tmp->left)
+            q.push(tmp->left);
+        if(tmp->right)
+            q.push(tmp->right);
+    }
+    return ret;
+}
 
 
 string buildStr(string str, int idx, int root)
