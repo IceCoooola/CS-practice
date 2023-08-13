@@ -7,6 +7,19 @@
 //   Tree *left;
 //   Tree *right;
 // };
+int solution(vector<int> inputArray) {
+    
+    // vector<int> sum;
+    int ret = inputArray[0];
+    int sum = inputArray[0];
+    for(int i = 1; i<inputArray.size();i++)
+    {
+        sum = inputArray[i] > sum + inputArray[i]? inputArray[i] : sum + inputArray[i];
+        if(sum > ret)
+            ret = sum;
+    }
+    return ret;
+}
 
 bool isSymmetry(Tree<int> * left, Tree<int> * right)
 {
