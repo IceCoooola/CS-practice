@@ -1,3 +1,39 @@
+bool solution(int n) {
+    string str = to_string(n);
+    int sum = 0;
+    int idx = str.length() / 2;
+    for(int i = 0; i < idx; i++)
+    {
+        sum += str[i] - '0';
+        sum -= str[i + idx] - '0';
+    }
+    if(sum == 0)
+        return true;
+    else
+        return false;
+}
+
+bool solution(int n) {
+    string str = to_string(n);
+    int sum = 0;
+    int idx = str.length() / 2;
+    for(int i = 0; i < idx; i++)
+    {
+        sum += str[i] - '0';
+        cout<< sum << endl;
+    }
+    for(int i = idx; i < str.length(); i++)
+    {
+        sum -= str[i] - '0';  
+        cout << sum << endl;
+    }
+    if(sum == 0)
+        return true;
+    else
+        return false;
+}
+
+
 int solution(string s1, string s2) {
     unordered_map<char, int> mp;
     int count = 0;
