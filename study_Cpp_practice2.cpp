@@ -1,3 +1,18 @@
+int solution(string s1, string s2) {
+    unordered_map<char, int> mp;
+    int count = 0;
+    for(int i = 0; i < s1.size();i++)
+    {
+        mp[s1[i]]++;
+    }
+    for(int i = 0; i < s2.size();i++)
+    {
+        if(--mp[s2[i]] >= 0)
+            count++;
+    }
+    return count;
+}
+
 int solution(vector<vector<int>> matrix) {
     int sum = 0;
     for(int j = 0; j < matrix[0].size(); j++)
