@@ -1,3 +1,57 @@
+bool cmp(const string& lhs, const string& rhs) {
+   return lhs.length() > rhs.length();
+}
+ 
+
+vector<string> solution(vector<string> words, vector<string> parts) {
+    vector<string> ret;
+    sort(parts.begin(), parts.end(), cmp);
+    for(int i = 0; i < words.size();i++)
+    {
+        int wordsIdx = -1;
+        int partsIdx = -1;
+        string str;
+        for(int j = 0; j < parts.size(); j++)
+        {
+            if(partsIdx == -1)
+            {
+                int found = words[i].find(parts[j]);
+                if(found != -1)
+                {
+                    wordsIdx = found;
+                    partsIdx = j;
+                }
+            }
+            else if(parts[partsIdx].length() > parts[j].length())
+            {
+                break;
+            }
+            else
+            {
+                int found = words[i].find(parts[j]);
+                if(found != -1 && found < wordsIdx)
+                {
+                    wordsIdx = found;
+                    partsIdx = j;
+                }
+            }
+        }
+        
+        if(partsIdx == -1)
+                ret.push_back(words[i]);
+            else{
+                str = words[i].substr(0, wordsIdx);
+                str += "[";
+                str += parts[partsIdx];
+                str+= "]";
+                str += words[i].substr(wordsIdx + parts[partsIdx].length());
+                ret.push_back(str);
+            }
+    }
+        return ret;
+
+}
+
 int test(Tree<int> * t, int& k)
 {
     if(!t)
