@@ -1,3 +1,39 @@
+int findFirstException(vector<int> sequence, int skip)
+{
+    for(int i = 0; i < sequence.size() - 1;i++)
+    {
+        if(i  == skip){
+            continue;
+        }
+        if(i == skip - 1)
+        {
+            if(i+2 != sequence.size() && sequence[i+2] <= sequence[i])
+                return i;
+            continue;
+        }
+        else if(sequence[i+1] <= sequence[i])
+        {
+            return i;
+        }
+        
+    }
+    return -1;
+}
+
+bool solution(vector<int> sequence) {
+    int idx = findFirstException(sequence,sequence.size());
+    if(idx == -1)
+        return true;
+    else
+    { 
+        if(findFirstException(sequence, idx) == -1)
+            return true;
+        if(findFirstException(sequence, idx+1) == -1)
+            return true;
+    }
+    return false;
+}
+
 bool cmp(const string& lhs, const string& rhs) {
    return lhs.length() > rhs.length();
 }
