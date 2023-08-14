@@ -1,3 +1,17 @@
+int solution(vector<vector<int>> matrix) {
+    int sum = 0;
+    for(int j = 0; j < matrix[0].size(); j++)
+    {
+        for(int i = 0; i < matrix.size(); i++)
+        {
+            if(matrix[i][j] == 0)
+                break;
+            sum+= matrix[i][j];
+        }
+    }
+    return sum;
+}
+
 int findFirstException(vector<int> sequence, int skip)
 {
     for(int i = 0; i < sequence.size() - 1;i++)
