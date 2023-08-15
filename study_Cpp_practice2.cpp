@@ -1,3 +1,90 @@
+vector<int> solution(vector<int> a) {
+    int weight1 = 0, weight2 = 0;
+    //0 1 2 3 4    5
+    //0 1 2 3 4 5   
+    //1 3 5 7 9
+    //2 4 6 8 10
+    for(int i = 0; i < a.size(); i += 2)
+    {
+        weight1 += a[i];
+        if(i+1 != a.size())
+            weight2 += a[i+1];
+    }
+    vector<int> ret;
+    ret.push_back(weight1);
+    ret.push_back(weight2);
+    return ret;
+}
+
+vector<string> solution(vector<string> picture) {
+    string tmp(picture[0].length() + 2, '*');
+    for(int i = 0; i < picture.size(); i++)
+    {
+        picture[i] = "*" + picture[i] + "*";
+    }
+    picture.insert(picture.begin(), tmp);
+    picture.push_back( tmp);
+    return picture;
+}
+
+string solution(string inputString) {
+    //find last (
+    //find first ) after last (
+    int leftParenthese = inputString.find_last_of('(') + 1;
+    while(leftParenthese != 0)
+    {
+        stringstream ss;
+        int rightParenthese = inputString.find_first_of(')', leftParenthese);
+        string str(rightParenthese-leftParenthese, ' ');
+        reverse_copy(inputString.begin() + leftParenthese, inputString.begin()+rightParenthese, str.begin());
+        ss<< inputString.substr(0, leftParenthese - 1) << str << inputString.substr(rightParenthese + 1);
+        inputString = ss.str();
+        leftParenthese = inputString.find_last_of('(') + 1;
+    }
+    return inputString;
+}
+
+vector<int> solution(vector<int> a) {
+    multiset<int> st;
+    for(int i = 0; i < a.size(); i++)
+    {
+        if(a[i] != -1)
+            st.insert(a[i]);
+    }
+    auto it = st.begin();
+    for(int i = 0; i < a.size(); i++)
+    {
+        if (a[i] == -1) {
+            continue;
+        }
+        a[i] = *it;
+        it++;
+    }
+    return a;
+    // for(int i = 1; i < a.size(); i++)
+    // {
+    //     int key = a[i];
+    //     if(key == -1)
+    //         continue;
+    //     for(int j = i - 1; j > 0; j--)
+    //     {
+    //         if(a[j] == -1)
+    //             continue;
+    //         if(key < a[j])
+    //         {
+    //             int t = a[j];
+    //             a[j] = key;
+    //             key = t;
+    //         }
+    //         else 
+    //         {
+    //             break;
+    //         }
+    //     }
+    // }
+    // return a;
+}
+
 bool solution(int n) {
     string str = to_string(n);
     int sum = 0;
