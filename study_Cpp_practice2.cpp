@@ -1,6 +1,11 @@
 vector<int> solution(vector<int> a) {
     int weight1 = 0, weight2 = 0;
     //0 1 2 3 4    5
+ bool solution(int yourLeft, int yourRight, int friendsLeft, int friendsRight) {
+    
+    return min(yourLeft, yourRight) == min(friendsLeft , friendsRight) && max(yourLeft, yourRight) == max(friendsLeft , friendsRight);
+}
+
     //0 1 2 3 4 5   
     //1 3 5 7 9
     //2 4 6 8 10
@@ -14,6 +19,29 @@ vector<int> solution(vector<int> a) {
     ret.push_back(weight1);
     ret.push_back(weight2);
     return ret;
+}
+bool solution(vector<int> a, vector<int> b) {
+    int count = 0;    
+    int idx1 = -1;
+    int idx2 = -1;
+    for(int i = 0; i < a.size(); i++)
+    {
+        if(a[i]!= b[i]){
+            count++;
+            if(idx1 == -1)
+                idx1 = i;
+            else
+                idx2 = i;
+        }
+        if(count > 2)
+            return false;
+    }
+    if(count == 1)
+        return false;
+    if(a[idx1] != b[idx2] || a[idx2] != b[idx1])
+        return false;
+    return true;
+
 }
 
 vector<string> solution(vector<string> picture) {
