@@ -1,4 +1,4 @@
-
+##test
 def findKthSmallest(arr:[], k: int) -> int:
     if len(arr) == 1 and k == 1:
         return arr[0]
