@@ -1,3 +1,54 @@
+
+def diff(x, y):
+    if x == y:
+        return 0
+    return 1
+def edit_distance(x, y):
+    """
+    args:
+        x:string = the first word.
+        y:string = The second word.
+    
+    return:
+        Tuple[String,String] = the optimum global alignment between x and y. The first string in the 
+        tuple corresponds to x and the second to y. Use hypen's '-' to represent gaps in each string.
+    """
+    m = len(x)
+    n = len(y)
+    dp = [ [0] *(n+1) for _ in range(m + 1)]
+    for i in range(1, m+1):
+        dp[i][0] = i
+    for i in range(1, n+1):
+        dp[0][i] = i
+    for i in range(1, m+1):
+        for j in range(1, n+1):
+            delete = dp[i - 1][j] + 1
+            insert = dp[i][j - 1] + 1
+            substitude = dp[i - 1][j - 1] + diff(x[i-1], y[j-1])
+            dp[i][j] = min(delete, insert, substitude)          
+    
+    x_align = ""
+    y_align = ""
+    i, j = m, n
+    while i > 0 or j > 0:
+        if i > 0 and j > 0 and x[i - 1] == y[j - 1]:
+            x_align += x[i - 1]
+            y_align += y[j - 1]
+            i, j = i - 1, j - 1
+        elif i > 0 and dp[i][j] == dp[i - 1][j] + 1:
+            x_align += x[i - 1]
+            y_align += '-'
+            i -= 1
+        elif j > 0 and dp[i][j] == dp[i][j - 1] + 1:
+            x_align += '-'
+            y_align += y[j - 1]
+            j -= 1
+        else:
+            x_align += x[i - 1]
+            y_align += y[j - 1]
+            i, j = i - 1, j - 1
+    return ''.join(reversed(x_align)), ''.join(reversed(y_align))
+
 def cumulative_mul(t):
     """Mutates t so that each node's label becomes the product of all labels in
     the corresponding subtree rooted at t.
