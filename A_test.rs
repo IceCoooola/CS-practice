@@ -71,4 +71,8 @@ fn main() {
     println!("rect1 is {:?}", rect1);
 }
 // rect1 is Rectangle { width: 30, height: 50 }
-
+// if use {:#?} will show in separated lines.
+// rect1 is Rectangle {
+//     width: 30,
+//     height: 50,
+// }
